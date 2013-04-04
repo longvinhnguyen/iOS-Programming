@@ -7,6 +7,8 @@
 //
 
 #import "CVViewController.h"
+#import "FlickrPhotoCell.h"
+#import "FlickrPhotoHeaderView.h"
 
 
 @implementation CVViewController
@@ -30,7 +32,10 @@
     self.searchResults = [[NSMutableDictionary alloc] init];
     self.flick = [[Flickr alloc] init];
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"FlickrCell"];
+    UINib *nib =[UINib nibWithNibName:@"FlickrPhotoCell" bundle:nil];
+    UINib *headerNib = [UINib nibWithNibName:@"FlickrPhotoHeaderView" bundle:nil];
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FlickrCell"];
+    [self.collectionView registerNib:headerNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView"];
     
 }
 
@@ -82,8 +87,10 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
+    FlickrPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FlickrCell" forIndexPath:indexPath];
+    NSString *searchTerm = self.searches[indexPath.section];
+    [cell setPhoto:[[self.searchResults valueForKey:searchTerm] objectAtIndex: indexPath.row]];
+    
     return cell;
 }
 
@@ -103,7 +110,9 @@
     FlickrPhoto *photo = [self.searchResults[searchTerm] objectAtIndex:indexPath.row];
     
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
-    retval.width += 35; retval.width +=35;
+    NSLog(@"Size: %f %f",retval.width, retval.height);
+    retval.width += 35; retval.height +=35;
+    NSLog(@"Size Modify: %f %f",retval.width, retval.height);
     return retval;
 }
 
@@ -112,6 +121,22 @@
 {
     return UIEdgeInsetsMake(50, 20, 50, 20);
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    FlickrPhotoHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView" forIndexPath:indexPath];
+    NSString *searchTerm = self.searches[indexPath.section];
+    [header setSearchText:searchTerm];
+    return header;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+    NSLog(@"GOooooooooooo");
+    return CGSizeMake(50, 50);
+}
+
+
 
 
 

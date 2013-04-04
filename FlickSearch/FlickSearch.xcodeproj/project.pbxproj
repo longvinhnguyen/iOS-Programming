@@ -40,6 +40,10 @@
 		4161F626170C7558000E1ED4 /* CVViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4161F625170C7557000E1ED4 /* CVViewController.xib */; };
 		4161F62B170C7D32000E1ED4 /* Flickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4161F628170C7D31000E1ED4 /* Flickr.m */; };
 		4161F62C170C7D32000E1ED4 /* FlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4161F62A170C7D32000E1ED4 /* FlickrPhoto.m */; };
+		4161F62F170DC03E000E1ED4 /* FlickrPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4161F62E170DC03E000E1ED4 /* FlickrPhotoCell.m */; };
+		4161F631170DC152000E1ED4 /* FlickrPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4161F630170DC152000E1ED4 /* FlickrPhotoCell.xib */; };
+		4161F634170DD3E6000E1ED4 /* FlickrPhotoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */; };
+		4161F636170DDF2C000E1ED4 /* FlickrPhotoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +87,12 @@
 		4161F628170C7D31000E1ED4 /* Flickr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flickr.m; sourceTree = "<group>"; };
 		4161F629170C7D31000E1ED4 /* FlickrPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhoto.h; sourceTree = "<group>"; };
 		4161F62A170C7D32000E1ED4 /* FlickrPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhoto.m; sourceTree = "<group>"; };
+		4161F62D170DC03E000E1ED4 /* FlickrPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoCell.h; sourceTree = "<group>"; };
+		4161F62E170DC03E000E1ED4 /* FlickrPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoCell.m; sourceTree = "<group>"; };
+		4161F630170DC152000E1ED4 /* FlickrPhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoCell.xib; sourceTree = "<group>"; };
+		4161F632170DD3E5000E1ED4 /* FlickrPhotoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoHeaderView.h; sourceTree = "<group>"; };
+		4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoHeaderView.m; sourceTree = "<group>"; };
+		4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,7 +149,13 @@
 				4161F628170C7D31000E1ED4 /* Flickr.m */,
 				4161F629170C7D31000E1ED4 /* FlickrPhoto.h */,
 				4161F62A170C7D32000E1ED4 /* FlickrPhoto.m */,
+				4161F62D170DC03E000E1ED4 /* FlickrPhotoCell.h */,
+				4161F62E170DC03E000E1ED4 /* FlickrPhotoCell.m */,
+				4161F630170DC152000E1ED4 /* FlickrPhotoCell.xib */,
+				4161F632170DD3E5000E1ED4 /* FlickrPhotoHeaderView.h */,
+				4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */,
 				4161F5E0170C724A000E1ED4 /* Supporting Files */,
+				4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */,
 			);
 			path = FlickSearch;
 			sourceTree = "<group>";
@@ -262,6 +278,8 @@
 				4161F623170C72B9000E1ED4 /* search_text.png in Resources */,
 				4161F624170C72B9000E1ED4 /* search_text@2x.png in Resources */,
 				4161F626170C7558000E1ED4 /* CVViewController.xib in Resources */,
+				4161F631170DC152000E1ED4 /* FlickrPhotoCell.xib in Resources */,
+				4161F636170DDF2C000E1ED4 /* FlickrPhotoHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +295,8 @@
 				4161F5F3170C724A000E1ED4 /* CVViewController.m in Sources */,
 				4161F62B170C7D32000E1ED4 /* Flickr.m in Sources */,
 				4161F62C170C7D32000E1ED4 /* FlickrPhoto.m in Sources */,
+				4161F62F170DC03E000E1ED4 /* FlickrPhotoCell.m in Sources */,
+				4161F634170DD3E6000E1ED4 /* FlickrPhotoHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +415,7 @@
 				4161F5FB170C724A000E1ED4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

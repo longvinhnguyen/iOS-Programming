@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Flickr.h"
 #import "FlickrPhoto.h"
+@class FlickrPhotoHeaderView;
 
 @interface CVViewController : UIViewController  <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
