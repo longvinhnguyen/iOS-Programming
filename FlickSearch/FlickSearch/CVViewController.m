@@ -63,7 +63,7 @@
         [_shareButton setTitle:@"Share"];
         [self.collectionView setAllowsMultipleSelection:NO];
         
-        if (self.selectedPhotos > 0) {
+        if ([self.selectedPhotos count] > 0) {
             [self showMailComposerAndSend];
         }
         
@@ -183,6 +183,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     FlickrPhotoHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView" forIndexPath:indexPath];
+    [header setBounds:CGRectMake(0, 0, 100, 50)];
     NSString *searchTerm = self.searches[indexPath.section];
     [header setSearchText:searchTerm];
     return header;
