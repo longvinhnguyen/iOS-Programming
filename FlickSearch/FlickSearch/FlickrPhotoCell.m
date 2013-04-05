@@ -8,6 +8,7 @@
 
 #import "FlickrPhotoCell.h"
 #import "FlickrPhoto.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FlickrPhotoCell
 
@@ -26,6 +27,23 @@
         _photo = photo;
     }
     [self.imageView setImage:_photo.thumbnail];
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    if (selected) {
+        NSLog(@"%s %d", __PRETTY_FUNCTION__, __LINE__);
+        UIView *bgView = [[UIView alloc] initWithFrame:self.backgroundView.frame];
+        bgView.backgroundColor = [UIColor blueColor];
+        bgView.layer.borderColor = [[UIColor whiteColor] CGColor];
+        bgView.layer.borderWidth = 4;
+        
+        // [self setBackgroundColor:[UIColor blueColor]];
+        [self setBackgroundColor:[UIColor clearColor]];
+        [self setBackgroundView:bgView];
+    } else
+        [self setBackgroundView:nil];
+        [self setBackgroundColor:[UIColor whiteColor]];
 }
 
 /*

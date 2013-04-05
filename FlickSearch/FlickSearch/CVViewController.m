@@ -9,9 +9,12 @@
 #import "CVViewController.h"
 #import "FlickrPhotoCell.h"
 #import "FlickrPhotoHeaderView.h"
+#import "FlickrPhotoViewController.h"
+#import <MessageUI/MessageUI.h>
 
 
 @implementation CVViewController
+
 
 - (void)viewDidLoad
 {
@@ -37,6 +40,8 @@
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"FlickrCell"];
     [self.collectionView registerNib:headerNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView"];
     
+    self.selectedPhotos = [[[NSMutableArray alloc] init] mutableCopy];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +52,46 @@
 
 - (void)shareButtonTapped:(id)sender
 {
-    
+    if (!self.sharing) {
+        self.sharing = YES;
+        [_shareButton setStyle:UIBarButtonItemStyleDone];
+        [_shareButton setTitle:@"Done"];
+        [self.collectionView setAllowsMultipleSelection:YES];
+    } else {
+        self.sharing = NO;
+        [_shareButton setStyle:UIBarButtonItemStyleBordered];
+        [_shareButton setTitle:@"Share"];
+        [self.collectionView setAllowsMultipleSelection:NO];
+        
+        if (self.selectedPhotos > 0) {
+            [self showMailComposerAndSend];
+        }
+        
+        for (NSIndexPath *indexPath in self.collectionView.indexPathsForSelectedItems) {
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
+        }
+        [self.selectedPhotos removeAllObjects];
+    }
+}
+
+- (void)showMailComposerAndSend
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer setSubject:@"Check out these Flickr photos"];
+        NSMutableString *emailBody = [NSMutableString string];
+        for (FlickrPhoto *photo in _selectedPhotos) {
+            NSString *url = [Flickr flickrPhotoURLForFlickrPhoto:photo size:@"m"];
+            NSLog(@"%@",url);
+            [emailBody appendFormat:@"<div><src ='<div><img src='%@'></div><br>",url];
+        }
+        [mailer setMessageBody:emailBody isHTML:YES];
+        [self presentViewController:mailer animated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail Failure" message:@"Your device doesn't suppor in-app mail" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -96,7 +140,21 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSLog(@"%s %d",__PRETTY_FUNCTION__, __LINE__);
+    NSString *searchTerm = self.searches[indexPath.section];
+    FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.row];
+    if (!self.sharing) {
+        FlickrPhotoViewController *fpvc = [[FlickrPhotoViewController alloc] initWithPhoto:photo];
+        
+        [fpvc setModalPresentationStyle:UIModalPresentationFormSheet];
+        [fpvc setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+        
+        [self presentViewController:fpvc animated:YES completion:nil];
+        [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+        
+    } else {
+        [self.selectedPhotos addObject:photo];
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -132,10 +190,15 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"GOooooooooooo");
     return CGSizeMake(50, 50);
 }
 
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    NSLog(@"_______%@ %d", [error localizedDescription], result);
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 
