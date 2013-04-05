@@ -44,6 +44,10 @@
 		4161F631170DC152000E1ED4 /* FlickrPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4161F630170DC152000E1ED4 /* FlickrPhotoCell.xib */; };
 		4161F634170DD3E6000E1ED4 /* FlickrPhotoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */; };
 		4161F636170DDF2C000E1ED4 /* FlickrPhotoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */; };
+		F69CBBB0170E6D2C007A7F8F /* FlickrPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69CBBAE170E6D2C007A7F8F /* FlickrPhotoViewController.m */; };
+		F69CBBB1170E6D2C007A7F8F /* FlickrPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F69CBBAF170E6D2C007A7F8F /* FlickrPhotoViewController.xib */; };
+		F69CBBB3170E8005007A7F8F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69CBBB2170E8005007A7F8F /* MessageUI.framework */; };
+		F69CBBB5170E8923007A7F8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69CBBB4170E8923007A7F8F /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +97,11 @@
 		4161F632170DD3E5000E1ED4 /* FlickrPhotoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoHeaderView.h; sourceTree = "<group>"; };
 		4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoHeaderView.m; sourceTree = "<group>"; };
 		4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoHeaderView.xib; sourceTree = "<group>"; };
+		F69CBBAD170E6D2C007A7F8F /* FlickrPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoViewController.h; sourceTree = "<group>"; };
+		F69CBBAE170E6D2C007A7F8F /* FlickrPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoViewController.m; sourceTree = "<group>"; };
+		F69CBBAF170E6D2C007A7F8F /* FlickrPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoViewController.xib; sourceTree = "<group>"; };
+		F69CBBB2170E8005007A7F8F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F69CBBB4170E8923007A7F8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F69CBBB5170E8923007A7F8F /* QuartzCore.framework in Frameworks */,
+				F69CBBB3170E8005007A7F8F /* MessageUI.framework in Frameworks */,
 				4161F5DA170C724A000E1ED4 /* UIKit.framework in Frameworks */,
 				4161F5DC170C724A000E1ED4 /* Foundation.framework in Frameworks */,
 				4161F5DE170C724A000E1ED4 /* CoreGraphics.framework in Frameworks */,
@@ -129,6 +140,8 @@
 		4161F5D8170C724A000E1ED4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F69CBBB4170E8923007A7F8F /* QuartzCore.framework */,
+				F69CBBB2170E8005007A7F8F /* MessageUI.framework */,
 				4161F5D9170C724A000E1ED4 /* UIKit.framework */,
 				4161F5DB170C724A000E1ED4 /* Foundation.framework */,
 				4161F5DD170C724A000E1ED4 /* CoreGraphics.framework */,
@@ -156,6 +169,9 @@
 				4161F633170DD3E5000E1ED4 /* FlickrPhotoHeaderView.m */,
 				4161F5E0170C724A000E1ED4 /* Supporting Files */,
 				4161F635170DDF2B000E1ED4 /* FlickrPhotoHeaderView.xib */,
+				F69CBBAD170E6D2C007A7F8F /* FlickrPhotoViewController.h */,
+				F69CBBAE170E6D2C007A7F8F /* FlickrPhotoViewController.m */,
+				F69CBBAF170E6D2C007A7F8F /* FlickrPhotoViewController.xib */,
 			);
 			path = FlickSearch;
 			sourceTree = "<group>";
@@ -280,6 +296,7 @@
 				4161F626170C7558000E1ED4 /* CVViewController.xib in Resources */,
 				4161F631170DC152000E1ED4 /* FlickrPhotoCell.xib in Resources */,
 				4161F636170DDF2C000E1ED4 /* FlickrPhotoHeaderView.xib in Resources */,
+				F69CBBB1170E6D2C007A7F8F /* FlickrPhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +314,7 @@
 				4161F62C170C7D32000E1ED4 /* FlickrPhoto.m in Sources */,
 				4161F62F170DC03E000E1ED4 /* FlickrPhotoCell.m in Sources */,
 				4161F634170DD3E6000E1ED4 /* FlickrPhotoHeaderView.m in Sources */,
+				F69CBBB0170E6D2C007A7F8F /* FlickrPhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
