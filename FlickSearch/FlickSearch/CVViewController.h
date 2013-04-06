@@ -10,6 +10,8 @@
 #import "Flickr.h"
 #import "FlickrPhoto.h"
 #import <MessageUI/MessageUI.h>
+#import "SimpleFlowLayout.h"
+
 @class FlickrPhotoHeaderView;
 
 @interface CVViewController : UIViewController  <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MFMailComposeViewControllerDelegate>
@@ -19,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *selectedPhotos;
+
+@property (nonatomic, strong)SimpleFlowLayout *layout2;
 
 
 @property (nonatomic) BOOL sharing;
@@ -30,5 +34,6 @@
 -(IBAction)shareButtonTapped:(id)sender;
 
 -(void)showMailComposerAndSend;
+- (IBAction)layoutSelectionTapped:(id)sender;
 
 @end

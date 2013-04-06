@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		414A72DC170FCCB200C23194 /* SimpleFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 414A72DB170FCCB200C23194 /* SimpleFlowLayout.m */; };
 		4161F5DA170C724A000E1ED4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4161F5D9170C724A000E1ED4 /* UIKit.framework */; };
 		4161F5DC170C724A000E1ED4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4161F5DB170C724A000E1ED4 /* Foundation.framework */; };
 		4161F5DE170C724A000E1ED4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4161F5DD170C724A000E1ED4 /* CoreGraphics.framework */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		414A72DA170FCCB200C23194 /* SimpleFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleFlowLayout.h; sourceTree = "<group>"; };
+		414A72DB170FCCB200C23194 /* SimpleFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFlowLayout.m; sourceTree = "<group>"; };
 		4161F5D6170C724A000E1ED4 /* FlickSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4161F5D9170C724A000E1ED4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4161F5DB170C724A000E1ED4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		414A72D9170FCC5300C23194 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				414A72DA170FCCB200C23194 /* SimpleFlowLayout.h */,
+				414A72DB170FCCB200C23194 /* SimpleFlowLayout.m */,
+			);
+			name = Layout;
+			sourceTree = "<group>";
+		};
 		4161F5CD170C724A000E1ED4 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 		4161F5DF170C724A000E1ED4 /* FlickSearch */ = {
 			isa = PBXGroup;
 			children = (
+				414A72D9170FCC5300C23194 /* Layout */,
 				4161F5FC170C72B9000E1ED4 /* Assets */,
 				4161F5E8170C724A000E1ED4 /* CVAppDelegate.h */,
 				4161F5E9170C724A000E1ED4 /* CVAppDelegate.m */,
@@ -315,6 +328,7 @@
 				4161F62F170DC03E000E1ED4 /* FlickrPhotoCell.m in Sources */,
 				4161F634170DD3E6000E1ED4 /* FlickrPhotoHeaderView.m in Sources */,
 				F69CBBB0170E6D2C007A7F8F /* FlickrPhotoViewController.m in Sources */,
+				414A72DC170FCCB200C23194 /* SimpleFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,11 +405,15 @@
 		4161F5FA170C724A000E1ED4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickSearch/FlickSearch-Prefix.pch";
 				INFOPLIST_FILE = "FlickSearch/FlickSearch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -404,11 +422,15 @@
 		4161F5FB170C724A000E1ED4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickSearch/FlickSearch-Prefix.pch";
 				INFOPLIST_FILE = "FlickSearch/FlickSearch-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

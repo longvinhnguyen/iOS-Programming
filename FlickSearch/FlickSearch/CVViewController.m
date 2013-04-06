@@ -42,6 +42,9 @@
     
     self.selectedPhotos = [[[NSMutableArray alloc] init] mutableCopy];
     
+    self.layout2 = [[SimpleFlowLayout alloc] init];
+    self.layout2.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +97,20 @@
     }
 }
 
+- (IBAction)layoutSelectionTapped:(id)sender {
+    UISegmentedControl *segControl = (UISegmentedControl *) sender;
+    NSLog(@"%d",segControl.selectedSegmentIndex);
+    switch (segControl.selectedSegmentIndex) {
+        case 1:
+            self.collectionView.collectionViewLayout = self.layout2;
+            NSLog(@"%@ %@",self.layout2, [self.collectionView.collectionViewLayout class]);
+            break;
+            
+        default:
+            break;
+    }
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.flick searchFlickrForTerm:textField.text completionBlock:^(NSString *searchTerm, NSArray *results, NSError *error){
@@ -124,7 +141,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     NSString *searchTerm = self.searches[section];
-    NSLog(@"Sections: %d",[self.searchResults[searchTerm] count]);
+    NSLog(@"Photos: %d",[self.searchResults[searchTerm] count]);
     return [self.searchResults[searchTerm] count];
 
 }
@@ -168,9 +185,7 @@
     FlickrPhoto *photo = [self.searchResults[searchTerm] objectAtIndex:indexPath.row];
     
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
-    NSLog(@"Size: %f %f",retval.width, retval.height);
     retval.width += 35; retval.height +=35;
-    NSLog(@"Size Modify: %f %f",retval.width, retval.height);
     return retval;
 }
 
@@ -183,7 +198,6 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     FlickrPhotoHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView" forIndexPath:indexPath];
-    [header setBounds:CGRectMake(0, 0, 100, 50)];
     NSString *searchTerm = self.searches[indexPath.section];
     [header setSearchText:searchTerm];
     return header;
@@ -197,7 +211,6 @@
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    NSLog(@"_______%@ %d", [error localizedDescription], result);
     [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
