@@ -10,12 +10,13 @@
 
 @implementation SimpleFlowLayout
 
+
 - (void)prepareLayout
 {
-    [super prepareLayout];
     _insertedIndexPaths = [NSMutableArray new];
     _deletedIndexPaths = [NSMutableArray new];
 }
+
 
 - (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
 {
@@ -27,23 +28,17 @@
             [_deletedIndexPaths addObject:updateItem.indexPathBeforeUpdate];
         }
     }
-    NSLog(@"SimpleLayout %d %d",_insertedIndexPaths.count, _deletedIndexPaths.count);
-}
-
-- (void)finalizeCollectionViewUpdates
-{
-    [_insertedIndexPaths removeAllObjects];
-    [_deletedIndexPaths removeAllObjects];
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
+    NSLog(@"Initial Layout %d", _insertedIndexPaths.count);
     if ([_insertedIndexPaths containsObject:itemIndexPath]) {
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:itemIndexPath];
         
         CGRect visibleRect = (CGRect){.origin = self.collectionView.contentOffset, .size = self.collectionView.bounds.size};
         attributes.center = CGPointMake(CGRectGetMidX(visibleRect),CGRectGetMidY(visibleRect));
-        attributes.alpha = 0.0f;
+        attributes.alpha = 0.3f;
         attributes.transform3D = CATransform3DMakeScale(0.6f, 0.6f, 1.0f);
         
         return attributes;
@@ -56,6 +51,7 @@
 
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
+    NSLog(@"Deleted Layout  %d", _deletedIndexPaths.count);
     if ([_deletedIndexPaths containsObject:itemIndexPath]) {
         UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:itemIndexPath];
         CGRect visibleRect = (CGRect) {
@@ -69,6 +65,12 @@
     } else {
         return [super finalLayoutAttributesForDisappearingItemAtIndexPath:itemIndexPath];
     }
+}
+
+- (void)finalizeCollectionViewUpdates
+{
+    [_insertedIndexPaths removeAllObjects];
+    [_deletedIndexPaths removeAllObjects];
 }
 
 

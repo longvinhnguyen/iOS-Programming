@@ -19,6 +19,14 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    self.searchLabel.center = CGPointMake(self.bounds.size.width / 2.0f, self.bounds.size.height / 2.0f);
+    
+    CGFloat bgImgWidth = self.searchLabel.bounds.size.width + 106.0f;
+    self.backgroundView.frame = CGRectMake((self.bounds.size.width - bgImgWidth) / 2.0f, 0.0f, bgImgWidth, 120.0f);
+}
+
 - (void)setSearchText:(NSString *)text
 {
     [self.searchLabel setText:text];
