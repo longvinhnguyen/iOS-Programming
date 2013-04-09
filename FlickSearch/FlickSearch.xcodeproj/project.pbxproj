@@ -105,6 +105,7 @@
 		F69CBBAF170E6D2C007A7F8F /* FlickrPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrPhotoViewController.xib; sourceTree = "<group>"; };
 		F69CBBB2170E8005007A7F8F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F69CBBB4170E8923007A7F8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F6F04BB0171258CB00EC4862 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +186,7 @@
 				F69CBBAD170E6D2C007A7F8F /* FlickrPhotoViewController.h */,
 				F69CBBAE170E6D2C007A7F8F /* FlickrPhotoViewController.m */,
 				F69CBBAF170E6D2C007A7F8F /* FlickrPhotoViewController.xib */,
+				F6F04BB0171258CB00EC4862 /* Define.h */,
 			);
 			path = FlickSearch;
 			sourceTree = "<group>";

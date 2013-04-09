@@ -299,6 +299,7 @@
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)recog
 {
+    VKLog(@"%f",[recog locationInView:self.collectionView].x);
     if (recog.state == UIGestureRecognizerStateRecognized) {
         CGPoint tapPoint = [recog locationInView:self.collectionView];
         NSIndexPath *item = [self.collectionView indexPathForItemAtPoint:tapPoint];

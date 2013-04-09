@@ -38,7 +38,6 @@
         bgView.layer.borderColor = [[UIColor whiteColor] CGColor];
         bgView.layer.borderWidth = 4;
         
-        // [self setBackgroundColor:[UIColor blueColor]];
         [self setBackgroundColor:[UIColor clearColor]];
         [self setBackgroundView:bgView];
     } else
