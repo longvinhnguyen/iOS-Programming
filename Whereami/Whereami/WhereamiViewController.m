@@ -123,7 +123,7 @@ NSString * const WhereamiMapTypePrefKey = @"WhereamiMapTypePrefKey";
     
     // Add it to the map view
     [worldView addAnnotation:mp];
-    
+
     // Zoom the region to this location
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 500, 500);
     [worldView setRegion:region animated:YES];

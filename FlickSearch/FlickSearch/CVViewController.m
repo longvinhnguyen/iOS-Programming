@@ -12,9 +12,17 @@
 #import "FlickrPhotoViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "SimpleFlowLayout.h"
+#import "PinchLayout.h"
+
+static const CGFloat kMinScale = 1.0f;
+static const CGFloat kMaxScale = 3.0f;
 
 @interface CVViewController()
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
+@property (nonatomic, strong) UIPinchGestureRecognizer *pinchOutGestureRecognizer;
+@property (nonatomic, strong) UIPinchGestureRecognizer *pinchInGestureRecgonizer;
+@property (nonatomic, strong) NSIndexPath *currentPinchItem;
 
 
 @end
@@ -56,6 +64,8 @@
     
     // Add Gestures
     self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
+    
+    self.pinchOutGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchOutGesture:)];
     
     
 }
@@ -154,6 +164,9 @@
             return 1;
         } else
             return [self.searches count];
+    } else if(collectionView == self.currentPinchCollectionView) {
+        // ADDED
+        return 1;
     }
     return 0;
 }
@@ -168,7 +181,11 @@
             NSString *searchTerm = self.searches[section];
             return [self.searchResults[searchTerm] count];
         }
-    } 
+    } else if (collectionView == self.currentPinchCollectionView) {
+        // ADDED
+        NSString *searchTerm = self.searches[self.currentPinchItem.item];
+        return [self.searchResults[searchTerm] count];
+    }
     return 0;
 }
 
@@ -184,7 +201,11 @@
             NSString *searchTerm = self.searches[indexPath.section];
             photo = self.searchResults[searchTerm][indexPath.item];
         }
-    } 
+    } else if (collectionView == self.currentPinchCollectionView) {
+        // ADDED
+        NSString *searchTerm = self.searches[_currentPinchItem.item];
+        photo = self.searchResults[searchTerm][indexPath.item];
+    }
     cell.photo = photo;
     
     return cell;
@@ -204,6 +225,10 @@
                 NSString *searchTerm = self.searches[indexPath.section];
                 photo = self.searchResults[searchTerm][indexPath.item];
             }
+        } else if (collectionView == self.currentPinchCollectionView) {
+            // ADDED
+            NSString *searchTerm = self.searches[_currentPinchItem.item];
+            photo = self.searchResults[searchTerm][indexPath.item];
         }
         FlickrPhotoViewController *fpvc = [[FlickrPhotoViewController alloc] initWithPhoto:photo];
         
@@ -250,6 +275,9 @@
             NSString *searchTerm = self.searches[indexPath.section];
             photo = self.searchResults[searchTerm][indexPath.item];
         }
+    } else if (collectionView == self.currentPinchCollectionView) {
+        NSString *searchTerm = self.searches[_currentPinchItem.item];
+        photo = self.searchResults[searchTerm][indexPath.item];
     }
     
     CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
@@ -266,7 +294,14 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     FlickrPhotoHeaderView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView" forIndexPath:indexPath];
-    NSString *searchTerm = self.searches[indexPath.section];
+    NSString *searchTerm = nil;
+    if (collectionView == self.collectionView) {
+        searchTerm = self.searches[indexPath.section];
+        
+    } else if (collectionView == self.currentPinchCollectionView) {
+        // ADDED
+        searchTerm = self.searches[_currentPinchItem.item];
+    }
     [header setSearchText:searchTerm];
     return header;
 }
@@ -284,10 +319,14 @@
         case 0:
             self.collectionView.collectionViewLayout = self.layout1;
             [self.collectionView removeGestureRecognizer:self.longPressGestureRecognizer];
+            [self.collectionView removeGestureRecognizer:self.pinchOutGestureRecognizer];
             break;
         case 1:
             self.collectionView.collectionViewLayout = self.layout2;
             [self.collectionView addGestureRecognizer:self.longPressGestureRecognizer];
+            [self.collectionView addGestureRecognizer:self.pinchOutGestureRecognizer];
+            [self.searchResults removeAllObjects];
+            [self.searches removeAllObjects];
             break;
             
         default: self.collectionView.collectionViewLayout = self.layout1;
@@ -314,6 +353,99 @@
                 [self.collectionView deleteItemsAtIndexPaths:@[item]];
             }completion:nil];
         }
+    }
+}
+
+- (void)handlePinchOutGesture:(UIPinchGestureRecognizer *)recognizer
+{
+    NSLog(@"Start handle Pinch");
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        CGPoint pinchPoint = [recognizer locationInView:self.collectionView];
+        NSIndexPath *pinchedItem = [self.collectionView indexPathForItemAtPoint:pinchPoint];
+        
+        if (pinchedItem) {
+            self.currentPinchItem = pinchedItem;
+            
+            //4
+            PinchLayout *layout = [[PinchLayout alloc] init];
+            layout.itemSize = CGSizeMake(200.0f, 200.0f);
+            layout.minimumInteritemSpacing = 20.0f;
+            layout.minimumLineSpacing = 20.0f;
+            layout.sectionInset = UIEdgeInsetsMake(20.0f, 20.0f, 20.0f, 20.0f);
+            layout.headerReferenceSize = CGSizeMake(0.0f, 90.0f);
+            layout.pinchScale = 0.0f;
+            
+            self.currentPinchCollectionView = [[UICollectionView alloc] initWithFrame:self.collectionView.frame collectionViewLayout:layout];
+            
+            self.currentPinchCollectionView.backgroundColor = [UIColor clearColor];
+            self.currentPinchCollectionView.delegate = self;
+            self.currentPinchCollectionView.dataSource = self;
+            self.currentPinchCollectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+            [self.currentPinchCollectionView registerNib:[UINib nibWithNibName:@"FlickrPhotoCell" bundle:nil] forCellWithReuseIdentifier:@"FlickrCell"];
+            [self.currentPinchCollectionView registerNib:[UINib nibWithNibName:@"FlickrPhotoHeaderView" bundle:nil] forSupplementaryViewOfKind: UICollectionElementKindSectionHeader withReuseIdentifier:@"FlickrPhotoHeaderView"];
+            
+            // 6
+            [self.view addSubview:self.currentPinchCollectionView];
+            
+            // 7
+            UIGestureRecognizer *recognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchInGesture:)];
+           [_currentPinchCollectionView addGestureRecognizer:recognizer];
+        }
+   } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+       if (self.currentPinchItem) {
+           // 8
+           CGFloat theScale = recognizer.scale;
+           theScale = MIN(theScale, kMaxScale);
+           theScale = MAX(theScale, kMinScale);
+           
+           // 9
+           CGFloat theScalePct = (theScale - kMinScale) / (theScale - kMaxScale);
+           
+           // 10
+           PinchLayout *layout = (PinchLayout *)_currentPinchCollectionView.collectionViewLayout;
+           layout.pinchScale = theScalePct;
+           layout.pinchCenter = [recognizer locationInView:self.collectionView];
+           
+           // 11
+           self.collectionView.alpha = 1.0f - theScalePct;
+       }
+   } else {
+       if (self.currentPinchItem) {
+           // 12
+           PinchLayout *layout = (PinchLayout *)_currentPinchCollectionView.collectionViewLayout;
+           layout.pinchScale = 1.0f;
+           self.collectionView.alpha = 0;
+       }
+   }
+}
+
+- (void)handlePinchInGesture:(UIPinchGestureRecognizer *)recognizer
+{
+    NSLog(@"Handle Pinch In gesture");
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        // 1
+        self.collectionView.alpha = 0.0f;
+    } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+        // 2
+        CGFloat theScale = 1.0f / recognizer.scale;
+        theScale = MIN(theScale, kMaxScale);
+        theScale = MAX(theScale, kMinScale);
+        
+        CGFloat theScalePct = 1.0f - ((theScale - kMinScale) / (kMaxScale - kMinScale));
+        
+        // 3
+        PinchLayout *layout = (PinchLayout *)self.currentPinchCollectionView.collectionViewLayout;
+        layout.pinchScale = theScalePct;
+        layout.pinchCenter = [recognizer locationInView:self.collectionView];
+        
+        // 4
+        self.collectionView.alpha = 1.0f - theScalePct;
+    } else {
+        self.collectionView.alpha = 1.0f;
+        [self.currentPinchCollectionView removeFromSuperview];
+        self.currentPinchCollectionView = nil;
+        self.currentPinchItem = nil;
     }
 }
 

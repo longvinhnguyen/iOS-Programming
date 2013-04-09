@@ -50,7 +50,7 @@ static int currentIndex = 0;
         if (currentIndex < 51) {
             currentIndex ++;
         } else currentIndex = 0;
-    } else [sender setTitle:[NSString stringWithFormat:@""] forState:UIControlStateNormal];
+    }
     self.flipCount++;
 
 }

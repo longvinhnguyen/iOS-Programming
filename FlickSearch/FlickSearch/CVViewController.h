@@ -20,6 +20,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *selectedPhotos;
+@property (nonatomic, strong) UICollectionView *currentPinchCollectionView;
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout1;
 @property (nonatomic, strong) SimpleFlowLayout *layout2;
