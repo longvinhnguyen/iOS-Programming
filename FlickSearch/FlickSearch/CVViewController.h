@@ -10,10 +10,12 @@
 #import "Flickr.h"
 #import "FlickrPhoto.h"
 #import <MessageUI/MessageUI.h>
+#import "StackedGridLayout.h"
 @class SimpleFlowLayout;
 @class FlickrPhotoHeaderView;
+@class StackedGridLayout;
 
-@interface CVViewController : UIViewController  <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MFMailComposeViewControllerDelegate>
+@interface CVViewController : UIViewController  <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, MFMailComposeViewControllerDelegate, StackedGridLayoutDelegate>
 
 @property(nonatomic, weak) IBOutlet UIToolbar *toolBar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *shareButton;
@@ -24,6 +26,7 @@
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout1;
 @property (nonatomic, strong) SimpleFlowLayout *layout2;
+@property (nonatomic, strong) StackedGridLayout *layout3;
 
 
 @property (nonatomic) BOOL sharing;

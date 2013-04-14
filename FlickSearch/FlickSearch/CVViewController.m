@@ -13,6 +13,7 @@
 #import <MessageUI/MessageUI.h>
 #import "SimpleFlowLayout.h"
 #import "PinchLayout.h"
+#import "StackedGridLayout.h"
 
 static const CGFloat kMinScale = 1.0f;
 static const CGFloat kMaxScale = 3.0f;
@@ -66,6 +67,9 @@ static const CGFloat kMaxScale = 3.0f;
     self.longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)];
     
     self.pinchOutGestureRecognizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchOutGesture:)];
+    
+    self.layout3 = [[StackedGridLayout alloc] init];
+    self.layout3.headerHeight = 90.0f;
     
     
 }
@@ -328,6 +332,13 @@ static const CGFloat kMaxScale = 3.0f;
             [self.searchResults removeAllObjects];
             [self.searches removeAllObjects];
             break;
+        case 2:
+            self.collectionView.collectionViewLayout = self.layout3;
+            [self.collectionView removeGestureRecognizer:self.longPressGestureRecognizer];
+            [self.collectionView removeGestureRecognizer:self.pinchOutGestureRecognizer];
+            [self.searchResults removeAllObjects];
+            [self.searches removeAllObjects];
+            break;
             
         default: self.collectionView.collectionViewLayout = self.layout1;
             break;
@@ -338,7 +349,6 @@ static const CGFloat kMaxScale = 3.0f;
 
 - (void)handleLongPressGesture:(UILongPressGestureRecognizer *)recog
 {
-    VKLog(@"%f",[recog locationInView:self.collectionView].x);
     if (recog.state == UIGestureRecognizerStateRecognized) {
         CGPoint tapPoint = [recog locationInView:self.collectionView];
         NSIndexPath *item = [self.collectionView indexPathForItemAtPoint:tapPoint];
@@ -358,7 +368,7 @@ static const CGFloat kMaxScale = 3.0f;
 
 - (void)handlePinchOutGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    NSLog(@"Start handle Pinch");
+    VLLog(@"Start handle Pinch");
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         CGPoint pinchPoint = [recognizer locationInView:self.collectionView];
         NSIndexPath *pinchedItem = [self.collectionView indexPathForItemAtPoint:pinchPoint];
@@ -421,7 +431,7 @@ static const CGFloat kMaxScale = 3.0f;
 
 - (void)handlePinchInGesture:(UIPinchGestureRecognizer *)recognizer
 {
-    NSLog(@"Handle Pinch In gesture");
+    VLLog(@"Start hanle Pin In");
     
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         // 1
@@ -447,6 +457,31 @@ static const CGFloat kMaxScale = 3.0f;
         self.currentPinchCollectionView = nil;
         self.currentPinchItem = nil;
     }
+}
+
+# pragma - StackGridLayoutDelegate
+- (NSInteger)collectionView:(UICollectionView *)cv layout:(UICollectionViewLayout *)cvl numberOfColumnsInSection:(NSInteger)section
+{
+    return 3;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)cv layout:(UICollectionViewLayout *)cvl itemInsetsForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10.0f, 10.0f, 10.0f, 10.0f);
+}
+
+- (CGSize)collectionView:(UICollectionView *)cv layout:(UICollectionViewLayout *)cvl sizeForItemWithWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *searchTerm = self.searches[indexPath.section];
+    FlickrPhoto *photo = self.searchResults[searchTerm][indexPath.item];
+    
+    CGSize picSize = photo.thumbnail.size.width > 0.0f ? photo.thumbnail.size : CGSizeMake(100.0f, 100.0f);
+    picSize.height += 35;
+    picSize.height += 35;
+    
+    CGSize retval = CGSizeMake(width, picSize.height * width / picSize.width);
+    return retval;
+    
 }
 
 
