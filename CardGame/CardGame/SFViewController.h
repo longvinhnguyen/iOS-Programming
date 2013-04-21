@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <PassKit/PassKit.h>
+
 @class PlayingCardDeck;
 
-@interface SFViewController : UIViewController
+@interface SFViewController : UIViewController<PKAddPassesViewControllerDelegate>
 
 @property (nonatomic, strong) PlayingCardDeck *cardDeck;
 

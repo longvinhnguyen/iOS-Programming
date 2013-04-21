@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41A6D48E1720441400C62D81 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41A6D48D1720441400C62D81 /* PassKit.framework */; };
 		41EE343B1711504900EF2823 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EE343A1711504900EF2823 /* UIKit.framework */; };
 		41EE343D1711504900EF2823 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EE343C1711504900EF2823 /* Foundation.framework */; };
 		41EE343F1711504900EF2823 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41EE343E1711504900EF2823 /* CoreGraphics.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41A6D48D1720441400C62D81 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		41EE34371711504900EF2823 /* CardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41EE343A1711504900EF2823 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		41EE343C1711504900EF2823 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41A6D48E1720441400C62D81 /* PassKit.framework in Frameworks */,
 				41EE343B1711504900EF2823 /* UIKit.framework in Frameworks */,
 				41EE343D1711504900EF2823 /* Foundation.framework in Frameworks */,
 				41EE343F1711504900EF2823 /* CoreGraphics.framework in Frameworks */,
@@ -68,6 +71,7 @@
 		41EE342E1711504900EF2823 = {
 			isa = PBXGroup;
 			children = (
+				41A6D48D1720441400C62D81 /* PassKit.framework */,
 				41EE34401711504900EF2823 /* CardGame */,
 				41EE34391711504900EF2823 /* Frameworks */,
 				41EE34381711504900EF2823 /* Products */,

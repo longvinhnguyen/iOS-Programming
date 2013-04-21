@@ -51,10 +51,10 @@
     UIImage *thumbImageHightlighted = [UIImage imageNamed:@"SliderThumb-Highlighted"];
     [self.slider setThumbImage:thumbImageHightlighted forState:UIControlStateHighlighted];
     
-    UIImage *trackLeftImage = [[UIImage imageNamed:@"SliderTrackLeft"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    UIImage *trackLeftImage = [[UIImage imageNamed:@"SliderTrackLeft"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     [self.slider setMinimumTrackImage:trackLeftImage forState:UIControlStateNormal];
     
-    UIImage *trackRightImage = [[UIImage imageNamed:@"SliderTrackRight"] stretchableImageWithLeftCapWidth:14 topCapHeight:0];
+    UIImage *trackRightImage = [[UIImage imageNamed:@"SliderTrackRight"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 10, 0, 10)];
     [self.slider setMaximumTrackImage:trackRightImage forState:UIControlStateNormal];
     
 }
