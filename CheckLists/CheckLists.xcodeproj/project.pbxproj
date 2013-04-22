@@ -23,6 +23,7 @@
 		4195F4B91723C965004C22B4 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F4B81723C965004C22B4 /* AllListsViewController.m */; };
 		4195F4BC1723CCCB004C22B4 /* CheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F4BB1723CCCB004C22B4 /* CheckList.m */; };
 		4195F4BF1723D0BF004C22B4 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F4BE1723D0BF004C22B4 /* ListDetailViewController.m */; };
+		4195F4F817259B79004C22B4 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F4F717259B79004C22B4 /* DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		4195F4BB1723CCCB004C22B4 /* CheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckList.m; sourceTree = "<group>"; };
 		4195F4BD1723D0BF004C22B4 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		4195F4BE1723D0BF004C22B4 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		4195F4F617259B79004C22B4 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		4195F4F717259B79004C22B4 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				4195F4BB1723CCCB004C22B4 /* CheckList.m */,
 				4195F4BD1723D0BF004C22B4 /* ListDetailViewController.h */,
 				4195F4BE1723D0BF004C22B4 /* ListDetailViewController.m */,
+				4195F4F617259B79004C22B4 /* DataModel.h */,
+				4195F4F717259B79004C22B4 /* DataModel.m */,
 			);
 			path = CheckLists;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				4195F4B91723C965004C22B4 /* AllListsViewController.m in Sources */,
 				4195F4BC1723CCCB004C22B4 /* CheckList.m in Sources */,
 				4195F4BF1723D0BF004C22B4 /* ListDetailViewController.m in Sources */,
+				4195F4F817259B79004C22B4 /* DataModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

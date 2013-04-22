@@ -1,16 +1,14 @@
 //
-//  CheckListsAppDelegate.m
-//  CheckLists
+//  AppDelegate.m
+//  CoolButton
 //
-//  Created by Long Vinh Nguyen on 4/19/13.
+//  Created by Long Vinh Nguyen on 4/22/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
-#import "CheckListsAppDelegate.h"
-#import "AllListsViewController.h"
-#import "DataModel.h"
+#import "AppDelegate.h"
 
-@implementation CheckListsAppDelegate
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,7 +26,6 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [self saveData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -44,14 +41,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [self saveData];
-}
-
-- (void)saveData
-{
-    UINavigationController *navController = (UINavigationController *)self.window.rootViewController;
-    AllListsViewController *controller = (AllListsViewController *)[navController viewControllers][0];
-    [controller.dataModel saveCheckLists];
 }
 
 @end
