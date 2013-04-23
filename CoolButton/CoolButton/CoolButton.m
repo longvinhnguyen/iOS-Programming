@@ -138,12 +138,7 @@
     CGContextAddPath(context, innerPath);
     CGContextStrokePath(context);
     CGContextRestoreGState(context);
-
-
-
-
-
-
+    
     CFRelease(outerPath);
     CFRelease(innerPath);
     CFRelease(hightLightPath);
