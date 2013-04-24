@@ -20,12 +20,19 @@ void MyDrawColoredPattern (void *info, CGContextRef context)
     UIColor *shadowColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.1];
     
     CGContextSetFillColorWithColor(context, dotColor.CGColor);
-    CGContextSetShadowWithColor(context, CGSizeMake(0, 1), 1, shadowColor.CGColor);
+    // CGContextSetShadowWithColor(context, CGSizeMake(0, 1), 1, shadowColor.CGColor);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextSetStrokeColorWithColor(context, shadowColor.CGColor);
     CGContextAddArc(context, 3, 3, 4, 0, radians(360), 0);
     CGContextFillPath(context);
+    CGContextAddArc(context, 3, 3, 4, 0, radians(360), 0);
+    CGContextStrokePath(context);
     
     CGContextAddArc(context, 16, 16, 4, 0, radians(360), 0);
     CGContextFillPath(context);
+    CGContextAddArc(context, 16, 16, 4, 0, radians(360), 0);
+    CGContextStrokePath(context);
+    
     
     
     

@@ -19,7 +19,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     UIScrollView *scrollView = (UIScrollView *)self.view;
-    [scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height * 1.5)];
+    UIView *patternView = (UIView *)([self.view subviews][0]);
+    NSLog(@"Height of pattern view: %f", patternView.bounds.size.height);
+    [scrollView setContentSize:CGSizeMake(self.view.bounds.size.width,  patternView.bounds.size.height - 400)];
 }
 
 - (void)didReceiveMemoryWarning
