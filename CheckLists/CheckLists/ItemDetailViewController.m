@@ -10,6 +10,9 @@
 #import "CheckListItem.h"
 
 @implementation ItemDetailViewController
+{
+    NSDate *dueDate;
+}
 @synthesize textField = _textField, delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -34,7 +37,14 @@
     if (_itemToEdit != nil) {
         self.title = @"Edit Item";
         self.textField.text = _itemToEdit.text;
+        self.doneBarButton.enabled = YES;
+        self.switchControl.on = _itemToEdit.shouldRemind;
+        dueDate = _itemToEdit.dueDate;
+    } else {
+        self.switchControl = NO;
+        dueDate = [NSDate date];
     }
+    [self updateDueDateLabel];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,6 +57,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateDueDateLabel
+{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateStyle:NSDateFormatterMediumStyle];
+    [df setTimeStyle:NSDateFormatterShortStyle];
+    self.dueDateLabel.text = [df stringFromDate:dueDate];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,11 +81,16 @@
 {
     if (self.itemToEdit != nil) {
         self.itemToEdit.text = _textField.text;
+        self.itemToEdit.shouldRemind = _switchControl.on;
+        self.itemToEdit.dueDate = dueDate;
+        
         [self.delegate itemViewController:self didFinishEditingItem:self.itemToEdit];
     } else {
         CheckListItem *item = [[CheckListItem alloc] init];
         item.text = self.textField.text;
         item.checked = NO;
+        item.dueDate = dueDate;
+        item.shouldRemind = _switchControl.on;
         
         [self.delegate itemViewController:self didFinishAddingItem:item];
     }

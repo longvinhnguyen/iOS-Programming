@@ -47,6 +47,11 @@
     [self saveData];
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    NSLog(@"didReceiveLocalNotification");
+}
+
 - (void)saveData
 {
     UINavigationController *navController = (UINavigationController *)self.window.rootViewController;

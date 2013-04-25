@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IconPickerViewController.h"
 @class ListDetailViewController;
 @class CheckList;
+
+
 
 @protocol ListDetailViewControllerDelegate <NSObject>
 
@@ -18,10 +21,11 @@
 
 @end
 
-@interface ListDetailViewController : UITableViewController<UITextFieldDelegate>
+@interface ListDetailViewController : UITableViewController<UITextFieldDelegate, IconPickerViewControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *textField;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *doneBarButton;
+@property (nonatomic, strong) IBOutlet UIImageView *iconImageView;
 @property (nonatomic, weak) id<ListDetailViewControllerDelegate> delegate;
 @property (nonatomic, strong) CheckList *checkListToEdit;
 

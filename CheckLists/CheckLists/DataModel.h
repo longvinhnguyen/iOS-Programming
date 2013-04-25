@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSMutableArray *lists;
 
++ (int)nextCheckListItemId;
+
 - (void)saveCheckLists;
 - (int)indexOfSelectedChecklist;
 - (void)setIndexOfSelectedChecklist:(int)index;

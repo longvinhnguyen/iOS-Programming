@@ -56,6 +56,7 @@
 		4195F5A21726F6C8004C22B4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4195F5811726F6C8004C22B4 /* Default.png */; };
 		4195F5A31726F6C8004C22B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4195F5821726F6C8004C22B4 /* Default@2x.png */; };
 		4195F5A41726F6C8004C22B4 /* Icon.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4195F5841726F6C8004C22B4 /* Icon.psd */; };
+		4195F5A7172825C5004C22B4 /* IconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5A6172825C5004C22B4 /* IconPickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,8 @@
 		4195F5811726F6C8004C22B4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		4195F5821726F6C8004C22B4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4195F5841726F6C8004C22B4 /* Icon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icon.psd; sourceTree = "<group>"; };
+		4195F5A5172825C4004C22B4 /* IconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPickerViewController.h; sourceTree = "<group>"; };
+		4195F5A6172825C5004C22B4 /* IconPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconPickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,26 +169,28 @@
 		4195F44F17213E82004C22B4 /* CheckLists */ = {
 			isa = PBXGroup;
 			children = (
-				4195F5601726F6C7004C22B4 /* Resources */,
-				4195F45817213E82004C22B4 /* CheckListsAppDelegate.h */,
-				4195F45917213E82004C22B4 /* CheckListsAppDelegate.m */,
-				4195F46417213E82004C22B4 /* CheckListViewController.h */,
-				4195F46517213E82004C22B4 /* CheckListViewController.m */,
-				4195F46C17213EBC004C22B4 /* MainStoryboard.storyboard */,
-				4195F45017213E82004C22B4 /* Supporting Files */,
-				4195F46E17219270004C22B4 /* CheckListItem.h */,
-				4195F46F17219270004C22B4 /* CheckListItem.m */,
-				4195F4711721A282004C22B4 /* ItemDetailViewController.h */,
-				4195F4721721A282004C22B4 /* ItemDetailViewController.m */,
-				4195F4741722477F004C22B4 /* Define.h */,
 				4195F4B71723C965004C22B4 /* AllListsViewController.h */,
 				4195F4B81723C965004C22B4 /* AllListsViewController.m */,
 				4195F4BA1723CCCB004C22B4 /* CheckList.h */,
 				4195F4BB1723CCCB004C22B4 /* CheckList.m */,
-				4195F4BD1723D0BF004C22B4 /* ListDetailViewController.h */,
-				4195F4BE1723D0BF004C22B4 /* ListDetailViewController.m */,
+				4195F46E17219270004C22B4 /* CheckListItem.h */,
+				4195F46F17219270004C22B4 /* CheckListItem.m */,
+				4195F45817213E82004C22B4 /* CheckListsAppDelegate.h */,
+				4195F45917213E82004C22B4 /* CheckListsAppDelegate.m */,
+				4195F46417213E82004C22B4 /* CheckListViewController.h */,
+				4195F46517213E82004C22B4 /* CheckListViewController.m */,
 				4195F4F617259B79004C22B4 /* DataModel.h */,
 				4195F4F717259B79004C22B4 /* DataModel.m */,
+				4195F4741722477F004C22B4 /* Define.h */,
+				4195F5A5172825C4004C22B4 /* IconPickerViewController.h */,
+				4195F5A6172825C5004C22B4 /* IconPickerViewController.m */,
+				4195F4711721A282004C22B4 /* ItemDetailViewController.h */,
+				4195F4721721A282004C22B4 /* ItemDetailViewController.m */,
+				4195F4BD1723D0BF004C22B4 /* ListDetailViewController.h */,
+				4195F4BE1723D0BF004C22B4 /* ListDetailViewController.m */,
+				4195F46C17213EBC004C22B4 /* MainStoryboard.storyboard */,
+				4195F5601726F6C7004C22B4 /* Resources */,
+				4195F45017213E82004C22B4 /* Supporting Files */,
 			);
 			path = CheckLists;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				4195F4BC1723CCCB004C22B4 /* CheckList.m in Sources */,
 				4195F4BF1723D0BF004C22B4 /* ListDetailViewController.m in Sources */,
 				4195F4F817259B79004C22B4 /* DataModel.m in Sources */,
+				4195F5A7172825C5004C22B4 /* IconPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,6 +96,7 @@
     } else
         cell.detailTextLabel.text = [NSString stringWithFormat:@"Remaining %d",count];
 
+    cell.imageView.image = [UIImage imageNamed:list.iconName];
     
     return cell;
 }
