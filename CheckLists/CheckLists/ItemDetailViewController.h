@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DatePickerControllerViewController.h"
 @class CheckListItem;
 @class ItemDetailViewController;
 
@@ -22,7 +23,7 @@
 @end
 
 
-@interface ItemDetailViewController : UITableViewController<UITextFieldDelegate>
+@interface ItemDetailViewController : UITableViewController<UITextFieldDelegate, DatePickerViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneBarButton;

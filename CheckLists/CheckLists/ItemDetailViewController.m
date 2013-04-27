@@ -24,6 +24,15 @@
     return self;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"PickDate"]) {
+        DatePickerControllerViewController *controller = segue.destinationViewController;
+        controller.delegate = self;
+        controller.date = dueDate;
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -41,7 +50,7 @@
         self.switchControl.on = _itemToEdit.shouldRemind;
         dueDate = _itemToEdit.dueDate;
     } else {
-        self.switchControl = NO;
+        self.switchControl.on = NO;
         dueDate = [NSDate date];
     }
     [self updateDueDateLabel];
@@ -69,6 +78,9 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 2) {
+        return indexPath;
+    }
     return nil;
 }
 
@@ -83,19 +95,23 @@
         self.itemToEdit.text = _textField.text;
         self.itemToEdit.shouldRemind = _switchControl.on;
         self.itemToEdit.dueDate = dueDate;
+        [self.itemToEdit scheduleNotification];
+        
         
         [self.delegate itemViewController:self didFinishEditingItem:self.itemToEdit];
     } else {
         CheckListItem *item = [[CheckListItem alloc] init];
         item.text = self.textField.text;
-        item.checked = NO;
         item.dueDate = dueDate;
         item.shouldRemind = _switchControl.on;
+        [item scheduleNotification];
         
         [self.delegate itemViewController:self didFinishAddingItem:item];
     }
 
 }
+
+
 
 #pragma mark - UITextField Delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -105,6 +121,28 @@
     
     return YES;
 }
+
+
+#pragma mark - DatePickerViewControllerDelegate methods
+- (void)datePickerdidCancel:(DatePickerControllerViewController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)datePicker:(DatePickerControllerViewController *)picker didPickDate:(NSDate *)date
+{
+    dueDate = date;
+    [self updateDueDateLabel];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
+
+
+
 
 
 @end

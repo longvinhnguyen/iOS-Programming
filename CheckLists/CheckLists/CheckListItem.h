@@ -17,6 +17,9 @@
 @property (nonatomic, assign) int itemID;
 
 - (void)toggleChecked;
+- (void)scheduleNotification;
+- (UILocalNotification *)notificationForThisItem;
+- (NSComparisonResult)compare:(CheckListItem *)anotherItem;
 
 
 

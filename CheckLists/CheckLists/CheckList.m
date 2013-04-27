@@ -55,4 +55,10 @@
     return [self.name localizedStandardCompare:otherChecklist.name];
 }
 
+- (void)sortChecklistItemByDueDate
+{
+    VLog(@"Sorted checklist");
+    [items sortedArrayUsingSelector:@selector(compare:)];
+}
+
 @end

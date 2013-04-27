@@ -25,6 +25,11 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -61,6 +66,17 @@
     label.text = item.text;
 }
 
+- (void)configureDueDateForCell:(UITableViewCell *)cell withCheckListItem:(CheckListItem *)item
+{
+    UILabel *dueDateLabel = (UILabel *)[cell viewWithTag:1020];
+    if ([item notificationForThisItem] != nil) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.timeStyle = NSDateFormatterMediumStyle;
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        dueDateLabel.text = [formatter stringFromDate:item.dueDate];
+    }
+}
+
 #pragma mark - CheckListViewController actions
 
 
@@ -85,6 +101,7 @@
     
     [self configureCheckmarkForCell:cell withCheckListItem:item];
     [self configureLabelTextForCell:cell withCheckListItem:item];
+    [self configureDueDateForCell:cell withCheckListItem:item];
     
     
     return cell;
@@ -129,9 +146,12 @@
 
 - (void)itemViewController:(ItemDetailViewController *)controller didFinishAddingItem:(CheckListItem *)item
 {
-    int newRowIndex = [self.checkList.items count];
+//    int newRowIndex = [self.checkList.items count];
     [self.checkList.items addObject:item];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:newRowIndex inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.checkList sortChecklistItemByDueDate];
+//    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:newRowIndex inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadData];
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -139,11 +159,13 @@
 - (void)itemViewController:(ItemDetailViewController *)controller didFinishEditingItem:(CheckListItem *)item
 {
     int index = [self.checkList.items indexOfObject:item];
+    [self.checkList sortChecklistItemByDueDate];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    [self configureLabelTextForCell:cell withCheckListItem:item];
-    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//    [self configureLabelTextForCell:cell withCheckListItem:item];
+//    [self configureDueDateForCell:cell withCheckListItem:item];
+    [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

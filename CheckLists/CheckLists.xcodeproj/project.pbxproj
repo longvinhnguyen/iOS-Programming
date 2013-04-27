@@ -57,6 +57,7 @@
 		4195F5A31726F6C8004C22B4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4195F5821726F6C8004C22B4 /* Default@2x.png */; };
 		4195F5A41726F6C8004C22B4 /* Icon.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4195F5841726F6C8004C22B4 /* Icon.psd */; };
 		4195F5A7172825C5004C22B4 /* IconPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5A6172825C5004C22B4 /* IconPickerViewController.m */; };
+		4195F5AA17297304004C22B4 /* DatePickerControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5A917297304004C22B4 /* DatePickerControllerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,8 @@
 		4195F5841726F6C8004C22B4 /* Icon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = Icon.psd; sourceTree = "<group>"; };
 		4195F5A5172825C4004C22B4 /* IconPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconPickerViewController.h; sourceTree = "<group>"; };
 		4195F5A6172825C5004C22B4 /* IconPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconPickerViewController.m; sourceTree = "<group>"; };
+		4195F5A817297304004C22B4 /* DatePickerControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerControllerViewController.h; sourceTree = "<group>"; };
+		4195F5A917297304004C22B4 /* DatePickerControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerControllerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +194,8 @@
 				4195F46C17213EBC004C22B4 /* MainStoryboard.storyboard */,
 				4195F5601726F6C7004C22B4 /* Resources */,
 				4195F45017213E82004C22B4 /* Supporting Files */,
+				4195F5A817297304004C22B4 /* DatePickerControllerViewController.h */,
+				4195F5A917297304004C22B4 /* DatePickerControllerViewController.m */,
 			);
 			path = CheckLists;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				4195F4BF1723D0BF004C22B4 /* ListDetailViewController.m in Sources */,
 				4195F4F817259B79004C22B4 /* DataModel.m in Sources */,
 				4195F5A7172825C5004C22B4 /* IconPickerViewController.m in Sources */,
+				4195F5AA17297304004C22B4 /* DatePickerControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

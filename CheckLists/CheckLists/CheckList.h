@@ -15,5 +15,6 @@
 @property (nonatomic, copy) NSString *iconName;
 
 -(int)countUncheckedItems;
+-(void)sortChecklistItemByDueDate;
 
 @end

@@ -16,6 +16,7 @@
 {
     if (self = [super init]) {
         self.itemID = [DataModel nextCheckListItemId];
+        self.checked = NO;
     }
     return self;
 }
@@ -46,6 +47,55 @@
     }
     return self;
 }
+
+- (void)scheduleNotification
+{
+    UILocalNotification *existingNotification = [self notificationForThisItem];
+    if (existingNotification) {
+        NSLog(@"Found an existing notification %@", existingNotification);
+        [[UIApplication sharedApplication] cancelLocalNotification:existingNotification];
+    }
+    
+    if (self.shouldRemind && [self.dueDate compare:[NSDate date]] != NSOrderedAscending) {
+        NSLog(@"We should schedule a local notification");
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = self.dueDate;
+        localNotification.alertBody = self.text;
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        localNotification.userInfo = [NSDictionary dictionaryWithObject:[NSNumber numberWithInt:self.itemID] forKey:@"itemID"];
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        VLog(@"Scheduled notification %@ for itemId %d",localNotification, self.itemID);
+    }
+}
+
+- (UILocalNotification *)notificationForThisItem
+{
+    NSArray *allNotifications = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *notification in allNotifications) {
+        NSNumber *number = [notification.userInfo objectForKey:@"itemID"];
+        if (number !=nil && number.intValue == self.itemID) {
+            return notification;
+        }
+    }
+    return nil;
+}
+
+- (void)dealloc
+{
+    UILocalNotification *existingNotification = [self notificationForThisItem];
+    if (existingNotification) {
+        NSLog(@"Removing existing notification %@",existingNotification);
+        [[UIApplication sharedApplication] cancelLocalNotification:existingNotification];
+    }
+}
+
+- (NSComparisonResult)compare:(CheckListItem *)anotherItem
+{
+    VLog(@"Compare");
+    return [self.dueDate compare:anotherItem.dueDate];
+}
+
 
 
 @end
