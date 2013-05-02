@@ -12,6 +12,7 @@
 @implementation ListDetailViewController
 {
     NSString *iconName;
+    NSString *text;
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -28,10 +29,8 @@
 	// Do any additional setup after loading the view.
     if (self.checkListToEdit != nil) {
         self.title = @"Edit Checklist";
-        self.textField.text = _checkListToEdit.name;
-        self.doneBarButton.enabled = YES;
-        iconName = self.checkListToEdit.iconName;
     }
+    self.textField.text = text;
     self.iconImageView.image = [UIImage imageNamed:iconName];
 }
 
@@ -45,6 +44,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
+    if ([self isViewLoaded] && self.view.window ==  nil) {
+        self.view  = nil;
+    }
+    
+    if (self.view == nil) {
+        self.textField = nil;
+        self.doneBarButton = nil;
+        self.iconImageView = nil;
+    }
+}
+
+- (void)updateDoneBarButton
+{
+    self.doneBarButton.enabled = (text.length > 0);
+}
+
+- (void)setCheckListToEdit:(CheckList *)checkListToEdit
+{
+    if (_checkListToEdit != checkListToEdit) {
+        _checkListToEdit = checkListToEdit;
+        text = _checkListToEdit.name;
+        iconName = _checkListToEdit.iconName;
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -89,8 +113,8 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    self.doneBarButton.enabled = (newText.length > 0);
+    text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self updateDoneBarButton];
     return YES;
 }
 

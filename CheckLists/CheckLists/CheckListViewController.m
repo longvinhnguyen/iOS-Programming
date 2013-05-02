@@ -74,7 +74,7 @@
         formatter.timeStyle = NSDateFormatterMediumStyle;
         formatter.dateStyle = NSDateFormatterMediumStyle;
         dueDateLabel.text = [formatter stringFromDate:item.dueDate];
-    }
+    } else dueDateLabel.text = nil;
 }
 
 #pragma mark - CheckListViewController actions
@@ -146,10 +146,16 @@
 
 - (void)itemViewController:(ItemDetailViewController *)controller didFinishAddingItem:(CheckListItem *)item
 {
-//    int newRowIndex = [self.checkList.items count];
     [self.checkList.items addObject:item];
-    [self.checkList sortChecklistItemByDueDate];
-//    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:newRowIndex inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    VLog(@"Before sort: %@", self.checkList.items);
+//    [self.checkList sortChecklistItemByDueDate];
+    [self.checkList.items sortUsingComparator:^(id obj1, id obj2){
+        if ([obj1 shouldRemind] && [obj2 shouldRemind]) {
+            return [[obj1 dueDate] compare:[obj2 dueDate]];
+        }
+        return NSOrderedAscending;
+    }];
+    VLog(@"After sort: %@", self.checkList.items);
     [self.tableView reloadData];
 
     
@@ -158,13 +164,16 @@
 
 - (void)itemViewController:(ItemDetailViewController *)controller didFinishEditingItem:(CheckListItem *)item
 {
-    int index = [self.checkList.items indexOfObject:item];
-    [self.checkList sortChecklistItemByDueDate];
-    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-//    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//    [self configureLabelTextForCell:cell withCheckListItem:item];
-//    [self configureDueDateForCell:cell withCheckListItem:item];
+    VLog(@"Before sort: %@", self.checkList.items);
+//    [self.checkList sortChecklistItemByDueDate];
+    [self.checkList.items sortUsingComparator:^(id obj1, id obj2){
+        if ([obj1 shouldRemind] && [obj2 shouldRemind]) {
+            return [[obj1 dueDate] compare:[obj2 dueDate]];
+        }
+        return NSOrderedAscending;
+    }];
+    VLog(@"After sort: %@", self.checkList.items);
+
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

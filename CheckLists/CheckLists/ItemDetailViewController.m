@@ -12,14 +12,19 @@
 @implementation ItemDetailViewController
 {
     NSDate *dueDate;
+    NSString *text;
+    BOOL shouldRemind;
 }
 @synthesize textField = _textField, delegate;
 
-- (id)initWithStyle:(UITableViewStyle)style
+
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        text = @"";
+        shouldRemind = NO;
+        dueDate = [NSDate date];
     }
     return self;
 }
@@ -45,14 +50,12 @@
     
     if (_itemToEdit != nil) {
         self.title = @"Edit Item";
-        self.textField.text = _itemToEdit.text;
-        self.doneBarButton.enabled = YES;
-        self.switchControl.on = _itemToEdit.shouldRemind;
-        dueDate = _itemToEdit.dueDate;
-    } else {
-        self.switchControl.on = NO;
-        dueDate = [NSDate date];
     }
+    
+    self.textField.text = text;
+    self.switchControl.on = shouldRemind;
+    
+    [self updateDoneBarButton];
     [self updateDueDateLabel];
 }
 
@@ -66,6 +69,31 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if ([self isViewLoaded] && self.view.window == nil) {
+        self.view = nil;
+    }
+    
+    if (self.view == nil) {
+        self.doneBarButton = nil;
+        self.switchControl = nil;
+        self.dueDateLabel = nil;
+        self.textField = nil;
+    }
+}
+
+- (void)setItemToEdit:(CheckListItem *)itemToEdit
+{
+    if (_itemToEdit != itemToEdit) {
+        _itemToEdit = itemToEdit;
+        text = _itemToEdit.text;
+        shouldRemind = _itemToEdit.shouldRemind;
+        dueDate = _itemToEdit.dueDate;
+    }
+}
+
+- (void)updateDoneBarButton
+{
+    self.doneBarButton.enabled = (text.length > 0);
 }
 
 - (void)updateDueDateLabel
@@ -111,15 +139,25 @@
 
 }
 
+- (IBAction)switchChanged:(UISwitch *)sender
+{
+    shouldRemind = sender.on;
+}
 
 
 #pragma mark - UITextField Delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
-    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    self.doneBarButton.enabled = [newText length] > 0;
+    text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [self updateDoneBarButton];
     
     return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    text = textField.text;
+    [self updateDoneBarButton];
 }
 
 

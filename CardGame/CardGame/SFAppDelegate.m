@@ -17,6 +17,27 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[SFViewController alloc] initWithNibName:@"SFViewController" bundle:nil];
+    
+    NSMutableArray *days = [NSMutableArray array];
+    
+    NSDate *date1 = [NSDate dateWithTimeIntervalSinceNow:10000];
+    NSDate *date2 = [NSDate dateWithTimeIntervalSinceNow:1000];
+    NSDate *date3 = [NSDate dateWithTimeIntervalSinceNow:900];
+    NSDate *date4 = [NSDate dateWithTimeIntervalSinceNow:9000];
+    
+    [days addObject:date1];
+    [days addObject:date2];
+    [days addObject:date3];
+    [days addObject:date4];
+    
+    NSLog(@"Before sort: %@",days);
+    
+    [days sortUsingComparator:^(NSDate *obj1, NSDate *obj2){
+        return [obj1 compare:obj2];
+    }];
+    NSLog(@"After sort: %@",days);
+    
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;

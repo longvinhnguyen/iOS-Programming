@@ -57,7 +57,6 @@
 
 - (void)sortChecklistItemByDueDate
 {
-    VLog(@"Sorted checklist");
     [items sortedArrayUsingSelector:@selector(compare:)];
 }
 

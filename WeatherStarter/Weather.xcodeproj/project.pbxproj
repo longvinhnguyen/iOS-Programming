@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41917460172CC22500806616 /* WeatherHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4191745F172CC22500806616 /* WeatherHTTPClient.m */; };
 		4195F5BF172AC4C8004C22B4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5AD172AC4C8004C22B4 /* AFHTTPClient.m */; };
 		4195F5C0172AC4C8004C22B4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5AF172AC4C8004C22B4 /* AFHTTPRequestOperation.m */; };
 		4195F5C1172AC4C8004C22B4 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4195F5B1172AC4C8004C22B4 /* AFImageRequestOperation.m */; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4191745E172CC22500806616 /* WeatherHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherHTTPClient.h; sourceTree = "<group>"; };
+		4191745F172CC22500806616 /* WeatherHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHTTPClient.m; sourceTree = "<group>"; };
 		4195F5AC172AC4C8004C22B4 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		4195F5AD172AC4C8004C22B4 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		4195F5AE172AC4C8004C22B4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -214,6 +217,8 @@
 				D233D0CA16B405C3005212DE /* WeatherAnimationViewController.h */,
 				D233D0CB16B405C3005212DE /* WeatherAnimationViewController.m */,
 				D233D07616B400EF005212DE /* Supporting Files */,
+				4191745E172CC22500806616 /* WeatherHTTPClient.h */,
+				4191745F172CC22500806616 /* WeatherHTTPClient.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				4195F5C5172AC4C8004C22B4 /* AFURLConnectionOperation.m in Sources */,
 				4195F5C6172AC4C8004C22B4 /* AFXMLRequestOperation.m in Sources */,
 				4195F5C7172AC4C8004C22B4 /* UIImageView+AFNetworking.m in Sources */,
+				41917460172CC22500806616 /* WeatherHTTPClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

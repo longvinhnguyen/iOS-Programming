@@ -43,6 +43,9 @@ static NSString *const BaseURLString = @"http://localhost/";
 {
     [super viewDidLoad];
     self.navigationController.toolbarHidden = NO;
+    
+    _manager = [[CLLocationManager alloc] init];
+    self.manager.delegate = self;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -166,6 +169,7 @@ static NSString *const BaseURLString = @"http://localhost/";
 
 - (IBAction)apiTapped:(id)sender
 {
+    [self.manager startUpdatingLocation];
 }
 
 #pragma mark - Table view data source
@@ -224,6 +228,14 @@ static NSString *const BaseURLString = @"http://localhost/";
     
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return @"Current Weather";
+    } else
+        return @"Upcomming Weather";
 }
 
 
@@ -326,6 +338,37 @@ static NSString *const BaseURLString = @"http://localhost/";
             [alert show];
         }];
     }
+}
+
+#pragma mark - CLLocationManager delegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *newLocation = [locations lastObject];
+    if ([newLocation.timestamp timeIntervalSinceNow] < 300) {
+        [self.manager stopUpdatingLocation];
+        CLGeocoder *myCity = [[CLGeocoder alloc] init];
+        [myCity reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placeMark, NSError *error){
+            NSString *city = [[placeMark lastObject] locality];
+            NSLog(@"%@",city);
+            self.title = [NSString stringWithFormat:@"%@",city];
+        }];
+        
+        WeatherHTTPClient *client = [WeatherHTTPClient shareWeatherHTTPClient];
+        client.delegate = self;
+        [client updateWeatherAtLocation:newLocation forNumberDays:5];
+    }
+}
+
+#pragma mark - WeatherHTTPClient delegate
+- (void)weatherHTTPClient:(WeatherHTTPClient *)client didUpdateWithWeather:(id)weather
+{
+    self.weather = weather;
+    [self.tableView reloadData];
+}
+
+- (void)weatherHTTPClient:(WeatherHTTPClient *)client didFailWithError:(id)error
+{
+    [[[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 

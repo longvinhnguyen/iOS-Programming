@@ -92,7 +92,6 @@
 
 - (NSComparisonResult)compare:(CheckListItem *)anotherItem
 {
-    VLog(@"Compare");
     return [self.dueDate compare:anotherItem.dueDate];
 }
 

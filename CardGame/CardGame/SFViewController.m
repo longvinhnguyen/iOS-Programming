@@ -57,9 +57,6 @@ static int currentIndex = 0;
 }
 
 - (IBAction)createPass: (UIButton *)sender {
-    NSURL *url = [NSURL URLWithString:@"http://localhost/pass/bayroast.pkpass"];
-    
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     //NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error];
 //    __block NSData *data;
