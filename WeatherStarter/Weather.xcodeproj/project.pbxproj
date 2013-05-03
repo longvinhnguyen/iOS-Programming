@@ -55,6 +55,7 @@
 		D233D0D316B405D5005212DE /* NSDictionary+weather.m in Sources */ = {isa = PBXBuildFile; fileRef = D233D0D116B405D5005212DE /* NSDictionary+weather.m */; };
 		D233D11116B43004005212DE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D233D11016B43004005212DE /* placeholder.png */; };
 		D233D11D16B441E3005212DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D233D11C16B441E3005212DE /* CoreLocation.framework */; };
+		F629FA7C1733C1F200981660 /* HUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = F629FA7B1733C1F200981660 /* HUDView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,8 @@
 		D233D0D116B405D5005212DE /* NSDictionary+weather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+weather.m"; sourceTree = "<group>"; };
 		D233D11016B43004005212DE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		D233D11C16B441E3005212DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F629FA7A1733C1F200981660 /* HUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDView.h; sourceTree = "<group>"; };
+		F629FA7B1733C1F200981660 /* HUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,8 @@
 				D233D07616B400EF005212DE /* Supporting Files */,
 				4191745E172CC22500806616 /* WeatherHTTPClient.h */,
 				4191745F172CC22500806616 /* WeatherHTTPClient.m */,
+				F629FA7A1733C1F200981660 /* HUDView.h */,
+				F629FA7B1733C1F200981660 /* HUDView.m */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				4195F5C6172AC4C8004C22B4 /* AFXMLRequestOperation.m in Sources */,
 				4195F5C7172AC4C8004C22B4 /* UIImageView+AFNetworking.m in Sources */,
 				41917460172CC22500806616 /* WeatherHTTPClient.m in Sources */,
+				F629FA7C1733C1F200981660 /* HUDView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "WeatherHTTPClient.h"
+#import "HUDView.h"
 
 @implementation WeatherHTTPClient
 
@@ -33,7 +34,7 @@
     return self;
 }
 
-- (void)updateWeatherAtLocation:(CLLocation *)location forNumberDays:(int)numbers
+- (void)updateWeatherAtLocation:(CLLocation *)location forNumberDays:(int)numbers inView:(UIView *)view withCompletion:(void (^)(id weather,NSError *))block
 {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     [parameters setObject:[NSString stringWithFormat:@"%d", numbers] forKey:@"num_of_days"];
@@ -41,15 +42,42 @@
     [parameters setObject:@"json" forKey:@"format"];
     [parameters setObject:@"7f3a3480fc162445131401" forKey:@"key"];
     
-    [self getPath:@"weather.ashx" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
-        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didUpdateWithWeather:)]) {
-            [self.delegate weatherHTTPClient:self didUpdateWithWeather:responseObject];
+    if (view != nil) {
+        [HUDView sharedHUD:view];
+    }
+    
+
+    NSURLRequest *request = [self requestWithMethod:@"GET" path:@"weather.ashx" parameters:parameters];
+    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    operation.userInfo = [NSDictionary dictionaryWithObject:view forKey:@"View1"];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *error = nil;
+        UIView *view = nil;
+        if ((view = [operation.userInfo objectForKey:@"View1"])) {
+            NSLog(@"%@",view);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
-        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didFailWithError:)]) {
-            [self.delegate weatherHTTPClient:self didFailWithError:error];
+        if (block) {
+            block(responseObject, error);
         }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Disconnect");
     }];
+    [self enqueueHTTPRequestOperation:operation];
+    
+//    [self getPath:@"weather.ashx" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject){
+//        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didUpdateWithWeather:)]) {
+//
+//            [self.delegate weatherHTTPClient:self didUpdateWithWeather:responseObject];
+//        }
+//        NSError *error = nil;
+//        if (block) {
+//            block(responseObject, error);
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error){
+//        if ([self.delegate respondsToSelector:@selector(weatherHTTPClient:didFailWithError:)]) {
+//            [self.delegate weatherHTTPClient:self didFailWithError:error];
+//        }
+//    }];
     
 }
 

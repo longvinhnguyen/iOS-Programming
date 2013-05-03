@@ -12,9 +12,9 @@
 #import "NSDictionary+weather_package.h"
 #import "UIImageView+AFNetworking.h"
 
-//static NSString *const BaseURLString = @"http://raywenderlich.com/downloads/weather_sample/";
+static NSString *const BaseURLString = @"http://raywenderlich.com/downloads/weather_sample/";
 
-static NSString *const BaseURLString = @"http://localhost/";
+//static NSString *const BaseURLString = @"http://localhost/";
 
 
 @interface WTTableViewController ()
@@ -46,6 +46,7 @@ static NSString *const BaseURLString = @"http://localhost/";
     
     _manager = [[CLLocationManager alloc] init];
     self.manager.delegate = self;
+    self.manager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -354,8 +355,20 @@ static NSString *const BaseURLString = @"http://localhost/";
         }];
         
         WeatherHTTPClient *client = [WeatherHTTPClient shareWeatherHTTPClient];
-        client.delegate = self;
-        [client updateWeatherAtLocation:newLocation forNumberDays:5];
+//        client.delegate = self;
+        [client updateWeatherAtLocation:newLocation forNumberDays:5 inView:self.view withCompletion:^(id weather,NSError *error) {
+            NSLog(@"%@",weather);
+            self.weather = weather;
+            [self.tableView reloadData];
+            NSLog(@"Weather Sample 1");
+        }];
+//        CLLocation *testLocation = [[CLLocation alloc] initWithLatitude:10.7917914 longitude:106.655261];
+//        [client updateWeatherAtLocation:testLocation forNumberDays:5 inView:self.view withCompletion:^(id weather, NSError *error) {
+//            NSLog(@"%@",weather);
+//            self.weather = weather;
+//            [self.tableView reloadData];
+//            NSLog(@"Weather Sample 2");
+//        }];
     }
 }
 

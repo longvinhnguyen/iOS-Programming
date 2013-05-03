@@ -14,7 +14,7 @@
 @property(nonatomic, weak)id<WeatherHTTPClientDelegate> delegate;
 + (WeatherHTTPClient *) shareWeatherHTTPClient;
 - (id)initWithBaseURL:(NSURL *)url;
-- (void)updateWeatherAtLocation:(CLLocation *)location forNumberDays:(int)numbers;
+- (void)updateWeatherAtLocation:(CLLocation *)location forNumberDays:(int)numbers inView:(UIView *)view withCompletion:(void(^)(id weather,NSError *error))block;
 
 @end
 
