@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "LocationDetailsViewController.h"
 
 @interface CurrentLocationViewController : UIViewController<CLLocationManagerDelegate>
@@ -17,6 +18,10 @@
 @property (nonatomic,weak) IBOutlet UILabel *addressLabel;
 @property (nonatomic,weak) IBOutlet UIButton *tagButton;
 @property (nonatomic,weak) IBOutlet UIButton *getButton;
+
+@property (nonatomic,weak) IBOutlet UILabel *latitudeTextLabel;
+@property (nonatomic,weak) IBOutlet UILabel *longTitudeTextLabel;
+@property (nonatomic,weak) IBOutlet UIView *panelView;
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
 
 @end

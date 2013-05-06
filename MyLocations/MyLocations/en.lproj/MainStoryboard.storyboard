@@ -8,8 +8,8 @@
         <scene sceneID="uJO-HS-trQ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="czY-fR-qqV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tag" image="second.png" id="2dM-tk-Jce"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9tZ-yN-FCW">
+                    <tabBarItem key="tabBarItem" title="Tag" image="Tag.png" id="2dM-tk-Jce"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="9tZ-yN-FCW">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -20,7 +20,7 @@
             </objects>
             <point key="canvasLocation" x="630" y="-166"/>
         </scene>
-        <!--Locations View Controller - Root View Controller-->
+        <!--Locations View Controller - Locations-->
         <scene sceneID="XJU-ek-jDK">
             <objects>
                 <tableViewController id="Pcc-v7-KDW" customClass="LocationsViewController" sceneMemberID="viewController">
@@ -37,31 +37,36 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="left" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BB8-ME-u3b">
-                                            <rect key="frame" x="20" y="13" width="280" height="24"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <rect key="frame" x="81" y="6" width="226" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1010" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LPo-ap-7lX">
-                                            <rect key="frame" x="20" y="38" width="280" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <rect key="frame" x="81" y="38" width="226" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="center" id="cdw-xc-mXz">
+                                            <rect key="frame" x="7" y="0.0" width="66" height="66"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
                                     <outlet property="addressLabel" destination="LPo-ap-7lX" id="PRp-41-LD7"/>
                                     <outlet property="descriptionLabel" destination="BB8-ME-u3b" id="VjJ-H7-2aH"/>
+                                    <outlet property="thumbnailView" destination="cdw-xc-mXz" id="1dT-PL-lno"/>
                                     <segue destination="SOl-ZG-LNC" kind="modal" identifier="EditLocation" modalTransitionStyle="partialCurl" id="GHE-DB-k5A"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="boc-Pk-5FW"/>
+                    <navigationItem key="navigationItem" title="Locations" id="boc-Pk-5FW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t8D-PN-2EZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -71,8 +76,8 @@
         <scene sceneID="65b-qn-M1U">
             <objects>
                 <navigationController definesPresentationContext="YES" id="0QG-WB-OyB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Locations" image="second.png" id="OEj-zX-YTc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gRZ-oj-p3D">
+                    <tabBarItem key="tabBarItem" title="Locations" image="Locations.png" id="OEj-zX-YTc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="gRZ-oj-p3D">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -119,7 +124,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="QIA-35-TF4"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map.png" id="QIA-35-TF4"/>
                     <connections>
                         <outlet property="mapView" destination="Pio-dA-igr" id="c3q-3w-TFe"/>
                         <segue destination="SOl-ZG-LNC" kind="modal" identifier="EditLocation" modalTransitionStyle="flipHorizontal" id="rh8-Bt-Sod"/>
@@ -137,78 +142,98 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="GPS Coordinates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wd5-zw-rKc">
-                                <rect key="frame" x="0.0" y="20" width="320" height="21"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Background@2x.png" id="MLW-rN-Vx5">
+                                <rect key="frame" x="-112" y="-126" width="640" height="736"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2je-c4-2Rq">
+                                <rect key="frame" x="58" y="304" width="204" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ky6-xe-oUR">
-                                <rect key="frame" x="20" y="60" width="85" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longtitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="alp-m5-oUQ">
-                                <rect key="frame" x="20" y="89" width="100" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Latitude goes here)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I9b-x5-MzT">
-                                <rect key="frame" x="144" y="60" width="172" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Longtitude goes here)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="01t-YH-kDL">
-                                <rect key="frame" x="144" y="89" width="172" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Address goes here)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eRh-Mi-BRp">
-                                <rect key="frame" x="49" y="154" width="267" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ibc-In-MRF">
-                                <rect key="frame" x="101" y="276" width="118" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                <state key="normal" title="Tag Location">
-                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SOl-ZG-LNC" kind="modal" identifier="TagLocation" modalTransitionStyle="flipHorizontal" id="oAi-Z7-EiB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2je-c4-2Rq">
-                                <rect key="frame" x="90" y="385" width="141" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.12549019607843137" blue="0.25098039215686274" alpha="0.75" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Get My Location">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Get My Location" backgroundImage="BlueButton@2x.png">
+                                    <color key="titleColor" red="0.062745098039215685" green="0.12549019607843137" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="highlighted" backgroundImage="BlueButtonPressed@2x.png">
+                                    <color key="titleColor" red="0.25882352941176467" green="0.12549019607843137" blue="0.25098039215686274" alpha="0.75" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="getLocation:" destination="2" eventType="touchUpInside" id="Doy-Mv-upR"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="5Ux-Oq-4gd">
+                                <rect key="frame" x="20" y="20" width="280" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Panel@2x.png" id="8kM-Ji-8pX">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="240"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="GPS Coordinates" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wd5-zw-rKc">
+                                        <rect key="frame" x="10" y="10" width="260" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Latitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ky6-xe-oUR">
+                                        <rect key="frame" x="10" y="44" width="79" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Longtitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="alp-m5-oUQ">
+                                        <rect key="frame" x="10" y="68" width="92" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Latitude goes here)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I9b-x5-MzT">
+                                        <rect key="frame" x="110" y="44" width="160" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Longtitude goes here)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="01t-YH-kDL">
+                                        <rect key="frame" x="110" y="68" width="160" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="(Address goes here)" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eRh-Mi-BRp">
+                                        <rect key="frame" x="10" y="105" width="260" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ibc-In-MRF">
+                                        <rect key="frame" x="38" y="178" width="204" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.25882352941176467" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <size key="titleShadowOffset" width="0.0" height="1"/>
+                                        <state key="normal" title="Tag Location" backgroundImage="YellowButton@2x.png">
+                                            <color key="titleColor" red="0.25882352941176467" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="YellowButtonPressed@2x.png">
+                                            <color key="titleColor" red="0.25882352941176467" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="SOl-ZG-LNC" kind="modal" identifier="TagLocation" modalTransitionStyle="flipHorizontal" id="oAi-Z7-EiB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -217,8 +242,11 @@
                         <outlet property="addressLabel" destination="eRh-Mi-BRp" id="A8v-qp-eQ2"/>
                         <outlet property="getButton" destination="2je-c4-2Rq" id="KZO-kF-Gbw"/>
                         <outlet property="latitudeLabel" destination="I9b-x5-MzT" id="tvN-k5-iDh"/>
+                        <outlet property="latitudeTextLabel" destination="ky6-xe-oUR" id="oCA-1b-fnX"/>
+                        <outlet property="longTitudeTextLabel" destination="alp-m5-oUQ" id="Tjf-po-36i"/>
                         <outlet property="longtitudeLabel" destination="01t-YH-kDL" id="dWh-Jb-d4d"/>
                         <outlet property="messageLabel" destination="wd5-zw-rKc" id="oGF-bZ-w4Z"/>
+                        <outlet property="panelView" destination="5Ux-Oq-4gd" id="6zq-uM-KNB"/>
                         <outlet property="tagButton" destination="Ibc-In-MRF" id="gSc-Ce-bag"/>
                     </connections>
                 </viewController>
@@ -306,6 +334,10 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="7sY-nO-A6x">
+                                                    <rect key="frame" x="103" y="0.0" width="140" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -442,8 +474,10 @@
                         <outlet property="addressLabel" destination="Qhu-v6-Ri8" id="rlD-dK-wGu"/>
                         <outlet property="categoryLabel" destination="iy7-h2-8kc" id="dBm-Aw-rFU"/>
                         <outlet property="dateLabel" destination="cfR-iT-AyY" id="KT3-MC-jSd"/>
+                        <outlet property="imageView" destination="7sY-nO-A6x" id="zHZ-bI-jVP"/>
                         <outlet property="latitudeLabel" destination="7BE-fE-eIc" id="OvR-pZ-zFI"/>
                         <outlet property="longtitudeLabel" destination="niH-is-0D3" id="WJO-Fi-QIQ"/>
+                        <outlet property="photoLabel" destination="dSQ-9a-jkg" id="Fjb-3Z-aYY"/>
                         <outlet property="textViewDescription" destination="JHk-hu-LGx" id="HXn-xn-Ve5"/>
                     </connections>
                 </tableViewController>
@@ -495,9 +529,10 @@
             <objects>
                 <navigationController id="SOl-ZG-LNC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qUM-Ss-w4n">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="qUM-Ss-w4n">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -510,14 +545,75 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second.png" width="30" height="30"/>
+        <image name="Background@2x.png" width="640" height="736"/>
+        <image name="BlueButton@2x.png" width="408" height="84"/>
+        <image name="BlueButtonPressed@2x.png" width="408" height="84"/>
+        <image name="Locations.png" width="30" height="30"/>
+        <image name="Map.png" width="30" height="30"/>
+        <image name="Panel@2x.png" width="560" height="480"/>
+        <image name="Tag.png" width="30" height="30"/>
+        <image name="YellowButton@2x.png" width="408" height="84"/>
+        <image name="YellowButtonPressed@2x.png" width="408" height="84"/>
     </resources>
+    <classes>
+        <class className="CategoryPickerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CategoryPickerViewController.h"/>
+        </class>
+        <class className="CurrentLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CurrentLocationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="latitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="latitudeTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longTitudeTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longtitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="panelView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="tagButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="LocationCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="thumbnailView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="LocationDetailsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="action" name="tag:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="latitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="longtitudeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="photoLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textViewDescription" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="LocationsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationsViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showLocations"/>
+                <relationship kind="action" name="showUser"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="rh8-Bt-Sod"/>
+        <segue reference="oAi-Z7-EiB"/>
     </inferredMetricsTieBreakers>
 </document>

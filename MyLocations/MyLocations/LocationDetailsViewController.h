@@ -12,7 +12,7 @@
 @class Location;
 
 
-@interface LocationDetailsViewController : UITableViewController<UITextViewDelegate,CategoryPickerViewControllerDelegate>
+@interface LocationDetailsViewController : UITableViewController<UITextViewDelegate,CategoryPickerViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic,weak) IBOutlet UITextView *textViewDescription;
 @property (nonatomic,weak) IBOutlet UILabel *categoryLabel;
@@ -24,6 +24,9 @@
 @property (nonatomic,assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic,strong) CLPlacemark *placemark;
 @property (nonatomic,strong) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic,strong) IBOutlet UIImageView *imageView;
+@property (nonatomic,strong) IBOutlet UILabel *photoLabel;
 
 @property (nonatomic,strong) Location *locationToEdit;
 

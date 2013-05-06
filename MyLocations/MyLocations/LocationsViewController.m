@@ -10,6 +10,8 @@
 #import "Location.h"
 #import "LocationCell.h"
 #import "LocationDetailsViewController.h"
+#import "UIImage+Resize.h"
+#import "NSMutableString+AddText.h"
 
 @implementation LocationsViewController
 {
@@ -50,10 +52,22 @@
         locationCell.descriptionLabel.text = @"(No Description)";
     
     if (location.placemark) {
-        locationCell.addressLabel.text = [NSString stringWithFormat:@"%@ %@, %@", location.placemark.subThoroughfare, location.placemark.thoroughfare, location.placemark.locality];
+        NSMutableString *string = [[NSMutableString alloc] init];
+        [string addText:location.placemark.subThoroughfare withSeparator:@""];
+        [string addText:location.placemark.thoroughfare withSeparator:@", "];
+        [string addText:location.placemark.locality withSeparator:@", "];
+        locationCell.addressLabel.text = string;
     } else {
         locationCell.addressLabel.text = [NSString stringWithFormat:@"Lat: %.8f Long:%8f",location.latitude, location.longtitude];
     }
+    
+    UIImage *image = nil;
+    if ([location hasPhoto]) {
+        image = [[location photoImage] resizeImageWithBounds:CGSizeMake(66, 66)];
+//        image = [location photoImage];
+    }
+    VLog(@"%f %f",image.size.width, image.size.height);
+    locationCell.thumbnailView.image = image;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -149,6 +163,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         Location *location = [fetchedResultsController objectAtIndexPath:indexPath];
+        [location removePhotoFile];
         [self.managedObjectContext deleteObject:location];
         NSError *error;
         if (![self.managedObjectContext save:&error]) {
@@ -179,6 +194,7 @@
 */
 
 #pragma mark - Table view delegate
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

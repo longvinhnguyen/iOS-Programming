@@ -1,0 +1,16 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - ConciseKit (0.1.2)
+  - SSToolkit (1.0.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - ConciseKit
+  - SSToolkit
+
+SPEC CHECKSUMS:
+  AFNetworking: 616da0028916ce296f5c3cef74e5552eb4e10e13
+  ConciseKit: 1e086a66d098ba160ca5faa86458a0431b280b30
+  SSToolkit: 689acaedac79c2079e492e528a55bcb5db9d98c4
+
+COCOAPODS: 0.19.1

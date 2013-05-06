@@ -116,13 +116,20 @@
 //    if ([self isViewLoaded]) {
 //        [self updateLocations];
 //    }
-    VLog(@"User Info: %@",[[nc.userInfo objectForKey:NSUpdatedObjectsKey] class]);
-    Location *updatedLocation = [[nc.userInfo objectForKey:NSUpdatedObjectsKey] anyObject];
-    VLog(@"Location: %@", updatedLocation);
-    [self.mapView removeAnnotation:updatedLocation];
-    [self.mapView addAnnotation:updatedLocation];
-    VLog(@"Update mapPinAnnotationView with new info");
-    
+//    VLog(@"User Info: %@",[[nc.userInfo objectForKey:NSUpdatedObjectsKey] class]);
+    if ([nc.userInfo objectForKey:NSUpdatedObjectsKey]) {
+        Location *updatedLocation = [[nc.userInfo objectForKey:NSUpdatedObjectsKey] anyObject];
+        VLog(@"Location: %@", updatedLocation);
+        [self.mapView removeAnnotation:updatedLocation];
+        [self.mapView addAnnotation:updatedLocation];
+        VLog(@"Update mapPinAnnotationView with new info");
+    } else if ([nc.userInfo objectForKey:NSDeletedObjectsKey]) {
+        Location *deletedLocation = [[nc.userInfo objectForKey:NSDeletedObjectsKey] anyObject];
+        [self.mapView removeAnnotation:deletedLocation];
+    } else {
+        Location *newLocation = [[nc.userInfo objectForKey:NSInsertedObjectsKey] anyObject];
+        [self.mapView addAnnotation:newLocation];
+    }
 }
 
 - (void)dealloc
