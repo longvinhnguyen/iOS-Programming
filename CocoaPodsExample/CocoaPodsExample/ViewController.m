@@ -7,9 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <AFNetworking.h>
-#import <ConciseKit.h>
-#import <SSToolkit.h>
 #import "TraktAPIClient.h"
 
 
@@ -79,11 +76,19 @@
         NSDictionary *showDict = [show $for:@"show"];
         // Display the show information
         
-        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(index *_showScrollView.bounds.size.width, 40, _showScrollView.bounds.size.width, 40)];
-        label.text = [showDict objectForKey:@"title"];
+//        UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(index *_showScrollView.bounds.size.width, 40, _showScrollView.bounds.size.width, 40)];
+//        label.text = [showDict objectForKey:@"title"];
+//        label.backgroundColor = [UIColor clearColor];
+//        label.font = [UIFont systemFontOfSize:18];
+//        label.textAlignment = UIBaselineAdjustmentAlignCenters;
+        NIAttributedLabel *label = [[NIAttributedLabel alloc] initWithFrame:CGRectMake(index * _showScrollView.frame.size.width, 40, _showScrollView.frame.size.width, 40)];
+        label.text = showDict[@"title"];
         label.backgroundColor = [UIColor clearColor];
+        label.linkColor  = [UIColor redColor];
         label.font = [UIFont systemFontOfSize:18];
         label.textAlignment = UIBaselineAdjustmentAlignCenters;
+        [label addLink:[NSURL URLWithString:showDict[@"url"]] range:NSMakeRange(0, label.text.length)];
+        label.delegate = self;
         [_showScrollView addSubview:label];
         [loadedPages addObject:$int(index)];
         
@@ -110,18 +115,84 @@
         lbl.textAlignment = UIBaselineAdjustmentAlignCenters;
         [_showScrollView addSubview:lbl];
         
+        // Get Image
+        NSString *posterURL = [[showDict $for:@"images"] $for:@"poster"];
+        if ([[UIScreen mainScreen] isRetinaDisplay]) {
+            posterURL = [posterURL stringByReplacingOccurrencesOfString:@".jpg" withString:@"-300.jpg"];
+        } else {
+            posterURL = [posterURL stringByReplacingOccurrencesOfString:@".jpg" withString:@"-138.jpg"];
+        }
+        
+        // 6.4 Display image using image view
+        UIImageView *posterImage = [[UIImageView alloc] init];
+        posterImage.frame = CGRectMake(index * _showScrollView.bounds.size.width + 90, 80, 150, 225);
+        [_showScrollView addSubview:posterImage];
+
+        // 6.5 Asynchronously load the image
+        [posterImage setImageWithURL:[NSURL URLWithString:posterURL] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    
+
     }
 }
 
 - (IBAction)pageChanged:(id)sender
 {
-    
+    // Set flag
+    pageControlUsed = YES;
+    // Get previous number page
+    int page = _showPageControl.currentPage;
+    previousPage = page;
+    // Call load show for the new page
+    [self loadShow:page];
+    // Scroll scroll view to new page
+    CGRect frame = _showScrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.showScrollView scrollRectToVisible:frame animated:YES];
+    } completion:^(BOOL finished) {
+        pageControlUsed = NO;
+    }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - scrollView delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // Was the scrolling initiated via page control
+    if (pageControlUsed) {
+        return;
+    }
+    
+    // Figure out page to scroll to
+    CGFloat pageWidth = scrollView.frame.size.width;
+    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSLog(@"ContentOffset X:%.2f %d",scrollView.contentOffset.x,page);
+    if (page == previousPage || page < 0 || page >= _showPageControl.numberOfPages) {
+        return;
+    }
+    previousPage = page;
+    // Set the page control page display
+    _showPageControl.currentPage = page;
+    // Load the image
+    [self loadShow:page];
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    pageControlUsed = NO;
+}
+
+#pragma mark - NIAttributedLabel delegate
+- (void)attributedLabel:(NIAttributedLabel *)attributedLabel didSelectTextCheckingResult:(NSTextCheckingResult *)result atPoint:(CGPoint)point
+{
+    [[UIApplication sharedApplication] openURL:result.URL];
 }
 
 @end

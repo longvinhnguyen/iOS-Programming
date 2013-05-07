@@ -4,324 +4,324 @@ r1
 cCheck dependencies
 cProcessInfoPlistFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/Info.plist" Resources/SSToolkitResources-Info.plist
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/es.lproj/SSToolkit.strings" Resources/es.lproj/SSToolkit.strings
-cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/de.lproj/SSToolkit.strings" Resources/de.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/en.lproj/SSToolkit.strings" Resources/en.lproj/SSToolkit.strings
-cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/id.lproj/SSToolkit.strings" Resources/id.lproj/SSToolkit.strings
+cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/de.lproj/SSToolkit.strings" Resources/de.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/fr.lproj/SSToolkit.strings" Resources/fr.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/it.lproj/SSToolkit.strings" Resources/it.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ja.lproj/SSToolkit.strings" Resources/ja.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ko.lproj/SSToolkit.strings" Resources/ko.lproj/SSToolkit.strings
-cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ms.lproj/SSToolkit.strings" Resources/ms.lproj/SSToolkit.strings
+cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/id.lproj/SSToolkit.strings" Resources/id.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/nl.lproj/SSToolkit.strings" Resources/nl.lproj/SSToolkit.strings
+cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ms.lproj/SSToolkit.strings" Resources/ms.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/pt_PT.lproj/SSToolkit.strings" Resources/pt_PT.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/pt.lproj/SSToolkit.strings" Resources/pt.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ru.lproj/SSToolkit.strings" Resources/ru.lproj/SSToolkit.strings
+cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/zh_Hans.lproj/SSToolkit.strings" Resources/zh_Hans.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/sv.lproj/SSToolkit.strings" Resources/sv.lproj/SSToolkit.strings
 cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/zh_Hant.lproj/SSToolkit.strings" Resources/zh_Hant.lproj/SSToolkit.strings
-cCopyStringsFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/zh_Hans.lproj/SSToolkit.strings" Resources/zh_Hans.lproj/SSToolkit.strings
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-check.png" Resources/Images/hud-check.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-check@2x.png" Resources/Images/hud-check@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-x.png" Resources/Images/hud-x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-x@2x.png" Resources/Images/hud-x@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/gray-star.png" Resources/Images/gray-star.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/gray-star@2x.png" Resources/Images/gray-star@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/orange-star.png" Resources/Images/orange-star.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/orange-star@2x.png" Resources/Images/orange-star@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground@2x.png" Resources/Images/SSAddressBarTextFieldBackground@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/gray-star@2x.png" Resources/Images/gray-star@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldReload.png" Resources/Images/SSAddressBarTextFieldReload.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground@2x.png" Resources/Images/SSAddressBarTextFieldBackground@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground.png" Resources/Images/SSAddressBarTextFieldBackground.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldReload@2x.png" Resources/Images/SSAddressBarTextFieldReload@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop.png" Resources/Images/SSAddressBarTextFieldStop.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop@2x.png" Resources/Images/SSAddressBarTextFieldStop@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButton.png" Resources/Images/UISegmentBarButton.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop.png" Resources/Images/SSAddressBarTextFieldStop.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldReload@2x.png" Resources/Images/SSAddressBarTextFieldReload@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButton@2x.png" Resources/Images/UISegmentBarButton@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop@2x.png" Resources/Images/SSAddressBarTextFieldStop@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButtonHighlighted.png" Resources/Images/UISegmentBarButtonHighlighted.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButtonHighlighted@2x.png" Resources/Images/UISegmentBarButtonHighlighted@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDivider.png" Resources/Images/UISegmentBarDivider.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDivider@2x.png" Resources/Images/UISegmentBarDivider@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDividerHighlighted@2x.png" Resources/Images/UISegmentBarDividerHighlighted@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDividerHighlighted.png" Resources/Images/UISegmentBarDividerHighlighted.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDividerHighlighted@2x.png" Resources/Images/UISegmentBarDividerHighlighted@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button-mini.png" Resources/Images/action-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button-mini@2x.png" Resources/Images/action-button-mini@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button.png" Resources/Images/action-button.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button@2x.png" Resources/Images/action-button@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDivider.png" Resources/Images/UISegmentBarDivider.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button-mini.png" Resources/Images/back-button-mini.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button@2x.png" Resources/Images/action-button@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button.png" Resources/Images/action-button.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button-mini@2x.png" Resources/Images/back-button-mini@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button.png" Resources/Images/back-button.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button@2x.png" Resources/Images/back-button@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button-mini.png" Resources/Images/forward-button-mini.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button@2x.png" Resources/Images/back-button@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button-mini@2x.png" Resources/Images/forward-button-mini@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button.png" Resources/Images/forward-button.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini.png" Resources/Images/reload-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button@2x.png" Resources/Images/forward-button@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini@2x.png" Resources/Images/reload-button-mini@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini.png" Resources/Images/reload-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button.png" Resources/Images/reload-button.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini@2x.png" Resources/Images/reload-button-mini@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button@2x.png" Resources/Images/reload-button@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button-mini.png" Resources/Images/safari-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button-mini@2x.png" Resources/Images/safari-button-mini@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button.png" Resources/Images/safari-button.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button@2x.png" Resources/Images/safari-button@2x.png
-cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button-mini.png" Resources/Images/stop-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button-mini@2x.png" Resources/Images/stop-button-mini@2x.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button-mini.png" Resources/Images/stop-button-mini.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button.png" Resources/Images/stop-button.png
+cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button@2x.png" Resources/Images/safari-button@2x.png
 cCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button@2x.png" Resources/Images/stop-button@2x.png
 cTouch "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle"
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle
-t2
-s0
+t1367858631
+s2210
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/Info.plist
-t2
-s0
+t1367858631
+s1151
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground.png
-t2
-s0
+t1367858631
+s234
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground@2x.png
-t2
-s0
+t1367858631
+s414
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldReload.png
-t2
-s0
+t1367858631
+s887
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldReload@2x.png
-t2
-s0
+t1367858631
+s1144
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop.png
-t2
-s0
+t1367858631
+s482
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldStop@2x.png
-t2
-s0
+t1367858631
+s824
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButton.png
-t2
-s0
+t1367858631
+s623
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButton@2x.png
-t2
-s0
+t1367858631
+s1775
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButtonHighlighted.png
-t2
-s0
+t1367858631
+s611
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarButtonHighlighted@2x.png
-t2
-s0
+t1367858631
+s1623
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDivider.png
-t2
-s0
+t1367858631
+s183
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDivider@2x.png
-t2
-s0
+t1367858631
+s340
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDividerHighlighted.png
-t2
-s0
+t1367858631
+s182
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/UISegmentBarDividerHighlighted@2x.png
-t2
-s0
+t1367858631
+s346
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button-mini.png
-t2
-s0
+t1367858631
+s466
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button-mini@2x.png
-t2
-s0
+t1367858631
+s871
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button.png
-t2
-s0
+t1367858631
+s575
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/action-button@2x.png
-t2
-s0
+t1367858631
+s1062
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button-mini.png
-t2
-s0
+t1367858631
+s180
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button-mini@2x.png
-t2
-s0
+t1367858631
+s395
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button.png
-t2
-s0
+t1367858631
+s249
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/back-button@2x.png
-t2
-s0
+t1367858631
+s378
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/de.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s581
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/en.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s306
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/es.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s548
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button-mini.png
-t2
-s0
+t1367858631
+s190
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button-mini@2x.png
-t2
-s0
+t1367858631
+s341
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button.png
-t2
-s0
+t1367858631
+s204
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/forward-button@2x.png
-t2
-s0
+t1367858631
+s349
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/fr.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s489
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/gray-star.png
-t2
-s0
+t1367858631
+s3526
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/gray-star@2x.png
-t2
-s0
+t1367858631
+s4956
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-check.png
-t2
-s0
+t1367858631
+s393
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-check@2x.png
-t2
-s0
+t1367858631
+s629
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-x.png
-t2
-s0
+t1367858631
+s442
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/hud-x@2x.png
-t2
-s0
+t1367858631
+s818
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/id.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s481
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/it.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s530
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ja.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s482
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ko.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s474
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ms.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s531
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/nl.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s522
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/orange-star.png
-t2
-s0
+t1367858631
+s3704
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/orange-star@2x.png
-t2
-s0
+t1367858631
+s5221
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/pt.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s496
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/pt_PT.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s501
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini.png
-t2
-s0
+t1367858631
+s262
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button-mini@2x.png
-t2
-s0
+t1367858631
+s935
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button.png
-t2
-s0
+t1367858631
+s610
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/reload-button@2x.png
-t2
-s0
+t1367858631
+s1223
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/ru.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s608
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button-mini.png
-t2
-s0
+t1367858631
+s278
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button-mini@2x.png
-t2
-s0
+t1367858631
+s1167
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button.png
-t2
-s0
+t1367858631
+s705
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/safari-button@2x.png
-t2
-s0
+t1367858631
+s1371
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button-mini.png
-t2
-s0
+t1367858631
+s275
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button-mini@2x.png
-t2
-s0
+t1367858631
+s394
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button.png
-t2
-s0
+t1367858631
+s330
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/stop-button@2x.png
-t2
-s0
+t1367858631
+s456
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/sv.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s597
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/zh_Hans.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s515
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/zh_Hant.lproj/SSToolkit.strings
-t2
-s0
+t1367858631
+s504
 
 N/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/Resources/Images/SSAddressBarTextFieldBackground.png
 c000000005187DDC60000000000000100
@@ -640,7 +640,7 @@ s1394
 
 CCheck dependencies
 r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependenciesc7478f471538b741^28809e471538b741^---0#1#0#--18"Check dependencies36"43ABA02D-7B4D-4304-9E40-7D5F5D8E6E2C-
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies21ad7dda6539b741^465c8cda6539b741^---0#1#0#--18"Check dependencies36"8B743F21-2CCF-438B-AA52-A3F2C03C4FDB-
 
 CCopyPNGFile "/Users/longnguyen/iOS Programming/CocoaPodsExample/Pods/SSToolkit/./SSToolkitResources.bundle/SSAddressBarTextFieldBackground.png" Resources/Images/SSAddressBarTextFieldBackground.png
 s389551431.734581

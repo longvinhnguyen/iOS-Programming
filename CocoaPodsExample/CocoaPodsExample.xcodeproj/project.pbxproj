@@ -20,6 +20,9 @@
 		4169939D17380AF400375443 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4169939C17380AF400375443 /* ViewController.m */; };
 		416993A417380B4D00375443 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993A317380B4D00375443 /* placeholder.png */; };
 		416993A71738110A00375443 /* TraktAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993A61738110A00375443 /* TraktAPIClient.m */; };
+		416993A91739667500375443 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993A81739667500375443 /* SystemConfiguration.framework */; };
+		416993AB173966AD00375443 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993AA173966AD00375443 /* MobileCoreServices.framework */; };
+		416993AD173967ED00375443 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993AC173967ED00375443 /* CoreText.framework */; };
 		E0A46C704EC0404CA5455771 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1094FD7BBF2C44E7B5512985 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		416993A317380B4D00375443 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		416993A51738110A00375443 /* TraktAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraktAPIClient.h; sourceTree = "<group>"; };
 		416993A61738110A00375443 /* TraktAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TraktAPIClient.m; sourceTree = "<group>"; };
+		416993A81739667500375443 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		416993AA173966AD00375443 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		416993AC173967ED00375443 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416993AD173967ED00375443 /* CoreText.framework in Frameworks */,
+				416993AB173966AD00375443 /* MobileCoreServices.framework in Frameworks */,
+				416993A91739667500375443 /* SystemConfiguration.framework in Frameworks */,
 				4169938117380AF400375443 /* UIKit.framework in Frameworks */,
 				4169938317380AF400375443 /* Foundation.framework in Frameworks */,
 				4169938517380AF400375443 /* CoreGraphics.framework in Frameworks */,
@@ -83,6 +92,9 @@
 		4169937F17380AF400375443 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				416993AC173967ED00375443 /* CoreText.framework */,
+				416993AA173966AD00375443 /* MobileCoreServices.framework */,
+				416993A81739667500375443 /* SystemConfiguration.framework */,
 				4169938017380AF400375443 /* UIKit.framework */,
 				4169938217380AF400375443 /* Foundation.framework */,
 				4169938417380AF400375443 /* CoreGraphics.framework */,
