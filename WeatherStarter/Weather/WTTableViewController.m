@@ -29,6 +29,9 @@ static NSString *const BaseURLString = @"http://raywenderlich.com/downloads/weat
 @end
 
 @implementation WTTableViewController
+{
+    AFIncrementalStore* store;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -354,14 +357,32 @@ static NSString *const BaseURLString = @"http://raywenderlich.com/downloads/weat
             self.title = [NSString stringWithFormat:@"%@",city];
         }];
         
+        // CoreData init
+        NSManagedObjectModel *model = [NSManagedObjectModel mergedModelFromBundles:nil];
+        NSError *error;
+        NSString *filePath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        filePath = [filePath stringByAppendingPathComponent:@"Weather.sqlite"];
+        NSURL *storeURL = [NSURL fileURLWithPath:filePath];
+        NSLog(@"***********storeURL: %@*******************************",storeURL);
+        NSDictionary *options = @{ NSInferMappingModelAutomaticallyOption : @(YES) };
+        NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        store = [[AFIncrementalStore alloc] initWithPersistentStoreCoordinator:coordinator configurationName:nil URL:storeURL options:options];
+        [store loadMetadata:&error];
+
+        if (![store.backingPersistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+
+        
         WeatherHTTPClient *client = [WeatherHTTPClient shareWeatherHTTPClient];
 //        client.delegate = self;
-        [client updateWeatherAtLocation:newLocation forNumberDays:5 inView:self.view withCompletion:^(id weather,NSError *error) {
-            NSLog(@"%@",weather);
-            self.weather = weather;
-            [self.tableView reloadData];
-            NSLog(@"Weather Sample 1");
-        }];
+//        [client updateWeatherAtLocation:newLocation forNumberDays:5 inView:self.view withCompletion:^(id weather,NSError *error) {
+//            NSLog(@"%@",weather);
+//            self.weather = weather;
+//            [self.tableView reloadData];
+//            NSLog(@"Weather Sample 1");
+//        }];
 //        CLLocation *testLocation = [[CLLocation alloc] initWithLatitude:10.7917914 longitude:106.655261];
 //        [client updateWeatherAtLocation:testLocation forNumberDays:5 inView:self.view withCompletion:^(id weather, NSError *error) {
 //            NSLog(@"%@",weather);
@@ -369,6 +390,14 @@ static NSString *const BaseURLString = @"http://raywenderlich.com/downloads/weat
 //            [self.tableView reloadData];
 //            NSLog(@"Weather Sample 2");
 //        }];
+        NSManagedObjectContext *context = [[NSManagedObjectContext alloc] init];
+        [context setPersistentStoreCoordinator:store.backingPersistentStoreCoordinator];
+
+        [store setHTTPClient:client];
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        [fetchRequest setEntity:[NSEntityDescription entityForName:@"Weather.ashx" inManagedObjectContext:context]];
+        [store executeFetchRequest:fetchRequest withContext:context error:&error];
+        
     }
 }
 

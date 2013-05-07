@@ -7,9 +7,11 @@
 //
 
 #import "AFHTTPClient.h"
+#import "AFRESTClient.h"
+
 @protocol WeatherHTTPClientDelegate;
 
-@interface WeatherHTTPClient : AFHTTPClient
+@interface WeatherHTTPClient : AFRESTClient
 
 @property(nonatomic, weak)id<WeatherHTTPClientDelegate> delegate;
 + (WeatherHTTPClient *) shareWeatherHTTPClient;

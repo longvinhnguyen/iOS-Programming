@@ -56,6 +56,11 @@
 		D233D11116B43004005212DE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = D233D11016B43004005212DE /* placeholder.png */; };
 		D233D11D16B441E3005212DE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D233D11C16B441E3005212DE /* CoreLocation.framework */; };
 		F629FA7C1733C1F200981660 /* HUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = F629FA7B1733C1F200981660 /* HUDView.m */; };
+		F6991599173783290042E541 /* AFIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = F6991596173783290042E541 /* AFIncrementalStore.m */; };
+		F699159A173783290042E541 /* AFRESTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F6991598173783290042E541 /* AFRESTClient.m */; };
+		F699159D1737834B0042E541 /* TTTStringInflector.m in Sources */ = {isa = PBXBuildFile; fileRef = F699159C1737834B0042E541 /* TTTStringInflector.m */; };
+		F699159F1737838A0042E541 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F699159E1737838A0042E541 /* CoreData.framework */; };
+		F69915A2173786590042E541 /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F69915A0173786590042E541 /* Weather.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +133,14 @@
 		D233D11C16B441E3005212DE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F629FA7A1733C1F200981660 /* HUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDView.h; sourceTree = "<group>"; };
 		F629FA7B1733C1F200981660 /* HUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDView.m; sourceTree = "<group>"; };
+		F6991595173783290042E541 /* AFIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFIncrementalStore.h; sourceTree = "<group>"; };
+		F6991596173783290042E541 /* AFIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFIncrementalStore.m; sourceTree = "<group>"; };
+		F6991597173783290042E541 /* AFRESTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFRESTClient.h; sourceTree = "<group>"; };
+		F6991598173783290042E541 /* AFRESTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFRESTClient.m; sourceTree = "<group>"; };
+		F699159B1737834B0042E541 /* TTTStringInflector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTStringInflector.h; sourceTree = "<group>"; };
+		F699159C1737834B0042E541 /* TTTStringInflector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTStringInflector.m; sourceTree = "<group>"; };
+		F699159E1737838A0042E541 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F69915A1173786590042E541 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F699159F1737838A0042E541 /* CoreData.framework in Frameworks */,
 				CCB3658A16CA0F36003B2CB6 /* MobileCoreServices.framework in Frameworks */,
 				CCB3658816CA0F32003B2CB6 /* SystemConfiguration.framework in Frameworks */,
 				D233D11D16B441E3005212DE /* CoreLocation.framework in Frameworks */,
@@ -150,6 +164,12 @@
 		4195F5AB172AC4C6004C22B4 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				F699159B1737834B0042E541 /* TTTStringInflector.h */,
+				F699159C1737834B0042E541 /* TTTStringInflector.m */,
+				F6991595173783290042E541 /* AFIncrementalStore.h */,
+				F6991596173783290042E541 /* AFIncrementalStore.m */,
+				F6991597173783290042E541 /* AFRESTClient.h */,
+				F6991598173783290042E541 /* AFRESTClient.m */,
 				4195F5AC172AC4C8004C22B4 /* AFHTTPClient.h */,
 				4195F5AD172AC4C8004C22B4 /* AFHTTPClient.m */,
 				4195F5AE172AC4C8004C22B4 /* AFHTTPRequestOperation.h */,
@@ -193,6 +213,7 @@
 		D233D06E16B400EF005212DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F699159E1737838A0042E541 /* CoreData.framework */,
 				D233D07316B400EF005212DE /* CoreGraphics.framework */,
 				D233D11C16B441E3005212DE /* CoreLocation.framework */,
 				D233D07116B400EF005212DE /* Foundation.framework */,
@@ -224,6 +245,7 @@
 				4191745F172CC22500806616 /* WeatherHTTPClient.m */,
 				F629FA7A1733C1F200981660 /* HUDView.h */,
 				F629FA7B1733C1F200981660 /* HUDView.m */,
+				F69915A0173786590042E541 /* Weather.xcdatamodeld */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -375,6 +397,10 @@
 				4195F5C7172AC4C8004C22B4 /* UIImageView+AFNetworking.m in Sources */,
 				41917460172CC22500806616 /* WeatherHTTPClient.m in Sources */,
 				F629FA7C1733C1F200981660 /* HUDView.m in Sources */,
+				F6991599173783290042E541 /* AFIncrementalStore.m in Sources */,
+				F699159A173783290042E541 /* AFRESTClient.m in Sources */,
+				F699159D1737834B0042E541 /* TTTStringInflector.m in Sources */,
+				F69915A2173786590042E541 /* Weather.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +522,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F69915A0173786590042E541 /* Weather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F69915A1173786590042E541 /* Weather.xcdatamodel */,
+			);
+			currentVersion = F69915A1173786590042E541 /* Weather.xcdatamodel */;
+			path = Weather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D233D06216B400EF005212DE /* Project object */;
 }

@@ -14,5 +14,7 @@
     #import <CoreLocation/CoreLocation.h>
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
+    #import <CoreData/CoreData.h>
     #import "AFNetworking.h"
+    #import "AFIncrementalStore.h"
 #endif
