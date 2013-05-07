@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		416993BB17396E5700375443 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993BA17396E5700375443 /* UIKit.framework */; };
+		416993BD17396E5700375443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993BC17396E5700375443 /* Foundation.framework */; };
+		416993BF17396E5700375443 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 416993BE17396E5700375443 /* CoreGraphics.framework */; };
+		416993C517396E5700375443 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 416993C317396E5700375443 /* InfoPlist.strings */; };
+		416993C717396E5700375443 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993C617396E5700375443 /* main.m */; };
+		416993CB17396E5700375443 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993CA17396E5700375443 /* AppDelegate.m */; };
+		416993CD17396E5700375443 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993CC17396E5700375443 /* Default.png */; };
+		416993CF17396E5700375443 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993CE17396E5700375443 /* Default@2x.png */; };
+		416993D117396E5700375443 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993D017396E5700375443 /* Default-568h@2x.png */; };
+		416993D417396E5700375443 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993D317396E5700375443 /* SearchViewController.m */; };
+		416993D717396E5700375443 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416993D517396E5700375443 /* SearchViewController.xib */; };
+		416993DF173973F600375443 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993DE173973F600375443 /* SearchResult.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		416993B717396E5700375443 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		416993BA17396E5700375443 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		416993BC17396E5700375443 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		416993BE17396E5700375443 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		416993C217396E5700375443 /* StoreSearch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StoreSearch-Info.plist"; sourceTree = "<group>"; };
+		416993C417396E5700375443 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		416993C617396E5700375443 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		416993C817396E5700375443 /* StoreSearch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StoreSearch-Prefix.pch"; sourceTree = "<group>"; };
+		416993C917396E5700375443 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		416993CA17396E5700375443 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		416993CC17396E5700375443 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		416993CE17396E5700375443 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		416993D017396E5700375443 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		416993D217396E5700375443 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		416993D317396E5700375443 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		416993D617396E5700375443 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SearchViewController.xib; sourceTree = "<group>"; };
+		416993DD173973F500375443 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		416993DE173973F600375443 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		416993B417396E5700375443 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416993BB17396E5700375443 /* UIKit.framework in Frameworks */,
+				416993BD17396E5700375443 /* Foundation.framework in Frameworks */,
+				416993BF17396E5700375443 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		416993AE17396E5700375443 = {
+			isa = PBXGroup;
+			children = (
+				416993C017396E5700375443 /* StoreSearch */,
+				416993B917396E5700375443 /* Frameworks */,
+				416993B817396E5700375443 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		416993B817396E5700375443 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				416993B717396E5700375443 /* StoreSearch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		416993B917396E5700375443 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				416993BA17396E5700375443 /* UIKit.framework */,
+				416993BC17396E5700375443 /* Foundation.framework */,
+				416993BE17396E5700375443 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		416993C017396E5700375443 /* StoreSearch */ = {
+			isa = PBXGroup;
+			children = (
+				416993C917396E5700375443 /* AppDelegate.h */,
+				416993CA17396E5700375443 /* AppDelegate.m */,
+				416993D217396E5700375443 /* SearchViewController.h */,
+				416993D317396E5700375443 /* SearchViewController.m */,
+				416993D517396E5700375443 /* SearchViewController.xib */,
+				416993C117396E5700375443 /* Supporting Files */,
+				416993DD173973F500375443 /* SearchResult.h */,
+				416993DE173973F600375443 /* SearchResult.m */,
+			);
+			path = StoreSearch;
+			sourceTree = "<group>";
+		};
+		416993C117396E5700375443 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				416993C217396E5700375443 /* StoreSearch-Info.plist */,
+				416993C317396E5700375443 /* InfoPlist.strings */,
+				416993C617396E5700375443 /* main.m */,
+				416993C817396E5700375443 /* StoreSearch-Prefix.pch */,
+				416993CC17396E5700375443 /* Default.png */,
+				416993CE17396E5700375443 /* Default@2x.png */,
+				416993D017396E5700375443 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		416993B617396E5700375443 /* StoreSearch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 416993DA17396E5700375443 /* Build configuration list for PBXNativeTarget "StoreSearch" */;
+			buildPhases = (
+				416993B317396E5700375443 /* Sources */,
+				416993B417396E5700375443 /* Frameworks */,
+				416993B517396E5700375443 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StoreSearch;
+			productName = StoreSearch;
+			productReference = 416993B717396E5700375443 /* StoreSearch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		416993AF17396E5700375443 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Home Inc";
+			};
+			buildConfigurationList = 416993B217396E5700375443 /* Build configuration list for PBXProject "StoreSearch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 416993AE17396E5700375443;
+			productRefGroup = 416993B817396E5700375443 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				416993B617396E5700375443 /* StoreSearch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		416993B517396E5700375443 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416993C517396E5700375443 /* InfoPlist.strings in Resources */,
+				416993CD17396E5700375443 /* Default.png in Resources */,
+				416993CF17396E5700375443 /* Default@2x.png in Resources */,
+				416993D117396E5700375443 /* Default-568h@2x.png in Resources */,
+				416993D717396E5700375443 /* SearchViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		416993B317396E5700375443 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416993C717396E5700375443 /* main.m in Sources */,
+				416993CB17396E5700375443 /* AppDelegate.m in Sources */,
+				416993D417396E5700375443 /* SearchViewController.m in Sources */,
+				416993DF173973F600375443 /* SearchResult.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		416993C317396E5700375443 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				416993C417396E5700375443 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		416993D517396E5700375443 /* SearchViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				416993D617396E5700375443 /* en */,
+			);
+			name = SearchViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		416993D817396E5700375443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		416993D917396E5700375443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		416993DB17396E5700375443 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
+				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		416993DC17396E5700375443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
+				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		416993B217396E5700375443 /* Build configuration list for PBXProject "StoreSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416993D817396E5700375443 /* Debug */,
+				416993D917396E5700375443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		416993DA17396E5700375443 /* Build configuration list for PBXNativeTarget "StoreSearch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				416993DB17396E5700375443 /* Debug */,
+				416993DC17396E5700375443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 416993AF17396E5700375443 /* Project object */;
+}
