@@ -8,6 +8,9 @@
 
 #import "SearchViewController.h"
 #import "SearchResult.h"
+#import "SearchResultCell.h"
+static NSString *const CellIdentifier = @"SearchResultCell";
+static NSString *const NothingFoundCellIdentifer = @"NothingFoundCell";
 
 
 @implementation SearchViewController
@@ -19,6 +22,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    UINib *cellNib = [UINib nibWithNibName:CellIdentifier bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:CellIdentifier];
+    self.tableView.rowHeight = 80;
+    cellNib  = [UINib nibWithNibName:NothingFoundCellIdentifer bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:NothingFoundCellIdentifer];
+    
+    [self.searchBar becomeFirstResponder];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,18 +54,20 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SearchResultCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+    SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     if (searchResults.count == 0) {
-        cell.textLabel.text = @"(Nothing Found)";
-        cell.detailTextLabel.text = @"";
+        return [tableView dequeueReusableCellWithIdentifier:NothingFoundCellIdentifer];
     } else {
         SearchResult *searchResult = searchResults[indexPath.row];
-        cell.textLabel.text = searchResult.name;
-        cell.detailTextLabel.text = searchResult.artistName;
+        cell.nameLabel.text = searchResult.name;
+        NSString *artistName = searchResult.artistName;
+        if (searchResult.artistName == nil) {
+            artistName = @"Unknown";
+        }
+        
+        NSString *kind = [self kindForDisplay:searchResult.kind];
+        cell.artistNameLabel.text = [NSString stringWithFormat:@"%@ (%@)",artistName, kind];
     }
     return cell;
 }
@@ -79,16 +92,179 @@
 {
     [searchBar resignFirstResponder];
     searchResults = [[NSMutableArray alloc] initWithCapacity:10];
-    if (![searchBar.text isEqualToString:@"justin bieber"]) {
-        for (int i = 0; i < 3; i++) {
-            SearchResult *searchResult = [[SearchResult alloc] init];
-            searchResult.name = [NSString stringWithFormat:@"Fake Result %d for",i];
-            searchResult.artistName = searchBar.text;
+    
+    NSURL *url = [self urlWithString:searchBar.text];
+    
+    NSString *jsonString = [self performStoreRequestWithURL:url];
+    if (jsonString == nil) {
+        [self showNetworkError];
+    }
+    
+    NSDictionary *dictionary = [self parseJSON:jsonString];
+    if (dictionary == nil) {
+        [self showNetworkError];
+    }
+    [self parseDictionary:dictionary];
+    [searchResults sortUsingSelector:@selector(compareName:)];
+
+    [self.tableView reloadData];
+}
+
+#pragma mark - Controller methods
+- (NSURL *)urlWithString:(NSString *)searchText
+{
+    NSString *escapedSearchText = [searchText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/search?term=%@",escapedSearchText];
+    VLog(@"%@",urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    return url;
+}
+
+- (NSString *)performStoreRequestWithURL:url
+{
+    NSError *error;
+    NSString *resultString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (resultString == nil) {
+        VLog(@"Download Error: %@",error);
+        return nil;
+    }
+    return resultString;
+}
+
+- (NSDictionary *)parseJSON:(NSString *)jsonString
+{
+    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    id resultObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    if (resultObject == nil) {
+        VLog(@"JSON Error:%@",error);
+        return nil;
+    }
+    
+    if (![resultObject isKindOfClass:[NSDictionary class]]) {
+        VLog(@"JSON Error: Expected dictionary");
+        return nil;
+    }
+    return resultObject;
+}
+
+- (void)showNetworkError
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Whoops..." message:@"There was an error reading from the iTunes Store. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+}
+
+- (void)parseDictionary:(NSDictionary *)dictionary
+{
+    NSArray *array = [dictionary objectForKey:@"results"];
+    if (array == nil) {
+        VLog(@"Expected results array");
+        return;
+    }
+    for (NSDictionary *resultDict in array) {
+        SearchResult *searchResult;
+        NSString *wrapperType = [resultDict objectForKey:@"wrapperType"];
+        if ([wrapperType isEqualToString:@"track"]) {
+            searchResult = [self parseTrack:resultDict];
+        } else if ([wrapperType isEqualToString:@"audiobook"]) {
+            searchResult = [self parseAudioBook:resultDict];
+        } else if ([wrapperType isEqualToString:@"software"]) {
+            searchResult = [self parseSoftware:resultDict];
+        } else if ([resultDict[@"kind"] isEqualToString:@"ebook"]) {
+            searchResult = [self parseEbook:resultDict];
+        }
+        if (searchResult) {
             [searchResults addObject:searchResult];
         }
     }
+}
 
-    [self.tableView reloadData];
+- (SearchResult *)parseTrack:(NSDictionary *)dictionary
+{
+    SearchResult *searchResult = [[SearchResult alloc] init];
+    searchResult.name = dictionary[@"trackName"];
+    searchResult.artistName = dictionary[@"artistName"];
+    searchResult.artWorkURL60 = dictionary[@"artWorkUrl60"];
+    searchResult.artWorkURL100 = dictionary[@"artWorkUrl100"];
+    searchResult.storeURL = dictionary[@"trackViewUrl"];
+    searchResult.kind = dictionary[@"kind"];
+    searchResult.price = dictionary[@"trackPrice"];
+    searchResult.currency = dictionary[@"currency"];
+    searchResult.genre = dictionary[@"primaryGenreName"];
+    return searchResult;
+    
+}
+
+- (SearchResult *)parseAudioBook:(NSDictionary *)dictionary
+{
+    SearchResult *searchResult = [[SearchResult alloc] init];
+    searchResult.name = dictionary[@"collectionName"];
+    searchResult.artistName = dictionary[@"artistName"];
+    searchResult.artWorkURL60 = dictionary[@"artWorkUrl60"];
+    searchResult.artWorkURL100 = dictionary[@"artWorkUrl100"];
+    searchResult.storeURL = dictionary[@"collectionViewUrl"];
+    searchResult.kind = dictionary[@"audiobook"];
+    searchResult.price = dictionary[@"collectionPrice"];
+    searchResult.currency = dictionary[@"currency"];
+    searchResult.genre = dictionary[@"primaryGenreName"];
+    return searchResult;
+}
+
+- (SearchResult *)parseSoftware:(NSDictionary *)dictionary
+{
+    SearchResult *searchResult = [[SearchResult alloc] init];
+    searchResult.name = dictionary[@"trackName"];
+    searchResult.artistName = dictionary[@"artistName"];
+    searchResult.artWorkURL60 = dictionary[@"artWorkUrl60"];
+    searchResult.artWorkURL100 = dictionary[@"artWorkUrl100"];
+    searchResult.storeURL = dictionary[@"trackViewUrl"];
+    searchResult.kind = dictionary[@"kind"];
+    searchResult.price = dictionary[@"trackPrice"];
+    searchResult.currency = dictionary[@"currency"];
+    searchResult.genre = dictionary[@"primaryGenreName"];
+    return searchResult;
+}
+
+- (SearchResult *)parseEbook:(NSDictionary *)dictionary
+{
+    SearchResult *searchResult = [[SearchResult alloc] init];
+    searchResult.name = dictionary[@"trackName"];
+    searchResult.artistName = dictionary[@"artistName"];
+    searchResult.artWorkURL60 = dictionary[@"artWorkUrl60"];
+    searchResult.artWorkURL100 = dictionary[@"artWorkUrl100"];
+    searchResult.storeURL = dictionary[@"trackViewUrl"];
+    searchResult.kind = dictionary[@"kind"];
+    searchResult.price = dictionary[@"trackPrice"];
+    searchResult.currency = dictionary[@"currency"];
+    searchResult.genre = (NSArray *)[dictionary[@"genres"] componentsJoinedByString:@", "];
+    return searchResult;
+}
+
+- (NSString *)kindForDisplay:(NSString *)kind
+{
+    if ([kind isEqualToString:@"album"]) {
+        return @"Album";
+    } else if ([kind isEqualToString:@"audiobook"]) {
+        return @"Audio Book";
+    } else if ([kind isEqualToString:@"book"]) {
+        return @"Book";
+    } else if ([kind isEqualToString:@"ebook"]) {
+        return @"Ebook";
+    } else if ([kind isEqualToString:@"feature-movie"]) {
+        return @"Movie";
+    } else if ([kind isEqualToString:@"music-video"]) {
+        return @"Music Video";
+    } else if ([kind isEqualToString:@"podCast"]) {
+        return @"Podcast";
+    } else if ([kind isEqualToString:@"software"]) {
+        return @"App";
+    } else if ([kind isEqualToString:@"song"]) {
+        return @"Song";
+    } else if ([kind isEqualToString:@"tv-episode"]) {
+        return @"TV Episode";
+    } else {
+        return kind;
+    }
 }
 
 @end
