@@ -17,16 +17,16 @@
 		416993D417396E5700375443 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993D317396E5700375443 /* SearchViewController.m */; };
 		416993D717396E5700375443 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416993D517396E5700375443 /* SearchViewController.xib */; };
 		416993DF173973F600375443 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993DE173973F600375443 /* SearchResult.m */; };
-		4169941E1739781700375443 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E41739781700375443 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4169941F1739781700375443 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E61739781700375443 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994201739781700375443 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E81739781700375443 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994211739781700375443 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EA1739781700375443 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994221739781700375443 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EC1739781700375443 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994231739781700375443 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EF1739781700375443 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994241739781700375443 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F21739781700375443 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994251739781700375443 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F41739781700375443 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994261739781700375443 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F61739781700375443 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416994271739781700375443 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F81739781700375443 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4169941E1739781700375443 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E41739781700375443 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		4169941F1739781700375443 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E61739781700375443 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994201739781700375443 /* AFImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993E81739781700375443 /* AFImageCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994211739781700375443 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EA1739781700375443 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994221739781700375443 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EC1739781700375443 /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994231739781700375443 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993EF1739781700375443 /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994241739781700375443 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F21739781700375443 /* AFPropertyListRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994251739781700375443 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F41739781700375443 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994261739781700375443 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F61739781700375443 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
+		416994271739781700375443 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 416993F81739781700375443 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc -Wno-unused"; }; };
 		416994281739781700375443 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993FA1739781700375443 /* Icon-72.png */; };
 		416994291739781700375443 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993FB1739781700375443 /* Icon-72@2x.png */; };
 		4169942A1739781700375443 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 416993FC1739781700375443 /* Icon-Small-50.png */; };
@@ -62,6 +62,7 @@
 		41699449173A9F0300375443 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41699448173A9F0300375443 /* SearchResultCell.xib */; };
 		4169944C173AA0C900375443 /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4169944B173AA0C900375443 /* SearchResultCell.m */; };
 		4169944E173AA56900375443 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4169944D173AA56900375443 /* NothingFoundCell.xib */; };
+		41699450173BEB2F00375443 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4169944F173BEB2F00375443 /* LoadingCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +140,7 @@
 		4169944A173AA0C900375443 /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		4169944B173AA0C900375443 /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		4169944D173AA56900375443 /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		4169944F173BEB2F00375443 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 				4169944A173AA0C900375443 /* SearchResultCell.h */,
 				4169944B173AA0C900375443 /* SearchResultCell.m */,
 				4169944D173AA56900375443 /* NothingFoundCell.xib */,
+				4169944F173BEB2F00375443 /* LoadingCell.xib */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				416994471739781700375443 /* ReadMe.txt in Resources */,
 				41699449173A9F0300375443 /* SearchResultCell.xib in Resources */,
 				4169944E173AA56900375443 /* NothingFoundCell.xib in Resources */,
+				41699450173BEB2F00375443 /* LoadingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +528,8 @@
 				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
 				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -535,6 +541,8 @@
 				GCC_PREFIX_HEADER = "StoreSearch/StoreSearch-Prefix.pch";
 				INFOPLIST_FILE = "StoreSearch/StoreSearch-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				WARNING_CFLAGS = "-Wall";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
