@@ -17,6 +17,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) MBProgressHUD *hudView;
+
 @end
 
 @implementation ViewController
@@ -24,13 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 39.281416;
-    zoomLocation.longitude = -76.580806;
-    
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5 * METERS_PER_MILE, 0.5 *METERS_PER_MILE);
-    [_mapView setDelegate:self];
-    [_mapView setRegion:region animated:YES];
     [_mapView showsUserLocation];
 }
 
@@ -63,8 +58,24 @@
     }
 }
 
+- (IBAction)showUserLocation:(id)sender {
+    [_mapView showsUserLocation];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(_mapView.userLocation.coordinate, 1000, 1000);
+    region = [_mapView regionThatFits:region];
+    [_mapView setRegion:region animated:YES];
+
+}
+
 - (IBAction)refreshTapped:(id)sender {    
     // 1
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 39.281416;
+    zoomLocation.longitude = -76.580806;
+    
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5 * METERS_PER_MILE, 0.5 *METERS_PER_MILE);
+    [_mapView setDelegate:self];
+    [_mapView setRegion:region animated:YES];
+    
     MKCoordinateRegion mapRegion = [_mapView region];
     CLLocationCoordinate2D centerLocation = mapRegion.center;
     
@@ -87,19 +98,34 @@
     // 5
     [request setDelegate:self];
     [request setCompletionBlock:^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_hudView removeFromSuperview];
+        });
 //        NSString *responseString = [request responseString];
 //        NSLog(@"Response: %@", responseString);
         [self plotCrimePositions:request.responseData];
     }];
     [request setFailedBlock:^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+//        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_hudView removeFromSuperview];
+        });
         NSError *error = [request error];
         NSLog(@"Error: %@", error.localizedDescription);
     }];
     [request startAsynchronous];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading arrests ...";    
+    _hudView = [[MBProgressHUD alloc] initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+    _hudView.animationType = MBProgressHUDModeCustomView;
+    _hudView.labelText = @"Requesting arrests ...";
+    [_hudView setCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_twitter"]]];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"iphonebg"]];
+    backgroundView.frame = _hudView.frame;
+//    _hudView.alpha = 0.5;
+    [_hudView addSubview:backgroundView];
+    [_hudView sendSubviewToBack:backgroundView];
+    [self.view addSubview:_hudView];
+    [_hudView show:YES];
 }
 
 #pragma mark - MKMapView delegate

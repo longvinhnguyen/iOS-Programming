@@ -24,6 +24,8 @@
 		415F51B81746896B0046498A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415F51B71746896B0046498A /* AddressBook.framework */; };
 		415F51BA17468CC30046498A /* arrest.png in Resources */ = {isa = PBXBuildFile; fileRef = 415F51B917468CC30046498A /* arrest.png */; };
 		415F51BC174694720046498A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415F51BB174694720046498A /* QuartzCore.framework */; };
+		415F51C01747DD1C0046498A /* iphonebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 415F51BF1747DD1C0046498A /* iphonebg.png */; };
+		415F51C21747E20C0046498A /* icon_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 415F51C11747E20C0046498A /* icon_twitter.png */; };
 		C97E1C1C77274EB99A895956 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC577777BB25467382FB4A9E /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		415F51B71746896B0046498A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		415F51B917468CC30046498A /* arrest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrest.png; sourceTree = "<group>"; };
 		415F51BB174694720046498A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		415F51BF1747DD1C0046498A /* iphonebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphonebg.png; sourceTree = "<group>"; };
+		415F51C11747E20C0046498A /* icon_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_twitter.png; sourceTree = "<group>"; };
 		B55AA5E69A5646B4B4ECCA76 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		BC577777BB25467382FB4A9E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -108,6 +112,8 @@
 		415F516917466C5D0046498A /* ArrestsPlotter */ = {
 			isa = PBXGroup;
 			children = (
+				415F51C11747E20C0046498A /* icon_twitter.png */,
+				415F51BF1747DD1C0046498A /* iphonebg.png */,
 				415F51B917468CC30046498A /* arrest.png */,
 				415F517217466C5D0046498A /* AppDelegate.h */,
 				415F517317466C5D0046498A /* AppDelegate.m */,
@@ -196,6 +202,8 @@
 				415F517D17466C5D0046498A /* MainStoryboard.storyboard in Resources */,
 				415F5189174670DE0046498A /* command.json in Resources */,
 				415F51BA17468CC30046498A /* arrest.png in Resources */,
+				415F51C01747DD1C0046498A /* iphonebg.png in Resources */,
+				415F51C21747E20C0046498A /* icon_twitter.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,11 @@
                                             <action selector="refreshTapped:" destination="2" id="UWW-zB-a0a"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="User Location" id="rIy-HL-Zie">
+                                        <connections>
+                                            <action selector="showUserLocation:" destination="2" id="qDd-VE-7Nr"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="f9n-s5-1qw">
