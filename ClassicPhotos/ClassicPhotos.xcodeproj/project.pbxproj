@@ -25,6 +25,7 @@
 		412D8B57174E75CE00C2834C /* Failed.png in Resources */ = {isa = PBXBuildFile; fileRef = 412D8B55174E75CE00C2834C /* Failed.png */; };
 		412D8B5A174E7CD100C2834C /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 412D8B59174E7CD100C2834C /* Placeholder.png */; };
 		91C6100B974242FEB41051F8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62300857A6B24A6E9839A448 /* libPods.a */; };
+		F6905792174F0701005F9EB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6905791174F0701005F9EB6 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		412D8B59174E7CD100C2834C /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		62300857A6B24A6E9839A448 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8589FB0B4B9B45CAAEDC94D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		F6905791174F0701005F9EB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6905792174F0701005F9EB6 /* QuartzCore.framework in Frameworks */,
 				412D8B47174E52BC00C2834C /* CoreImage.framework in Frameworks */,
 				412D8B1E174E51A800C2834C /* UIKit.framework in Frameworks */,
 				412D8B20174E51A800C2834C /* Foundation.framework in Frameworks */,
@@ -95,6 +98,7 @@
 		412D8B1C174E51A800C2834C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6905791174F0701005F9EB6 /* QuartzCore.framework */,
 				412D8B46174E52BC00C2834C /* CoreImage.framework */,
 				412D8B1D174E51A800C2834C /* UIKit.framework */,
 				412D8B1F174E51A800C2834C /* Foundation.framework */,

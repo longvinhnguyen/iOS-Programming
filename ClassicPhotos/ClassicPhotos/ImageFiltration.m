@@ -60,7 +60,7 @@
 
     UIImage *sepialImage = nil;
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIFilter *filter = [CIFilter filterWithName:@"CISepialTone" keysAndValues:kCIInputImageKey, inputImage, @"inputIntensity", [NSNumber numberWithFloat:0.8f], nil];
+    CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:kCIInputImageKey, inputImage, @"inputIntensity", [NSNumber numberWithFloat:0.8f], nil];
     CIImage *outputImage = [filter outputImage];
     if (self.isCancelled) return nil;
 

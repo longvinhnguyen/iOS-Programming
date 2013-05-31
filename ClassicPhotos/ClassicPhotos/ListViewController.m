@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "ListViewController.h"
+
 
 @interface ListViewController ()
 
@@ -76,9 +78,9 @@
         [self startImageDownloadingForRecord:record atIndexPath:indexPath];
     }
     
-//    if (!record.isFiltered) {
-//        [self startImageFiltrationForRecord:record atIndexPath:indexPath];
-//    }
+    if (!record.isFiltered) {
+        [self startImageFiltrationForRecord:record atIndexPath:indexPath];
+    }
 }
 
 - (void)startImageDownloadingForRecord:(PhotoRecord *)record atIndexPath:(NSIndexPath *)indexPath
@@ -103,6 +105,7 @@
     }
 }
 
+
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad
@@ -117,7 +120,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self cancelAllOperations];
 }
 
 
@@ -152,6 +155,8 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         cell.accessoryView = activityIndicatorView;
+        cell.imageView.layer.cornerRadius = 8.0f;
+        cell.imageView.layer.masksToBounds = YES;
     }
     
     PhotoRecord *aRecord = [_photos objectAtIndex:indexPath.row];
@@ -168,7 +173,9 @@
         [(UIActivityIndicatorView *)cell.accessoryView startAnimating];
         cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
         cell.textLabel.text = @"";
-        [self startOperationForPhotoRecord:aRecord atIndexPath:indexPath];
+        if (!(tableView.dragging || tableView.decelerating)) {
+            [self startOperationForPhotoRecord:aRecord atIndexPath:indexPath];
+        }
     }
     
     return cell;
@@ -190,12 +197,8 @@
 #pragma mark - ImageDownloader delegate
 - (void)imageDownloaderDidFinish:(ImageDownloader *)downloader
 {
-    // 1
     NSIndexPath *indexPath = downloader.indexPathInTableView;
-    NSLog(@"%@ Photo: %@",downloader, downloader.photoRecord.image);
-    // 3
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    // 4
     [self.pendingOperations.downloadsInProgress removeObjectForKey:indexPath];
 }
 
@@ -207,6 +210,80 @@
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     [self.pendingOperations.filtrationInProgress removeObjectForKey:indexPath];
 }
+
+#pragma mark - UIScrollView delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self suspendAllOperations];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [self loadImagesForOneScreenCells];
+        [self resumeAllOperations];
+        
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOneScreenCells];
+    [self resumeAllOperations];
+}
+
+#pragma mark - Cancelling, Suspending, resuming queues / operations
+- (void)suspendAllOperations
+{
+    [self.pendingOperations.downloadQueue setSuspended:YES];
+    [self.pendingOperations.filtrationQueue setSuspended:YES];
+}
+
+- (void)resumeAllOperations
+{
+    [self.pendingOperations.downloadQueue setSuspended:NO];
+    [self.pendingOperations.filtrationQueue setSuspended:NO];
+}
+
+- (void)cancelAllOperations
+{
+    [self.pendingOperations.downloadQueue cancelAllOperations];
+    [self.pendingOperations.filtrationQueue cancelAllOperations];
+}
+
+
+- (void)loadImagesForOneScreenCells
+{
+    NSSet *visibleRows = [NSSet setWithArray:[self.tableView indexPathsForVisibleRows]];
+    NSMutableSet *pendingOperations = [NSMutableSet setWithArray:[self.pendingOperations.downloadsInProgress allKeys]];
+    [pendingOperations addObjectsFromArray:self.pendingOperations.filtrationInProgress.allKeys];
+    
+    NSMutableSet *toBeStarted = [visibleRows mutableCopy];
+    NSMutableSet *toBeCanceled = [pendingOperations mutableCopy];
+    
+    [toBeStarted minusSet:pendingOperations];
+    [toBeCanceled minusSet:visibleRows];
+    
+    for (NSIndexPath *indexPath in toBeCanceled) {
+        ImageDownloader *pendingDownload = [self.pendingOperations.downloadsInProgress objectForKey:indexPath];
+        [pendingDownload cancel];
+        [self.pendingOperations.downloadsInProgress removeObjectForKey:indexPath];
+        
+        ImageFiltration *pendingFiltration = [self.pendingOperations.filtrationInProgress objectForKey:indexPath];
+        [pendingFiltration cancel];
+        [self.pendingOperations.filtrationInProgress removeObjectForKey:indexPath];
+    }
+    toBeCanceled = nil;
+    
+    for (NSIndexPath *anIndexPath in toBeStarted) {
+        PhotoRecord *photoRecord = [self.photos objectAtIndex:anIndexPath.row];
+        [self startOperationForPhotoRecord:photoRecord atIndexPath:anIndexPath];
+    }
+    toBeStarted = nil;
+}
+
+#pragma mark - iCarousel delegate
+
 
 
 

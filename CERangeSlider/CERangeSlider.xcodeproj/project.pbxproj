@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F61E567F1758474D006F4F2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61E567E1758474D006F4F2E /* UIKit.framework */; };
+		F61E56811758474D006F4F2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61E56801758474D006F4F2E /* Foundation.framework */; };
+		F61E56831758474D006F4F2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61E56821758474D006F4F2E /* CoreGraphics.framework */; };
+		F61E56891758474D006F4F2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F61E56871758474D006F4F2E /* InfoPlist.strings */; };
+		F61E568B1758474D006F4F2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E568A1758474D006F4F2E /* main.m */; };
+		F61E568F1758474D006F4F2E /* CEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E568E1758474D006F4F2E /* CEAppDelegate.m */; };
+		F61E56911758474D006F4F2E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F61E56901758474D006F4F2E /* Default.png */; };
+		F61E56931758474D006F4F2E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F61E56921758474D006F4F2E /* Default@2x.png */; };
+		F61E56951758474D006F4F2E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F61E56941758474D006F4F2E /* Default-568h@2x.png */; };
+		F61E56981758474D006F4F2E /* CEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E56971758474D006F4F2E /* CEViewController.m */; };
+		F61E569B1758474D006F4F2E /* CEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61E56991758474D006F4F2E /* CEViewController.xib */; };
+		F61E56A31758478E006F4F2E /* CERangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = F61E56A21758478E006F4F2E /* CERangeSlider.m */; };
+		F61E56A51758499D006F4F2E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61E56A41758499D006F4F2E /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F61E567B1758474D006F4F2E /* CERangeSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CERangeSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F61E567E1758474D006F4F2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F61E56801758474D006F4F2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F61E56821758474D006F4F2E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F61E56861758474D006F4F2E /* CERangeSlider-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CERangeSlider-Info.plist"; sourceTree = "<group>"; };
+		F61E56881758474D006F4F2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F61E568A1758474D006F4F2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F61E568C1758474D006F4F2E /* CERangeSlider-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CERangeSlider-Prefix.pch"; sourceTree = "<group>"; };
+		F61E568D1758474D006F4F2E /* CEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEAppDelegate.h; sourceTree = "<group>"; };
+		F61E568E1758474D006F4F2E /* CEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEAppDelegate.m; sourceTree = "<group>"; };
+		F61E56901758474D006F4F2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F61E56921758474D006F4F2E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F61E56941758474D006F4F2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		F61E56961758474D006F4F2E /* CEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CEViewController.h; sourceTree = "<group>"; };
+		F61E56971758474D006F4F2E /* CEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CEViewController.m; sourceTree = "<group>"; };
+		F61E569A1758474D006F4F2E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CEViewController.xib; sourceTree = "<group>"; };
+		F61E56A11758478E006F4F2E /* CERangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CERangeSlider.h; sourceTree = "<group>"; };
+		F61E56A21758478E006F4F2E /* CERangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CERangeSlider.m; sourceTree = "<group>"; };
+		F61E56A41758499D006F4F2E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F61E56781758474D006F4F2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61E56A51758499D006F4F2E /* QuartzCore.framework in Frameworks */,
+				F61E567F1758474D006F4F2E /* UIKit.framework in Frameworks */,
+				F61E56811758474D006F4F2E /* Foundation.framework in Frameworks */,
+				F61E56831758474D006F4F2E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F61E56721758474C006F4F2E = {
+			isa = PBXGroup;
+			children = (
+				F61E56841758474D006F4F2E /* CERangeSlider */,
+				F61E567D1758474D006F4F2E /* Frameworks */,
+				F61E567C1758474D006F4F2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F61E567C1758474D006F4F2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F61E567B1758474D006F4F2E /* CERangeSlider.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F61E567D1758474D006F4F2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F61E56A41758499D006F4F2E /* QuartzCore.framework */,
+				F61E567E1758474D006F4F2E /* UIKit.framework */,
+				F61E56801758474D006F4F2E /* Foundation.framework */,
+				F61E56821758474D006F4F2E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F61E56841758474D006F4F2E /* CERangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				F61E568D1758474D006F4F2E /* CEAppDelegate.h */,
+				F61E568E1758474D006F4F2E /* CEAppDelegate.m */,
+				F61E56961758474D006F4F2E /* CEViewController.h */,
+				F61E56971758474D006F4F2E /* CEViewController.m */,
+				F61E56991758474D006F4F2E /* CEViewController.xib */,
+				F61E56851758474D006F4F2E /* Supporting Files */,
+				F61E56A11758478E006F4F2E /* CERangeSlider.h */,
+				F61E56A21758478E006F4F2E /* CERangeSlider.m */,
+			);
+			path = CERangeSlider;
+			sourceTree = "<group>";
+		};
+		F61E56851758474D006F4F2E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F61E56861758474D006F4F2E /* CERangeSlider-Info.plist */,
+				F61E56871758474D006F4F2E /* InfoPlist.strings */,
+				F61E568A1758474D006F4F2E /* main.m */,
+				F61E568C1758474D006F4F2E /* CERangeSlider-Prefix.pch */,
+				F61E56901758474D006F4F2E /* Default.png */,
+				F61E56921758474D006F4F2E /* Default@2x.png */,
+				F61E56941758474D006F4F2E /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F61E567A1758474D006F4F2E /* CERangeSlider */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F61E569E1758474D006F4F2E /* Build configuration list for PBXNativeTarget "CERangeSlider" */;
+			buildPhases = (
+				F61E56771758474D006F4F2E /* Sources */,
+				F61E56781758474D006F4F2E /* Frameworks */,
+				F61E56791758474D006F4F2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CERangeSlider;
+			productName = CERangeSlider;
+			productReference = F61E567B1758474D006F4F2E /* CERangeSlider.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F61E56731758474C006F4F2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CE;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "VisiKard MacBook Pro";
+			};
+			buildConfigurationList = F61E56761758474C006F4F2E /* Build configuration list for PBXProject "CERangeSlider" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F61E56721758474C006F4F2E;
+			productRefGroup = F61E567C1758474D006F4F2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F61E567A1758474D006F4F2E /* CERangeSlider */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F61E56791758474D006F4F2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61E56891758474D006F4F2E /* InfoPlist.strings in Resources */,
+				F61E56911758474D006F4F2E /* Default.png in Resources */,
+				F61E56931758474D006F4F2E /* Default@2x.png in Resources */,
+				F61E56951758474D006F4F2E /* Default-568h@2x.png in Resources */,
+				F61E569B1758474D006F4F2E /* CEViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F61E56771758474D006F4F2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61E568B1758474D006F4F2E /* main.m in Sources */,
+				F61E568F1758474D006F4F2E /* CEAppDelegate.m in Sources */,
+				F61E56981758474D006F4F2E /* CEViewController.m in Sources */,
+				F61E56A31758478E006F4F2E /* CERangeSlider.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F61E56871758474D006F4F2E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61E56881758474D006F4F2E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F61E56991758474D006F4F2E /* CEViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F61E569A1758474D006F4F2E /* en */,
+			);
+			name = CEViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F61E569C1758474D006F4F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F61E569D1758474D006F4F2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F61E569F1758474D006F4F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CERangeSlider/CERangeSlider-Prefix.pch";
+				INFOPLIST_FILE = "CERangeSlider/CERangeSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F61E56A01758474D006F4F2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CERangeSlider/CERangeSlider-Prefix.pch";
+				INFOPLIST_FILE = "CERangeSlider/CERangeSlider-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F61E56761758474C006F4F2E /* Build configuration list for PBXProject "CERangeSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61E569C1758474D006F4F2E /* Debug */,
+				F61E569D1758474D006F4F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F61E569E1758474D006F4F2E /* Build configuration list for PBXNativeTarget "CERangeSlider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61E569F1758474D006F4F2E /* Debug */,
+				F61E56A01758474D006F4F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F61E56731758474C006F4F2E /* Project object */;
+}
