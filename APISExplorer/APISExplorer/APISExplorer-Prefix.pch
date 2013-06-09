@@ -1,0 +1,21 @@
+//
+// Prefix header for all source files of the 'APISExplorer' target in the 'APISExplorer' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+#define STRING_ROOT_URL_REQUEST_FOURSQUARE @"https://api.foursquare.com/v2/"
+#define FS_USER_TOKEN @"YU1EVOS20ZJ4T1PF5GY5EUQOEBDLFG0WI5TKMR5PFYQ1G4CC"
+#define FS_USER_ID @"20130609"
+#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES 1
+
+#define VIEWDECKCONTROLLER ((AppDelegate *)[UIApplication sharedApplication].delegate).slideViewController
