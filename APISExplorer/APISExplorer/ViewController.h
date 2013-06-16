@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <IIViewDeckController.h>
+#import "LeftMenuController.h"
 
-@interface ViewController : UIViewController<IIViewDeckControllerDelegate>
+@class ViewController, Venue;
+
+@protocol ViewControllerDelegate <NSObject>
+
+- (void)viewController:(ViewController *)controller showVenueOnMap:(Venue *)venue;
+
+@end
+
+@interface ViewController : UIViewController<IIViewDeckControllerDelegate, LeftMenuControllerDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableView *mainTableView;
+@property (nonatomic, weak) id<ViewControllerDelegate>delegate;
 
 @end

@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Google-Maps-iOS-SDK
+
+Copyright 2013 Google Inc.
+
 ## ViewDeck
 
 Copyright (C) 2011-2013, Tom Adriaenssen

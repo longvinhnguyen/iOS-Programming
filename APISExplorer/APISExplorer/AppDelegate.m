@@ -10,26 +10,46 @@
 
 #import "ViewController.h"
 #import "LeftMenuController.h"
+#import "MapViewController.h"
 #import <IIViewDeckController.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self customizeAppearance];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *centerViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    ViewController *centerViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
     self.slideViewController = [[IIViewDeckController alloc] initWithCenterViewController:centerViewController];
 
 
     self.slideViewController.navigationControllerBehavior = IIViewDeckNavigationControllerContained;
     LeftMenuController *leftMenuController = [[LeftMenuController alloc] initWithNibName:nil bundle:nil];
+    leftMenuController.delegate = centerViewController;
     self.slideViewController.leftController =  leftMenuController;
-
     
-    self.window.rootViewController = self.slideViewController;
+    // Iniate google map view controller
+    MapViewController *mvc = [[MapViewController alloc] init];
+    self.slideViewController.rightController = mvc;
+    centerViewController.delegate = mvc;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.slideViewController];
+    navigationController.navigationBarHidden = YES;
+
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [GMSServices provideAPIKey:GOOGLE_MAP_API_KEY];
+    self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)customizeAppearance
+{
+//    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.5]];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -11,11 +11,21 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <GoogleMaps/GoogleMaps.h>
 #endif
+
+#define VLog(fmt,...) NSLog(@"%s [LINE %d]" fmt,__PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
 #define STRING_ROOT_URL_REQUEST_FOURSQUARE @"https://api.foursquare.com/v2/"
 #define FS_USER_TOKEN @"YU1EVOS20ZJ4T1PF5GY5EUQOEBDLFG0WI5TKMR5PFYQ1G4CC"
 #define FS_USER_ID @"20130609"
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES 1
-
+#define GOOGLE_MAP_API_KEY @"AIzaSyBsiCdBJzxPMcOwIlgs8xlPl0ztVZm5TfQ"
+#define STRING_ROOT_URL_REQUEST_GOOLGE_PLACES @"https://maps.googleapis.com/maps/api/place/"
 #define VIEWDECKCONTROLLER ((AppDelegate *)[UIApplication sharedApplication].delegate).slideViewController
+
+
+typedef enum {
+    enum_api_request_fs,
+    enum_api_request_google
+}enum_api_request;

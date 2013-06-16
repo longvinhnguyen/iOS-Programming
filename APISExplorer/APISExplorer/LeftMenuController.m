@@ -10,20 +10,21 @@
 #import "AppDelegate.h"
 #import <IIViewDeckController.h>
 
+
 @interface LeftMenuController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation LeftMenuController
 {
-    NSMutableArray *apiLists;
+    NSMutableDictionary *apiLists;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        apiLists = [NSMutableArray new];
+        apiLists = [NSMutableDictionary new];
     }
     return self;
 }
@@ -32,9 +33,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObject:STRING_ROOT_URL_REQUEST_FOURSQUARE forKey:@"Foursquare API"];
-    [apiLists addObject:dictionary];
-    
+    [apiLists setValue:STRING_ROOT_URL_REQUEST_FOURSQUARE forKey:[NSString stringWithFormat:@"%i",enum_api_request_fs]];
+    [apiLists setValue:STRING_ROOT_URL_REQUEST_GOOLGE_PLACES forKey:[NSString stringWithFormat:@"%i",enum_api_request_google]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return apiLists.count;
+    return apiLists.allKeys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,8 +63,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
 
-    NSDictionary *api = apiLists[indexPath.row];
-    cell.textLabel.text = api.allKeys[0];
+    int type = [apiLists.allKeys[indexPath.row] intValue];
+    switch (type) {
+        case enum_api_request_fs:
+            cell.textLabel.text = @"Foursquare API";
+            break;
+        case enum_api_request_google:
+            cell.textLabel.text = @"Google Places API";
+            break;
+        default:
+            break;
+    }
 
     return cell;
 }
@@ -72,6 +81,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [VIEWDECKCONTROLLER toggleLeftView];
+    [self.delegate leftMenuControllerdidFinishSelectingAPI:apiLists[apiLists.allKeys[indexPath.row]] withType:[apiLists.allKeys[indexPath.row] intValue]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

@@ -20,6 +20,12 @@
 		41BAED171764D6A4000F5EF2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41BAED161764D6A4000F5EF2 /* Default-568h@2x.png */; };
 		41BAED1A1764D6A4000F5EF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BAED191764D6A4000F5EF2 /* ViewController.m */; };
 		41BAED1D1764D6A4000F5EF2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BAED1B1764D6A4000F5EF2 /* ViewController.xib */; };
+		41D48321176B6DAA00EAE4AF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D48320176B6DAA00EAE4AF /* CoreLocation.framework */; };
+		41D48327176B755F00EAE4AF /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D48326176B755F00EAE4AF /* Venue.m */; };
+		41F8068D17677BAD00D7A653 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F8068C17677BAD00D7A653 /* MapViewController.m */; };
+		41F806901767881C00D7A653 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 41F8068F1767881C00D7A653 /* home.png */; };
+		41F806921768D24D00D7A653 /* newark_nj_1922.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 41F806911768D24D00D7A653 /* newark_nj_1922.jpg */; };
+		41F806941768D91300D7A653 /* australia.png in Resources */ = {isa = PBXBuildFile; fileRef = 41F806931768D91300D7A653 /* australia.png */; };
 		A074ED870090430AA53D2732 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 111C85D9B6A548CA8033D094 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +51,14 @@
 		41BAED181764D6A4000F5EF2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		41BAED191764D6A4000F5EF2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		41BAED1C1764D6A4000F5EF2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		41D48320176B6DAA00EAE4AF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		41D48325176B755F00EAE4AF /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Venue.h; sourceTree = "<group>"; };
+		41D48326176B755F00EAE4AF /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Venue.m; sourceTree = "<group>"; };
+		41F8068B17677BAD00D7A653 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		41F8068C17677BAD00D7A653 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		41F8068F1767881C00D7A653 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		41F806911768D24D00D7A653 /* newark_nj_1922.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newark_nj_1922.jpg; sourceTree = "<group>"; };
+		41F806931768D91300D7A653 /* australia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = australia.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D48321176B6DAA00EAE4AF /* CoreLocation.framework in Frameworks */,
 				41BAED011764D6A4000F5EF2 /* UIKit.framework in Frameworks */,
 				41BAED031764D6A4000F5EF2 /* Foundation.framework in Frameworks */,
 				41BAED051764D6A4000F5EF2 /* CoreGraphics.framework in Frameworks */,
@@ -83,6 +98,7 @@
 		41BAECFF1764D6A4000F5EF2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41D48320176B6DAA00EAE4AF /* CoreLocation.framework */,
 				41BAED001764D6A4000F5EF2 /* UIKit.framework */,
 				41BAED021764D6A4000F5EF2 /* Foundation.framework */,
 				41BAED041764D6A4000F5EF2 /* CoreGraphics.framework */,
@@ -94,6 +110,8 @@
 		41BAED061764D6A4000F5EF2 /* APISExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				41D48324176B754F00EAE4AF /* Objects */,
+				41F8068E1767880C00D7A653 /* Resources */,
 				41BAED0F1764D6A4000F5EF2 /* AppDelegate.h */,
 				41BAED101764D6A4000F5EF2 /* AppDelegate.m */,
 				41BAED181764D6A4000F5EF2 /* ViewController.h */,
@@ -103,6 +121,8 @@
 				416A845B1764DA7400AE2E4D /* LeftMenuController.h */,
 				416A845C1764DA7400AE2E4D /* LeftMenuController.m */,
 				416A845D1764DA7400AE2E4D /* LeftMenuController.xib */,
+				41F8068B17677BAD00D7A653 /* MapViewController.h */,
+				41F8068C17677BAD00D7A653 /* MapViewController.m */,
 			);
 			path = APISExplorer;
 			sourceTree = "<group>";
@@ -119,6 +139,25 @@
 				41BAED161764D6A4000F5EF2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41D48324176B754F00EAE4AF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				41D48325176B755F00EAE4AF /* Venue.h */,
+				41D48326176B755F00EAE4AF /* Venue.m */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		41F8068E1767880C00D7A653 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				41F806931768D91300D7A653 /* australia.png */,
+				41F806911768D24D00D7A653 /* newark_nj_1922.jpg */,
+				41F8068F1767881C00D7A653 /* home.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +219,9 @@
 				41BAED171764D6A4000F5EF2 /* Default-568h@2x.png in Resources */,
 				41BAED1D1764D6A4000F5EF2 /* ViewController.xib in Resources */,
 				416A845F1764DA7400AE2E4D /* LeftMenuController.xib in Resources */,
+				41F806901767881C00D7A653 /* home.png in Resources */,
+				41F806921768D24D00D7A653 /* newark_nj_1922.jpg in Resources */,
+				41F806941768D91300D7A653 /* australia.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +267,8 @@
 				41BAED111764D6A4000F5EF2 /* AppDelegate.m in Sources */,
 				41BAED1A1764D6A4000F5EF2 /* ViewController.m in Sources */,
 				416A845E1764DA7400AE2E4D /* LeftMenuController.m in Sources */,
+				41F8068D17677BAD00D7A653 /* MapViewController.m in Sources */,
+				41D48327176B755F00EAE4AF /* Venue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +357,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "APISExplorer/APISExplorer-Prefix.pch";
 				INFOPLIST_FILE = "APISExplorer/APISExplorer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -325,6 +370,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "APISExplorer/APISExplorer-Prefix.pch";
 				INFOPLIST_FILE = "APISExplorer/APISExplorer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

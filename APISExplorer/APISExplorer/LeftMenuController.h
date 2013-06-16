@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class LeftMenuController;
+
+@protocol LeftMenuControllerDelegate <NSObject>
+
+- (void)leftMenuControllerdidFinishSelectingAPI:(NSString *)api withType:(enum_api_request)type;
+
+@end
+
+
 @interface LeftMenuController : UIViewController
+
+@property (nonatomic, weak) id<LeftMenuControllerDelegate>delegate;
+
 
 @end

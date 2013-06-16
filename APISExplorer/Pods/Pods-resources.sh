@@ -25,3 +25,4 @@ install_resource()
       ;;
   esac
 }
+install_resource 'Google-Maps-iOS-SDK/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle'
