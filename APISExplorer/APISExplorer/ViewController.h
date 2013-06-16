@@ -18,7 +18,7 @@
 
 @end
 
-@interface ViewController : UIViewController<IIViewDeckControllerDelegate, LeftMenuControllerDelegate>
+@interface ViewController : UIViewController<IIViewDeckControllerDelegate, LeftMenuControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *mainTableView;
 @property (nonatomic, weak) id<ViewControllerDelegate>delegate;

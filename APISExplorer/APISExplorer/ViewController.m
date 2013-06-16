@@ -24,6 +24,7 @@
     CLLocationManager *locationManager;
     CLLocation *userLocation;
     NSMutableArray *_venueLists;
+    NSMutableArray *_searchResultsLists;
 }
 
 - (void)viewDidLoad
@@ -35,6 +36,7 @@
     [locationManager startUpdatingLocation];
     
     _venueLists = [NSMutableArray new];
+    _searchResultsLists = [[NSMutableArray alloc] initWithCapacity:10];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +48,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [VIEWDECKCONTROLLER toggleRightView];
+    [VIEWDECKCONTROLLER openLeftViewAnimated:YES];
 }
 
 #pragma mark
@@ -58,6 +60,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == _mainTableView) {
+        return _venueLists.count;
+    } else if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return _searchResultsLists.count;
+    }
     return _venueLists.count;
 }
 
@@ -68,18 +75,34 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellId];
     }
-    Venue *_venue = _venueLists[indexPath.row];
+    Venue *_venue;
+    if (tableView == _mainTableView) {
+        _venue = _venueLists[indexPath.row];
+    } else if (self.searchDisplayController.searchResultsTableView) {
+        _venue = _searchResultsLists[indexPath.row];
+    }
+    
+    
     cell.textLabel.text = _venue.title;
     cell.detailTextLabel.text = _venue.detailTitle;
+    cell.imageView.image = _venue.imageIcon;
+
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Venue *_venue = [_venueLists objectAtIndex:indexPath.row];
-    [self.delegate viewController:self showVenueOnMap:_venue];
-    [VIEWDECKCONTROLLER toggleRightView];
+    Venue *venue;
+    if (tableView == _mainTableView) {
+        venue = [_venueLists objectAtIndex:indexPath.row];
+    } else if (tableView == self.searchDisplayController.searchResultsTableView) {
+        venue = [_searchResultsLists objectAtIndex:indexPath.row];
+    }
+    [self.delegate viewController:self showVenueOnMap:venue];
+    if (![VIEWDECKCONTROLLER isSideOpen:IIViewDeckRightSide]) {
+        [VIEWDECKCONTROLLER toggleRightView];
+    }
 }
 
 #pragma mark
@@ -131,7 +154,7 @@
 - (void)performGoogleSearchPlaces:(NSMutableDictionary *)params
 {
     [client getPath:@"nearbysearch/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject)
-     {
+    {
         NSString *nextPageToken = responseObject[@"next_page_token"];
          VLog(@"%@ ==========> %@", nextPageToken, responseObject);
          NSArray *results = responseObject[@"results"];
@@ -151,6 +174,29 @@
      }];
 }
 
+- (void)performGoogleTextSearch:(NSMutableDictionary *)params;
+{
+    [client getPath:@"textsearch/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *nextPageToken = responseObject[@"next_page_token"];
+        VLog(@"%@ ==========> %@", nextPageToken, responseObject);
+        NSArray *results = responseObject[@"results"];
+        for (NSDictionary *dict in results) {
+            if (results.count > 0) {
+                Venue *venue = [[Venue alloc] init];
+                [venue loadDataFromGooglePlaceTextSearch:dict];
+                if (_searchResultsLists.count < 10) {
+                    [_searchResultsLists addObject:venue];
+                }
+            }
+            [self.searchDisplayController.searchResultsTableView reloadData];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            VLog(@"Error %@ %@", error.localizedDescription, operation.request.URL);
+        }
+    }];
+}
+
 #pragma mark
 #pragma mark - CoreLocationManager delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -165,6 +211,24 @@
         }
     }];
     [locationManager stopUpdatingLocation];
+}
+
+#pragma mark
+#pragma mark - SearchDisplayController delegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    VLog(@"SearchBar button clicked");
+    NSString *searchText = searchBar.text;
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:searchText forKey:@"query"];
+    [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
+    [params setObject:@"false" forKey:@"sensor"];
+    [self performGoogleTextSearch:params];
+}
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
+{
+    VLog(@"SearchBar button clicked");
 }
 
 @end

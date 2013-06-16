@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "Venue.h"
 
+#define HEIGHT_TOOLBAR_VIEW_CONTROLLER 44
+
 @interface TestTileLayer : GMSSyncTileLayer
 
 @end
@@ -50,132 +52,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // set up toolbar
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *clearMapButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(clearMapView:)];
+    UIBarButtonItem *drawPolyLine = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(drawPolylines:)];
+    toolBar.items = @[clearMapButton, drawPolyLine];
+    
+    // set up map view
+    
+    _mapView = [GMSMapView mapWithFrame:CGRectMake(0, HEIGHT_TOOLBAR_VIEW_CONTROLLER, WIDTH_IPHONE, HEIGHT_IPHONE - HEIGHT_TOOLBAR_VIEW_CONTROLLER) camera:[GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:12]];
+    [_mapView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
+    _mapView.settings.myLocationButton = YES;
+    _mapView.settings.compassButton = YES;
+    _mapView.myLocationEnabled = YES;
+    
+    GMSCameraUpdate *myLocation = [GMSCameraUpdate setTarget:_mapView.myLocation.coordinate];
+    VLog(@"My location: %f %f", _mapView.myLocation.coordinate.latitude, _mapView.myLocation.coordinate.longitude);
+    [_mapView moveCamera:myLocation];
+    [self.view addSubview:_mapView];
+    [self.view addSubview:toolBar];
 
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTitle:@"Clear Map" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
-    VLog(@"Size of view: %f", self.view.bounds.size.height);
-    button.frame = CGRectMake(50, self.view.bounds.size.height - 60, 100, 40);
-    [button addTarget:self action:@selector(clearMapView:) forControlEvents:UIControlEventTouchUpInside];
-    [_mapView addSubview:button];
-    
     _mapIcon = [UIImage imageNamed:@"home"];
-}
-
-- (void)loadView
-{
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-37.8131 longitude:144.96298 zoom:12];
-    _mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    _mapView.myLocationEnabled = YES;
-    _mapView.mapType = kGMSTypeNormal;
-    _mapView.delegate = self;
-//    _mapView.settings.scrollGestures = NO;
-//    _mapView.settings.zoomGestures = NO;
-    _mapView.settings.compassButton = YES;
-    _mapView.settings.myLocationButton = YES;
-    
-    self.view = _mapView;
-    
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.position = CLLocationCoordinate2DMake(-37.81319, 144.96298);
-    marker.icon = [GMSMarker markerImageWithColor:[UIColor blackColor]];
-    marker.map = _mapView;
-    
-    // Add polyline to the map
-    GMSMutablePath *path = [[GMSMutablePath alloc] init];
-    [path addLatitude:-37.81319 longitude:144.96298];
-    [path addLatitude:-31.95288 longitude:115.85734];
-    GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
-    polyline.strokeWidth = 10.0f;
-    polyline.strokeColor = [UIColor greenColor];
-    polyline.geodesic = YES;
-    polyline.map = _mapView;
-    
-    // Add polygon to the map
-    GMSMutablePath *rect = [[GMSMutablePath alloc] init];
-    [rect addCoordinate:CLLocationCoordinate2DMake(37.35, -122.0)];
-    [rect addCoordinate:CLLocationCoordinate2DMake(37.45, -122.0)];
-    [rect addCoordinate:CLLocationCoordinate2DMake(37.45, -122.2)];
-    [rect addCoordinate:CLLocationCoordinate2DMake(37.35, -122.2)];
-    
-    GMSPolygon *polygon = [GMSPolygon polygonWithPath:rect];
-    polygon.fillColor = [UIColor colorWithRed:0.25 green:0 blue:0 alpha:0.05];
-    polygon.strokeColor = [UIColor blackColor];
-    polygon.strokeWidth = 2;
-    polygon.map = _mapView;
-    
-    _mapView.camera = [GMSCameraPosition cameraWithLatitude:37.35 longitude:-122.0 zoom:12];
-    
-    // Add circle to the map
-    CLLocationCoordinate2D circleCenter = CLLocationCoordinate2DMake(37.75, -122.0);
-    GMSCircle *circ = [GMSCircle circleWithPosition:circleCenter radius:1000];
-    circ.fillColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
-    circ.strokeColor = [UIColor redColor];
-    circ.strokeWidth = 5.0f;
-    circ.map = _mapView;
-    
-    // Add overlay to the map
-    CLLocationCoordinate2D newark = CLLocationCoordinate2DMake(40.742, -74.174);
-    UIImage *icon = [UIImage imageNamed:@"newark_nj_1922.jpg"];
-    GMSGroundOverlay *overlay = [GMSGroundOverlay groundOverlayWithPosition:newark icon:icon];
-    overlay.bearing = 0;
-    overlay.zoomLevel = 13.6;
-    overlay.map = _mapView;
-    overlay.tappable = YES;
-
-    
-    _mapView.camera = [GMSCameraPosition cameraWithLatitude:40.742 longitude:-74.174 zoom:12];
-    
-    // Add Tile Layer
-//    NSInteger floor = 1;
-//    GMSTileURLConstructor urls = ^(NSUInteger x, NSUInteger y, NSUInteger zoom) {
-//        NSString *url = [NSString stringWithFormat:@"http://www.example.com/floorplans/L%d_%d_%d_%d.png", floor, zoom, x, y];
-//        VLog(@"URL :%@",url);
-//        return [NSURL URLWithString:url];
-//    };
-//    
-//    GMSURLTileLayer *layer = [GMSURLTileLayer tileLayerWithURLConstructor:urls];
-    
-//    GMSTileLayer *layer = [[TestTileLayer alloc] init];
-    
-    // Display on the map at a specific zIndex
-//    layer.zIndex = 100;
-//    layer.map = _mapView;
-    
-    // Camera postion
-    GMSCameraPosition *sysdney = [GMSCameraPosition cameraWithLatitude:-33.8683 longitude:151.2086 zoom:6 bearing:30 viewingAngle:45];
-    [_mapView setCamera:sysdney];
-    
-    
-    // Zoom in one zoom level
-    GMSCameraUpdate *zoomCamera = [GMSCameraUpdate zoomIn];
-    [_mapView animateWithCameraUpdate:zoomCamera];
-    
-    // Center the camera on Vancouver, Canada
-    CLLocationCoordinate2D vancouver = CLLocationCoordinate2DMake(49.26, -123.11);
-    GMSCameraUpdate *vancouverCam = [GMSCameraUpdate setTarget:vancouver];
-    [_mapView animateWithCameraUpdate:vancouverCam];
-    
-    // Move the camera 100 points down, and 200 points to the right
-//    GMSCameraUpdate *downwards = [GMSCameraUpdate scrollByX:100 Y:200];
-//    [_mapView animateWithCameraUpdate:downwards];
-    
-    CLLocationCoordinate2D calgary =  CLLocationCoordinate2DMake(51.05, -144.05);
-    GMSCoordinateBounds *bounds;
-    bounds = [[GMSCoordinateBounds alloc] initWithCoordinate:vancouver coordinate:calgary];
-    GMSCameraUpdate *update = [GMSCameraUpdate fitBounds:bounds withPadding:50.0f];
-    [_mapView animateWithCameraUpdate:update];
-    
-//    [_mapView animateToViewingAngle:45];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -229,6 +131,23 @@
     [_mapView clear];
 }
 
+- (void)drawPolylines:(id)sender
+{
+    VLog(@"Call draw Polyline");
+    NSArray *markers = _mapView.markers;
+    GMSMutablePath *path = [[GMSMutablePath alloc] init];
+    if (markers && markers.count > 1) {
+        for (GMSMarker *marker in markers) {
+            [path addCoordinate:marker.position];
+        }
+    }
+    
+    GMSPolyline *polyline = [GMSPolyline polylineWithPath:path];
+    polyline.strokeWidth = 2;
+    polyline.strokeColor = [UIColor blueColor];
+    polyline.map = _mapView;
+}
+
 #pragma mark - ViewController Delegate
 - (void)viewController:(ViewController *)controller showVenueOnMap:(Venue *)venue
 {
@@ -238,6 +157,7 @@
     marker.title = venue.title;
     marker.snippet = venue.detailTitle;
     marker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
+    marker.animated = YES;
     marker.map = _mapView;
 }
 

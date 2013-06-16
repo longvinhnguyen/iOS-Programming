@@ -24,6 +24,9 @@
 #define STRING_ROOT_URL_REQUEST_GOOLGE_PLACES @"https://maps.googleapis.com/maps/api/place/"
 #define VIEWDECKCONTROLLER ((AppDelegate *)[UIApplication sharedApplication].delegate).slideViewController
 
+#define WIDTH_IPHONE 320
+#define HEIGHT_IPHONE 548
+
 
 typedef enum {
     enum_api_request_fs,
