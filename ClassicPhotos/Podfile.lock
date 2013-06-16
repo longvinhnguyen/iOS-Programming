@@ -1,10 +1,13 @@
 PODS:
   - AFNetworking (1.2.1)
+  - iCarousel (1.7.4)
 
 DEPENDENCIES:
   - AFNetworking
+  - iCarousel
 
 SPEC CHECKSUMS:
   AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
+  iCarousel: 7f260b9f829005bb32d72ad19376a2a32ae3e418
 
 COCOAPODS: 0.19.1
