@@ -217,6 +217,7 @@
 #pragma mark - SearchDisplayController delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [_searchResultsLists removeAllObjects];
     VLog(@"SearchBar button clicked");
     NSString *searchText = searchBar.text;
     NSMutableDictionary *params = [NSMutableDictionary new];
