@@ -19,7 +19,13 @@
     _title = data[@"name"];
     _detailTitle = data[@"vicinity"];
     _referID = data[@"reference"];
-    _photoImageRef = data[@"photos"][0][@"photo_reference"];
+    
+    for (NSDictionary *dict in data[@"photos"]) {
+        if ([dict[@"width"] intValue] > 1000) {
+            _photoImageRef = dict[@"photo_reference"];
+            break;
+        }
+    }
     
     
     NSURLRequest *requestIconImage = [NSURLRequest requestWithURL:[NSURL URLWithString:data[@"icon"]]];
@@ -60,7 +66,12 @@
     _detailTitle = data[@"formatted_address"];
     _referID = data[@"reference"];
     _phoneNumber = data[@"international_phone_number"];
-    _photoImageRef = data[@"photos"][0][@"photo_reference"];
+    for (NSDictionary *dict in data[@"photos"]) {
+        if ([dict[@"width"] intValue] > 1000) {
+            _photoImageRef = dict[@"photo_reference"];
+            break;
+        }
+    }
 }
 
 @end

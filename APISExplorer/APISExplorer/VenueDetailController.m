@@ -38,8 +38,9 @@
     
     if (self.venue.photoImageRef.length > 0) {
         NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObject:_venue.photoImageRef forKey:@"photoreference"];
-        [params setValue:@"300" forKey:@"maxWidth"];
+        [params setValue:@"300" forKey:@"maxwidth"];
         [params setValue:@"true" forKey:@"sensor"];
+        [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
 
 
 
