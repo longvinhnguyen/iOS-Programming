@@ -9,6 +9,9 @@
 #import "MapViewController.h"
 #import "ViewController.h"
 #import "Venue.h"
+#import <AFNetworking/AFHTTPClient.h>
+#import <AFNetworking/AFJSONRequestOperation.h>
+#import "VenueDetailController.h"
 
 #define HEIGHT_TOOLBAR_VIEW_CONTROLLER 44
 
@@ -66,6 +69,7 @@
     _mapView.settings.myLocationButton = YES;
     _mapView.settings.compassButton = YES;
     _mapView.myLocationEnabled = YES;
+    _mapView.delegate = self;
     
     GMSCameraUpdate *myLocation = [GMSCameraUpdate setTarget:_mapView.myLocation.coordinate];
     VLog(@"My location: %f %f", _mapView.myLocation.coordinate.latitude, _mapView.myLocation.coordinate.longitude);
@@ -89,22 +93,21 @@
 #pragma mark - GMSMapViewDelegate
 - (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    GMSGeocoder *geo = [[GMSGeocoder alloc] init];
-    VLog(@"You tapped at %f %f", coordinate.latitude, coordinate.longitude);
-    [geo reverseGeocodeCoordinate:coordinate completionHandler:^(GMSReverseGeocodeResponse *placemark, NSError *error) {
-        if (!error) {
-            VLog(@"%@", [placemark firstResult].addressLine1);
-            GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
-            marker.title = placemark.firstResult.addressLine1;
-            marker.snippet = [NSString stringWithFormat:@"%@", placemark.firstResult.addressLine2];
-            marker.animated = YES;
-//            marker.icon = _mapIcon;
-            marker.infoWindowAnchor = CGPointMake(0.5, 0.5);
-            marker.map = _mapView;
-        } else
-            VLog(@"Error %@", error.localizedDescription);
-
-    }];
+//    GMSGeocoder *geo = [[GMSGeocoder alloc] init];
+//    VLog(@"You tapped at %f %f", coordinate.latitude, coordinate.longitude);
+//    [geo reverseGeocodeCoordinate:coordinate completionHandler:^(GMSReverseGeocodeResponse *placemark, NSError *error) {
+//        if (!error) {
+//            VLog(@"%@", [placemark firstResult].addressLine1);
+//            GMSMarker *marker = [GMSMarker markerWithPosition:coordinate];
+//            marker.title = placemark.firstResult.addressLine1;
+//            marker.snippet = [NSString stringWithFormat:@"%@", placemark.firstResult.addressLine2];
+//            marker.animated = YES;
+//            marker.infoWindowAnchor = CGPointMake(0.5, 0.5);
+//            marker.map = _mapView;
+//        } else
+//            VLog(@"Error %@", error.localizedDescription);
+//
+//    }];
 }
 
 - (void)mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate
@@ -121,6 +124,39 @@
     } else {
         VLog(@"Cannot open google map");
     }
+}
+
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
+    VLog(@"Info marker window tapped");
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:STRING_ROOT_URL_REQUEST_GOOLGE_PLACES]];
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    
+    Venue *venue = marker.userData;
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setValue:venue.referID forKey:@"reference"];
+    [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
+    [params setValue:@"false" forKey:@"sensor"];
+    VLog(@"Params %@", params);
+    [client getPath:@"details/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VLog(@"Place details =======> %@", responseObject);
+        NSDictionary *result = responseObject[@"result"];
+        if (result) {
+            Venue *venue = [[Venue alloc] init];
+            [venue loadDataFromGooglePlaceDetailResponse:result];
+            VenueDetailController *vdc = [[VenueDetailController alloc] init];
+            vdc.venue = venue;
+            vdc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            [self presentModalViewController:vdc animated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+            [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeCancel handler:nil];
+        }
+    }];
+    
 }
 
 
@@ -156,6 +192,7 @@
     GMSMarker *marker = [GMSMarker markerWithPosition:venue.coordinate];
     marker.title = venue.title;
     marker.snippet = venue.detailTitle;
+    marker.userData = venue;
     marker.icon = [GMSMarker markerImageWithColor:[UIColor brownColor]];
     marker.animated = YES;
     marker.map = _mapView;

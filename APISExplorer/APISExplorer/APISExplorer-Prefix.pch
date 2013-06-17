@@ -12,6 +12,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <GoogleMaps/GoogleMaps.h>
+    #import <SIAlertView.h>
 #endif
 
 #define VLog(fmt,...) NSLog(@"%s [LINE %d]" fmt,__PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)

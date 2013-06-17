@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		410F4454176F5B0F00636DA0 /* VenueDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 410F4453176F5B0F00636DA0 /* VenueDetailController.m */; };
+		410F4458176F5BAE00636DA0 /* VenueDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F4457176F5BAE00636DA0 /* VenueDetailController.xib */; };
+		410F445B176F64DD00636DA0 /* checkButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 410F4459176F64DD00636DA0 /* checkButton.png */; };
+		410F445C176F64DD00636DA0 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 410F445A176F64DD00636DA0 /* backButton.png */; };
 		416A845E1764DA7400AE2E4D /* LeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416A845C1764DA7400AE2E4D /* LeftMenuController.m */; };
 		416A845F1764DA7400AE2E4D /* LeftMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416A845D1764DA7400AE2E4D /* LeftMenuController.xib */; };
 		41BAED011764D6A4000F5EF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BAED001764D6A4000F5EF2 /* UIKit.framework */; };
@@ -32,6 +36,11 @@
 /* Begin PBXFileReference section */
 		111C85D9B6A548CA8033D094 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4CACAD22794539AD9EA108 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		410F4452176F5B0F00636DA0 /* VenueDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueDetailController.h; sourceTree = "<group>"; };
+		410F4453176F5B0F00636DA0 /* VenueDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueDetailController.m; sourceTree = "<group>"; };
+		410F4457176F5BAE00636DA0 /* VenueDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailController.xib; sourceTree = "<group>"; };
+		410F4459176F64DD00636DA0 /* checkButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkButton.png; sourceTree = "<group>"; };
+		410F445A176F64DD00636DA0 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
 		416A845B1764DA7400AE2E4D /* LeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuController.h; sourceTree = "<group>"; };
 		416A845C1764DA7400AE2E4D /* LeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuController.m; sourceTree = "<group>"; };
 		416A845D1764DA7400AE2E4D /* LeftMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuController.xib; sourceTree = "<group>"; };
@@ -123,6 +132,9 @@
 				416A845D1764DA7400AE2E4D /* LeftMenuController.xib */,
 				41F8068B17677BAD00D7A653 /* MapViewController.h */,
 				41F8068C17677BAD00D7A653 /* MapViewController.m */,
+				410F4452176F5B0F00636DA0 /* VenueDetailController.h */,
+				410F4453176F5B0F00636DA0 /* VenueDetailController.m */,
+				410F4457176F5BAE00636DA0 /* VenueDetailController.xib */,
 			);
 			path = APISExplorer;
 			sourceTree = "<group>";
@@ -153,6 +165,8 @@
 		41F8068E1767880C00D7A653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				410F4459176F64DD00636DA0 /* checkButton.png */,
+				410F445A176F64DD00636DA0 /* backButton.png */,
 				41F806931768D91300D7A653 /* australia.png */,
 				41F806911768D24D00D7A653 /* newark_nj_1922.jpg */,
 				41F8068F1767881C00D7A653 /* home.png */,
@@ -222,6 +236,9 @@
 				41F806901767881C00D7A653 /* home.png in Resources */,
 				41F806921768D24D00D7A653 /* newark_nj_1922.jpg in Resources */,
 				41F806941768D91300D7A653 /* australia.png in Resources */,
+				410F4458176F5BAE00636DA0 /* VenueDetailController.xib in Resources */,
+				410F445B176F64DD00636DA0 /* checkButton.png in Resources */,
+				410F445C176F64DD00636DA0 /* backButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +286,7 @@
 				416A845E1764DA7400AE2E4D /* LeftMenuController.m in Sources */,
 				41F8068D17677BAD00D7A653 /* MapViewController.m in Sources */,
 				41D48327176B755F00EAE4AF /* Venue.m in Sources */,
+				410F4454176F5B0F00636DA0 /* VenueDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

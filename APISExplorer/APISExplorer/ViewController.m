@@ -85,6 +85,7 @@
     
     cell.textLabel.text = _venue.title;
     cell.detailTextLabel.text = _venue.detailTitle;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.image = _venue.imageIcon;
 
     
@@ -138,8 +139,9 @@
         }
         case enum_api_request_google:
             [params setObject:[NSString stringWithFormat:@"%f,%f", userLocation.coordinate.latitude, userLocation.coordinate.longitude] forKey:@"location"];
-            [params setObject:@"1000" forKey:@"radius"];
-            [params setObject:@"food" forKey:@"types"];
+            [params setObject:@"10000" forKey:@"radius"];
+            [params setObject:@"prominence" forKey:@"rankby"];
+            [params setObject:@"administrative_area_level_1|cafe|city_hall|local_government_office" forKey:@"types"];
             [params setObject:@"false" forKey:@"sensor"];
             [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
             [self performGoogleSearchPlaces:params];
@@ -229,7 +231,7 @@
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
-    VLog(@"SearchBar button clicked");
+    
 }
 
 @end

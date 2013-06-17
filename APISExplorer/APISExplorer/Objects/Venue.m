@@ -19,6 +19,9 @@
     _title = data[@"name"];
     _detailTitle = data[@"vicinity"];
     _referID = data[@"reference"];
+    _photoImageRef = data[@"photos"][0][@"photo_reference"];
+    
+    
     NSURLRequest *requestIconImage = [NSURLRequest requestWithURL:[NSURL URLWithString:data[@"icon"]]];
     VLog(@"URL request image: %@", requestIconImage);
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -37,6 +40,7 @@
     _title = data[@"name"];
     _detailTitle = data[@"formatted_address"];
     _referID = data[@"reference"];
+    _photoImageRef = data[@"photos"][0][@"photo_reference"];
     NSURLRequest *requestIconImage = [NSURLRequest requestWithURL:[NSURL URLWithString:data[@"icon"]]];
     VLog(@"URL request image: %@", requestIconImage);
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
@@ -45,6 +49,18 @@
             _imageIcon = [UIImage imageWithData:data];
         }
     }];
+}
+
+- (void)loadDataFromGooglePlaceDetailResponse:(NSDictionary *)data
+{
+    CLLocationDegrees latitude = [data[@"geometry"][@"location"][@"lat"] doubleValue];
+    CLLocationDegrees longitude = [data[@"geometry"][@"location"][@"lng"] doubleValue];
+    _coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    _title = data[@"name"];
+    _detailTitle = data[@"formatted_address"];
+    _referID = data[@"reference"];
+    _phoneNumber = data[@"international_phone_number"];
+    _photoImageRef = data[@"photos"][0][@"photo_reference"];
 }
 
 @end

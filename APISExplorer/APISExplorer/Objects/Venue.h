@@ -15,9 +15,12 @@
 @property (nonatomic, strong) NSString *detailTitle;
 @property (nonatomic, strong) UIImage *imageIcon;
 @property (nonatomic, strong) NSString *referID;
+@property (nonatomic, strong) NSString *phoneNumber;
+@property (nonatomic, strong) NSString *photoImageRef;
 
 - (void)loadDataFromGooglePlacesResponse:(NSDictionary *)data;
 - (void)loadDataFromGooglePlaceTextSearch:(NSDictionary *)data;
+- (void)loadDataFromGooglePlaceDetailResponse:(NSDictionary *)data;
 
 
 @end
