@@ -37,6 +37,7 @@
     
     _venueLists = [NSMutableArray new];
     _searchResultsLists = [[NSMutableArray alloc] initWithCapacity:10];
+    [VIEWDECKCONTROLLER toggleLeftView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,11 +46,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [VIEWDECKCONTROLLER openLeftViewAnimated:YES];
-}
 
 #pragma mark
 #pragma mark - UITableView delegate & datasource
@@ -176,8 +172,12 @@
      }];
 }
 
-- (void)performGoogleTextSearch:(NSMutableDictionary *)params;
+- (void)performGoogleTextSearch:(NSString *)textSearch;
 {
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:textSearch forKey:@"query"];
+    [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
+    [params setObject:@"false" forKey:@"sensor"];
     [client getPath:@"textsearch/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *nextPageToken = responseObject[@"next_page_token"];
         VLog(@"%@ ==========> %@", nextPageToken, responseObject);
@@ -191,10 +191,106 @@
                 }
             }
             [self.searchDisplayController.searchResultsTableView reloadData];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+            });
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error) {
             VLog(@"Error %@ %@", error.localizedDescription, operation.request.URL);
+        }
+    }];
+}
+
+- (void)performGooglePlacesAutocompleSearch:(NSString *)searchText
+{
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:searchText forKey:@"input"];
+    [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
+    [params setObject:@"true" forKey:@"sensor"];
+    [params setObject:@"geocode" forKey:@"types"];
+    [client getPath:@"autocomplete/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSMutableDictionary *params = [NSMutableDictionary new];
+        [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
+        [params setValue:@"false" forKey:@"sensor"];
+        NSArray *predictions = responseObject[@"predictions"];
+        for (NSDictionary *dict in predictions) {
+            [params setValue:dict[@"reference"] forKey:@"reference"];
+            [client getPath:@"details/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSDictionary *result = responseObject[@"result"];
+                if (result) {
+                    Venue *venue = [[Venue alloc] init];
+                    [venue loadDataFromGooglePlaceDetailResponse:result];
+                    [_searchResultsLists addObject:venue];
+                }
+                [self.searchDisplayController.searchResultsTableView reloadData];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                if (error) {
+                    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+                    [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeCancel handler:nil];
+                }
+            }];
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@",error.localizedDescription]];
+            [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:^(SIAlertView *alertView) {
+            }];
+            [alertView show];
+        }
+    }];
+}
+
+- (void)performGooglePlaceQueryAutocomplete:(NSString *)searchText
+{
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
+    [params setObject:@"false" forKey:@"sensor"];
+    [params setObject:searchText forKey:@"input"];
+    [params setObject:[NSString stringWithFormat:@"%f,%f",userLocation.coordinate.latitude, userLocation.coordinate.longitude] forKey:@"location"];
+    [params setObject:@"50000" forKey:@"radius"];
+    [client getPath:@"queryautocomplete/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VLog(@"%@ ==========> %@", operation.request.URL, responseObject);
+        NSMutableDictionary *params = [NSMutableDictionary new];
+        [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
+        [params setValue:@"false" forKey:@"sensor"];
+        NSArray *predictions = responseObject[@"predictions"];
+        for (NSDictionary *dict in predictions) {
+            [params setValue:dict[@"reference"] forKey:@"reference"];
+            [client getPath:@"details/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSDictionary *result = responseObject[@"result"];
+                if (result) {
+                    Venue *venue = [[Venue alloc] init];
+                    [venue loadDataFromGooglePlaceDetailResponse:result];
+                    [_searchResultsLists addObject:venue];
+                }
+                [self.searchDisplayController.searchResultsTableView reloadData];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                if (error) {
+                    SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage: [NSString stringWithFormat:@"%@", error.localizedDescription]];
+                    [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeCancel handler:nil];
+                }
+            }];
+        }
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+        });
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage:[NSString stringWithFormat:@"%@\n%@",error.localizedDescription, operation.request.URL]];
+            [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:^(SIAlertView *alertView) {
+                return;
+            }];
+            [alertView show];
         }
     }];
 }
@@ -219,19 +315,48 @@
 #pragma mark - SearchDisplayController delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    if (!client) {
+        SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Warning" andMessage:@"Please choose the API from LeftMenuController to explore"];
+        alertView.transitionStyle = SIAlertViewTransitionStyleDropDown;
+        alertView.backgroundStyle = SIAlertViewBackgroundStyleGradient;
+        [alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:^(SIAlertView *alertView) {
+            [VIEWDECKCONTROLLER toggleLeftView];
+        }];
+        [alertView show];
+
+        return;
+    }
     [_searchResultsLists removeAllObjects];
     VLog(@"SearchBar button clicked");
-    NSString *searchText = searchBar.text;
-    NSMutableDictionary *params = [NSMutableDictionary new];
-    [params setObject:searchText forKey:@"query"];
-    [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
-    [params setObject:@"false" forKey:@"sensor"];
-    [self performGoogleTextSearch:params];
+
+//    [self performGoogleTextSearch:searchBar.text];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading ...";
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+//    [self performGooglePlacesAutocompleSearch:searchBar.text];
+    [self performGooglePlaceQueryAutocomplete:searchBar.text];
 }
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
 {
     
+}
+
+#pragma mark
+#pragma mark - ScrollView delegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    VLog(@"content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);  
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    VLog(@"content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    VLog(@"scrollViewDidScroll content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
 }
 
 @end

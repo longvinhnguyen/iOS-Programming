@@ -31,6 +31,10 @@
     _name.text = _venue.title;
     _address.text = _venue.detailTitle;
     _phoneNumber.text = _venue.phoneNumber;
+
+    _imageView.layer.masksToBounds = YES;
+    _imageView.layer.cornerRadius = 10;
+    _imageView.image = [UIImage imageNamed:@"placeholder"];
     
     AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:STRING_ROOT_URL_REQUEST_GOOLGE_PLACES]];
 //    [client setDefaultHeader:@"Accept" value:@"image/jpg"];
@@ -41,8 +45,6 @@
         [params setValue:@"300" forKey:@"maxwidth"];
         [params setValue:@"true" forKey:@"sensor"];
         [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
-
-
 
         [client getPath:@"photo" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             UIImage *image = [UIImage imageWithData:responseObject];

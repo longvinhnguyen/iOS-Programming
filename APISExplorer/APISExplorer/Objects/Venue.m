@@ -21,7 +21,7 @@
     _referID = data[@"reference"];
     
     for (NSDictionary *dict in data[@"photos"]) {
-        if ([dict[@"width"] intValue] > 1000) {
+        if ([dict[@"width"] intValue] > 500) {
             _photoImageRef = dict[@"photo_reference"];
             break;
         }
@@ -67,7 +67,7 @@
     _referID = data[@"reference"];
     _phoneNumber = data[@"international_phone_number"];
     for (NSDictionary *dict in data[@"photos"]) {
-        if ([dict[@"width"] intValue] > 1000) {
+        if ([dict[@"width"] intValue] > 500) {
             _photoImageRef = dict[@"photo_reference"];
             break;
         }

@@ -139,6 +139,9 @@
     [params setValue:GOOGLE_MAP_API_KEY forKey:@"key"];
     [params setValue:@"false" forKey:@"sensor"];
     VLog(@"Params %@", params);
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [client getPath:@"details/json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         VLog(@"Place details =======> %@", responseObject);
         NSDictionary *result = responseObject[@"result"];
@@ -148,6 +151,8 @@
             VenueDetailController *vdc = [[VenueDetailController alloc] init];
             vdc.venue = venue;
             vdc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
             [self presentModalViewController:vdc animated:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

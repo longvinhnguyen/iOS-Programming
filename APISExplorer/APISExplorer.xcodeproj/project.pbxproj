@@ -11,6 +11,7 @@
 		410F4458176F5BAE00636DA0 /* VenueDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 410F4457176F5BAE00636DA0 /* VenueDetailController.xib */; };
 		410F445B176F64DD00636DA0 /* checkButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 410F4459176F64DD00636DA0 /* checkButton.png */; };
 		410F445C176F64DD00636DA0 /* backButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 410F445A176F64DD00636DA0 /* backButton.png */; };
+		410F445E1770A82100636DA0 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 410F445D1770A82100636DA0 /* placeholder.png */; };
 		416A845E1764DA7400AE2E4D /* LeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 416A845C1764DA7400AE2E4D /* LeftMenuController.m */; };
 		416A845F1764DA7400AE2E4D /* LeftMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416A845D1764DA7400AE2E4D /* LeftMenuController.xib */; };
 		41BAED011764D6A4000F5EF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41BAED001764D6A4000F5EF2 /* UIKit.framework */; };
@@ -41,6 +42,7 @@
 		410F4457176F5BAE00636DA0 /* VenueDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueDetailController.xib; sourceTree = "<group>"; };
 		410F4459176F64DD00636DA0 /* checkButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkButton.png; sourceTree = "<group>"; };
 		410F445A176F64DD00636DA0 /* backButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backButton.png; sourceTree = "<group>"; };
+		410F445D1770A82100636DA0 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		416A845B1764DA7400AE2E4D /* LeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuController.h; sourceTree = "<group>"; };
 		416A845C1764DA7400AE2E4D /* LeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuController.m; sourceTree = "<group>"; };
 		416A845D1764DA7400AE2E4D /* LeftMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuController.xib; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		41F8068E1767880C00D7A653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				410F445D1770A82100636DA0 /* placeholder.png */,
 				410F4459176F64DD00636DA0 /* checkButton.png */,
 				410F445A176F64DD00636DA0 /* backButton.png */,
 				41F806931768D91300D7A653 /* australia.png */,
@@ -239,6 +242,7 @@
 				410F4458176F5BAE00636DA0 /* VenueDetailController.xib in Resources */,
 				410F445B176F64DD00636DA0 /* checkButton.png in Resources */,
 				410F445C176F64DD00636DA0 /* backButton.png in Resources */,
+				410F445E1770A82100636DA0 /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
