@@ -14,6 +14,7 @@
 #import "Venue.h"
 
 
+
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 @end
@@ -108,8 +109,14 @@
 - (void)leftMenuControllerdidFinishSelectingAPI:(NSString *)api withType:(enum_api_request)type
 {
     client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:api]];
-    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
-    [client setDefaultHeader:@"Accept" value:@"application/json"];
+//    if (type != enum_api_request_flickr) {
+        [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+        [client setDefaultHeader:@"Accept" value:@"application/json"];
+//    } else {
+//        [client registerHTTPOperationClass:[AFXMLRequestOperation class]];
+//        [client setDefaultHeader:@"Accept" value:@"text/xml"];
+//    }
+
     [self performAPI:api withType:type];
 }
 
@@ -141,13 +148,42 @@
             [params setObject:@"false" forKey:@"sensor"];
             [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
             [self performGoogleSearchPlaces:params];
-            
+            break;
+        case enum_api_request_flickr:
+            [params setObject:@"flickr.photos.search" forKey:@"method"];
+            [params setObject:@"429ce41ef16c0f4821d75bf515a4593c" forKey:@"api_key"];
+            [params setObject:@"Thành Phố Hồ Chí Minh" forKey:@"tags"];
+            [params setObject:@"11" forKey:@"accuracy"];
+            [params setObject:@"json" forKey:@"format"];
+            [params setObject:@"4" forKey:@"content-type"];
+            [self performFlickrPhotoSearch:params];
             break;
             
         default:
             break;
     }
 }
+
+- (void)performFlickrPhotoSearch:(NSDictionary *)params
+{
+    NSURLRequest *request = [client requestWithMethod:@"GET" path:STRING_ROOT_URL_REQUEST_FLICKR parameters:params];
+    
+    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
+    
+    if ([operation isKindOfClass:[AFJSONRequestOperation class]] && [operation respondsToSelector:@selector(setJSONReadingOptions:)]) {
+        operation.JSONReadingOptions = NSJSONReadingAllowFragments;
+    }
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VLog(@"%@\n%@", responseObject, operation.request.URL);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        VLog(@"%@\n%@",error,operation.request.URL);
+    }];
+
+    [client enqueueHTTPRequestOperation:operation];
+
+}
+
 
 - (void)performGoogleSearchPlaces:(NSMutableDictionary *)params
 {
@@ -328,11 +364,11 @@
     }
     [_searchResultsLists removeAllObjects];
     VLog(@"SearchBar button clicked");
-
-//    [self performGoogleTextSearch:searchBar.text];
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading ...";
-    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.mode = MBProgressHUDModeIndeterminate;
+//    [self performGoogleTextSearch:searchBar.text];
 //    [self performGooglePlacesAutocompleSearch:searchBar.text];
     [self performGooglePlaceQueryAutocomplete:searchBar.text];
 }

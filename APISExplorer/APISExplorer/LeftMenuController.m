@@ -35,6 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     [apiLists setValue:STRING_ROOT_URL_REQUEST_FOURSQUARE forKey:[NSString stringWithFormat:@"%i",enum_api_request_fs]];
     [apiLists setValue:STRING_ROOT_URL_REQUEST_GOOLGE_PLACES forKey:[NSString stringWithFormat:@"%i",enum_api_request_google]];
+    [apiLists setValue:STRING_ROOT_URL_REQUEST_FLICKR forKey:[NSString stringWithFormat:@"%i",enum_api_request_flickr]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +71,9 @@
             break;
         case enum_api_request_google:
             cell.textLabel.text = @"Google Places API";
+            break;
+        case enum_api_request_flickr:
+            cell.textLabel.text = @"Flickr API";
             break;
         default:
             break;

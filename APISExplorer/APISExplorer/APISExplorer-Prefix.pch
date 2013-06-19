@@ -22,9 +22,17 @@
 #define FS_USER_TOKEN @"YU1EVOS20ZJ4T1PF5GY5EUQOEBDLFG0WI5TKMR5PFYQ1G4CC"
 #define FS_USER_ID @"20130609"
 #define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES 1
+
 #define GOOGLE_MAP_API_KEY @"AIzaSyBsiCdBJzxPMcOwIlgs8xlPl0ztVZm5TfQ"
 #define STRING_ROOT_URL_REQUEST_GOOLGE_PLACES @"https://maps.googleapis.com/maps/api/place/"
 #define VIEWDECKCONTROLLER ((AppDelegate *)[UIApplication sharedApplication].delegate).slideViewController
+
+#define STRING_ROOT_URL_REQUEST_FLICKR @"http://api.flickr.com/services/rest/"
+#define FLICKR_API_KEY @"429ce41ef16c0f4821d75bf515a4593c"
+
+#define ALERT(x) {SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage:x];[alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:nil];[alertView show]; }
+
+
 
 #define WIDTH_IPHONE 320
 #define HEIGHT_IPHONE 548
@@ -32,5 +40,6 @@
 
 typedef enum {
     enum_api_request_fs,
-    enum_api_request_google
+    enum_api_request_google,
+    enum_api_request_flickr
 }enum_api_request;
