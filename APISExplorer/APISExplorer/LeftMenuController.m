@@ -68,12 +68,15 @@
     switch (type) {
         case enum_api_request_fs:
             cell.textLabel.text = @"Foursquare API";
+            cell.imageView.image = [UIImage imageNamed:@"foursquare"];
             break;
         case enum_api_request_google:
             cell.textLabel.text = @"Google Places API";
+            cell.imageView.image = [UIImage imageNamed:@"google"];
             break;
         case enum_api_request_flickr:
             cell.textLabel.text = @"Flickr API";
+            cell.imageView.image = [UIImage imageNamed:@"flickr"];
             break;
         default:
             break;

@@ -29,8 +29,10 @@
 
 #define STRING_ROOT_URL_REQUEST_FLICKR @"http://api.flickr.com/services/rest/"
 #define FLICKR_API_KEY @"429ce41ef16c0f4821d75bf515a4593c"
+#define STRING_FLICKR_FORMAT_PHOTO_URL @"http://farm%@.staticflickr.com/%@/%@_%@.jpg"
 
 #define ALERT(x) {SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage:x];[alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:nil];[alertView show]; }
+
 
 
 

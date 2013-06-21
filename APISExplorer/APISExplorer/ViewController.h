@@ -18,9 +18,11 @@
 
 @end
 
-@interface ViewController : UIViewController<IIViewDeckControllerDelegate, LeftMenuControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate>
+@interface ViewController : UIViewController<IIViewDeckControllerDelegate, LeftMenuControllerDelegate, UISearchBarDelegate, UISearchDisplayDelegate, UICollectionViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) IBOutlet UITableView *mainTableView;
+@property (nonatomic, strong) IBOutlet UICollectionView *mainKollectionView;
+
 @property (nonatomic, weak) id<ViewControllerDelegate>delegate;
 
 @end

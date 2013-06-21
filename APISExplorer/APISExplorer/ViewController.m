@@ -12,8 +12,10 @@
 #import <AFNetworking/AFNetworking.h>
 #import <CoreLocation/CoreLocation.h>
 #import "Venue.h"
+#import "Photo.h"
+#import "FIickrPhotoCell.h"
 
-
+#define FLICKR_CELL @"FlickrCell"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
@@ -25,7 +27,10 @@
     CLLocationManager *locationManager;
     CLLocation *userLocation;
     NSMutableArray *_venueLists;
+    NSMutableArray *_photoLists;
     NSMutableArray *_searchResultsLists;
+    NSString *_selectedAPI;
+    enum_api_request _selectedType;
 }
 
 - (void)viewDidLoad
@@ -37,7 +42,14 @@
     [locationManager startUpdatingLocation];
     
     _venueLists = [NSMutableArray new];
+    _photoLists = [NSMutableArray new];
     _searchResultsLists = [[NSMutableArray alloc] initWithCapacity:10];
+    _mainKollectionView.hidden = YES;
+    [_mainKollectionView registerNib:[UINib nibWithNibName:@"FlickrPhotoCell" bundle:nil] forCellWithReuseIdentifier:FLICKR_CELL ];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [VIEWDECKCONTROLLER toggleLeftView];
 }
 
@@ -109,15 +121,14 @@
 - (void)leftMenuControllerdidFinishSelectingAPI:(NSString *)api withType:(enum_api_request)type
 {
     client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:api]];
-//    if (type != enum_api_request_flickr) {
-        [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
-        [client setDefaultHeader:@"Accept" value:@"application/json"];
-//    } else {
-//        [client registerHTTPOperationClass:[AFXMLRequestOperation class]];
-//        [client setDefaultHeader:@"Accept" value:@"text/xml"];
-//    }
+    
+    [client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [client setDefaultHeader:@"Accept" value:@"application/json"];
+    _selectedAPI = api;
+    _selectedType = type;
 
-    [self performAPI:api withType:type];
+
+    [self performAPI:_selectedAPI withType:_selectedType];
 }
 
 - (void)performAPI:(NSString *)api withType:(enum_api_request)type
@@ -144,7 +155,7 @@
             [params setObject:[NSString stringWithFormat:@"%f,%f", userLocation.coordinate.latitude, userLocation.coordinate.longitude] forKey:@"location"];
             [params setObject:@"10000" forKey:@"radius"];
             [params setObject:@"prominence" forKey:@"rankby"];
-            [params setObject:@"administrative_area_level_1|cafe|city_hall|local_government_office" forKey:@"types"];
+            [params setObject:@"food|cafe|city_hall|night_club|museum|park" forKey:@"types"];
             [params setObject:@"false" forKey:@"sensor"];
             [params setObject:GOOGLE_MAP_API_KEY forKey:@"key"];
             [self performGoogleSearchPlaces:params];
@@ -152,10 +163,12 @@
         case enum_api_request_flickr:
             [params setObject:@"flickr.photos.search" forKey:@"method"];
             [params setObject:@"429ce41ef16c0f4821d75bf515a4593c" forKey:@"api_key"];
-            [params setObject:@"Thành Phố Hồ Chí Minh" forKey:@"tags"];
+            [params setObject:@"New York" forKey:@"tags"];
+            [params setObject:@"interestingness-desc" forKey:@"sort"];
             [params setObject:@"11" forKey:@"accuracy"];
             [params setObject:@"json" forKey:@"format"];
-            [params setObject:@"4" forKey:@"content-type"];
+            [params setObject:@"1" forKey:@"nojsoncallback"];
+            [params setObject:@"20" forKey:@"per_page"];
             [self performFlickrPhotoSearch:params];
             break;
             
@@ -166,22 +179,35 @@
 
 - (void)performFlickrPhotoSearch:(NSDictionary *)params
 {
-    NSURLRequest *request = [client requestWithMethod:@"GET" path:STRING_ROOT_URL_REQUEST_FLICKR parameters:params];
-    
-    AFJSONRequestOperation *operation = [[AFJSONRequestOperation alloc] initWithRequest:request];
-    
-    if ([operation isKindOfClass:[AFJSONRequestOperation class]] && [operation respondsToSelector:@selector(setJSONReadingOptions:)]) {
-        operation.JSONReadingOptions = NSJSONReadingAllowFragments;
-    }
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        VLog(@"%@\n%@", responseObject, operation.request.URL);
+    [client getPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VLog(@"performFlickrPhotoSearch ======> %@", responseObject);
+        if ([responseObject count] > 0) {
+            NSArray *photos = responseObject[@"photos"][@"photo"];
+            for (NSDictionary *dict in photos) {
+                Photo *photo = [[Photo alloc] init];
+                [photo loadPhotoFromFlickr:dict];
+                [_photoLists addObject:photo];
+            }
+            VLog(@"performFlickrPhotoSearch =========> %@", _photoLists);
+            _mainKollectionView.hidden = NO;
+            CGRect frame = CGRectMake(0, HEIGHT_IPHONE, _mainKollectionView.bounds.size.width, _mainKollectionView.bounds.size.height);
+            _mainKollectionView.frame = frame;
+            [self.view addSubview:_mainKollectionView];
+            frame.origin.y = 0;
+            [UIView animateWithDuration:0.4 animations:^{
+                _mainKollectionView.frame = frame;
+            } completion:^(BOOL finished) {
+                [_mainKollectionView reloadData];
+            }];
+
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        VLog(@"%@\n%@",error,operation.request.URL);
+        if (error) {
+            NSString *errorMessage = [NSString stringWithFormat:@"%@\n%@",error.localizedDescription, operation.request.URL];
+            ALERT(errorMessage);
+        }
     }];
-
-    [client enqueueHTTPRequestOperation:operation];
-
 }
 
 
@@ -388,11 +414,52 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     VLog(@"content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y < -60) {
+        [scrollView scrollRectToVisible:CGRectMake(0, -50, scrollView.bounds.size.width, scrollView.bounds.size.height) animated:YES];
+        [self performAPI:_selectedAPI withType:enum_api_request_google];
+    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    VLog(@"scrollViewDidScroll content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
+//    VLog(@"scrollViewDidScroll content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
 }
+
+#pragma mark
+#pragma mark - UIKollectionView datasource & delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _photoLists.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    FIickrPhotoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:FLICKR_CELL forIndexPath:indexPath];
+    cell.photo = _photoLists[indexPath.item];
+    
+    return cell;
+}
+                
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(50, 60);
+}
+
+
+
+
+
+
+
 
 @end

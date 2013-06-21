@@ -33,14 +33,11 @@
     // Iniate google map view controller
     MapViewController *mvc = [[MapViewController alloc] init];
     self.slideViewController.rightController = mvc;
-    centerViewController.delegate = mvc;
-    
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.slideViewController];
-    navigationController.navigationBarHidden = YES;
+    centerViewController.delegate = mvc;;
 
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [GMSServices provideAPIKey:GOOGLE_MAP_API_KEY];
-    self.window.rootViewController = navigationController;
+    self.window.rootViewController = self.slideViewController;
     [self.window makeKeyAndVisible];
     
     return YES;
