@@ -33,6 +33,8 @@
 
 #define ALERT(x) {SIAlertView *alertView = [[SIAlertView alloc] initWithTitle:@"Error" andMessage:x];[alertView addButtonWithTitle:@"OK" type:SIAlertViewButtonTypeDestructive handler:nil];[alertView show]; }
 
+#define HEIGHT_SEARCH_BAR   44
+
 
 
 

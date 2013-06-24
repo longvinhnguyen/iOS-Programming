@@ -31,6 +31,9 @@
     NSMutableArray *_searchResultsLists;
     NSString *_selectedAPI;
     enum_api_request _selectedType;
+    CGRect _originalFrame;
+    
+    UIPinchGestureRecognizer *pinchGesture;
 }
 
 - (void)viewDidLoad
@@ -44,8 +47,13 @@
     _venueLists = [NSMutableArray new];
     _photoLists = [NSMutableArray new];
     _searchResultsLists = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+    [_mainKollectionView addGestureRecognizer:pinchGesture];
     _mainKollectionView.hidden = YES;
     [_mainKollectionView registerNib:[UINib nibWithNibName:@"FlickrPhotoCell" bundle:nil] forCellWithReuseIdentifier:FLICKR_CELL ];
+    
+    _originalFrame = _mainTableView.frame;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -161,15 +169,8 @@
             [self performGoogleSearchPlaces:params];
             break;
         case enum_api_request_flickr:
-            [params setObject:@"flickr.photos.search" forKey:@"method"];
-            [params setObject:@"429ce41ef16c0f4821d75bf515a4593c" forKey:@"api_key"];
-            [params setObject:@"New York" forKey:@"tags"];
-            [params setObject:@"interestingness-desc" forKey:@"sort"];
-            [params setObject:@"11" forKey:@"accuracy"];
-            [params setObject:@"json" forKey:@"format"];
-            [params setObject:@"1" forKey:@"nojsoncallback"];
-            [params setObject:@"20" forKey:@"per_page"];
-            [self performFlickrPhotoSearch:params];
+            [self performFlickrPhotoSearch:@"Ho Chi Minh, Ho Chi Minh, Vietnam"];
+//            [self performFlickrPlaceSearch:@"Ho chi minh"];
             break;
             
         default:
@@ -177,8 +178,36 @@
     }
 }
 
-- (void)performFlickrPhotoSearch:(NSDictionary *)params
+- (void)performFlickrPlaceSearch:(NSString *)searchText
 {
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:@"flickr.places.find" forKey:@"method"];
+    [params setObject:FLICKR_API_KEY forKey:@"api_key"];
+    [params setObject:searchText forKey:@"query"];
+    [params setObject:@"json" forKey:@"format"];
+    [params setObject:@"oJ7n6B5QUL82NXEv" forKey:@"place_id"];
+    [params setObject:@"1" forKey:@"nojsoncallback"];
+    [client getPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        VLog(@"performFlickrPlaceSearch =====> %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error) {
+            ALERT(error.localizedDescription);
+        }
+    }];
+}
+
+- (void)performFlickrPhotoSearch:(NSString *)searchText
+{
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setObject:@"flickr.photos.search" forKey:@"method"];
+    [params setObject:@"429ce41ef16c0f4821d75bf515a4593c" forKey:@"api_key"];
+//    [params setObject:searchText forKey:@"tags"];
+    [params setObject:searchText forKey:@"text"];
+    [params setObject:@" interestingness-desc" forKey:@"sort"];
+    [params setObject:@"1" forKey:@"accuracy"];
+    [params setObject:@"json" forKey:@"format"];
+    [params setObject:@"1" forKey:@"nojsoncallback"];
+    [params setObject:@"30" forKey:@"per_page"];
     [client getPath:@"" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         VLog(@"performFlickrPhotoSearch ======> %@", responseObject);
         if ([responseObject count] > 0) {
@@ -225,6 +254,7 @@
                  [_venueLists addObject:venue];
              }
              [self.mainTableView reloadData];
+             _mainTableView.frame = _originalFrame;
          } else if (nextPageToken.length > 0 && _venueLists.count < 30) {
              [params setObject:nextPageToken forKey:@"pagetoken"];
              [self performGoogleSearchPlaces:params];
@@ -396,7 +426,7 @@
     hud.mode = MBProgressHUDModeIndeterminate;
 //    [self performGoogleTextSearch:searchBar.text];
 //    [self performGooglePlacesAutocompleSearch:searchBar.text];
-    [self performGooglePlaceQueryAutocomplete:searchBar.text];
+//    [self performGooglePlaceQueryAutocomplete:searchBar.text];
 }
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller
@@ -415,7 +445,10 @@
 {
     VLog(@"content offset %f %f", scrollView.contentOffset.x, scrollView.contentOffset.y);
     if (scrollView.contentOffset.y < -60) {
-        [scrollView scrollRectToVisible:CGRectMake(0, -50, scrollView.bounds.size.width, scrollView.bounds.size.height) animated:YES];
+        CGRect frame;
+        frame = _mainTableView.frame;
+        frame.origin.y = 50 + HEIGHT_SEARCH_BAR;
+        _mainTableView.frame = frame;
         [self performAPI:_selectedAPI withType:enum_api_request_google];
     }
 }
@@ -452,9 +485,28 @@
                 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(50, 60);
+    return CGSizeMake(70, 90);
 }
 
+
+#pragma mark - UIGestureRecoginizer actions
+- (void)handlePinchGesture:(UIPinchGestureRecognizer *)thePinchGesture
+{
+    if (thePinchGesture.state == UIGestureRecognizerStateBegan) {
+        VLog(@"Pinch gesture start");
+    } else if (thePinchGesture.state == UIGestureRecognizerStateChanged) {
+        CGFloat scaleRatio = thePinchGesture.scale;
+        VLog(@"handlePinchGesture ======> %f", scaleRatio);
+        _mainKollectionView.transform = CGAffineTransformMakeScale(scaleRatio, scaleRatio);
+    } else if (thePinchGesture.state == UIGestureRecognizerStateEnded) {
+        if (pinchGesture.scale < 0.5) {
+            _mainKollectionView.hidden = YES;
+            _mainKollectionView.transform = CGAffineTransformIdentity;
+        } else {
+             _mainKollectionView.transform = CGAffineTransformIdentity;
+        }
+    }
+}
 
 
 
