@@ -163,12 +163,12 @@
         case enum_api_request_flickr:
             [params setObject:@"flickr.photos.search" forKey:@"method"];
             [params setObject:@"429ce41ef16c0f4821d75bf515a4593c" forKey:@"api_key"];
-            [params setObject:@"New York" forKey:@"tags"];
+            [params setObject:@"Thành Phố Hồ Chí Minh" forKey:@"tags"];
             [params setObject:@"interestingness-desc" forKey:@"sort"];
             [params setObject:@"11" forKey:@"accuracy"];
             [params setObject:@"json" forKey:@"format"];
             [params setObject:@"1" forKey:@"nojsoncallback"];
-            [params setObject:@"20" forKey:@"per_page"];
+            [params setObject:@"30" forKey:@"per_page"];
             [self performFlickrPhotoSearch:params];
             break;
             
@@ -452,7 +452,7 @@
                 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(50, 60);
+    return CGSizeMake(70, 90);
 }
 
 
