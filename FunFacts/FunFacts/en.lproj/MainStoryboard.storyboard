@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Social View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="SocialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="0aB-oP-qcG">
+                                <rect key="frame" x="50" y="20" width="220" height="122"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fun Fact From" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l84-yC-WJC">
+                                <rect key="frame" x="104" y="158" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="0rr-5d-yC7">
+                                <rect key="frame" x="28" y="187" width="264" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="D63-5m-w1p">
+                                        <rect key="frame" x="5" y="7" width="120" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s6Z-AE-zQY">
+                                        <rect key="frame" x="139" y="7" width="120" height="26"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" id="GNA-s4-SFV">
+                                <rect key="frame" x="28" y="247" width="264" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CDx-ne-P72">
+                                <rect key="frame" x="28" y="396" width="55" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_action.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionTapped" destination="2" eventType="touchUpInside" id="gx0-HV-Zbb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kZ6-Td-PR4">
+                                <rect key="frame" x="97" y="396" width="55" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_twitter.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="socialTapped:" destination="2" eventType="touchUpInside" id="JjM-d3-5Ek"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1020" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KeZ-HT-VY2">
+                                <rect key="frame" x="237" y="396" width="55" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_sw.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="socialTapped:" destination="2" eventType="touchUpInside" id="99F-Ci-ajL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="flE-yq-d6Y">
+                                <rect key="frame" x="168" y="396" width="55" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="icon_facebook.png">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="socialTapped:" destination="2" eventType="touchUpInside" id="sJh-0g-Mt7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="CDx-ne-P72" id="YtO-EM-Pyc"/>
+                        <outlet property="authorBackgroundView" destination="0rr-5d-yC7" id="VYB-Sw-NNy"/>
+                        <outlet property="authorImageView" destination="0aB-oP-qcG" id="Xmb-7o-M41"/>
+                        <outlet property="faceTextView" destination="GNA-s4-SFV" id="Z92-e4-30C"/>
+                        <outlet property="facebookButton" destination="flE-yq-d6Y" id="0zo-EZ-g33"/>
+                        <outlet property="factTitleLabel" destination="l84-yC-WJC" id="IoP-oQ-cdD"/>
+                        <outlet property="nameLabel" destination="D63-5m-w1p" id="jbi-IQ-8BA"/>
+                        <outlet property="twitterButton" destination="kZ6-Td-PR4" id="Fce-vj-n1C"/>
+                        <outlet property="twitterLabel" destination="s6Z-AE-zQY" id="8O4-Rm-1nA"/>
+                        <outlet property="weiboButton" destination="KeZ-HT-VY2" id="SjL-Vn-LIt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_action.png" width="40" height="34"/>
+        <image name="icon_facebook.png" width="40" height="34"/>
+        <image name="icon_sw.png" width="40" height="34"/>
+        <image name="icon_twitter.png" width="40" height="34"/>
+    </resources>
+    <classes>
+        <class className="SocialViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SocialViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="socialTapped:"/>
+                <relationship kind="outlet" name="actionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="authorBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="authorImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="faceTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="facebookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="factTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="twitterButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="twitterLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="weiboButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "APISExplorer/ViewController.m"
-         timestampString = "393783255.709636"
+         timestampString = "393784121.924141"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "229"
-         endingLineNumber = "229"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
          landmarkName = "-performFlickrPhotoSearch:"
          landmarkType = "5">
       </FileBreakpoint>
