@@ -18,6 +18,7 @@
 
 - (void)getFacebookAccount;
 - (void)getTwitterAccount;
+- (void)renewFacebookAccount;
 
 - (void)presentErrorWithMessage:(NSString *)errorMessage;
 

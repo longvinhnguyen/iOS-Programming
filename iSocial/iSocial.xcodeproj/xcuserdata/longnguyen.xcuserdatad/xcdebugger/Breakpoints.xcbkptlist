@@ -20,13 +20,26 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iSocial/AppDelegate.m"
-         timestampString = "394130831.025245"
+         filePath = "iSocial/FacebookFeedViewController.m"
+         timestampString = "394389888.528568"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
-         landmarkName = "-getFacebookAccount"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
+         landmarkName = "-refreshFacebookFeed"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iSocial/ProfileViewController.m"
+         timestampString = "394391670.828188"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
+         landmarkName = "-reloadProfile"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,25 +47,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iSocial/AppDelegate.m"
-         timestampString = "394130893.56746"
+         timestampString = "394473005.1386"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "39"
-         endingLineNumber = "39"
-         landmarkName = "-getFacebookAccount"
+         startingLineNumber = "85"
+         endingLineNumber = "85"
+         landmarkName = "-getPublishStream"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "iSocial/AppDelegate.m"
-         timestampString = "394130914.149655"
+         filePath = "iSocial/FacebookFeedViewController.m"
+         timestampString = "394473133.786401"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "-getFacebookAccount"
+         startingLineNumber = "323"
+         endingLineNumber = "323"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

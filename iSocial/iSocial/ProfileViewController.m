@@ -67,59 +67,70 @@
     
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     request.account = appDelegate.facebookAccount;
+    VLog(@"%@", request.URL);
     
     [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (error) {
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [appDelegate presentErrorWithMessage:[NSString stringWithFormat:@"There was an error reading your facebook feed. %@", error.localizedDescription]];
          } else {
+                          
              NSError *jsonError;
              NSDictionary *responseJSON = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&error];
-             
              VLog(@"reloadProfile ======> %@", responseJSON);
              
              if (jsonError) {
                  AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
                  [appDelegate presentErrorWithMessage:[NSString stringWithFormat:@"There was an error reading your facebook feed. %@", error.localizedDescription]];
              } else {
-                 self.profileDictionary = responseJSON;
-                 [self getPictures];
-                 
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     self.bioTextView.text = self.profileDictionary[@"bio"];
-                     self.birthdayLabel.text = self.profileDictionary[@"birthday"];
-                     self.emailLabel.text = self.profileDictionary[@"email"];
-                     self.genderLabel.text = self.profileDictionary[@"gender"];
-                     self.hometownLabel.text = self.profileDictionary[@"hometown"][@"name"];
+                 if (responseJSON[@"error"]) {
+                     [[NSNotificationCenter defaultCenter] postNotificationName:ACAccountStoreDidChangeNotification object:nil];
+                     dispatch_sync(dispatch_get_main_queue(), ^{
+                         [appDelegate renewFacebookAccount];
+                         [self reloadProfile];
+                     });
+
                      
-                     NSArray *languages = self.profileDictionary[@"languages"];
-                     NSMutableString *languagesString = [NSMutableString stringWithString:@""];
+                 } else {
+                     self.profileDictionary = responseJSON;
+                     [self getPictures];
                      
-                     for (int i = 0; i<languages.count; i++) {
-                         NSDictionary *language = languages[i];
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         self.bioTextView.text = self.profileDictionary[@"bio"];
+                         self.birthdayLabel.text = self.profileDictionary[@"birthday"];
+                         self.emailLabel.text = self.profileDictionary[@"email"];
+                         self.genderLabel.text = self.profileDictionary[@"gender"];
+                         self.hometownLabel.text = self.profileDictionary[@"hometown"][@"name"];
                          
-                         [languagesString appendString:language[@"name"]];
+                         NSArray *languages = self.profileDictionary[@"languages"];
+                         NSMutableString *languagesString = [NSMutableString stringWithString:@""];
                          
-                         if (i < languages.count - 1) {
-                             [languagesString appendString:@", "];
+                         for (int i = 0; i<languages.count; i++) {
+                             NSDictionary *language = languages[i];
+                             
+                             [languagesString appendString:language[@"name"]];
+                             
+                             if (i < languages.count - 1) {
+                                 [languagesString appendString:@", "];
+                             }
                          }
-                     }
-                     self.languagesLabel.text = languagesString;
-                     
-                     self.locationLabel.text = self.profileDictionary[@"location"][@"name"];
-                     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.profileDictionary[@"first_name"], self.profileDictionary[@"last_name"]];
-                     self.usernameLabel.text = self.profileDictionary[@"username"];
-                     self.relationshipStatusLabel.text = self.profileDictionary[@"relationship_status"];
-                     
-                     if (!self.profileDictionary[@"website"]) {
-                         self.websiteButton.hidden = YES;
-                     } else {
-                         self.websiteButton.hidden = NO;
-                     }
-                     
-                     self.facebookButton.hidden = NO;
-                     
-                 });
+                         self.languagesLabel.text = languagesString;
+                         
+                         self.locationLabel.text = self.profileDictionary[@"location"][@"name"];
+                         self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.profileDictionary[@"first_name"], self.profileDictionary[@"last_name"]];
+                         self.usernameLabel.text = self.profileDictionary[@"username"];
+                         self.relationshipStatusLabel.text = self.profileDictionary[@"relationship_status"];
+                         
+                         if (!self.profileDictionary[@"website"]) {
+                             self.websiteButton.hidden = YES;
+                         } else {
+                             self.websiteButton.hidden = NO;
+                         }
+                         
+                         self.facebookButton.hidden = NO;
+                         
+                     });
+                 }
              }
          }
     }];

@@ -12,4 +12,7 @@
 
 @interface CommentViewController : UITableViewController
 
+@property (nonatomic, strong) NSArray *commentsArray;
+
+
 @end

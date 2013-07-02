@@ -14,10 +14,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(renewFacebookAccount) name:ACAccountStoreDidChangeNotification object:nil];
     self.accountStore = [[ACAccountStore alloc] init];
     
     
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -49,13 +55,32 @@
     });
 }
 
+- (void)renewFacebookAccount
+{
+    [self.accountStore renewCredentialsForAccount:self.facebookAccount completion:^(ACAccountCredentialRenewResult renewResult, NSError *error) {
+        switch (renewResult) {
+            case ACAccountCredentialRenewResultRenewed:
+                VLog(@"Account Renewed successfully");
+                break;
+            case ACAccountCredentialRenewResultFailed:
+                [self presentErrorWithMessage:[NSString stringWithFormat:@"ACAccountCredentialRenewResultFailed."]];
+                break;
+            case ACAccountCredentialRenewResultRejected:
+                [self presentErrorWithMessage:[NSString stringWithFormat:@"ACAccountCredentialRenewResultRejected"]];
+                break;                
+            default:
+                break;
+        }
+    }];
+}
+
 
 - (void)getPublishStream
 {
     ACAccountType *facebookAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSDictionary *facebookOptions = @{ACFacebookAppIdKey: FACEBOOK_APP_ID_KEY, ACFacebookPermissionsKey:@[@"publish_actions"], ACFacebookAudienceKey: ACFacebookAudienceEveryone};
+        NSDictionary *facebookOptions = @{ACFacebookAppIdKey: FACEBOOK_APP_ID_KEY, ACFacebookPermissionsKey:@[@"publish_actions", @"publish_stream"], ACFacebookAudienceKey: ACFacebookAudienceEveryone};
         [self.accountStore requestAccessToAccountsWithType:facebookAccountType options:facebookOptions completion:^(BOOL granted, NSError *error) {
             if (granted) {
                 self.facebookAccount = [[self.accountStore accountsWithAccountType:facebookAccountType] lastObject];
