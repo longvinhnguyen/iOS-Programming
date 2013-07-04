@@ -8,5 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol FontsViewControllerDelegate <NSObject>
+
+- (void)selectedFontName:(NSString *)fontName withSize:(NSNumber *)fontSize;
+
+@end
+
 @interface FontsViewController : UIViewController
+
+@property (nonatomic, weak) id<FontsViewControllerDelegate>delegate;
+@property (nonatomic, strong) UIFont *preselectedFont;
+
 @end

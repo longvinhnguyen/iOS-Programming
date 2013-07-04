@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		418FB4E01785C3B400E78F5B /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 418FB4DF1785C3B400E78F5B /* Comfortaa_Regular.ttf */; };
 		9CE2567415D14ED1000A6B33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567315D14ED1000A6B33 /* UIKit.framework */; };
 		9CE2567615D14ED1000A6B33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567515D14ED1000A6B33 /* Foundation.framework */; };
 		9CE2567815D14ED1000A6B33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567715D14ED1000A6B33 /* CoreGraphics.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		418FB4DF1785C3B400E78F5B /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa_Regular.ttf; sourceTree = "<group>"; };
 		9CE2566F15D14ED1000A6B33 /* RichEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RichEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE2567315D14ED1000A6B33 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CE2567515D14ED1000A6B33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +129,7 @@
 		9CE2567A15D14ED1000A6B33 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				418FB4DF1785C3B400E78F5B /* Comfortaa_Regular.ttf */,
 				9CE2567B15D14ED1000A6B33 /* RichEditor-Info.plist */,
 				9CE2567C15D14ED1000A6B33 /* InfoPlist.strings */,
 				9CE2567F15D14ED1000A6B33 /* main.m */,
@@ -216,6 +219,7 @@
 				9CE256A815D153D0000A6B33 /* i@2x.png in Resources */,
 				9CE256A915D153D0000A6B33 /* toolbar-bg.png in Resources */,
 				9CE256AA15D153D0000A6B33 /* toolbar-bg@2x.png in Resources */,
+				418FB4E01785C3B400E78F5B /* Comfortaa_Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

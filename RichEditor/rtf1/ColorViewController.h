@@ -8,5 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ColorViewControllerDelegate <NSObject>
+
+- (void)selectedColor:(UIColor *)color;
+
+@end
+
 @interface ColorViewController : UITableViewController
+
+@property (nonatomic, weak) id<ColorViewControllerDelegate>delegate;
+
 @end

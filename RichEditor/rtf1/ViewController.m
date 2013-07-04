@@ -10,7 +10,7 @@
 #import "FontsViewController.h"
 #import "ColorViewController.h"
 
-@interface ViewController () <UITextViewDelegate>
+@interface ViewController () <UITextViewDelegate, FontsViewControllerDelegate, ColorViewControllerDelegate>
 {
     IBOutlet UITextView* editor;
     IBOutlet UIView* toolbar;
@@ -84,6 +84,46 @@
 
 -(IBAction)btnITapped:(id)sender
 {
+    NSRange selection = editor.selectedRange;
+    if (selection.length > 0) {
+        NSMutableAttributedString *a = [[NSMutableAttributedString alloc] initWithAttributedString:editor.attributedText];
+        
+        [editor.attributedText enumerateAttributesInRange:selection options:kNilOptions usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+            NSShadow *currentShadow = attrs[NSShadowAttributeName];
+            NSShadow *newShadow = [[NSShadow alloc] init];
+            
+            if (!currentShadow || currentShadow.shadowBlurRadius == 0) {
+                newShadow.shadowColor = [UIColor redColor];
+                newShadow.shadowBlurRadius = 6.0f;
+            } else {
+                newShadow.shadowColor = [UIColor clearColor];
+                newShadow.shadowBlurRadius = 0;
+            }
+            
+            [a addAttribute:NSShadowAttributeName value:newShadow range:range];
+        }];
+        
+        editor.attributedText = a;
+        editor.selectedRange = selection;
+    } else {
+        NSMutableDictionary *pendingAttrs = [[NSMutableDictionary alloc] initWithDictionary:editor.typingAttributes];
+        
+        NSShadow *currentShadow = pendingAttrs[NSShadowAttributeName];
+        NSShadow* newShadow = [[NSShadow alloc] init];
+        
+        if (!currentShadow || currentShadow.shadowBlurRadius == 0) {
+            newShadow.shadowColor = [UIColor redColor];
+            newShadow.shadowBlurRadius = 6.0f;
+        } else {
+            newShadow.shadowColor = [UIColor clearColor];
+            newShadow.shadowBlurRadius = 0;
+        }
+        
+        [pendingAttrs setObject:newShadow forKey:NSShadowAttributeName];
+        editor.typingAttributes = pendingAttrs;
+    }
+    
+    
 }
 
 -(IBAction)btnColorTapped:(id)sender
@@ -96,6 +136,30 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier compare:@"fonts"] == NSOrderedSame) {
+        FontsViewController *screen = segue.destinationViewController;
+        screen.delegate = self;
+        screen.preselectedFont = editor.typingAttributes[NSFontAttributeName];
+        return;
+    } else if ([segue.identifier compare:@"colors"] ==  NSOrderedSame) {
+        ColorViewController *screen = segue.destinationViewController;
+        screen.delegate = self;
+        return;
+    }
+}
+
+#pragma mark
+#pragma mark - FontsViewController & ColorViewController delegate
+- (void)selectedFontName:(NSString *)fontName withSize:(NSNumber *)fontSize
+{
+    NSDictionary *fontStyle = @{NSFontAttributeName: [UIFont fontWithName:fontName size:[fontSize floatValue]]};
+    [self applyAttributesToTextArea:fontStyle];
+}
+
+- (void)selectedColor:(UIColor *)color
+{
+    NSDictionary *colorStyle = @{NSForegroundColorAttributeName: color};
+    [self applyAttributesToTextArea:colorStyle];
 }
 
 @end
