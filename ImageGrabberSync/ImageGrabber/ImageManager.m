@@ -9,29 +9,34 @@
 #import "ImageManager.h"
 #import "ImageInfo.h"
 #import "ZipArchive.h"
+#import "ASIHTTPRequest.h"
 
 @implementation ImageManager
 @synthesize html;
 @synthesize delegate;
 
+char const*STRING_BGQUEUE_NAME = "com.razeware.imagegrabber.bgqueue";
+
 - (void)processZip:(NSData *)data sourceURL:(NSURL *)sourceURL {
-    
-    NSLog(@"Processing zip file...");
     
     // Write file to disk
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [directories objectAtIndex:0];
-    NSString *zipFilePath = [documentDirectory stringByAppendingPathComponent:[sourceURL lastPathComponent]];    
-    [data writeToFile:zipFilePath atomically:YES];                                    
-    NSLog(@"Wrote to: %@", zipFilePath);
+    NSString *zipFilePath = [documentDirectory stringByAppendingPathComponent:[sourceURL lastPathComponent]];
+    NSError *error;
+    NSLog(@"Processing zip file... %@", zipFilePath);
+    [data writeToFile:zipFilePath atomically:YES];
     
     // Open zip
-    ZipArchive *zip = [[[ZipArchive alloc] init] autorelease];
+    
+    ZipArchive *zip = [[ZipArchive alloc] init];
     BOOL success = [zip UnzipOpenFile:zipFilePath];    
     if (!success) {
         NSLog(@"Failed to open zip");
         return;
     }
+    
+    
     
     // Unzip
     NSString *zipDirName = [sourceURL.lastPathComponent substringWithRange:NSMakeRange(0, sourceURL.lastPathComponent.length - sourceURL.pathExtension.length - 1)];
@@ -45,23 +50,23 @@
     }
     
     // Enumerate directory
-    NSError * error = nil;
-    NSArray * items = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:zipDirPath error:&error];
+    NSArray * items = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:zipFilePath error:&error];
     if (error) {
-        NSLog(@"Could not enumerate %@", zipDirPath);
+        NSLog(@"Could not enumerate %@", zipFilePath);
         return;
     }
+    
     
     NSMutableArray *imageInfos = [NSMutableArray array];
     for (NSString *file in items) {
         if ([file.pathExtension compare:@"jpg" options:NSCaseInsensitiveSearch] == NSOrderedSame ||
             [file.pathExtension compare:@"png" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
             
-            NSString *imagePath = [zipDirPath stringByAppendingPathComponent:file];
+            NSString *imagePath = [zipFilePath stringByAppendingPathComponent:file];
             UIImage * image = [UIImage imageWithContentsOfFile:imagePath];
             NSLog(@"Found image in zip: %@", file);
             
-            ImageInfo *info = [[[ImageInfo alloc] initWithSourceURL:sourceURL imageName:file image:image] autorelease];
+            ImageInfo *info = [[ImageInfo alloc] initWithSourceURL:sourceURL imageName:file image:image];
             [imageInfos addObject:info];            
         }        
     }
@@ -72,18 +77,25 @@
         
 }
 
+
 - (void)retrieveZip:(NSURL *)sourceURL {
     
     NSLog(@"Getting %@...", sourceURL);
     
-    NSData * data = [NSData dataWithContentsOfURL:sourceURL];
-    if (!data) {
-        NSLog(@"Error retrieving %@", sourceURL);
-        return;
-    }
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:sourceURL];
+    [request setCompletionBlock:^{
+        NSLog(@"Zip file downloaded.");
+        NSData *data = [request responseData];
+        dispatch_async(backGroundQueue, ^{
+            [self processZip:data sourceURL:sourceURL];
+        });
+    }];
     
-    [self processZip:data sourceURL:sourceURL];
-    
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        NSLog(@"Error downloading zip file: %@", error.localizedDescription);
+    }];
+    [request startAsynchronous];
 }
 
 - (void)processHtml {
@@ -118,24 +130,27 @@
     NSMutableArray * imageInfos = [NSMutableArray array];
     for(NSURL *linkURL in linkURLs) {
         if ([linkURL.pathExtension compare:@"zip" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-            [self retrieveZip:linkURL];
-            pendingZips++;
+//            [self retrieveZip:linkURL];
+//            pendingZips++;
         } else {
-            ImageInfo *info = [[[ImageInfo alloc] initWithSourceURL:linkURL] autorelease];
+            ImageInfo *info = [[ImageInfo alloc] initWithSourceURL:linkURL];
+            NSLog(@"Image info %@ %@", info.sourceURL, info.imageName);
             [imageInfos addObject:info];
         }
     }
     
     // Notify delegate in main thread that new image infos
     // available
-    [delegate imageInfosAvailable:imageInfos done:(pendingZips==0)];
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [delegate imageInfosAvailable:imageInfos done:(pendingZips==0)];
+    });
 }
 
 - (void)process {
-    
-    [self processHtml];
-    
+    dispatch_async(backGroundQueue, ^{
+        NSLog(@"process HTML %@", html);
+        [self processHtml];
+    });
 }
 
 - (id)initWithHTML:(NSString *)theHtml delegate:(id<ImageManagerDelegate>) theDelegate {
@@ -143,11 +158,13 @@
     if ((self = [super init])) {
         html = theHtml;      
         delegate = theDelegate;
+        backGroundQueue = dispatch_queue_create(STRING_BGQUEUE_NAME, NULL);
     }
     return self;
 }
 
 - (void)dealloc {
+    dispatch_release(backGroundQueue);
     [super dealloc];
 }
 

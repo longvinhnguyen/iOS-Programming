@@ -27,13 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [imageDetailViewController release];
-    [html release];
-    [imageInfos release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -75,11 +68,13 @@
     self.navigationItem.rightBarButtonItem = loadingView;
     
     // Start image manage to load images
-    self.imageInfos = [[[NSMutableArray alloc] init] autorelease];
-    self.imageManager = [[[ImageManager alloc] initWithHTML:html delegate:self] autorelease];
-    [imageManager process];
+    self.imageInfos = [[NSMutableArray alloc] init];
+    self.imageManager = [[ImageManager alloc] initWithHTML:html delegate:self];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageUpdated:) name:STRING_POST_NOTIFICATION_IMAGE_UPDATED object:nil];
     
 }
+
 
 - (void)imageInfosAvailable:(NSArray *)newInfos done:(BOOL)done {
     
@@ -104,13 +99,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:STRING_POST_NOTIFICATION_IMAGE_UPDATED object:nil];
     
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        
+    [imageManager process];
     [super viewWillAppear:animated];
 }
 
@@ -155,7 +151,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
@@ -212,10 +208,20 @@
     // Navigation logic may go here. Create and push another view controller.
     ImageInfo *info = [imageInfos objectAtIndex:indexPath.row];
     if (imageDetailViewController == nil) {
-        self.imageDetailViewController = [[[ImageDetailViewController alloc] initWithNibName:@"ImageDetailViewController" bundle:[NSBundle mainBundle]] autorelease];
+        self.imageDetailViewController = [[ImageDetailViewController alloc] initWithNibName:@"ImageDetailViewController" bundle:[NSBundle mainBundle]];
     }
     imageDetailViewController.info = info;
     [self.navigationController pushViewController:imageDetailViewController animated:YES];
+    
+}
+
+#pragma mark - PostNotificationCenter methods
+- (void)imageUpdated:(NSNotification *)notification
+{
+    ImageInfo *info = [notification object];
+    int row = [imageInfos indexOfObject:info];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     
 }
 

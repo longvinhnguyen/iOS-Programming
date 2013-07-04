@@ -14,10 +14,11 @@
 
 @interface ImageManager : NSObject {
     int pendingZips;
+    dispatch_queue_t backGroundQueue;
 }
 
-@property (retain) NSString * html;
-@property (assign) id<ImageManagerDelegate> delegate;
+@property (nonatomic, strong) NSString * html;
+@property (nonatomic, assign) id<ImageManagerDelegate> delegate;
 
 - (id)initWithHTML:(NSString *)theHtml delegate:(id<ImageManagerDelegate>) theDelegate;
 - (void)process;

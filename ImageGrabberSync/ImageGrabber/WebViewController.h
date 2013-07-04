@@ -17,10 +17,10 @@
     UIBarButtonItem *grabButton;
 }
 
-@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) IBOutlet UIWebView *webView;
-@property (retain) ImageListViewController *imageListViewController;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *grabButton;
+@property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, strong) IBOutlet UIWebView *webView;
+@property (strong) ImageListViewController *imageListViewController;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *grabButton;
 - (IBAction)grabTapped:(id)sender;
 
 @end

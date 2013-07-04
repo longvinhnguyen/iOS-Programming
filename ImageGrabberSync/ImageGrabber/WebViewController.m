@@ -74,15 +74,15 @@
 #pragma UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    numLoads++;
+//    numLoads++;
     grabButton.enabled = NO;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    numLoads--;
-    if (numLoads > 0) {
+//    numLoads--;
+//    if (numLoads > 0) {
         grabButton.enabled = YES;
-    }
+//    }
 }
 
 - (IBAction)grabTapped:(id)sender {
