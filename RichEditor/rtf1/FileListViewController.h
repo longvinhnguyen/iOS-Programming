@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface FileListViewController : UITableViewController
+{
+    NSArray *fileList;
+}
 
 @end

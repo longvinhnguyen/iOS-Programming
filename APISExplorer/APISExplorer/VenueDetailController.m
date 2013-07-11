@@ -11,7 +11,11 @@
 #import <AFNetworking/AFNetworking.h>
 
 @interface VenueDetailController ()
-
+{
+    NSTimer *timer;
+    NSShadow *shadow;
+    float delta;
+}
 @end
 
 @implementation VenueDetailController
@@ -55,6 +59,14 @@
             }
         }];
     }
+    
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(glow:) userInfo:nil repeats:YES];
+    delta = 0.2;
+    shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor greenColor];
+    shadow.shadowBlurRadius = 0.2;
+    shadow.shadowOffset = CGSizeMake(1.0, 1.0);
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,5 +80,24 @@
 
 - (IBAction)saveButtonTapped:(id)sender {
     VLog(@"Save button tapped");
+}
+
+
+- (void)glow:(NSTimer *)t
+{
+    shadow.shadowBlurRadius += delta;
+    if (shadow.shadowBlurRadius>10) delta = -0.2;
+    if (shadow.shadowBlurRadius<0) delta = 0.2;
+    
+    NSString *nameString = [NSString stringWithFormat:@" %@ ", _venue.title];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        NSDictionary *dictionary = @{NSShadowAttributeName: shadow, NSForegroundColorAttributeName: [UIColor whiteColor]};
+        NSMutableAttributedString *aString = [[NSMutableAttributedString alloc] initWithString:nameString attributes:dictionary];
+        
+        _name.attributedText = aString;
+    });
+//    NSLog(@"%f", [t timeInterval]);
 }
 @end

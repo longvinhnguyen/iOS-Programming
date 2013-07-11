@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		418FB4E01785C3B400E78F5B /* Comfortaa_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 418FB4DF1785C3B400E78F5B /* Comfortaa_Regular.ttf */; };
+		418FB4E4178713CF00E78F5B /* AutoCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 418FB4E3178713CF00E78F5B /* AutoCoding.m */; };
 		9CE2567415D14ED1000A6B33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567315D14ED1000A6B33 /* UIKit.framework */; };
 		9CE2567615D14ED1000A6B33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567515D14ED1000A6B33 /* Foundation.framework */; };
 		9CE2567815D14ED1000A6B33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE2567715D14ED1000A6B33 /* CoreGraphics.framework */; };
@@ -33,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		418FB4DF1785C3B400E78F5B /* Comfortaa_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Comfortaa_Regular.ttf; sourceTree = "<group>"; };
+		418FB4E2178713CF00E78F5B /* AutoCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoCoding.h; sourceTree = "<group>"; };
+		418FB4E3178713CF00E78F5B /* AutoCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoCoding.m; sourceTree = "<group>"; };
 		9CE2566F15D14ED1000A6B33 /* RichEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RichEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CE2567315D14ED1000A6B33 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CE2567515D14ED1000A6B33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -78,9 +81,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		418FB4E1178713CF00E78F5B /* AutoCoding */ = {
+			isa = PBXGroup;
+			children = (
+				418FB4E2178713CF00E78F5B /* AutoCoding.h */,
+				418FB4E3178713CF00E78F5B /* AutoCoding.m */,
+			);
+			path = AutoCoding;
+			sourceTree = "<group>";
+		};
 		9CE2566415D14ED1000A6B33 = {
 			isa = PBXGroup;
 			children = (
+				418FB4E1178713CF00E78F5B /* AutoCoding */,
 				9CE2569415D153BC000A6B33 /* resources */,
 				9CE2567915D14ED1000A6B33 /* RichEditor */,
 				9CE2567A15D14ED1000A6B33 /* Supporting Files */,
@@ -236,6 +249,7 @@
 				9CE256AF15D1683B000A6B33 /* FontsViewController.m in Sources */,
 				9CE256B615D17407000A6B33 /* ColorViewController.m in Sources */,
 				9CE256C315D29BAA000A6B33 /* FileListViewController.m in Sources */,
+				418FB4E4178713CF00E78F5B /* AutoCoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

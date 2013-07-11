@@ -14,6 +14,10 @@
     IBOutlet UIButton* btnApply;
     
     NSArray *fontsDataSource;
+    
+    NSTimer *timer;
+    float delta;
+    NSShadow *shadow;
 }
 
 @end
@@ -54,6 +58,12 @@
             break;
         }
     }
+    
+    shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor colorWithRed:0 green:0.42 blue:0.039 alpha:1];
+    shadow.shadowBlurRadius =  0.0f;
+    delta = 0.2;
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(glow:) userInfo:nil repeats:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -100,6 +110,20 @@
     
     [self.delegate selectedFontName:fontName withSize:fontSize];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+- (void)glow:(NSTimer *)timer
+{
+    shadow.shadowBlurRadius += delta;
+    if (shadow.shadowBlurRadius > 6) delta = -0.2;
+    if (shadow.shadowBlurRadius < 0) delta = 0.2;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSAttributedString *title = [[NSAttributedString alloc] initWithString:@" Apply " attributes:@{NSShadowAttributeName: shadow, NSForegroundColorAttributeName: [UIColor whiteColor]}];
+        
+        [btnApply setAttributedTitle:title forState:UIControlStateNormal];
+    });
 }
 
 @end

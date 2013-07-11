@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "FontsViewController.h"
 #import "ColorViewController.h"
+#import "AutoCoding.h"
 
-@interface ViewController () <UITextViewDelegate, FontsViewControllerDelegate, ColorViewControllerDelegate>
+@interface ViewController () <UITextViewDelegate, FontsViewControllerDelegate, ColorViewControllerDelegate, UIAlertViewDelegate>
 {
     IBOutlet UITextView* editor;
     IBOutlet UIView* toolbar;
@@ -26,6 +27,18 @@
     toolbar.center = CGPointMake(160, 480);
     editor.allowsEditingTextAttributes = YES;
     [editor becomeFirstResponder];
+    
+    self.title = [[self.fileName lastPathComponent] stringByDeletingLastPathComponent];
+    
+    @try {
+        editor.attributedText = [NSAttributedString objectWithContentsOfFile:self.fileName];
+    }
+    @catch (NSException *exception) {
+        editor.attributedText = [[NSAttributedString alloc] initWithString:@""];
+    }
+    @finally {
+        
+    }
 }
 
 - (void)applyAttributesToTextArea:(NSDictionary *)attrs
@@ -40,7 +53,18 @@
 
 -(IBAction)btnSaveTapped:(id)sender
 {
+    if ([editor.attributedText writeToFile:self.fileName atomically:YES]) {
+        [[[UIAlertView alloc] initWithTitle:@"Success" message:@"Note saved" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Failure" message:@"There is an error when saving the note. Please try again." delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil] show];
+    }
 }
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
