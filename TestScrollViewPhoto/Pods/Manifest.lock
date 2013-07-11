@@ -1,0 +1,16 @@
+PODS:
+  - FPPopover (1.4.1)
+  - ViewDeck (2.3.1)
+  - WEPopover (0.0.1)
+
+DEPENDENCIES:
+  - FPPopover
+  - ViewDeck (~> 2.3.1)
+  - WEPopover
+
+SPEC CHECKSUMS:
+  FPPopover: 0289b796c031d8f27bd221d93d282ffe23619893
+  ViewDeck: 2cdc67c4b41a10cafc7556b982f028409e33604d
+  WEPopover: 119fe521e9c35069c5ec63dfc14334ca321275b8
+
+COCOAPODS: 0.19.1
