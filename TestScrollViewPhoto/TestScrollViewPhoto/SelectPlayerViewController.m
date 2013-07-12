@@ -8,8 +8,12 @@
 
 #import "SelectPlayerViewController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <QuartzCore/QuartzCore.h>
+#import "Icon.h"
 
-@interface SelectPlayerViewController ()<UITableViewDataSource, UITableViewDelegate>
+typedef void(^completeBlock)();
+
+@interface SelectPlayerViewController ()<UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imageView1;
 @property (nonatomic, weak) IBOutlet UIImageView *imageView2;
@@ -22,7 +26,11 @@
 {
     ALAssetsLibrary *library;
     NSMutableArray *myPhotos;
-    UITapGestureRecognizer *tap;
+    UILongPressGestureRecognizer *tap;
+    UIPanGestureRecognizer *pan;
+    Icon *selectedCellView;
+    UIImageView *plusIcon;
+    
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,25 +47,44 @@
 {
     [super viewDidLoad];
     library = [[ALAssetsLibrary alloc] init];
-    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (index != NSNotFound) {
+                NSLog(@"%@", result);
                 UIImage *myImage = [UIImage imageWithCGImage:[result thumbnail]];
                 if (myImage) {
                     [myPhotos addObject:myImage];
-                    if (myPhotos.count > 5) {
+                    if (myPhotos.count == 20) {
                         *stop = YES;
                     }
                 }
-                NSLog(@"%d", myPhotos.count);
             }
         }];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error %@", error.localizedDescription);
     }];
     
-    tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnTableView:)];
+    tap = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnTableView:)];
+    tap.minimumPressDuration = 0.5;
+    tap.delegate = self;
     [_tableView addGestureRecognizer:tap];
+    pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panImage:)];
+    pan.delegate = self;
+    [pan setCancelsTouchesInView:NO];
+    [_tableView addGestureRecognizer:pan];
+    
+    
+    _imageView1.layer.cornerRadius = 10;
+    _imageView1.layer.masksToBounds = YES;
+    
+    _imageView2.layer.cornerRadius = 10;
+    _imageView2.layer.masksToBounds = YES;
+    
+    _imageView3.layer.cornerRadius = 10;
+    _imageView3.layer.masksToBounds = YES;
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +117,6 @@
     cell.imageView.image = myPhotos[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"Photo %i", indexPath.row + 1];
     
-    
     return cell;
 }
 
@@ -105,11 +131,120 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)tapOnTableView:(UITapGestureRecognizer *)tapGesture
+- (IBAction)refreshButtonTapped:(id)sender
 {
-    CGPoint currentPoint = [tapGesture locationInView:_tableView];
-    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:currentPoint];
-    NSLog(@"IndexPath :%@", indexPath);
+    [self refreshAllToDefault];
 }
+
+- (void)refreshAllToDefault
+{
+    _imageView1.image = [UIImage imageNamed:@"holder"];
+    _imageView2.image = [UIImage imageNamed:@"holder"];
+    _imageView3.image = [UIImage imageNamed:@"holder"];
+}
+
+#pragma mark - Gesture methods
+- (void)tapOnTableView:(UILongPressGestureRecognizer *)tapGesture
+{
+    if (tapGesture.state == UIGestureRecognizerStateBegan) {
+        CGPoint currentPointInTableView = [tapGesture locationInView:_tableView];
+        CGPoint currentPointInMainView = [tapGesture locationInView:self.view];
+        
+        
+        NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:currentPointInTableView];
+        NSLog(@"IndexPath %d %d\n currentPointMV: %f %f", indexPath.section, indexPath.row, currentPointInMainView.x, currentPointInMainView.y);
+        
+        int row = indexPath.row;
+        selectedCellView = [[Icon alloc] init];
+        selectedCellView.indexPath = indexPath;
+        selectedCellView.iconImageView.image = myPhotos[row];
+        selectedCellView.frame = CGRectMake(0, 0, 50, 50);
+        selectedCellView.center = currentPointInMainView;
+        [self.view addSubview:selectedCellView];
+        [self.view bringSubviewToFront:selectedCellView];
+
+        
+    } else if (tapGesture.state == UIGestureRecognizerStateEnded) {
+        if ([self isInAnySlot]) {
+            if (CGRectIntersectsRect(selectedCellView.frame, _imageView1.frame)) {
+                [self animateToTheSlot:_imageView1.frame complete:^{
+                    _imageView1.image = selectedCellView.image;
+                }];
+            } else if (CGRectIntersectsRect(selectedCellView.frame, _imageView2.frame)) {
+                [self animateToTheSlot:_imageView2.frame complete:^{
+                    _imageView2.image = selectedCellView.image;
+                }];
+            } else  if (CGRectIntersectsRect(selectedCellView.frame, _imageView3.frame)) {
+                [self animateToTheSlot:_imageView3.frame complete:^{
+                    _imageView3.image = selectedCellView.image;
+                }];
+            }
+        } else {
+            [selectedCellView removeFromSuperview];
+            selectedCellView = nil;
+        }
+
+    }
+}
+
+- (BOOL)isInAnySlot
+{
+    return CGRectIntersectsRect(selectedCellView.frame, _imageView1.frame) || CGRectIntersectsRect(selectedCellView.frame, _imageView2.frame) || CGRectIntersectsRect(selectedCellView.frame, _imageView3.frame);
+}
+
+- (void)animateToTheSlot:(CGRect)frame complete:(completeBlock) block
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        selectedCellView.frame = frame;
+    } completion:^(BOOL finished) {
+        if (block) {
+            block();
+        }
+        
+        // Update table
+        [_tableView beginUpdates];
+        [_tableView reloadRowsAtIndexPaths:@[selectedCellView.indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [_tableView endUpdates];
+
+        [selectedCellView removeFromSuperview];
+        selectedCellView = nil;
+    }];
+}
+
+- (void)panImage:(UIPanGestureRecognizer *)panGesture
+{
+    if (!selectedCellView) {
+        return;
+    }
+    
+    if (panGesture.state == UIGestureRecognizerStateBegan) {
+        _tableView.scrollEnabled = NO;
+    } else if (panGesture.state == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [panGesture translationInView:self.view];
+        CGRect frame = selectedCellView.frame;
+        frame.origin.x += translation.x;
+        frame.origin.y += translation.y;
+        
+        selectedCellView.frame = frame;
+        
+        if ([self isInAnySlot]) {
+            if (!selectedCellView.plusImageView.image) {
+                selectedCellView.plusImageView.image = [UIImage imageNamed:@"plus"];
+            }
+        } else {
+            selectedCellView.plusImageView.image = nil;
+        }
+        
+        [panGesture setTranslation:CGPointZero inView:self.view];
+    } else if (panGesture.state == UIGestureRecognizerStateEnded) {
+        _tableView.scrollEnabled = YES;
+    }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+
 
 @end
