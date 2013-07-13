@@ -85,6 +85,7 @@ typedef void(^completeBlock)();
     
     
     
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -229,7 +230,7 @@ typedef void(^completeBlock)();
         
         if ([self isInAnySlot]) {
             if (!selectedCellView.plusImageView.image) {
-                selectedCellView.plusImageView.image = [UIImage imageNamed:@"plus"];
+                selectedCellView.plusImageView.image = [UIImage imageNamed:@"plus_white"];
             }
         } else {
             selectedCellView.plusImageView.image = nil;
