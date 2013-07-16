@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4107D2FB1791ACBF00E19D46 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4107D2FA1791ACBF00E19D46 /* Social.framework */; };
 		416900761790544400E3194A /* RecipeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 416900751790544400E3194A /* RecipeCell.xib */; };
 		41690079179054B800E3194A /* RecipeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41690078179054B800E3194A /* RecipeCell.m */; };
 		4169007C179056EC00E3194A /* RecipeCodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4169007B179056EC00E3194A /* RecipeCodeCell.m */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4107D2FA1791ACBF00E19D46 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		416900751790544400E3194A /* RecipeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCell.xib; sourceTree = "<group>"; };
 		41690077179054B800E3194A /* RecipeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeCell.h; sourceTree = "<group>"; };
 		41690078179054B800E3194A /* RecipeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeCell.m; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4107D2FB1791ACBF00E19D46 /* Social.framework in Frameworks */,
 				5537AB6915D0A6F50052BD09 /* UIKit.framework in Frameworks */,
 				5537AB6B15D0A6F50052BD09 /* Foundation.framework in Frameworks */,
 				5537AB6D15D0A6F50052BD09 /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +115,7 @@
 		5537AB6715D0A6F50052BD09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4107D2FA1791ACBF00E19D46 /* Social.framework */,
 				5537AB6815D0A6F50052BD09 /* UIKit.framework */,
 				5537AB6A15D0A6F50052BD09 /* Foundation.framework */,
 				5537AB6C15D0A6F50052BD09 /* CoreGraphics.framework */,

@@ -34,6 +34,18 @@
     [self saveContext];
 }
 
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    NSUInteger orientations = UIInterfaceOrientationMaskAll;
+    
+    if (self.window.rootViewController) {
+        UIViewController *presented = [((UINavigationController *)self.window.rootViewController).viewControllers lastObject];
+        orientations = [presented supportedInterfaceOrientations];
+    }
+    
+    return orientations;
+}
+
 #pragma mark - Core Data
 
 // Returns the managed object context for the application.

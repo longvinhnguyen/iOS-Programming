@@ -17,11 +17,13 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 - (void)insertNewObject:(id)sender;
 
+@property (nonatomic, assign) BOOL sortAscending;
+
 @end
 
 @implementation RecipeListViewController
 
-#pragma mark - Fetched results controller
+#pragma mark - Fetched results controllersupportedInterfaceOrientations
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
@@ -110,7 +112,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:self.sortAscending];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     // Set the fetch request's sort descriptors
@@ -131,6 +133,19 @@
 	}
     
     return _fetchedResultsController;
+}
+
+- (void) refreshControlSortTriggered
+{
+    self.sortAscending = !self.sortAscending;
+    _fetchedResultsController = nil;
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+- (void)refreshControlValueChanged
+{
+    [self performSelector:@selector(refreshControlSortTriggered) withObject:nil afterDelay:0.85];
 }
 
 #pragma mark - View Lifecycle
@@ -168,6 +183,11 @@
 //    UINib *cellNib = [UINib nibWithNibName:@"RecipeCell" bundle:[NSBundle mainBundle]];
 //    [self.tableView registerNib:cellNib forCellReuseIdentifier:RecipeCellReuseIdentifier];
     [self.tableView registerClass:[RecipeCodeCell class] forCellReuseIdentifier:RecipeCodeCellReuseIdentifier];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshControlValueChanged) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+    self.refreshControl.tintColor = [UIColor orangeColor];
 }
 
 - (void)insertNewObject:(id)sender
@@ -205,6 +225,7 @@
 {
     return YES;
 }
+
 
 #endif
 
