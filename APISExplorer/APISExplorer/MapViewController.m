@@ -64,7 +64,7 @@
     
     // set up map view
     
-    _mapView = [GMSMapView mapWithFrame:CGRectMake(0, HEIGHT_TOOLBAR_VIEW_CONTROLLER, WIDTH_IPHONE, HEIGHT_IPHONE - HEIGHT_TOOLBAR_VIEW_CONTROLLER) camera:[GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:12]];
+    _mapView = [GMSMapView mapWithFrame:CGRectMake(0, HEIGHT_TOOLBAR_VIEW_CONTROLLER, WIDTH_IPHONE, HEIGHT_IPHONE - HEIGHT_TOOLBAR_VIEW_CONTROLLER) camera:[GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:12.5]];
     [_mapView setAutoresizingMask:UIViewAutoresizingFlexibleHeight];
     _mapView.settings.myLocationButton = YES;
     _mapView.settings.compassButton = YES;
