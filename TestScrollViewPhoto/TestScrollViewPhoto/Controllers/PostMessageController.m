@@ -9,7 +9,12 @@
 #import "PostMessageController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define DEFAULT_TYPING_ATTRIBUTES   @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}
+
 @interface PostMessageController ()
+{
+    BOOL needToResetTypingAttribute;
+}
 
 @end
 
@@ -31,6 +36,7 @@
     _textField.layer.borderWidth = 1.0f;
     _textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _textField.layer.cornerRadius = 8.0f;
+    _textField.typingAttributes = DEFAULT_TYPING_ATTRIBUTES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,51 +57,40 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if ([text isEqualToString:@"@"]) {
-        NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] initWithAttributedString:textView.attributedText];
-        [attrText setAttributes:@{NSForegroundColorAttributeName:[UIColor redColor], NSFontAttributeName:[UIFont systemFontOfSize:14.0f]} range:NSMakeRange(textView.text.length-1, 1)];
-        textView.attributedText = attrText;
+        [textView setTypingAttributes:@{NSForegroundColorAttributeName:[UIColor redColor],NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
     } else if ([text isEqualToString:@" "]) {
-        [textView setTypingAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont systemFontOfSize:14.0f]}];
+        needToResetTypingAttribute = YES;
+    } else if ([text isEqualToString:@""]) {
+        UITextPosition *beginning = [textView beginningOfDocument];
+        UITextPosition *start = [textView positionFromPosition:beginning offset:range.location];
+        UITextPosition *end = [textView positionFromPosition:beginning offset:range.location+range.length];
+        UITextRange *textRange = [textView textRangeFromPosition:start toPosition:end];
+        end = [textView positionFromPosition:beginning offset:range.location+range.length];
+        NSString *deletedText = [textView textInRange:textRange];
+        
+        start = [textView positionFromPosition:beginning offset:range.location - 1];
+        end = [textView positionFromPosition:beginning offset:range.location - 1 + range.length];
+        textRange = [textView textRangeFromPosition:start toPosition:end];
+        NSString *besideText = [textView textInRange:textRange];
+        if (![besideText isEqualToString:@"@"]) {
+            if ([deletedText isEqualToString:@"@"]) {
+                needToResetTypingAttribute = YES;
+            }
+        }
     }
-    textView.selectedRange = range;
+
     return YES;
 }
 
-//- (void)highLightConnectText:(UITextView *)textView
-//{
-//    NSError *error = NULL;
-//    NSString *pattern = @"@([A-z]|[0-9])+";
-//    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
-//                                                                           options:NSRegularExpressionCaseInsensitive
-//                                                                             error:&error];
-//    NSArray *results = [regex matchesInString:textView.text options:NSMatchingReportProgress range:NSMakeRange(0, textView.text.length)];
-//    if (results.count > 0) {
-//        // hightlight the connect text
-//        NSMutableAttributedString *copyAttr = [[NSMutableAttributedString alloc] initWithAttributedString:textView.attributedText];
-//        for (NSTextCheckingResult *match in results) {
-//            NSRange range = match.range;
-//            [textView.attributedText enumerateAttributesInRange:range options:kNilOptions usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
-//                if (attrs[NSForegroundColorAttributeName] != [UIColor redColor]) {
-//                    [copyAttr setAttributes:@{NSForegroundColorAttributeName:[UIColor redColor]} range:range];
-//                    [textView setScrollEnabled:NO];
-//                    textView.attributedText = copyAttr;
-//                    if ([textView.text characterAtIndex:textView.text.length-1] == ' ') {
-//                        [copyAttr setAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} range:textView.selectedRange];
-//                        textView.attributedText = copyAttr;
-//                    }
-//                    textView.selectedRange = NSMakeRange(textView.text.length, 0);
-//                    [textView setScrollEnabled:YES];
-//                }
-//            }];
-//        }
-//    }
-//}
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSLog(@"TextViewDid change %@", [textView.attributedText string]);
-//    [self highLightConnectText:textView];
+    if (needToResetTypingAttribute) {
+        textView.typingAttributes = DEFAULT_TYPING_ATTRIBUTES;
+        needToResetTypingAttribute = NO;
+    }
 }
+
 
 
 - (void)textViewDidEndEditing:(UITextView *)textView
