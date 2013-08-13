@@ -99,21 +99,33 @@
     
     if (!info[@"image"]) {
         FeedCell *feedCell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
+        feedCell.backgroundColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:1.0];
         feedCell.eventMessage.text = info[@"message"];
         feedCell.numberLikes.text = info[@"likes"];
         feedCell.numberComments.text = info[@"comments"];
+    
         cell = feedCell;
     } else {
         FeedPhotoCell *photoCell = [tableView dequeueReusableCellWithIdentifier:@"FeedPhotoCell"];
+        photoCell.backgroundColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:0.2f];
         photoCell.eventMessage.text = info[@"message"];
         photoCell.numberLikes.text = info[@"likes"];
         photoCell.numberComments.text = info[@"comments"];
         photoCell.photo.image = [UIImage imageNamed:info[@"image"]];
+        
         cell = photoCell;
     }
-
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isMemberOfClass:[FeedPhotoCell class]]) {
+        cell.backgroundColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:0.2f];
+    } else {
+        cell.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.1f];
+    }
 }
 
 - (float)configureHeightForIndexPath:(NSIndexPath *)indexPath
