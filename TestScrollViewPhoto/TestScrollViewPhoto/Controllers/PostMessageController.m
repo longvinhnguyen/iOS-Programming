@@ -13,16 +13,23 @@
 
 #define DEFAULT_TYPING_ATTRIBUTES   @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}
 
-@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
     BOOL needToResetTypingAttribute;
 }
 
 @property (nonatomic, weak) IBOutlet UIButton *avatarImageView;
+@property (nonatomic, weak) IBOutlet UITextField *dateField;
 
 @end
 
 @implementation PostMessageController
+{
+    NSArray *_months;
+    NSArray *_years;
+    NSMutableString *_dateString;
+    NSString *month, *year;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +48,15 @@
     _textField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _textField.layer.cornerRadius = 8.0f;
     _textField.typingAttributes = DEFAULT_TYPING_ATTRIBUTES;
+    
+    _dateField.inputView = self.datePickerView;
+    
+    _months = @[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"];
+    _years = @[@"2013", @"2014", @"2015", @"2016", @"2017", @"2018", @"2019", @"2020", @"2021", @"2022", @"2023", @"2025", @"2026", @"2027", @"2028", @"2029", @"2030"];
+    _dateString = [NSMutableString new];
+    month = @"";
+    year = @"";
+    NSLog(@"%.2d %d", 6, 2012);
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,8 +69,24 @@
 {
     UITouch *touch = [touches anyObject];
     if (touch.tapCount == 1) {
-        [_textField resignFirstResponder];
+        if (_textField.isFirstResponder) {
+            [_textField resignFirstResponder];
+        } else if (_dateField.isFirstResponder) {
+            [_dateField resignFirstResponder];
+        }
     }
+}
+
+#pragma mark - Accessor methods
+- (UIPickerView *)datePickerView
+{
+    if (!_datePickerView) {
+        _datePickerView = [[UIPickerView alloc] init];
+        _datePickerView.delegate = self;
+        _datePickerView.dataSource = self;
+        _datePickerView.showsSelectionIndicator = YES;
+    }
+    return _datePickerView;
 }
 
 #pragma mark - UITextView delegate
@@ -165,5 +197,64 @@
     UIGraphicsEndImageContext();
     return outputImage;
 }
+
+#pragma mark - UIPickerView delegate
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 2;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSString *title;
+    switch (component) {
+        case 0:
+            title = _months[row];
+            break;
+        case 1:
+            title = _years[row];
+            break;
+        default:
+            break;
+    }
+    return title;
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSAttributedString *title;
+    switch (component) {
+        case 0:
+            title = [[NSAttributedString alloc] initWithString:_months[row] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Zapfino" size:12.0f], NSForegroundColorAttributeName: [UIColor greenColor]}];
+            break;
+        case 1:
+            title = [[NSAttributedString alloc] initWithString:_years[row] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]}];
+            break;
+        default:
+            break;
+    }
+    return title;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (component == 0) {
+        return _months.count;
+    } else {
+        return _years.count;
+    }
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    if (component == 0) {
+        month = _months[row];
+    } else if (component == 1) {
+        year = _years[row];
+    }
+    _dateField.text = [NSString stringWithFormat:@"%@/%@", month, year];
+}
+
+
 
 @end

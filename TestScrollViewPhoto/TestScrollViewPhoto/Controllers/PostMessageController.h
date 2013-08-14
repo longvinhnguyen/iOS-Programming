@@ -11,5 +11,6 @@
 @interface PostMessageController : UIViewController<UITextViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextView *textField;
+@property (nonatomic, strong) UIPickerView *datePickerView;
 
 @end

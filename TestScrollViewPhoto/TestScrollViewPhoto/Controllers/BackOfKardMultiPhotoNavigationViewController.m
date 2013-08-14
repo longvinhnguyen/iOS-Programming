@@ -102,6 +102,19 @@
     [self addChildViewController:_pageViewController];
     [[self view] addSubview:[_pageViewController view]];
     [_pageViewController didMoveToParentViewController:self];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"dd/MM/yyyy";
+    NSString *today = @"6/7/2013";
+    NSDate *expiredDate = [formatter dateFromString:today];
+    BOOL isExpired = [expiredDate timeIntervalSinceDate:[NSDate date]]<0?YES:NO;
+    NSLog(@"Time: %f %@ %@", [expiredDate timeIntervalSinceDate:[NSDate date]], [formatter stringFromDate:expiredDate], [formatter stringFromDate:[NSDate date]]);
+    if (isExpired) {
+        NSLog(@"Deal is expired");
+    } else {
+        NSLog(@"available deal");
+    }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
