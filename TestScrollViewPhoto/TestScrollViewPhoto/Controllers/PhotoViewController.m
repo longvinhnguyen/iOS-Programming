@@ -8,6 +8,8 @@
 
 #import "PhotoViewController.h"
 #import "UIImageView+WebCache.h"
+#import <QuartzCore/QuartzCore.h>
+#import "FocusScreenView.h"
 
 @interface PhotoViewController ()
 
@@ -30,6 +32,10 @@
     if (!self.photo.image) {
         [self.photo setImageWithURL:[NSURL URLWithString:_photoURL]];
     }
+    
+    // backgroundView
+    FocusScreenView *bgView = [[FocusScreenView alloc] initWithFrame:self.photo.frame];
+    [self.view addSubview:bgView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +53,7 @@
         CIContext *context = [CIContext contextWithOptions:nil];
         CIImage *image = [CIImage imageWithCGImage:testImage.CGImage];
         CIFilter *blurFilter = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:kCIInputImageKey, image, @"inputRadius", [NSNumber numberWithFloat:5.0f], nil];
-        CIFilter *spetialFilter = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:kCIInputImageKey, image, @"inputIntensity", [NSNumber numberWithFloat:0.8f], nil];
+//        CIFilter *spetialFilter = [CIFilter filterWithName:@"CISepiaTone" keysAndValues:kCIInputImageKey, image, @"inputIntensity", [NSNumber numberWithFloat:0.8f], nil];
         CIImage *ciImage = [blurFilter outputImage];
         
         CGImageRef imageRef = [context createCGImage: ciImage fromRect:ciImage.extent];

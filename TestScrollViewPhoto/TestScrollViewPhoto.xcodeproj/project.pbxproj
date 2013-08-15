@@ -11,6 +11,7 @@
 		41176F9E17B28897008DBB55 /* corkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 41176F9D17B28897008DBB55 /* corkboard.png */; };
 		F61BE1AA17B9EF88008A4A43 /* unknown_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */; };
 		F61BE1AC17B9F273008A4A43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */; };
+		F6355A6717BCE335005765DD /* FocusScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6355A6617BCE335005765DD /* FocusScreenView.m */; };
 		F6372648178EBAC00092E8A0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6372647178EBAC00092E8A0 /* AssetsLibrary.framework */; };
 		F683188817A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F683188017A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.m */; };
 		F683188917A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F683188117A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.xib */; };
@@ -85,6 +86,8 @@
 		CD9137BFB075468983B432C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unknown_avatar.jpg; sourceTree = "<group>"; };
 		F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F6355A6517BCE335005765DD /* FocusScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusScreenView.h; path = View/FocusScreenView.h; sourceTree = "<group>"; };
+		F6355A6617BCE335005765DD /* FocusScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusScreenView.m; path = View/FocusScreenView.m; sourceTree = "<group>"; };
 		F6372647178EBAC00092E8A0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		F683187F17A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackOfKardMultiPhotoNavigationViewController.h; sourceTree = "<group>"; };
 		F683188017A8BDEA00795B09 /* BackOfKardMultiPhotoNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackOfKardMultiPhotoNavigationViewController.m; sourceTree = "<group>"; };
@@ -211,6 +214,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F6355A6817BCE347005765DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6355A6517BCE335005765DD /* FocusScreenView.h */,
+				F6355A6617BCE335005765DD /* FocusScreenView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		F683187E17A8BDEA00795B09 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +348,7 @@
 				F68FD39617588EC700F79B7E /* AppDelegate.h */,
 				F68FD39717588EC700F79B7E /* AppDelegate.m */,
 				F68FD38E17588EC700F79B7E /* Supporting Files */,
+				F6355A6817BCE347005765DD /* View */,
 			);
 			path = TestScrollViewPhoto;
 			sourceTree = "<group>";
@@ -529,6 +542,7 @@
 				F68318BB17A8C11D00795B09 /* SetNewLocationController.m in Sources */,
 				F68318D417A91AA800795B09 /* PhotoViewController.m in Sources */,
 				F6FAC3B117AFA5D200304F83 /* PostMessageController.m in Sources */,
+				F6355A6717BCE335005765DD /* FocusScreenView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

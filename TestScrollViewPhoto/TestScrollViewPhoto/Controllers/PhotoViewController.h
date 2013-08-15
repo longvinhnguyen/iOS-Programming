@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *photo;
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *effectButton;
+@property (nonatomic, weak) IBOutlet UIView *backgroundView;
 @property (nonatomic, strong) NSString *photoURL;
 
 @end

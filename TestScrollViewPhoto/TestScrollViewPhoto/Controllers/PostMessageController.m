@@ -9,11 +9,10 @@
 #import "PostMessageController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-#import <UIImage+GIF.h>
 
 #define DEFAULT_TYPING_ATTRIBUTES   @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}
 
-@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 {
     BOOL needToResetTypingAttribute;
 }
@@ -56,6 +55,7 @@
     _dateString = [NSMutableString new];
     month = @"";
     year = @"";
+    _dateField.delegate = self;
     NSLog(@"%.2d %d", 6, 2012);
 }
 
@@ -134,10 +134,27 @@
     NSLog(@"%@", textView.text);
 }
 
+#pragma mark - UITextField delegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        NSLog(@"dateField y: %f", _datePickerView.frame.size.height);
+        self.view.frame = CGRectMake(0, 0 - _datePickerView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [UIView animateWithDuration:0.2 animations:^{
+        self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+}
+
 #pragma mark - Action methods
 - (void)postMessage:(UIButton *)sender
 {
-    NSLog(@"Post status to FB/Twitter");
+    NSLog(@"Post status to FB/Twitter"); 
 }
 
 - (IBAction)changeProfileImage:(id)sender
@@ -178,6 +195,7 @@
     }
 }
 
+#pragma mark - UIImagePickerController delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = info[UIImagePickerControllerEditedImage]?info[UIImagePickerControllerEditedImage]:info[UIImagePickerControllerOriginalImage];
@@ -225,7 +243,7 @@
     NSAttributedString *title;
     switch (component) {
         case 0:
-            title = [[NSAttributedString alloc] initWithString:_months[row] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Zapfino" size:12.0f], NSForegroundColorAttributeName: [UIColor greenColor]}];
+            title = [[NSAttributedString alloc] initWithString:_months[row] attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Noteworthy-Bold" size:12.0f], NSForegroundColorAttributeName: [UIColor blueColor]}];
             break;
         case 1:
             title = [[NSAttributedString alloc] initWithString:_years[row] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:18.0f]}];
