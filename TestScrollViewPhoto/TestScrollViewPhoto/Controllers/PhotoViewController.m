@@ -34,8 +34,8 @@
     }
     
     // backgroundView
-    FocusScreenView *bgView = [[FocusScreenView alloc] initWithFrame:self.photo.frame];
-    [self.view addSubview:bgView];
+//    FocusScreenView *bgView = [[FocusScreenView alloc] initWithFrame:self.photo.frame];
+//    [self.view addSubview:bgView];
 }
 
 - (void)didReceiveMemoryWarning

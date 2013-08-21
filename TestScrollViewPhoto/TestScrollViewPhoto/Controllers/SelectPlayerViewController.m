@@ -10,6 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Icon.h"
+#import "TTSwitch.h"
 
 typedef void(^completeBlock)();
 
@@ -129,11 +130,24 @@ typedef void(^completeBlock)();
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_ID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_ID];
+        TTSwitch *squareThumbSwitch = [[TTSwitch alloc] initWithFrame:(CGRect){ CGPointZero, { 76.0f, 27.0f } }];
+        squareThumbSwitch.trackImage = [UIImage imageNamed:@"square-switch-track"];
+        squareThumbSwitch.overlayImage = [UIImage imageNamed:@"square-switch-overlay"];
+        squareThumbSwitch.thumbImage = [UIImage imageNamed:@"square-switch-thumb"];
+        squareThumbSwitch.thumbHighlightImage = [UIImage imageNamed:@"square-switch-thumb-highlight"];
+        squareThumbSwitch.trackMaskImage = [UIImage imageNamed:@"square-switch-mask"];
+        squareThumbSwitch.thumbMaskImage = nil; // Set this to nil to override the UIAppearance setting
+        squareThumbSwitch.thumbOffsetY = -3.0f;
+        squareThumbSwitch.thumbInsetX = -3.0f;
+        [squareThumbSwitch addTarget:self action:@selector(toogleSwitchButton:) forControlEvents:UIControlEventValueChanged];
+        cell.accessoryView = squareThumbSwitch;
     }
     
     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     cell.imageView.image = myPhotos[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"Photo %i", indexPath.row + 1];
+    TTSwitch *switcher = (TTSwitch *)cell.accessoryView;
+    switcher.tag = indexPath.row;
     
     return cell;
 }
@@ -262,6 +276,12 @@ typedef void(^completeBlock)();
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     return YES;
+}
+
+#pragma mark - Action methods
+- (void)toogleSwitchButton:(TTSwitch *)switcher
+{
+    NSLog(@"Button %d is %d", switcher.tag, switcher.isOn);
 }
 
 
