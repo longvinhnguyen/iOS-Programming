@@ -12,6 +12,7 @@
 #import "SetNewLocationController.h"
 #import "SelectPlayerViewController.h"
 #import "PostMessageController.h"
+#import "GalleryViewController.h"
 
 @interface FeedViewController ()
 @property (nonatomic, strong) UIView *refreshView;
@@ -184,6 +185,13 @@
     NSLog(@"%@", self.parentViewController);
     UINavigationController *controller = (UINavigationController *)self.parentViewController;
     [controller pushViewController:slController animated:YES];
+}
+
+- (IBAction)galleryButtonTapped:(id)sender
+{
+    GalleryViewController *gvc = [[GalleryViewController alloc] init];
+    UINavigationController *controller = (UINavigationController *)self.parentViewController;
+    [controller pushViewController:gvc animated:YES];
 }
 
 

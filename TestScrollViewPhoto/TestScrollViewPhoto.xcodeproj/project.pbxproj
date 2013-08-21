@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		23B8EA79196C425CA6EA4803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9137BFB075468983B432C2 /* libPods.a */; };
 		41176F9E17B28897008DBB55 /* corkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 41176F9D17B28897008DBB55 /* corkboard.png */; };
+		F611FB8A17C47F5B009F4C02 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F611FB8917C47F5B009F4C02 /* GalleryViewController.m */; };
+		F611FB8C17C47FC4009F4C02 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F611FB8B17C47FC4009F4C02 /* GalleryViewController.xib */; };
+		F611FB8E17C49405009F4C02 /* rex_hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F611FB8D17C49404009F4C02 /* rex_hotel.jpg */; };
+		F611FB9117C4946C009F4C02 /* GalleryCollectionFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F611FB9017C4946C009F4C02 /* GalleryCollectionFlowLayout.m */; };
+		F611FB9417C49717009F4C02 /* PictureViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F611FB9317C49717009F4C02 /* PictureViewCell.m */; };
+		F611FB9617C4972B009F4C02 /* PictureViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F611FB9517C4972B009F4C02 /* PictureViewCell.xib */; };
 		F61BE1AA17B9EF88008A4A43 /* unknown_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */; };
 		F61BE1AC17B9F273008A4A43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */; };
 		F6355A6717BCE335005765DD /* FocusScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6355A6617BCE335005765DD /* FocusScreenView.m */; };
@@ -118,6 +124,15 @@
 		41176F9D17B28897008DBB55 /* corkboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corkboard.png; sourceTree = "<group>"; };
 		CB1253C89EB14F4087845876 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD9137BFB075468983B432C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F611FB8817C47F5B009F4C02 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		F611FB8917C47F5B009F4C02 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		F611FB8B17C47FC4009F4C02 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		F611FB8D17C49404009F4C02 /* rex_hotel.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rex_hotel.jpg; sourceTree = "<group>"; };
+		F611FB8F17C4946C009F4C02 /* GalleryCollectionFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCollectionFlowLayout.h; sourceTree = "<group>"; };
+		F611FB9017C4946C009F4C02 /* GalleryCollectionFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCollectionFlowLayout.m; sourceTree = "<group>"; };
+		F611FB9217C49717009F4C02 /* PictureViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewCell.h; sourceTree = "<group>"; };
+		F611FB9317C49717009F4C02 /* PictureViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewCell.m; sourceTree = "<group>"; };
+		F611FB9517C4972B009F4C02 /* PictureViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewCell.xib; sourceTree = "<group>"; };
 		F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unknown_avatar.jpg; sourceTree = "<group>"; };
 		F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F6355A6517BCE335005765DD /* FocusScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusScreenView.h; path = View/FocusScreenView.h; sourceTree = "<group>"; };
@@ -391,6 +406,9 @@
 				F6FAC3AE17AFA5D100304F83 /* PostMessageController.h */,
 				F6FAC3AF17AFA5D100304F83 /* PostMessageController.m */,
 				F6FAC3B017AFA5D200304F83 /* PostMessageController.xib */,
+				F611FB8817C47F5B009F4C02 /* GalleryViewController.h */,
+				F611FB8917C47F5B009F4C02 /* GalleryViewController.m */,
+				F611FB8B17C47FC4009F4C02 /* GalleryViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -398,6 +416,7 @@
 		F683188E17A8BDF900795B09 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F611FB8D17C49404009F4C02 /* rex_hotel.jpg */,
 				F6487E6817C1EFA1004C49CE /* TTSwitch Images */,
 				F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */,
 				F683188F17A8BDF900795B09 /* add_placeholder.png */,
@@ -424,6 +443,9 @@
 				F68318A717A8BE0C00795B09 /* FeedPhotoCell.h */,
 				F68318A817A8BE0C00795B09 /* FeedPhotoCell.m */,
 				F68318A917A8BE0C00795B09 /* FeedPhotoCell.xib */,
+				F611FB9217C49717009F4C02 /* PictureViewCell.h */,
+				F611FB9317C49717009F4C02 /* PictureViewCell.m */,
+				F611FB9517C4972B009F4C02 /* PictureViewCell.xib */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -434,6 +456,8 @@
 				F68318AB17A8BE0C00795B09 /* Icon.h */,
 				F68318AC17A8BE0C00795B09 /* Icon.m */,
 				F68318AD17A8BE0C00795B09 /* Icon.xib */,
+				F611FB8F17C4946C009F4C02 /* GalleryCollectionFlowLayout.h */,
+				F611FB9017C4946C009F4C02 /* GalleryCollectionFlowLayout.m */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -659,6 +683,9 @@
 				F6487EA917C1EFA1004C49CE /* square-switch-thumb@2x.png in Resources */,
 				F6487EAA17C1EFA1004C49CE /* square-switch-track.png in Resources */,
 				F6487EAB17C1EFA1004C49CE /* square-switch-track@2x.png in Resources */,
+				F611FB8C17C47FC4009F4C02 /* GalleryViewController.xib in Resources */,
+				F611FB8E17C49405009F4C02 /* rex_hotel.jpg in Resources */,
+				F611FB9617C4972B009F4C02 /* PictureViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +753,9 @@
 				F6355A6717BCE335005765DD /* FocusScreenView.m in Sources */,
 				F6487E6617C1EE55004C49CE /* TTFadeSwitch.m in Sources */,
 				F6487E6717C1EE55004C49CE /* TTSwitch.m in Sources */,
+				F611FB8A17C47F5B009F4C02 /* GalleryViewController.m in Sources */,
+				F611FB9117C4946C009F4C02 /* GalleryCollectionFlowLayout.m in Sources */,
+				F611FB9417C49717009F4C02 /* PictureViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
