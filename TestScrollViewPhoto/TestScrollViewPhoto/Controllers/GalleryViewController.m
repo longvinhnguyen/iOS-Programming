@@ -11,7 +11,7 @@
 #import "GalleryCollectionFlowLayout.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define CElL_SIZE   150
+#define CElL_SIZE   68
 #define kPictureCell    @"PICTURE_CELL"
 
 @interface GalleryViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -88,7 +88,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(15.0f, 10.0f, 0, 10.0f);
+    return UIEdgeInsetsMake(15.0f, 8.0f, 0, 8.0f);
 }
 
 @end

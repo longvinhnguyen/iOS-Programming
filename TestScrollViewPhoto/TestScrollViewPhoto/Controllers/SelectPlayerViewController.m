@@ -48,7 +48,7 @@ typedef void(^completeBlock)();
 {
     [super viewDidLoad];
     library = [[ALAssetsLibrary alloc] init];
-    [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [library enumerateGroupsWithTypes:ALAssetsGroupAlbum | ALAssetsGroupLibrary | ALAssetsGroupPhotoStream usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (index != NSNotFound) {
                 NSLog(@"%@", result);
@@ -61,6 +61,7 @@ typedef void(^completeBlock)();
                 }
             }
         }];
+        [_tableView reloadData];
     } failureBlock:^(NSError *error) {
         NSLog(@"Error %@", error.localizedDescription);
     }];

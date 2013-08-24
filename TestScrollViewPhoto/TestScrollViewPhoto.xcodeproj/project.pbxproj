@@ -17,6 +17,7 @@
 		F611FB9617C4972B009F4C02 /* PictureViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F611FB9517C4972B009F4C02 /* PictureViewCell.xib */; };
 		F61BE1AA17B9EF88008A4A43 /* unknown_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */; };
 		F61BE1AC17B9F273008A4A43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */; };
+		F632283817C7613F00E1311C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F632283717C7613F00E1311C /* MessageUI.framework */; };
 		F6355A6717BCE335005765DD /* FocusScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6355A6617BCE335005765DD /* FocusScreenView.m */; };
 		F6372648178EBAC00092E8A0 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6372647178EBAC00092E8A0 /* AssetsLibrary.framework */; };
 		F6487E6617C1EE55004C49CE /* TTFadeSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = F6487E6217C1EE55004C49CE /* TTFadeSwitch.m */; };
@@ -135,6 +136,7 @@
 		F611FB9517C4972B009F4C02 /* PictureViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PictureViewCell.xib; sourceTree = "<group>"; };
 		F61BE1A917B9EF88008A4A43 /* unknown_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unknown_avatar.jpg; sourceTree = "<group>"; };
 		F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		F632283717C7613F00E1311C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F6355A6517BCE335005765DD /* FocusScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FocusScreenView.h; path = View/FocusScreenView.h; sourceTree = "<group>"; };
 		F6355A6617BCE335005765DD /* FocusScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FocusScreenView.m; path = View/FocusScreenView.m; sourceTree = "<group>"; };
 		F6372647178EBAC00092E8A0 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -273,6 +275,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F632283817C7613F00E1311C /* MessageUI.framework in Frameworks */,
 				F61BE1AC17B9F273008A4A43 /* MobileCoreServices.framework in Frameworks */,
 				F68318D017A8C1AA00795B09 /* SystemConfiguration.framework in Frameworks */,
 				F68318CE17A8C19A00795B09 /* OpenGLES.framework in Frameworks */,
@@ -483,6 +486,7 @@
 		F68FD38617588EC700F79B7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F632283717C7613F00E1311C /* MessageUI.framework */,
 				F61BE1AB17B9F273008A4A43 /* MobileCoreServices.framework */,
 				F68318CF17A8C1AA00795B09 /* SystemConfiguration.framework */,
 				F68318CD17A8C19A00795B09 /* OpenGLES.framework */,

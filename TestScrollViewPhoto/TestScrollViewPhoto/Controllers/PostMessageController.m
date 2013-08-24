@@ -9,10 +9,11 @@
 #import "PostMessageController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <MobileCoreServices/MobileCoreServices.h>
+#import <MessageUI/MessageUI.h>
 
 #define DEFAULT_TYPING_ATTRIBUTES   @{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14.0f]}
 
-@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
+@interface PostMessageController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, MFMessageComposeViewControllerDelegate>
 {
     BOOL needToResetTypingAttribute;
 }
@@ -154,7 +155,16 @@
 #pragma mark - Action methods
 - (void)postMessage:(UIButton *)sender
 {
-    NSLog(@"Post status to FB/Twitter"); 
+    MFMessageComposeViewController *smsController = [[MFMessageComposeViewController alloc] init];
+    if ([MFMessageComposeViewController canSendText]) {
+        smsController.body = @"hi Long, how are you";
+        smsController.recipients = @[@"0909734456"];
+        smsController.messageComposeDelegate = self;
+        [self presentViewController:smsController animated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Cannot send message" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (IBAction)changeProfileImage:(id)sender
@@ -271,6 +281,26 @@
         year = _years[row];
     }
     _dateField.text = [NSString stringWithFormat:@"%@/%@", month, year];
+}
+
+#pragma mark - MFMessageViewController
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	switch (result) {
+		case MessageComposeResultCancelled:
+			NSLog(@"Cancelled");
+			break;
+		case MessageComposeResultFailed:
+            NSLog(@"Failed");
+			break;
+		case MessageComposeResultSent:
+            NSLog(@"Sent");
+			break;
+		default:
+			break;
+	}
+    
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
