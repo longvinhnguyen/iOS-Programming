@@ -12,7 +12,6 @@
 #import "BHPhotoAlbumLayout.h"
 #import "BHAlbum.h"
 #import "BHPhoto.h"
-#import "BHEmblemView.h"
 
 static NSString *const PhotoCellIdentifier = @"PhotoCell";
 static NSString *const AlbumTitleIdentifier = @"AlbumTitle";
@@ -35,7 +34,6 @@ static NSString *const EmblemIdentifier = @"AlbumTitle";
     [self.collectionView registerClass:[BHAlbumTitleReusableView class]
             forSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind
                    withReuseIdentifier:AlbumTitleIdentifier];
-    [self.collectionView registerClass:[BHEmblemView class] forSupplementaryViewOfKind:@"Emblem" withReuseIdentifier:EmblemIdentifier];
     
     self.albums = [NSMutableArray new];
     
@@ -111,18 +109,10 @@ static NSString *const EmblemIdentifier = @"AlbumTitle";
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionReusableView *titleView;
-    if (kind == BHPhotoAlbumLayoutAlbumTitleKind) {
-        BHAlbumTitleReusableView *albumTitleView = [collectionView dequeueReusableSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind withReuseIdentifier:AlbumTitleIdentifier forIndexPath:indexPath];
-        BHAlbum *album = self.albums[indexPath.section];
-        albumTitleView.titleLabel.text = album.name;
-        titleView =  albumTitleView;
-    } else {
-        BHEmblemView *decorationView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:kind forIndexPath:indexPath];
-        titleView = decorationView;
-    }
+    BHAlbumTitleReusableView *titleView = [collectionView dequeueReusableSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind withReuseIdentifier:AlbumTitleIdentifier forIndexPath:indexPath];
+    BHAlbum *album = self.albums[indexPath.section];
+    titleView.titleLabel.text = album.name;
 
-    
     return titleView;
 }
 
