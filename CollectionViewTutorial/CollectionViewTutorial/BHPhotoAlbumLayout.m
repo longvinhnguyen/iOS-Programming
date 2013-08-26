@@ -7,13 +7,22 @@
 //
 
 #import "BHPhotoAlbumLayout.h"
+#import <QuartzCore/QuartzCore.h>
+#import "BHEmblemView.h"
+static NSUInteger const PhotoCellBaseZIndex = 100;
 
 
 static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
+NSString * const BHPhotoAlbumLayoutAlbumTitleKind = @"AlbumTitle";
+NSString * const BHPhotoEmblemKind = @"Emblem";
 
-@interface BHPhotoAlbumLayout()<UICollectionViewDataSource, UICollectionViewDelegate>
+static NSUInteger const RotationCount = 32;
+static NSUInteger const RotationStride = 3;
+
+@interface BHPhotoAlbumLayout()
 
 @property (nonatomic, strong) NSDictionary *layoutInfo;
+@property (nonatomic, strong) NSArray *rotations;
 
 @end
 
@@ -44,15 +53,42 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
     self.itemSize = CGSizeMake(125.0f, 125.0f);
     self.interItemSpacingY = 12.0f;
     self.numberOfColumns = 2;
+    
+    NSMutableArray *rotations = [NSMutableArray arrayWithCapacity:RotationCount];
+    CGFloat percetage = 1.0f;
+    for (NSInteger i = 0; i < RotationCount; i ++) {
+        // ensure that each angle is different enough to be seen
+        CGFloat newPercentage = 0.0f;
+        do {
+            newPercentage = ((CGFloat)(arc4random() % 220) - 110) * 0.0001f;
+        } while (fabs(percetage - newPercentage) < 0.006);
+        percetage = newPercentage;
+        
+        CGFloat angle = 2 * M_PI * (1.0f + percetage);
+        CATransform3D transform = CATransform3DMakeRotation(angle, 0.0f, 0.0f, 1.0f);
+        [rotations addObject:[NSValue valueWithCATransform3D:transform]];
+    }
+    self.rotations = rotations;
+    
+    self.titleHeight = 26.0f;
+    
+    [self registerClass:[BHEmblemView class] forDecorationViewOfKind:BHPhotoEmblemKind];
+
 }
 
 - (void)prepareLayout
 {
     NSMutableDictionary *newLayoutInfo = [NSMutableDictionary dictionary];
     NSMutableDictionary *cellLayoutInfo = [NSMutableDictionary dictionary];
+    NSMutableDictionary *titleLayoutInfo = [NSMutableDictionary dictionary];
     
     NSInteger sectionCount = [self.collectionView numberOfSections];
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
+    
+    UICollectionViewLayoutAttributes *emblemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:BHPhotoEmblemKind withIndexPath:indexPath];
+    emblemAttributes.frame = [self frameForEmblem];
+    newLayoutInfo[BHPhotoEmblemKind] = @{indexPath: emblemAttributes};
+    
     
     for (NSInteger section = 0; section < sectionCount; section ++) {
         NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
@@ -61,15 +97,50 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
             indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             UICollectionViewLayoutAttributes *itemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             itemAttributes.frame = [self frameForAlbumPhotoAtIndexPath:indexPath];
+            itemAttributes.transform3D = [self transformForAlbumPhotoAtIndex:indexPath];
+            itemAttributes.zIndex = PhotoCellBaseZIndex + itemCount - item;
+            
             cellLayoutInfo[indexPath] = itemAttributes;
+            
+            if (indexPath.item == 0) {
+                UICollectionViewLayoutAttributes *titleAttributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:BHPhotoAlbumLayoutAlbumTitleKind withIndexPath:indexPath];
+                titleAttributes.frame = [self frameForAlbumTitleAtIndexPath:indexPath];
+                titleLayoutInfo[indexPath] = titleAttributes;
+            }
         }
     }
     
     newLayoutInfo[BHPhotoAlbumLayoutPhotoCellKind] = cellLayoutInfo;
+    newLayoutInfo[BHPhotoAlbumLayoutAlbumTitleKind] = titleLayoutInfo;
     self.layoutInfo = newLayoutInfo;
 }
 
 #pragma mark - Private
+- (CATransform3D)transformForAlbumPhotoAtIndex:(NSIndexPath *)indexPath
+{
+    NSInteger offset = (indexPath.section * RotationStride + indexPath.item);
+    return [self.rotations[offset % RotationCount] CATransform3DValue];
+}
+
+- (CGRect)frameForAlbumTitleAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGRect frame = [self frameForAlbumPhotoAtIndexPath:indexPath];
+    frame.origin.y  += frame.size.height;
+    frame.size.height = self.titleHeight;
+
+    return frame;
+}
+
+- (CGRect)frameForEmblem
+{
+    CGSize size = [BHEmblemView defaultSize];
+    
+    CGFloat originX = floorf((self.collectionView.bounds.size.width - size.width) * 0.5f);
+    CGFloat originY = -size.height - 30.0f;
+    
+    return CGRectMake(originX, originY, size.width, size.height);
+}
+
 - (CGRect)frameForAlbumPhotoAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger row = indexPath.section / self.numberOfColumns;
@@ -82,7 +153,8 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
     }
     
     CGFloat originX = floorf(self.itemInsets.left + (self.itemSize.width + spacingX) * column);
-    CGFloat originY = floorf((self.itemInsets.top) + (self.interItemSpacingY + self.itemSize.height) * row);
+    CGFloat originY = floor(self.itemInsets.top +
+                            (self.itemSize.height + self.titleHeight + self.interItemSpacingY) * row);
     
     return CGRectMake(originX, originY, self.itemSize.width, self.itemSize.height);
 }
@@ -107,6 +179,16 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
     return self.layoutInfo[BHPhotoAlbumLayoutPhotoCellKind][indexPath];
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    return self.layoutInfo[BHPhotoAlbumLayoutAlbumTitleKind][indexPath];
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString *)decorationViewKind atIndexPath:(NSIndexPath *)indexPath
+{
+    return self.layoutInfo[BHPhotoEmblemKind][indexPath];
+}
+
 - (CGSize)collectionViewContentSize
 
 {
@@ -115,7 +197,7 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
         rowCount ++;
     }
     
-    CGFloat height = self.itemInsets.top + rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY + self.itemInsets.bottom;
+    CGFloat height = self.itemInsets.top + rowCount * self.itemSize.height + (rowCount - 1) * self.interItemSpacingY + rowCount * self.titleHeight + self.itemInsets.bottom;
     
     return CGSizeMake(self.collectionView.bounds.size.width, height);
 }
@@ -154,6 +236,15 @@ static NSString * const BHPhotoAlbumLayoutPhotoCellKind = @"PhotoCell";
         return;
     }
     _interItemSpacingY = interItemSpacingY;
+    [self invalidateLayout];
+}
+
+- (void)setTitleHeight:(CGFloat)titleHeight
+{
+    if (_titleHeight == titleHeight) {
+        return;
+    }
+    _titleHeight = titleHeight;
     [self invalidateLayout];
 }
 

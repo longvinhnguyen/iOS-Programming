@@ -20,6 +20,13 @@
 		F61A5BCB17C88CB30020BEB5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61A5BC917C88CB30020BEB5 /* ViewController.xib */; };
 		F61A5BD417C88D8A0020BEB5 /* BHPhotoAlbumLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A5BD317C88D8A0020BEB5 /* BHPhotoAlbumLayout.m */; };
 		F61A5BD817C88EC10020BEB5 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A5BD717C88EC10020BEB5 /* BHAlbumPhotoCell.m */; };
+		F671094C17CB656F009B927B /* BHEmblemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F671094B17CB656F009B927B /* BHEmblemView.m */; };
+		F685CB3417CB684B000A6278 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = F685CB3217CB684B000A6278 /* emblem.png */; };
+		F685CB3517CB684B000A6278 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F685CB3317CB684B000A6278 /* emblem@2x.png */; };
+		F6E4E00617CB2A9C00364443 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4E00317CB2A9C00364443 /* BHAlbum.m */; };
+		F6E4E00717CB2A9C00364443 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4E00517CB2A9C00364443 /* BHPhoto.m */; };
+		F6E4E00917CB34A100364443 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E4E00817CB34A100364443 /* QuartzCore.framework */; };
+		F6E4E00C17CB3A7B00364443 /* BHAlbumTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E4E00B17CB3A7B00364443 /* BHAlbumTitleReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,17 @@
 		F61A5BD317C88D8A0020BEB5 /* BHPhotoAlbumLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhotoAlbumLayout.m; sourceTree = "<group>"; };
 		F61A5BD617C88EC10020BEB5 /* BHAlbumPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumPhotoCell.h; sourceTree = "<group>"; };
 		F61A5BD717C88EC10020BEB5 /* BHAlbumPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumPhotoCell.m; sourceTree = "<group>"; };
+		F671094A17CB656F009B927B /* BHEmblemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHEmblemView.h; sourceTree = "<group>"; };
+		F671094B17CB656F009B927B /* BHEmblemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHEmblemView.m; sourceTree = "<group>"; };
+		F685CB3217CB684B000A6278 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
+		F685CB3317CB684B000A6278 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
+		F6E4E00217CB2A9C00364443 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbum.h; sourceTree = "<group>"; };
+		F6E4E00317CB2A9C00364443 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbum.m; sourceTree = "<group>"; };
+		F6E4E00417CB2A9C00364443 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHPhoto.h; sourceTree = "<group>"; };
+		F6E4E00517CB2A9C00364443 /* BHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHPhoto.m; sourceTree = "<group>"; };
+		F6E4E00817CB34A100364443 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F6E4E00A17CB3A7B00364443 /* BHAlbumTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BHAlbumTitleReusableView.h; sourceTree = "<group>"; };
+		F6E4E00B17CB3A7B00364443 /* BHAlbumTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHAlbumTitleReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E4E00917CB34A100364443 /* QuartzCore.framework in Frameworks */,
 				F61A5BAF17C88CB30020BEB5 /* UIKit.framework in Frameworks */,
 				F61A5BB117C88CB30020BEB5 /* Foundation.framework in Frameworks */,
 				F61A5BB317C88CB30020BEB5 /* CoreGraphics.framework in Frameworks */,
@@ -79,6 +98,7 @@
 		F61A5BAD17C88CB30020BEB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6E4E00817CB34A100364443 /* QuartzCore.framework */,
 				F61A5BAE17C88CB30020BEB5 /* UIKit.framework */,
 				F61A5BB017C88CB30020BEB5 /* Foundation.framework */,
 				F61A5BB217C88CB30020BEB5 /* CoreGraphics.framework */,
@@ -89,6 +109,8 @@
 		F61A5BB417C88CB30020BEB5 /* CollectionViewTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				F685CB3117CB683C000A6278 /* Resource */,
+				F6E4E00117CB2A7700364443 /* Model */,
 				F61A5BD517C88E9F0020BEB5 /* View */,
 				F61A5BBD17C88CB30020BEB5 /* AppDelegate.h */,
 				F61A5BBE17C88CB30020BEB5 /* AppDelegate.m */,
@@ -129,8 +151,32 @@
 			children = (
 				F61A5BD617C88EC10020BEB5 /* BHAlbumPhotoCell.h */,
 				F61A5BD717C88EC10020BEB5 /* BHAlbumPhotoCell.m */,
+				F6E4E00A17CB3A7B00364443 /* BHAlbumTitleReusableView.h */,
+				F6E4E00B17CB3A7B00364443 /* BHAlbumTitleReusableView.m */,
+				F671094A17CB656F009B927B /* BHEmblemView.h */,
+				F671094B17CB656F009B927B /* BHEmblemView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		F685CB3117CB683C000A6278 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F685CB3217CB684B000A6278 /* emblem.png */,
+				F685CB3317CB684B000A6278 /* emblem@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F6E4E00117CB2A7700364443 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6E4E00217CB2A9C00364443 /* BHAlbum.h */,
+				F6E4E00317CB2A9C00364443 /* BHAlbum.m */,
+				F6E4E00417CB2A9C00364443 /* BHPhoto.h */,
+				F6E4E00517CB2A9C00364443 /* BHPhoto.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +235,8 @@
 				F61A5BC317C88CB30020BEB5 /* Default@2x.png in Resources */,
 				F61A5BC517C88CB30020BEB5 /* Default-568h@2x.png in Resources */,
 				F61A5BCB17C88CB30020BEB5 /* ViewController.xib in Resources */,
+				F685CB3417CB684B000A6278 /* emblem.png in Resources */,
+				F685CB3517CB684B000A6278 /* emblem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +252,10 @@
 				F61A5BC817C88CB30020BEB5 /* ViewController.m in Sources */,
 				F61A5BD417C88D8A0020BEB5 /* BHPhotoAlbumLayout.m in Sources */,
 				F61A5BD817C88EC10020BEB5 /* BHAlbumPhotoCell.m in Sources */,
+				F6E4E00617CB2A9C00364443 /* BHAlbum.m in Sources */,
+				F6E4E00717CB2A9C00364443 /* BHPhoto.m in Sources */,
+				F6E4E00C17CB3A7B00364443 /* BHAlbumTitleReusableView.m in Sources */,
+				F671094C17CB656F009B927B /* BHEmblemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +378,7 @@
 				F61A5BD017C88CB30020BEB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
