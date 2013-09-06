@@ -103,17 +103,19 @@
     [[self view] addSubview:[_pageViewController view]];
     [_pageViewController didMoveToParentViewController:self];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"dd/MM/yyyy";
-    NSString *today = @"6/7/2013";
-    NSDate *expiredDate = [formatter dateFromString:today];
-    BOOL isExpired = [expiredDate timeIntervalSinceDate:[NSDate date]]<0?YES:NO;
-    NSLog(@"Time: %f %@ %@", [expiredDate timeIntervalSinceDate:[NSDate date]], [formatter stringFromDate:expiredDate], [formatter stringFromDate:[NSDate date]]);
-    if (isExpired) {
-        NSLog(@"Deal is expired");
-    } else {
-        NSLog(@"available deal");
-    }
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    formatter.dateFormat = @"dd/MM/yyyy";
+//    NSString *today = @"6/7/2013";
+//    NSDate *expiredDate = [formatter dateFromString:today];
+//    BOOL isExpired = [expiredDate timeIntervalSinceDate:[NSDate date]]<0?YES:NO;
+//    NSLog(@"Time: %f %@ %@", [expiredDate timeIntervalSinceDate:[NSDate date]], [formatter stringFromDate:expiredDate], [formatter stringFromDate:[NSDate date]]);
+//    if (isExpired) {
+//        NSLog(@"Deal is expired");
+//    } else {
+//        NSLog(@"available deal");
+//    }
+    
+    [self validateValue:@"imgurl=http://www.chrissycostanza.com/wp-content/uploads/2013/01/Chrissy-Costanza-On-Camera.jpg imgurl=http://www.chrissycostanza.com/wp-content/uploads/2013/01/Chrissy-Costanza-On-Camera.jpg,imgurl=http://www.chrissycostanza.com/wp-content/uploads/2013/01/Chrissy-Costanza-Boyish-Photo.jpg" withPatter:@"imgurl=(http(s)?\\:\\/\\/.+\\.(png|jpg|jpeg))"];
     
 }
 
@@ -241,6 +243,21 @@
     
     return pvc;
 
+}
+
+- (BOOL)validateValue:(NSString *)value withPatter:(NSString *)pattern
+{
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSArray *matches = [regex matchesInString:value options:NSMatchingReportCompletion range:NSMakeRange(0, value.length - 1)];
+    
+    if (matches.count > 0) {
+        for (NSTextCheckingResult *result in matches) {
+                NSRange range = [result rangeAtIndex:1];
+                NSLog(@"URLs: %@",[value substringWithRange:range]);
+        }
+    }
+    
+    return matches.count > 0;
 }
 
 
