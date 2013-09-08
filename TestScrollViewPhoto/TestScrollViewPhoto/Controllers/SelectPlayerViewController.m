@@ -48,7 +48,7 @@ typedef void(^completeBlock)();
 {
     [super viewDidLoad];
     library = [[ALAssetsLibrary alloc] init];
-    [library enumerateGroupsWithTypes:ALAssetsGroupAlbum | ALAssetsGroupLibrary | ALAssetsGroupPhotoStream usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+    [library enumerateGroupsWithTypes:ALAssetsGroupAll | ALAssetsGroupLibrary | ALAssetsGroupPhotoStream usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
             if (index != NSNotFound) {
                 NSLog(@"%@", result);
