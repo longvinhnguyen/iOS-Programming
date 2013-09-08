@@ -16,5 +16,6 @@
 - (NSArray *)getAlbums;
 - (void)addAlbum:(Album *)ablum atIndex:(int)index;
 - (void)deleteAlbumAtIndex:(int)index;
+- (void)saveAlbums;
 
 @end

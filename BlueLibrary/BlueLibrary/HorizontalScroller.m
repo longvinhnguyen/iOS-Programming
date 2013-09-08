@@ -57,6 +57,7 @@
         UIView *view = [self.delegate horizontalScroller:self viewAtIndex:i];
         view.frame = CGRectMake(xValue, VIEW_PADDING, VIEW_DIMENSIONS, VIEW_DIMENSIONS);
         [scroller addSubview:view];
+        NSLog(@"View object %@", view);
         xValue += VIEW_DIMENSIONS + VIEW_PADDING;
     }
     
@@ -76,7 +77,7 @@
     int viewIndex = xFinal / (VIEW_DIMENSIONS + (2*VIEW_PADDING));
     xFinal = viewIndex * (VIEW_DIMENSIONS + (2 * VIEW_PADDING));
     [scroller setContentOffset:CGPointMake(xFinal, 0) animated:YES];
-    [self.delegate horizontalScroller:self clickedViewAtIndex:xFinal];
+    [self.delegate horizontalScroller:self clickedViewAtIndex:viewIndex];
 }
 
 
@@ -89,7 +90,9 @@
         UIView *view = scroller.subviews[i];
         if (CGRectContainsPoint(view.frame, location)) {
             [self.delegate horizontalScroller:self clickedViewAtIndex:i];
+            NSLog(@"%f - %f + %f = %f", view.frame.origin.x, self.frame.size.width / 2, view.frame.size.width / 2, view.frame.origin.x - self.frame.size.width / 2 +view.frame.size.width / 2);
             [scroller setContentOffset:CGPointMake(view.frame.origin.x - self.frame.size.width / 2 +view.frame.size.width / 2, 0) animated:YES];
+
         }
     }
 }

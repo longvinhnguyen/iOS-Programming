@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Album : NSObject
+@interface Album : NSObject<NSCoding>
 
 @property (nonatomic, copy, readonly) NSString *title;
 @property (nonatomic, copy, readonly) NSString *artist;

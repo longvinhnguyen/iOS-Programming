@@ -28,9 +28,15 @@
         persistencyManager = [[PersistencyManager alloc] init];
         client = [[HTTPClient alloc] init];
         isOnline = NO;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 + (LibraryAPI *)shareInstance
@@ -65,6 +71,31 @@
     }
 }
 
+- (void)downloadImage:(NSNotification *)notification
+{
+    UIImageView *imageView = notification.userInfo[@"imageView"];
+    NSString *coverUrl = notification.userInfo[@"coverUrl"];
+    
+    imageView.image = [persistencyManager getImage:[coverUrl lastPathComponent]];
+    
+    if (!imageView.image) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [client downloadImage:coverUrl];
+            
+            //
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                imageView.image = image;
+                [persistencyManager saveImage:image fileName:[coverUrl lastPathComponent]];
+            });
+        });
+    }
+}
+
+
+- (void)saveAlbums
+{
+    [persistencyManager saveAlbums];
+}
 
 
 
