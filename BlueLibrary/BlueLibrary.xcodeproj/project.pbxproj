@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41D8B4A517DC205E005C1139 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4A417DC205E005C1139 /* Album.m */; };
+		41D8B4A917DC2188005C1139 /* AlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4A817DC2188005C1139 /* AlbumView.m */; };
+		41D8B4AF17DC2423005C1139 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4AE17DC2423005C1139 /* LibraryAPI.m */; };
+		41D8B4B217DC24CB005C1139 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4B117DC24CB005C1139 /* PersistencyManager.m */; };
+		41D8B4B517DC2C53005C1139 /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4B417DC2C53005C1139 /* Album+TableRepresentation.m */; };
+		41D8B4B817DC353A005C1139 /* HorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D8B4B717DC353A005C1139 /* HorizontalScroller.m */; };
 		450EECC017A9B03A00957F62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECBF17A9B03A00957F62 /* UIKit.framework */; };
 		450EECC217A9B03A00957F62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECC117A9B03A00957F62 /* Foundation.framework */; };
 		450EECC417A9B03A00957F62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECC317A9B03A00957F62 /* CoreGraphics.framework */; };
@@ -21,6 +27,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		41D8B4A317DC205E005C1139 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
+		41D8B4A417DC205E005C1139 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		41D8B4A717DC2188005C1139 /* AlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumView.h; sourceTree = "<group>"; };
+		41D8B4A817DC2188005C1139 /* AlbumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumView.m; sourceTree = "<group>"; };
+		41D8B4AD17DC2423005C1139 /* LibraryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryAPI.h; sourceTree = "<group>"; };
+		41D8B4AE17DC2423005C1139 /* LibraryAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryAPI.m; sourceTree = "<group>"; };
+		41D8B4B017DC24CB005C1139 /* PersistencyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistencyManager.h; sourceTree = "<group>"; };
+		41D8B4B117DC24CB005C1139 /* PersistencyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersistencyManager.m; sourceTree = "<group>"; };
+		41D8B4B317DC2C53005C1139 /* Album+TableRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Album+TableRepresentation.h"; sourceTree = "<group>"; };
+		41D8B4B417DC2C53005C1139 /* Album+TableRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Album+TableRepresentation.m"; sourceTree = "<group>"; };
+		41D8B4B617DC353A005C1139 /* HorizontalScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScroller.h; sourceTree = "<group>"; };
+		41D8B4B717DC353A005C1139 /* HorizontalScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScroller.m; sourceTree = "<group>"; };
 		450EECBC17A9B03A00957F62 /* BlueLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		450EECBF17A9B03A00957F62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		450EECC117A9B03A00957F62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -54,6 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41D8B4AA17DC233C005C1139 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41D8B4A317DC205E005C1139 /* Album.h */,
+				41D8B4A417DC205E005C1139 /* Album.m */,
+				41D8B4B317DC2C53005C1139 /* Album+TableRepresentation.h */,
+				41D8B4B417DC2C53005C1139 /* Album+TableRepresentation.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		41D8B4AB17DC2342005C1139 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				41D8B4A717DC2188005C1139 /* AlbumView.h */,
+				41D8B4A817DC2188005C1139 /* AlbumView.m */,
+				41D8B4B617DC353A005C1139 /* HorizontalScroller.h */,
+				41D8B4B717DC353A005C1139 /* HorizontalScroller.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		41D8B4AC17DC234D005C1139 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				450EECD717A9B03A00957F62 /* ViewController.h */,
+				450EECD817A9B03A00957F62 /* ViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		450EECB317A9B03A00957F62 = {
 			isa = PBXGroup;
 			children = (
@@ -85,11 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				450EECE217A9B04400957F62 /* API */,
-				450EECD717A9B03A00957F62 /* ViewController.h */,
-				450EECD817A9B03A00957F62 /* ViewController.m */,
+				41D8B4AC17DC234D005C1139 /* Controller */,
 				450EECCE17A9B03A00957F62 /* AppDelegate.h */,
 				450EECCF17A9B03A00957F62 /* AppDelegate.m */,
 				450EECC617A9B03A00957F62 /* Supporting Files */,
+				41D8B4AA17DC233C005C1139 /* Model */,
+				41D8B4AB17DC2342005C1139 /* View */,
 			);
 			path = BlueLibrary;
 			sourceTree = "<group>";
@@ -113,6 +163,10 @@
 			children = (
 				450EECE317A9B05E00957F62 /* HTTPClient.h */,
 				450EECE417A9B05E00957F62 /* HTTPClient.m */,
+				41D8B4AD17DC2423005C1139 /* LibraryAPI.h */,
+				41D8B4AE17DC2423005C1139 /* LibraryAPI.m */,
+				41D8B4B017DC24CB005C1139 /* PersistencyManager.h */,
+				41D8B4B117DC24CB005C1139 /* PersistencyManager.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -186,6 +240,12 @@
 				450EECD017A9B03A00957F62 /* AppDelegate.m in Sources */,
 				450EECD917A9B03A00957F62 /* ViewController.m in Sources */,
 				450EECE517A9B05E00957F62 /* HTTPClient.m in Sources */,
+				41D8B4A517DC205E005C1139 /* Album.m in Sources */,
+				41D8B4A917DC2188005C1139 /* AlbumView.m in Sources */,
+				41D8B4AF17DC2423005C1139 /* LibraryAPI.m in Sources */,
+				41D8B4B217DC24CB005C1139 /* PersistencyManager.m in Sources */,
+				41D8B4B517DC2C53005C1139 /* Album+TableRepresentation.m in Sources */,
+				41D8B4B817DC353A005C1139 /* HorizontalScroller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +360,7 @@
 				450EECE117A9B03A00957F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
