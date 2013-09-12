@@ -13,6 +13,7 @@
 #import "SelectPlayerViewController.h"
 #import "PostMessageController.h"
 #import "GalleryViewController.h"
+#import "TestImageViewController.h"
 
 @interface FeedViewController ()
 @property (nonatomic, strong) UIView *refreshView;
@@ -192,6 +193,13 @@
     GalleryViewController *gvc = [[GalleryViewController alloc] init];
     UINavigationController *controller = (UINavigationController *)self.parentViewController;
     [controller pushViewController:gvc animated:YES];
+}
+
+- (IBAction)testImageButtonTapped:(id)sender
+{
+    TestImageViewController *ivc = [[TestImageViewController alloc] init];
+    UINavigationController *controller = (UINavigationController *)self.parentViewController;
+    [controller pushViewController:ivc animated:YES];
 }
 
 

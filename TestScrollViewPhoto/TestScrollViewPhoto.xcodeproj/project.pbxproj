@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		23B8EA79196C425CA6EA4803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9137BFB075468983B432C2 /* libPods.a */; };
 		41176F9E17B28897008DBB55 /* corkboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 41176F9D17B28897008DBB55 /* corkboard.png */; };
+		41461E8617E21EDF0020F2D4 /* TestImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41461E8417E21EDF0020F2D4 /* TestImageViewController.m */; };
+		41461E8817E21F650020F2D4 /* TestImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41461E8517E21EDF0020F2D4 /* TestImageViewController.xib */; };
 		F611FB8A17C47F5B009F4C02 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F611FB8917C47F5B009F4C02 /* GalleryViewController.m */; };
 		F611FB8C17C47FC4009F4C02 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F611FB8B17C47FC4009F4C02 /* GalleryViewController.xib */; };
 		F611FB8E17C49405009F4C02 /* rex_hotel.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F611FB8D17C49404009F4C02 /* rex_hotel.jpg */; };
@@ -123,6 +125,9 @@
 
 /* Begin PBXFileReference section */
 		41176F9D17B28897008DBB55 /* corkboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corkboard.png; sourceTree = "<group>"; };
+		41461E8317E21EDF0020F2D4 /* TestImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestImageViewController.h; sourceTree = "<group>"; };
+		41461E8417E21EDF0020F2D4 /* TestImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestImageViewController.m; sourceTree = "<group>"; };
+		41461E8517E21EDF0020F2D4 /* TestImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestImageViewController.xib; sourceTree = "<group>"; };
 		CB1253C89EB14F4087845876 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD9137BFB075468983B432C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F611FB8817C47F5B009F4C02 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
@@ -412,6 +417,9 @@
 				F611FB8817C47F5B009F4C02 /* GalleryViewController.h */,
 				F611FB8917C47F5B009F4C02 /* GalleryViewController.m */,
 				F611FB8B17C47FC4009F4C02 /* GalleryViewController.xib */,
+				41461E8317E21EDF0020F2D4 /* TestImageViewController.h */,
+				41461E8417E21EDF0020F2D4 /* TestImageViewController.m */,
+				41461E8517E21EDF0020F2D4 /* TestImageViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -690,6 +698,7 @@
 				F611FB8C17C47FC4009F4C02 /* GalleryViewController.xib in Resources */,
 				F611FB8E17C49405009F4C02 /* rex_hotel.jpg in Resources */,
 				F611FB9617C4972B009F4C02 /* PictureViewCell.xib in Resources */,
+				41461E8817E21F650020F2D4 /* TestImageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +769,7 @@
 				F611FB8A17C47F5B009F4C02 /* GalleryViewController.m in Sources */,
 				F611FB9117C4946C009F4C02 /* GalleryCollectionFlowLayout.m in Sources */,
 				F611FB9417C49717009F4C02 /* PictureViewCell.m in Sources */,
+				41461E8617E21EDF0020F2D4 /* TestImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
