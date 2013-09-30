@@ -28,6 +28,8 @@
     [self.layerView.layer addSublayer:blueLayer];
     
     [blueLayer display];
+    
+    self.redView.layer.zPosition = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning

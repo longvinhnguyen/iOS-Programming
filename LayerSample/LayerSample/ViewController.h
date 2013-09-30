@@ -12,5 +12,7 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIView *layerView;
+@property (nonatomic, weak) IBOutlet UIView *redView;
+@property (nonatomic, weak) IBOutlet UIView *greenView;
 
 @end
