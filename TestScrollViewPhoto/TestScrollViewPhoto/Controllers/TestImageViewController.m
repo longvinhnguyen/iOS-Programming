@@ -43,7 +43,7 @@
     NSLog(@"Before Transform Frame %f %f %f %f", self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
     self.imageView.transform = CGAffineTransformMakeRotation(- M_PI / 2);
     NSLog(@"AFter Transform Frame %f %f %f %f", self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
-    self.imageView.frame = CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.height);
+    self.imageView.frame = CGRectMake(40, 0, self.imageView.frame.size.width, self.imageView.frame.size.height);
     NSLog(@"Change Frame %f %f %f %f", self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.size.width, self.imageView.frame.size.height);
     self.imageView.image = [UIImage imageNamed:@"rex_hotel.jpg"];
 }
