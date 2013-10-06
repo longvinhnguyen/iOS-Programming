@@ -13,13 +13,16 @@
 @end
 
 @implementation ViewController
+{
+    CALayer *blueLayer;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // load an image
-    CALayer *blueLayer = [CALayer layer];
+    blueLayer = [CALayer layer];
     blueLayer.backgroundColor = [UIColor blueColor].CGColor;
     blueLayer.frame = CGRectMake(50, 50, 100, 100);
     
@@ -43,6 +46,19 @@
     CGContextSetLineWidth(ctx, 10.0f);
     CGContextSetStrokeColorWithColor(ctx, [UIColor redColor].CGColor);
     CGContextStrokeEllipseInRect(ctx, layer.bounds);
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    CGPoint point = [[touches anyObject] locationInView:self.view];
+
+    CALayer *layer = [self.layerView.layer hitTest:point];
+    
+    if (layer == blueLayer) {
+        [[[UIAlertView alloc] initWithTitle:@"Inside Blue Layer" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Inside White Layer" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
 }
 
 @end
