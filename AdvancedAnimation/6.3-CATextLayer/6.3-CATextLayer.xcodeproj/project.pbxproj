@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		417C323A18084711002114C7 /* LayerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 417C323918084711002114C7 /* LayerLabel.m */; };
 		41B3A9E71801B56E00399548 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B3A9E61801B56E00399548 /* Foundation.framework */; };
 		41B3A9E91801B56E00399548 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B3A9E81801B56E00399548 /* CoreGraphics.framework */; };
 		41B3A9EB1801B56E00399548 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B3A9EA1801B56E00399548 /* UIKit.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		417C323818084711002114C7 /* LayerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayerLabel.h; sourceTree = "<group>"; };
+		417C323918084711002114C7 /* LayerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerLabel.m; sourceTree = "<group>"; };
 		41B3A9E31801B56E00399548 /* 6.3-CATextLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6.3-CATextLayer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		41B3A9E61801B56E00399548 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41B3A9E81801B56E00399548 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,8 @@
 				41B3A9FC1801B56E00399548 /* ViewController.m */,
 				41B3A9FE1801B56E00399548 /* Images.xcassets */,
 				41B3A9ED1801B56E00399548 /* Supporting Files */,
+				417C323818084711002114C7 /* LayerLabel.h */,
+				417C323918084711002114C7 /* LayerLabel.m */,
 			);
 			path = "6.3-CATextLayer";
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				417C323A18084711002114C7 /* LayerLabel.m in Sources */,
 				41B3A9FD1801B56E00399548 /* ViewController.m in Sources */,
 				41B3A9F71801B56E00399548 /* AppDelegate.m in Sources */,
 				41B3A9F31801B56E00399548 /* main.m in Sources */,
@@ -460,6 +466,7 @@
 				41B3AA171801B56E00399548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		41B3AA181801B56E00399548 /* Build configuration list for PBXNativeTarget "6.3-CATextLayerTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +475,7 @@
 				41B3AA1A1801B56E00399548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

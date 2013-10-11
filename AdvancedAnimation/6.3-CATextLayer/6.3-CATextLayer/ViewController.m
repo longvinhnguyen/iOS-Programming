@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "LayerLabel.h"
 
 @interface ViewController ()
 
 @property (nonatomic, weak) IBOutlet UIView *labelView;
+@property (nonatomic, weak) IBOutlet LayerLabel *titlelbl;
 
 @end
 
@@ -54,6 +56,11 @@
     CFRelease(fontRef);
     
     textLayer.string = string;
+    
+    // CATextLayer subclass
+    self.titlelbl.textColor = [UIColor blueColor];
+    self.titlelbl.font = [UIFont systemFontOfSize:15];
+    self.titlelbl.text = @"Hello, CATextLayer";
 }
 
 - (void)didReceiveMemoryWarning
