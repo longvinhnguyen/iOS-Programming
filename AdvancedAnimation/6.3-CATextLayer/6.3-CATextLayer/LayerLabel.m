@@ -44,7 +44,6 @@
     CGFontRef fontRef = CGFontCreateWithFontName(fontName);
     [self textLayer].font = fontRef;
     [self textLayer].fontSize = font.pointSize;
-    [self.layer display];
 }
 
 + (Class)layerClass
