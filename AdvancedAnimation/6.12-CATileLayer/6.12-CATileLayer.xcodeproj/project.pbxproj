@@ -1,0 +1,739 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		417C3374180AEAE6002114C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3373180AEAE6002114C7 /* Foundation.framework */; };
+		417C3376180AEAE6002114C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3375180AEAE6002114C7 /* CoreGraphics.framework */; };
+		417C3378180AEAE6002114C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3377180AEAE6002114C7 /* UIKit.framework */; };
+		417C337E180AEAE6002114C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 417C337C180AEAE6002114C7 /* InfoPlist.strings */; };
+		417C3380180AEAE6002114C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 417C337F180AEAE6002114C7 /* main.m */; };
+		417C3384180AEAE6002114C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 417C3383180AEAE6002114C7 /* AppDelegate.m */; };
+		417C3387180AEAE6002114C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 417C3385180AEAE6002114C7 /* Main.storyboard */; };
+		417C338A180AEAE6002114C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417C3389180AEAE6002114C7 /* ViewController.m */; };
+		417C338C180AEAE6002114C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 417C338B180AEAE6002114C7 /* Images.xcassets */; };
+		417C3393180AEAE6002114C7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3392180AEAE6002114C7 /* XCTest.framework */; };
+		417C3394180AEAE6002114C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3373180AEAE6002114C7 /* Foundation.framework */; };
+		417C3395180AEAE6002114C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417C3377180AEAE6002114C7 /* UIKit.framework */; };
+		417C339D180AEAE6002114C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 417C339B180AEAE6002114C7 /* InfoPlist.strings */; };
+		417C339F180AEAE6002114C7 /* __12_CATileLayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 417C339E180AEAE6002114C7 /* __12_CATileLayerTests.m */; };
+		417C33E9180AEB4D002114C7 /* Snowman_00_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33A9180AEB4D002114C7 /* Snowman_00_00.jpg */; };
+		417C33EA180AEB4D002114C7 /* Snowman_00_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AA180AEB4D002114C7 /* Snowman_00_01.jpg */; };
+		417C33EB180AEB4D002114C7 /* Snowman_00_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AB180AEB4D002114C7 /* Snowman_00_02.jpg */; };
+		417C33EC180AEB4D002114C7 /* Snowman_00_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AC180AEB4D002114C7 /* Snowman_00_03.jpg */; };
+		417C33ED180AEB4D002114C7 /* Snowman_00_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AD180AEB4D002114C7 /* Snowman_00_04.jpg */; };
+		417C33EE180AEB4D002114C7 /* Snowman_00_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AE180AEB4D002114C7 /* Snowman_00_05.jpg */; };
+		417C33EF180AEB4D002114C7 /* Snowman_00_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33AF180AEB4D002114C7 /* Snowman_00_06.jpg */; };
+		417C33F0180AEB4D002114C7 /* Snowman_00_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B0180AEB4D002114C7 /* Snowman_00_07.jpg */; };
+		417C33F1180AEB4D002114C7 /* Snowman_01_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B1180AEB4D002114C7 /* Snowman_01_00.jpg */; };
+		417C33F2180AEB4D002114C7 /* Snowman_01_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B2180AEB4D002114C7 /* Snowman_01_01.jpg */; };
+		417C33F3180AEB4D002114C7 /* Snowman_01_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B3180AEB4D002114C7 /* Snowman_01_02.jpg */; };
+		417C33F4180AEB4D002114C7 /* Snowman_01_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B4180AEB4D002114C7 /* Snowman_01_03.jpg */; };
+		417C33F5180AEB4D002114C7 /* Snowman_01_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B5180AEB4D002114C7 /* Snowman_01_04.jpg */; };
+		417C33F6180AEB4D002114C7 /* Snowman_01_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B6180AEB4D002114C7 /* Snowman_01_05.jpg */; };
+		417C33F7180AEB4D002114C7 /* Snowman_01_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B7180AEB4D002114C7 /* Snowman_01_06.jpg */; };
+		417C33F8180AEB4D002114C7 /* Snowman_01_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B8180AEB4D002114C7 /* Snowman_01_07.jpg */; };
+		417C33F9180AEB4D002114C7 /* Snowman_02_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33B9180AEB4D002114C7 /* Snowman_02_00.jpg */; };
+		417C33FA180AEB4D002114C7 /* Snowman_02_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BA180AEB4D002114C7 /* Snowman_02_01.jpg */; };
+		417C33FB180AEB4D002114C7 /* Snowman_02_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BB180AEB4D002114C7 /* Snowman_02_02.jpg */; };
+		417C33FC180AEB4D002114C7 /* Snowman_02_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BC180AEB4D002114C7 /* Snowman_02_03.jpg */; };
+		417C33FD180AEB4D002114C7 /* Snowman_02_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BD180AEB4D002114C7 /* Snowman_02_04.jpg */; };
+		417C33FE180AEB4D002114C7 /* Snowman_02_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BE180AEB4D002114C7 /* Snowman_02_05.jpg */; };
+		417C33FF180AEB4D002114C7 /* Snowman_02_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33BF180AEB4D002114C7 /* Snowman_02_06.jpg */; };
+		417C3400180AEB4D002114C7 /* Snowman_02_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C0180AEB4D002114C7 /* Snowman_02_07.jpg */; };
+		417C3401180AEB4D002114C7 /* Snowman_03_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C1180AEB4D002114C7 /* Snowman_03_00.jpg */; };
+		417C3402180AEB4D002114C7 /* Snowman_03_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C2180AEB4D002114C7 /* Snowman_03_01.jpg */; };
+		417C3403180AEB4D002114C7 /* Snowman_03_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C3180AEB4D002114C7 /* Snowman_03_02.jpg */; };
+		417C3404180AEB4D002114C7 /* Snowman_03_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C4180AEB4D002114C7 /* Snowman_03_03.jpg */; };
+		417C3405180AEB4D002114C7 /* Snowman_03_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C5180AEB4D002114C7 /* Snowman_03_04.jpg */; };
+		417C3406180AEB4D002114C7 /* Snowman_03_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C6180AEB4D002114C7 /* Snowman_03_05.jpg */; };
+		417C3407180AEB4D002114C7 /* Snowman_03_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C7180AEB4D002114C7 /* Snowman_03_06.jpg */; };
+		417C3408180AEB4D002114C7 /* Snowman_03_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C8180AEB4D002114C7 /* Snowman_03_07.jpg */; };
+		417C3409180AEB4D002114C7 /* Snowman_04_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33C9180AEB4D002114C7 /* Snowman_04_00.jpg */; };
+		417C340A180AEB4D002114C7 /* Snowman_04_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CA180AEB4D002114C7 /* Snowman_04_01.jpg */; };
+		417C340B180AEB4D002114C7 /* Snowman_04_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CB180AEB4D002114C7 /* Snowman_04_02.jpg */; };
+		417C340C180AEB4D002114C7 /* Snowman_04_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CC180AEB4D002114C7 /* Snowman_04_03.jpg */; };
+		417C340D180AEB4D002114C7 /* Snowman_04_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CD180AEB4D002114C7 /* Snowman_04_04.jpg */; };
+		417C340E180AEB4D002114C7 /* Snowman_04_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CE180AEB4D002114C7 /* Snowman_04_05.jpg */; };
+		417C340F180AEB4D002114C7 /* Snowman_04_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33CF180AEB4D002114C7 /* Snowman_04_06.jpg */; };
+		417C3410180AEB4D002114C7 /* Snowman_04_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D0180AEB4D002114C7 /* Snowman_04_07.jpg */; };
+		417C3411180AEB4D002114C7 /* Snowman_05_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D1180AEB4D002114C7 /* Snowman_05_00.jpg */; };
+		417C3412180AEB4D002114C7 /* Snowman_05_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D2180AEB4D002114C7 /* Snowman_05_01.jpg */; };
+		417C3413180AEB4D002114C7 /* Snowman_05_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D3180AEB4D002114C7 /* Snowman_05_02.jpg */; };
+		417C3414180AEB4D002114C7 /* Snowman_05_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D4180AEB4D002114C7 /* Snowman_05_03.jpg */; };
+		417C3415180AEB4D002114C7 /* Snowman_05_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D5180AEB4D002114C7 /* Snowman_05_04.jpg */; };
+		417C3416180AEB4D002114C7 /* Snowman_05_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D6180AEB4D002114C7 /* Snowman_05_05.jpg */; };
+		417C3417180AEB4D002114C7 /* Snowman_05_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D7180AEB4D002114C7 /* Snowman_05_06.jpg */; };
+		417C3418180AEB4D002114C7 /* Snowman_05_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D8180AEB4D002114C7 /* Snowman_05_07.jpg */; };
+		417C3419180AEB4D002114C7 /* Snowman_06_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33D9180AEB4D002114C7 /* Snowman_06_00.jpg */; };
+		417C341A180AEB4D002114C7 /* Snowman_06_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DA180AEB4D002114C7 /* Snowman_06_01.jpg */; };
+		417C341B180AEB4D002114C7 /* Snowman_06_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DB180AEB4D002114C7 /* Snowman_06_02.jpg */; };
+		417C341C180AEB4D002114C7 /* Snowman_06_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DC180AEB4D002114C7 /* Snowman_06_03.jpg */; };
+		417C341D180AEB4D002114C7 /* Snowman_06_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DD180AEB4D002114C7 /* Snowman_06_04.jpg */; };
+		417C341E180AEB4D002114C7 /* Snowman_06_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DE180AEB4D002114C7 /* Snowman_06_05.jpg */; };
+		417C341F180AEB4D002114C7 /* Snowman_06_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33DF180AEB4D002114C7 /* Snowman_06_06.jpg */; };
+		417C3420180AEB4D002114C7 /* Snowman_06_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E0180AEB4D002114C7 /* Snowman_06_07.jpg */; };
+		417C3421180AEB4D002114C7 /* Snowman_07_00.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E1180AEB4D002114C7 /* Snowman_07_00.jpg */; };
+		417C3422180AEB4D002114C7 /* Snowman_07_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E2180AEB4D002114C7 /* Snowman_07_01.jpg */; };
+		417C3423180AEB4D002114C7 /* Snowman_07_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E3180AEB4D002114C7 /* Snowman_07_02.jpg */; };
+		417C3424180AEB4D002114C7 /* Snowman_07_03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E4180AEB4D002114C7 /* Snowman_07_03.jpg */; };
+		417C3425180AEB4D002114C7 /* Snowman_07_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E5180AEB4D002114C7 /* Snowman_07_04.jpg */; };
+		417C3426180AEB4D002114C7 /* Snowman_07_05.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E6180AEB4D002114C7 /* Snowman_07_05.jpg */; };
+		417C3427180AEB4D002114C7 /* Snowman_07_06.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E7180AEB4D002114C7 /* Snowman_07_06.jpg */; };
+		417C3428180AEB4D002114C7 /* Snowman_07_07.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 417C33E8180AEB4D002114C7 /* Snowman_07_07.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		417C3396180AEAE6002114C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 417C3368180AEAE6002114C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 417C336F180AEAE6002114C7;
+			remoteInfo = "6.12-CATileLayer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		417C3370180AEAE6002114C7 /* 6.12-CATileLayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6.12-CATileLayer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		417C3373180AEAE6002114C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		417C3375180AEAE6002114C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		417C3377180AEAE6002114C7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		417C337B180AEAE6002114C7 /* 6.12-CATileLayer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "6.12-CATileLayer-Info.plist"; sourceTree = "<group>"; };
+		417C337D180AEAE6002114C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		417C337F180AEAE6002114C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		417C3381180AEAE6002114C7 /* 6.12-CATileLayer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "6.12-CATileLayer-Prefix.pch"; sourceTree = "<group>"; };
+		417C3382180AEAE6002114C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		417C3383180AEAE6002114C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		417C3386180AEAE6002114C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		417C3388180AEAE6002114C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		417C3389180AEAE6002114C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		417C338B180AEAE6002114C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		417C3391180AEAE6002114C7 /* 6.12-CATileLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "6.12-CATileLayerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		417C3392180AEAE6002114C7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		417C339A180AEAE6002114C7 /* 6.12-CATileLayerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "6.12-CATileLayerTests-Info.plist"; sourceTree = "<group>"; };
+		417C339C180AEAE6002114C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		417C339E180AEAE6002114C7 /* __12_CATileLayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __12_CATileLayerTests.m; sourceTree = "<group>"; };
+		417C33A9180AEB4D002114C7 /* Snowman_00_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_00.jpg; sourceTree = "<group>"; };
+		417C33AA180AEB4D002114C7 /* Snowman_00_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_01.jpg; sourceTree = "<group>"; };
+		417C33AB180AEB4D002114C7 /* Snowman_00_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_02.jpg; sourceTree = "<group>"; };
+		417C33AC180AEB4D002114C7 /* Snowman_00_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_03.jpg; sourceTree = "<group>"; };
+		417C33AD180AEB4D002114C7 /* Snowman_00_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_04.jpg; sourceTree = "<group>"; };
+		417C33AE180AEB4D002114C7 /* Snowman_00_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_05.jpg; sourceTree = "<group>"; };
+		417C33AF180AEB4D002114C7 /* Snowman_00_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_06.jpg; sourceTree = "<group>"; };
+		417C33B0180AEB4D002114C7 /* Snowman_00_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_00_07.jpg; sourceTree = "<group>"; };
+		417C33B1180AEB4D002114C7 /* Snowman_01_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_00.jpg; sourceTree = "<group>"; };
+		417C33B2180AEB4D002114C7 /* Snowman_01_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_01.jpg; sourceTree = "<group>"; };
+		417C33B3180AEB4D002114C7 /* Snowman_01_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_02.jpg; sourceTree = "<group>"; };
+		417C33B4180AEB4D002114C7 /* Snowman_01_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_03.jpg; sourceTree = "<group>"; };
+		417C33B5180AEB4D002114C7 /* Snowman_01_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_04.jpg; sourceTree = "<group>"; };
+		417C33B6180AEB4D002114C7 /* Snowman_01_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_05.jpg; sourceTree = "<group>"; };
+		417C33B7180AEB4D002114C7 /* Snowman_01_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_06.jpg; sourceTree = "<group>"; };
+		417C33B8180AEB4D002114C7 /* Snowman_01_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_01_07.jpg; sourceTree = "<group>"; };
+		417C33B9180AEB4D002114C7 /* Snowman_02_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_00.jpg; sourceTree = "<group>"; };
+		417C33BA180AEB4D002114C7 /* Snowman_02_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_01.jpg; sourceTree = "<group>"; };
+		417C33BB180AEB4D002114C7 /* Snowman_02_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_02.jpg; sourceTree = "<group>"; };
+		417C33BC180AEB4D002114C7 /* Snowman_02_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_03.jpg; sourceTree = "<group>"; };
+		417C33BD180AEB4D002114C7 /* Snowman_02_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_04.jpg; sourceTree = "<group>"; };
+		417C33BE180AEB4D002114C7 /* Snowman_02_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_05.jpg; sourceTree = "<group>"; };
+		417C33BF180AEB4D002114C7 /* Snowman_02_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_06.jpg; sourceTree = "<group>"; };
+		417C33C0180AEB4D002114C7 /* Snowman_02_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_02_07.jpg; sourceTree = "<group>"; };
+		417C33C1180AEB4D002114C7 /* Snowman_03_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_00.jpg; sourceTree = "<group>"; };
+		417C33C2180AEB4D002114C7 /* Snowman_03_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_01.jpg; sourceTree = "<group>"; };
+		417C33C3180AEB4D002114C7 /* Snowman_03_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_02.jpg; sourceTree = "<group>"; };
+		417C33C4180AEB4D002114C7 /* Snowman_03_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_03.jpg; sourceTree = "<group>"; };
+		417C33C5180AEB4D002114C7 /* Snowman_03_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_04.jpg; sourceTree = "<group>"; };
+		417C33C6180AEB4D002114C7 /* Snowman_03_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_05.jpg; sourceTree = "<group>"; };
+		417C33C7180AEB4D002114C7 /* Snowman_03_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_06.jpg; sourceTree = "<group>"; };
+		417C33C8180AEB4D002114C7 /* Snowman_03_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_03_07.jpg; sourceTree = "<group>"; };
+		417C33C9180AEB4D002114C7 /* Snowman_04_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_00.jpg; sourceTree = "<group>"; };
+		417C33CA180AEB4D002114C7 /* Snowman_04_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_01.jpg; sourceTree = "<group>"; };
+		417C33CB180AEB4D002114C7 /* Snowman_04_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_02.jpg; sourceTree = "<group>"; };
+		417C33CC180AEB4D002114C7 /* Snowman_04_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_03.jpg; sourceTree = "<group>"; };
+		417C33CD180AEB4D002114C7 /* Snowman_04_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_04.jpg; sourceTree = "<group>"; };
+		417C33CE180AEB4D002114C7 /* Snowman_04_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_05.jpg; sourceTree = "<group>"; };
+		417C33CF180AEB4D002114C7 /* Snowman_04_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_06.jpg; sourceTree = "<group>"; };
+		417C33D0180AEB4D002114C7 /* Snowman_04_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_04_07.jpg; sourceTree = "<group>"; };
+		417C33D1180AEB4D002114C7 /* Snowman_05_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_00.jpg; sourceTree = "<group>"; };
+		417C33D2180AEB4D002114C7 /* Snowman_05_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_01.jpg; sourceTree = "<group>"; };
+		417C33D3180AEB4D002114C7 /* Snowman_05_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_02.jpg; sourceTree = "<group>"; };
+		417C33D4180AEB4D002114C7 /* Snowman_05_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_03.jpg; sourceTree = "<group>"; };
+		417C33D5180AEB4D002114C7 /* Snowman_05_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_04.jpg; sourceTree = "<group>"; };
+		417C33D6180AEB4D002114C7 /* Snowman_05_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_05.jpg; sourceTree = "<group>"; };
+		417C33D7180AEB4D002114C7 /* Snowman_05_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_06.jpg; sourceTree = "<group>"; };
+		417C33D8180AEB4D002114C7 /* Snowman_05_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_05_07.jpg; sourceTree = "<group>"; };
+		417C33D9180AEB4D002114C7 /* Snowman_06_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_00.jpg; sourceTree = "<group>"; };
+		417C33DA180AEB4D002114C7 /* Snowman_06_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_01.jpg; sourceTree = "<group>"; };
+		417C33DB180AEB4D002114C7 /* Snowman_06_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_02.jpg; sourceTree = "<group>"; };
+		417C33DC180AEB4D002114C7 /* Snowman_06_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_03.jpg; sourceTree = "<group>"; };
+		417C33DD180AEB4D002114C7 /* Snowman_06_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_04.jpg; sourceTree = "<group>"; };
+		417C33DE180AEB4D002114C7 /* Snowman_06_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_05.jpg; sourceTree = "<group>"; };
+		417C33DF180AEB4D002114C7 /* Snowman_06_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_06.jpg; sourceTree = "<group>"; };
+		417C33E0180AEB4D002114C7 /* Snowman_06_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_06_07.jpg; sourceTree = "<group>"; };
+		417C33E1180AEB4D002114C7 /* Snowman_07_00.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_00.jpg; sourceTree = "<group>"; };
+		417C33E2180AEB4D002114C7 /* Snowman_07_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_01.jpg; sourceTree = "<group>"; };
+		417C33E3180AEB4D002114C7 /* Snowman_07_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_02.jpg; sourceTree = "<group>"; };
+		417C33E4180AEB4D002114C7 /* Snowman_07_03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_03.jpg; sourceTree = "<group>"; };
+		417C33E5180AEB4D002114C7 /* Snowman_07_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_04.jpg; sourceTree = "<group>"; };
+		417C33E6180AEB4D002114C7 /* Snowman_07_05.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_05.jpg; sourceTree = "<group>"; };
+		417C33E7180AEB4D002114C7 /* Snowman_07_06.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_06.jpg; sourceTree = "<group>"; };
+		417C33E8180AEB4D002114C7 /* Snowman_07_07.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Snowman_07_07.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		417C336D180AEAE6002114C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C3376180AEAE6002114C7 /* CoreGraphics.framework in Frameworks */,
+				417C3378180AEAE6002114C7 /* UIKit.framework in Frameworks */,
+				417C3374180AEAE6002114C7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417C338E180AEAE6002114C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C3393180AEAE6002114C7 /* XCTest.framework in Frameworks */,
+				417C3395180AEAE6002114C7 /* UIKit.framework in Frameworks */,
+				417C3394180AEAE6002114C7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		417C3367180AEAE6002114C7 = {
+			isa = PBXGroup;
+			children = (
+				417C3379180AEAE6002114C7 /* 6.12-CATileLayer */,
+				417C3398180AEAE6002114C7 /* 6.12-CATileLayerTests */,
+				417C3372180AEAE6002114C7 /* Frameworks */,
+				417C3371180AEAE6002114C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		417C3371180AEAE6002114C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				417C3370180AEAE6002114C7 /* 6.12-CATileLayer.app */,
+				417C3391180AEAE6002114C7 /* 6.12-CATileLayerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		417C3372180AEAE6002114C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				417C3373180AEAE6002114C7 /* Foundation.framework */,
+				417C3375180AEAE6002114C7 /* CoreGraphics.framework */,
+				417C3377180AEAE6002114C7 /* UIKit.framework */,
+				417C3392180AEAE6002114C7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		417C3379180AEAE6002114C7 /* 6.12-CATileLayer */ = {
+			isa = PBXGroup;
+			children = (
+				417C33A8180AEB4D002114C7 /* Images */,
+				417C3382180AEAE6002114C7 /* AppDelegate.h */,
+				417C3383180AEAE6002114C7 /* AppDelegate.m */,
+				417C3385180AEAE6002114C7 /* Main.storyboard */,
+				417C3388180AEAE6002114C7 /* ViewController.h */,
+				417C3389180AEAE6002114C7 /* ViewController.m */,
+				417C338B180AEAE6002114C7 /* Images.xcassets */,
+				417C337A180AEAE6002114C7 /* Supporting Files */,
+			);
+			path = "6.12-CATileLayer";
+			sourceTree = "<group>";
+		};
+		417C337A180AEAE6002114C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				417C337B180AEAE6002114C7 /* 6.12-CATileLayer-Info.plist */,
+				417C337C180AEAE6002114C7 /* InfoPlist.strings */,
+				417C337F180AEAE6002114C7 /* main.m */,
+				417C3381180AEAE6002114C7 /* 6.12-CATileLayer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		417C3398180AEAE6002114C7 /* 6.12-CATileLayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				417C339E180AEAE6002114C7 /* __12_CATileLayerTests.m */,
+				417C3399180AEAE6002114C7 /* Supporting Files */,
+			);
+			path = "6.12-CATileLayerTests";
+			sourceTree = "<group>";
+		};
+		417C3399180AEAE6002114C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				417C339A180AEAE6002114C7 /* 6.12-CATileLayerTests-Info.plist */,
+				417C339B180AEAE6002114C7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		417C33A8180AEB4D002114C7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				417C33A9180AEB4D002114C7 /* Snowman_00_00.jpg */,
+				417C33AA180AEB4D002114C7 /* Snowman_00_01.jpg */,
+				417C33AB180AEB4D002114C7 /* Snowman_00_02.jpg */,
+				417C33AC180AEB4D002114C7 /* Snowman_00_03.jpg */,
+				417C33AD180AEB4D002114C7 /* Snowman_00_04.jpg */,
+				417C33AE180AEB4D002114C7 /* Snowman_00_05.jpg */,
+				417C33AF180AEB4D002114C7 /* Snowman_00_06.jpg */,
+				417C33B0180AEB4D002114C7 /* Snowman_00_07.jpg */,
+				417C33B1180AEB4D002114C7 /* Snowman_01_00.jpg */,
+				417C33B2180AEB4D002114C7 /* Snowman_01_01.jpg */,
+				417C33B3180AEB4D002114C7 /* Snowman_01_02.jpg */,
+				417C33B4180AEB4D002114C7 /* Snowman_01_03.jpg */,
+				417C33B5180AEB4D002114C7 /* Snowman_01_04.jpg */,
+				417C33B6180AEB4D002114C7 /* Snowman_01_05.jpg */,
+				417C33B7180AEB4D002114C7 /* Snowman_01_06.jpg */,
+				417C33B8180AEB4D002114C7 /* Snowman_01_07.jpg */,
+				417C33B9180AEB4D002114C7 /* Snowman_02_00.jpg */,
+				417C33BA180AEB4D002114C7 /* Snowman_02_01.jpg */,
+				417C33BB180AEB4D002114C7 /* Snowman_02_02.jpg */,
+				417C33BC180AEB4D002114C7 /* Snowman_02_03.jpg */,
+				417C33BD180AEB4D002114C7 /* Snowman_02_04.jpg */,
+				417C33BE180AEB4D002114C7 /* Snowman_02_05.jpg */,
+				417C33BF180AEB4D002114C7 /* Snowman_02_06.jpg */,
+				417C33C0180AEB4D002114C7 /* Snowman_02_07.jpg */,
+				417C33C1180AEB4D002114C7 /* Snowman_03_00.jpg */,
+				417C33C2180AEB4D002114C7 /* Snowman_03_01.jpg */,
+				417C33C3180AEB4D002114C7 /* Snowman_03_02.jpg */,
+				417C33C4180AEB4D002114C7 /* Snowman_03_03.jpg */,
+				417C33C5180AEB4D002114C7 /* Snowman_03_04.jpg */,
+				417C33C6180AEB4D002114C7 /* Snowman_03_05.jpg */,
+				417C33C7180AEB4D002114C7 /* Snowman_03_06.jpg */,
+				417C33C8180AEB4D002114C7 /* Snowman_03_07.jpg */,
+				417C33C9180AEB4D002114C7 /* Snowman_04_00.jpg */,
+				417C33CA180AEB4D002114C7 /* Snowman_04_01.jpg */,
+				417C33CB180AEB4D002114C7 /* Snowman_04_02.jpg */,
+				417C33CC180AEB4D002114C7 /* Snowman_04_03.jpg */,
+				417C33CD180AEB4D002114C7 /* Snowman_04_04.jpg */,
+				417C33CE180AEB4D002114C7 /* Snowman_04_05.jpg */,
+				417C33CF180AEB4D002114C7 /* Snowman_04_06.jpg */,
+				417C33D0180AEB4D002114C7 /* Snowman_04_07.jpg */,
+				417C33D1180AEB4D002114C7 /* Snowman_05_00.jpg */,
+				417C33D2180AEB4D002114C7 /* Snowman_05_01.jpg */,
+				417C33D3180AEB4D002114C7 /* Snowman_05_02.jpg */,
+				417C33D4180AEB4D002114C7 /* Snowman_05_03.jpg */,
+				417C33D5180AEB4D002114C7 /* Snowman_05_04.jpg */,
+				417C33D6180AEB4D002114C7 /* Snowman_05_05.jpg */,
+				417C33D7180AEB4D002114C7 /* Snowman_05_06.jpg */,
+				417C33D8180AEB4D002114C7 /* Snowman_05_07.jpg */,
+				417C33D9180AEB4D002114C7 /* Snowman_06_00.jpg */,
+				417C33DA180AEB4D002114C7 /* Snowman_06_01.jpg */,
+				417C33DB180AEB4D002114C7 /* Snowman_06_02.jpg */,
+				417C33DC180AEB4D002114C7 /* Snowman_06_03.jpg */,
+				417C33DD180AEB4D002114C7 /* Snowman_06_04.jpg */,
+				417C33DE180AEB4D002114C7 /* Snowman_06_05.jpg */,
+				417C33DF180AEB4D002114C7 /* Snowman_06_06.jpg */,
+				417C33E0180AEB4D002114C7 /* Snowman_06_07.jpg */,
+				417C33E1180AEB4D002114C7 /* Snowman_07_00.jpg */,
+				417C33E2180AEB4D002114C7 /* Snowman_07_01.jpg */,
+				417C33E3180AEB4D002114C7 /* Snowman_07_02.jpg */,
+				417C33E4180AEB4D002114C7 /* Snowman_07_03.jpg */,
+				417C33E5180AEB4D002114C7 /* Snowman_07_04.jpg */,
+				417C33E6180AEB4D002114C7 /* Snowman_07_05.jpg */,
+				417C33E7180AEB4D002114C7 /* Snowman_07_06.jpg */,
+				417C33E8180AEB4D002114C7 /* Snowman_07_07.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		417C336F180AEAE6002114C7 /* 6.12-CATileLayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 417C33A2180AEAE6002114C7 /* Build configuration list for PBXNativeTarget "6.12-CATileLayer" */;
+			buildPhases = (
+				417C336C180AEAE6002114C7 /* Sources */,
+				417C336D180AEAE6002114C7 /* Frameworks */,
+				417C336E180AEAE6002114C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "6.12-CATileLayer";
+			productName = "6.12-CATileLayer";
+			productReference = 417C3370180AEAE6002114C7 /* 6.12-CATileLayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		417C3390180AEAE6002114C7 /* 6.12-CATileLayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 417C33A5180AEAE6002114C7 /* Build configuration list for PBXNativeTarget "6.12-CATileLayerTests" */;
+			buildPhases = (
+				417C338D180AEAE6002114C7 /* Sources */,
+				417C338E180AEAE6002114C7 /* Frameworks */,
+				417C338F180AEAE6002114C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				417C3397180AEAE6002114C7 /* PBXTargetDependency */,
+			);
+			name = "6.12-CATileLayerTests";
+			productName = "6.12-CATileLayerTests";
+			productReference = 417C3391180AEAE6002114C7 /* 6.12-CATileLayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		417C3368180AEAE6002114C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Home Inc";
+				TargetAttributes = {
+					417C3390180AEAE6002114C7 = {
+						TestTargetID = 417C336F180AEAE6002114C7;
+					};
+				};
+			};
+			buildConfigurationList = 417C336B180AEAE6002114C7 /* Build configuration list for PBXProject "6.12-CATileLayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 417C3367180AEAE6002114C7;
+			productRefGroup = 417C3371180AEAE6002114C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				417C336F180AEAE6002114C7 /* 6.12-CATileLayer */,
+				417C3390180AEAE6002114C7 /* 6.12-CATileLayerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		417C336E180AEAE6002114C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C3427180AEB4D002114C7 /* Snowman_07_06.jpg in Resources */,
+				417C33F3180AEB4D002114C7 /* Snowman_01_02.jpg in Resources */,
+				417C33F2180AEB4D002114C7 /* Snowman_01_01.jpg in Resources */,
+				417C3414180AEB4D002114C7 /* Snowman_05_03.jpg in Resources */,
+				417C3403180AEB4D002114C7 /* Snowman_03_02.jpg in Resources */,
+				417C338C180AEAE6002114C7 /* Images.xcassets in Resources */,
+				417C33E9180AEB4D002114C7 /* Snowman_00_00.jpg in Resources */,
+				417C33EE180AEB4D002114C7 /* Snowman_00_05.jpg in Resources */,
+				417C33EF180AEB4D002114C7 /* Snowman_00_06.jpg in Resources */,
+				417C3423180AEB4D002114C7 /* Snowman_07_02.jpg in Resources */,
+				417C33F7180AEB4D002114C7 /* Snowman_01_06.jpg in Resources */,
+				417C3405180AEB4D002114C7 /* Snowman_03_04.jpg in Resources */,
+				417C3415180AEB4D002114C7 /* Snowman_05_04.jpg in Resources */,
+				417C3420180AEB4D002114C7 /* Snowman_06_07.jpg in Resources */,
+				417C341D180AEB4D002114C7 /* Snowman_06_04.jpg in Resources */,
+				417C3409180AEB4D002114C7 /* Snowman_04_00.jpg in Resources */,
+				417C33FD180AEB4D002114C7 /* Snowman_02_04.jpg in Resources */,
+				417C3402180AEB4D002114C7 /* Snowman_03_01.jpg in Resources */,
+				417C340A180AEB4D002114C7 /* Snowman_04_01.jpg in Resources */,
+				417C3412180AEB4D002114C7 /* Snowman_05_01.jpg in Resources */,
+				417C33F5180AEB4D002114C7 /* Snowman_01_04.jpg in Resources */,
+				417C341B180AEB4D002114C7 /* Snowman_06_02.jpg in Resources */,
+				417C3411180AEB4D002114C7 /* Snowman_05_00.jpg in Resources */,
+				417C33F6180AEB4D002114C7 /* Snowman_01_05.jpg in Resources */,
+				417C340F180AEB4D002114C7 /* Snowman_04_06.jpg in Resources */,
+				417C3400180AEB4D002114C7 /* Snowman_02_07.jpg in Resources */,
+				417C3422180AEB4D002114C7 /* Snowman_07_01.jpg in Resources */,
+				417C3421180AEB4D002114C7 /* Snowman_07_00.jpg in Resources */,
+				417C33F4180AEB4D002114C7 /* Snowman_01_03.jpg in Resources */,
+				417C3428180AEB4D002114C7 /* Snowman_07_07.jpg in Resources */,
+				417C340B180AEB4D002114C7 /* Snowman_04_02.jpg in Resources */,
+				417C340C180AEB4D002114C7 /* Snowman_04_03.jpg in Resources */,
+				417C3424180AEB4D002114C7 /* Snowman_07_03.jpg in Resources */,
+				417C33EC180AEB4D002114C7 /* Snowman_00_03.jpg in Resources */,
+				417C33F0180AEB4D002114C7 /* Snowman_00_07.jpg in Resources */,
+				417C3408180AEB4D002114C7 /* Snowman_03_07.jpg in Resources */,
+				417C3406180AEB4D002114C7 /* Snowman_03_05.jpg in Resources */,
+				417C33FC180AEB4D002114C7 /* Snowman_02_03.jpg in Resources */,
+				417C33FE180AEB4D002114C7 /* Snowman_02_05.jpg in Resources */,
+				417C340E180AEB4D002114C7 /* Snowman_04_05.jpg in Resources */,
+				417C341A180AEB4D002114C7 /* Snowman_06_01.jpg in Resources */,
+				417C340D180AEB4D002114C7 /* Snowman_04_04.jpg in Resources */,
+				417C341F180AEB4D002114C7 /* Snowman_06_06.jpg in Resources */,
+				417C3413180AEB4D002114C7 /* Snowman_05_02.jpg in Resources */,
+				417C33F1180AEB4D002114C7 /* Snowman_01_00.jpg in Resources */,
+				417C33FB180AEB4D002114C7 /* Snowman_02_02.jpg in Resources */,
+				417C3425180AEB4D002114C7 /* Snowman_07_04.jpg in Resources */,
+				417C341E180AEB4D002114C7 /* Snowman_06_05.jpg in Resources */,
+				417C337E180AEAE6002114C7 /* InfoPlist.strings in Resources */,
+				417C33F8180AEB4D002114C7 /* Snowman_01_07.jpg in Resources */,
+				417C33FF180AEB4D002114C7 /* Snowman_02_06.jpg in Resources */,
+				417C3426180AEB4D002114C7 /* Snowman_07_05.jpg in Resources */,
+				417C3417180AEB4D002114C7 /* Snowman_05_06.jpg in Resources */,
+				417C33EA180AEB4D002114C7 /* Snowman_00_01.jpg in Resources */,
+				417C33ED180AEB4D002114C7 /* Snowman_00_04.jpg in Resources */,
+				417C3387180AEAE6002114C7 /* Main.storyboard in Resources */,
+				417C3407180AEB4D002114C7 /* Snowman_03_06.jpg in Resources */,
+				417C3419180AEB4D002114C7 /* Snowman_06_00.jpg in Resources */,
+				417C3404180AEB4D002114C7 /* Snowman_03_03.jpg in Resources */,
+				417C3401180AEB4D002114C7 /* Snowman_03_00.jpg in Resources */,
+				417C33EB180AEB4D002114C7 /* Snowman_00_02.jpg in Resources */,
+				417C33FA180AEB4D002114C7 /* Snowman_02_01.jpg in Resources */,
+				417C33F9180AEB4D002114C7 /* Snowman_02_00.jpg in Resources */,
+				417C341C180AEB4D002114C7 /* Snowman_06_03.jpg in Resources */,
+				417C3410180AEB4D002114C7 /* Snowman_04_07.jpg in Resources */,
+				417C3418180AEB4D002114C7 /* Snowman_05_07.jpg in Resources */,
+				417C3416180AEB4D002114C7 /* Snowman_05_05.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417C338F180AEAE6002114C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C339D180AEAE6002114C7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		417C336C180AEAE6002114C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C338A180AEAE6002114C7 /* ViewController.m in Sources */,
+				417C3384180AEAE6002114C7 /* AppDelegate.m in Sources */,
+				417C3380180AEAE6002114C7 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		417C338D180AEAE6002114C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				417C339F180AEAE6002114C7 /* __12_CATileLayerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		417C3397180AEAE6002114C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 417C336F180AEAE6002114C7 /* 6.12-CATileLayer */;
+			targetProxy = 417C3396180AEAE6002114C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		417C337C180AEAE6002114C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				417C337D180AEAE6002114C7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		417C3385180AEAE6002114C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				417C3386180AEAE6002114C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		417C339B180AEAE6002114C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				417C339C180AEAE6002114C7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		417C33A0180AEAE6002114C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		417C33A1180AEAE6002114C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		417C33A3180AEAE6002114C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "6.12-CATileLayer/6.12-CATileLayer-Prefix.pch";
+				INFOPLIST_FILE = "6.12-CATileLayer/6.12-CATileLayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		417C33A4180AEAE6002114C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "6.12-CATileLayer/6.12-CATileLayer-Prefix.pch";
+				INFOPLIST_FILE = "6.12-CATileLayer/6.12-CATileLayer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		417C33A6180AEAE6002114C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/6.12-CATileLayer.app/6.12-CATileLayer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "6.12-CATileLayer/6.12-CATileLayer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "6.12-CATileLayerTests/6.12-CATileLayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		417C33A7180AEAE6002114C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/6.12-CATileLayer.app/6.12-CATileLayer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "6.12-CATileLayer/6.12-CATileLayer-Prefix.pch";
+				INFOPLIST_FILE = "6.12-CATileLayerTests/6.12-CATileLayerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		417C336B180AEAE6002114C7 /* Build configuration list for PBXProject "6.12-CATileLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				417C33A0180AEAE6002114C7 /* Debug */,
+				417C33A1180AEAE6002114C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		417C33A2180AEAE6002114C7 /* Build configuration list for PBXNativeTarget "6.12-CATileLayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				417C33A3180AEAE6002114C7 /* Debug */,
+				417C33A4180AEAE6002114C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		417C33A5180AEAE6002114C7 /* Build configuration list for PBXNativeTarget "6.12-CATileLayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				417C33A6180AEAE6002114C7 /* Debug */,
+				417C33A7180AEAE6002114C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 417C3368180AEAE6002114C7 /* Project object */;
+}
