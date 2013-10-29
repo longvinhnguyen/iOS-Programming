@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6247E79181F9CD8000FA111 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E78181F9CD8000FA111 /* Foundation.framework */; };
+		F6247E7B181F9CD8000FA111 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E7A181F9CD8000FA111 /* CoreGraphics.framework */; };
+		F6247E7D181F9CD8000FA111 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E7C181F9CD8000FA111 /* UIKit.framework */; };
+		F6247E83181F9CD8000FA111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6247E81181F9CD8000FA111 /* InfoPlist.strings */; };
+		F6247E85181F9CD8000FA111 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6247E84181F9CD8000FA111 /* main.m */; };
+		F6247E89181F9CD8000FA111 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6247E88181F9CD8000FA111 /* AppDelegate.m */; };
+		F6247E8C181F9CD8000FA111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6247E8A181F9CD8000FA111 /* Main.storyboard */; };
+		F6247E8F181F9CD8000FA111 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6247E8E181F9CD8000FA111 /* ViewController.m */; };
+		F6247E91181F9CD8000FA111 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6247E90181F9CD8000FA111 /* Images.xcassets */; };
+		F6247E98181F9CD8000FA111 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E97181F9CD8000FA111 /* XCTest.framework */; };
+		F6247E99181F9CD8000FA111 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E78181F9CD8000FA111 /* Foundation.framework */; };
+		F6247E9A181F9CD8000FA111 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6247E7C181F9CD8000FA111 /* UIKit.framework */; };
+		F6247EA2181F9CD8000FA111 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6247EA0181F9CD8000FA111 /* InfoPlist.strings */; };
+		F6247EA4181F9CD8000FA111 /* __3_CATimingSpeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6247EA3181F9CD8000FA111 /* __3_CATimingSpeedTests.m */; };
+		F6247EAF181FA22F000FA111 /* Ship.png in Resources */ = {isa = PBXBuildFile; fileRef = F6247EAD181FA22F000FA111 /* Ship.png */; };
+		F6247EB0181FA22F000FA111 /* Ship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6247EAE181FA22F000FA111 /* Ship@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F6247E9B181F9CD8000FA111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6247E6D181F9CD8000FA111 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6247E74181F9CD8000FA111;
+			remoteInfo = "9.3-CATimingSpeed";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F6247E75181F9CD8000FA111 /* 9.3-CATimingSpeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "9.3-CATimingSpeed.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6247E78181F9CD8000FA111 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F6247E7A181F9CD8000FA111 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F6247E7C181F9CD8000FA111 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F6247E80181F9CD8000FA111 /* 9.3-CATimingSpeed-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "9.3-CATimingSpeed-Info.plist"; sourceTree = "<group>"; };
+		F6247E82181F9CD8000FA111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6247E84181F9CD8000FA111 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6247E86181F9CD8000FA111 /* 9.3-CATimingSpeed-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "9.3-CATimingSpeed-Prefix.pch"; sourceTree = "<group>"; };
+		F6247E87181F9CD8000FA111 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F6247E88181F9CD8000FA111 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F6247E8B181F9CD8000FA111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6247E8D181F9CD8000FA111 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F6247E8E181F9CD8000FA111 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F6247E90181F9CD8000FA111 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F6247E96181F9CD8000FA111 /* 9.3-CATimingSpeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "9.3-CATimingSpeedTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6247E97181F9CD8000FA111 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F6247E9F181F9CD8000FA111 /* 9.3-CATimingSpeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "9.3-CATimingSpeedTests-Info.plist"; sourceTree = "<group>"; };
+		F6247EA1181F9CD8000FA111 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6247EA3181F9CD8000FA111 /* __3_CATimingSpeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = __3_CATimingSpeedTests.m; sourceTree = "<group>"; };
+		F6247EAD181FA22F000FA111 /* Ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ship.png; sourceTree = "<group>"; };
+		F6247EAE181FA22F000FA111 /* Ship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ship@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6247E72181F9CD8000FA111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247E7B181F9CD8000FA111 /* CoreGraphics.framework in Frameworks */,
+				F6247E7D181F9CD8000FA111 /* UIKit.framework in Frameworks */,
+				F6247E79181F9CD8000FA111 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6247E93181F9CD8000FA111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247E98181F9CD8000FA111 /* XCTest.framework in Frameworks */,
+				F6247E9A181F9CD8000FA111 /* UIKit.framework in Frameworks */,
+				F6247E99181F9CD8000FA111 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6247E6C181F9CD8000FA111 = {
+			isa = PBXGroup;
+			children = (
+				F6247EAD181FA22F000FA111 /* Ship.png */,
+				F6247EAE181FA22F000FA111 /* Ship@2x.png */,
+				F6247E7E181F9CD8000FA111 /* 9.3-CATimingSpeed */,
+				F6247E9D181F9CD8000FA111 /* 9.3-CATimingSpeedTests */,
+				F6247E77181F9CD8000FA111 /* Frameworks */,
+				F6247E76181F9CD8000FA111 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6247E76181F9CD8000FA111 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6247E75181F9CD8000FA111 /* 9.3-CATimingSpeed.app */,
+				F6247E96181F9CD8000FA111 /* 9.3-CATimingSpeedTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6247E77181F9CD8000FA111 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6247E78181F9CD8000FA111 /* Foundation.framework */,
+				F6247E7A181F9CD8000FA111 /* CoreGraphics.framework */,
+				F6247E7C181F9CD8000FA111 /* UIKit.framework */,
+				F6247E97181F9CD8000FA111 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6247E7E181F9CD8000FA111 /* 9.3-CATimingSpeed */ = {
+			isa = PBXGroup;
+			children = (
+				F6247E87181F9CD8000FA111 /* AppDelegate.h */,
+				F6247E88181F9CD8000FA111 /* AppDelegate.m */,
+				F6247E8A181F9CD8000FA111 /* Main.storyboard */,
+				F6247E8D181F9CD8000FA111 /* ViewController.h */,
+				F6247E8E181F9CD8000FA111 /* ViewController.m */,
+				F6247E90181F9CD8000FA111 /* Images.xcassets */,
+				F6247E7F181F9CD8000FA111 /* Supporting Files */,
+			);
+			path = "9.3-CATimingSpeed";
+			sourceTree = "<group>";
+		};
+		F6247E7F181F9CD8000FA111 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6247E80181F9CD8000FA111 /* 9.3-CATimingSpeed-Info.plist */,
+				F6247E81181F9CD8000FA111 /* InfoPlist.strings */,
+				F6247E84181F9CD8000FA111 /* main.m */,
+				F6247E86181F9CD8000FA111 /* 9.3-CATimingSpeed-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6247E9D181F9CD8000FA111 /* 9.3-CATimingSpeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6247EA3181F9CD8000FA111 /* __3_CATimingSpeedTests.m */,
+				F6247E9E181F9CD8000FA111 /* Supporting Files */,
+			);
+			path = "9.3-CATimingSpeedTests";
+			sourceTree = "<group>";
+		};
+		F6247E9E181F9CD8000FA111 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6247E9F181F9CD8000FA111 /* 9.3-CATimingSpeedTests-Info.plist */,
+				F6247EA0181F9CD8000FA111 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6247E74181F9CD8000FA111 /* 9.3-CATimingSpeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6247EA7181F9CD8000FA111 /* Build configuration list for PBXNativeTarget "9.3-CATimingSpeed" */;
+			buildPhases = (
+				F6247E71181F9CD8000FA111 /* Sources */,
+				F6247E72181F9CD8000FA111 /* Frameworks */,
+				F6247E73181F9CD8000FA111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "9.3-CATimingSpeed";
+			productName = "9.3-CATimingSpeed";
+			productReference = F6247E75181F9CD8000FA111 /* 9.3-CATimingSpeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F6247E95181F9CD8000FA111 /* 9.3-CATimingSpeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6247EAA181F9CD8000FA111 /* Build configuration list for PBXNativeTarget "9.3-CATimingSpeedTests" */;
+			buildPhases = (
+				F6247E92181F9CD8000FA111 /* Sources */,
+				F6247E93181F9CD8000FA111 /* Frameworks */,
+				F6247E94181F9CD8000FA111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6247E9C181F9CD8000FA111 /* PBXTargetDependency */,
+			);
+			name = "9.3-CATimingSpeedTests";
+			productName = "9.3-CATimingSpeedTests";
+			productReference = F6247E96181F9CD8000FA111 /* 9.3-CATimingSpeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6247E6D181F9CD8000FA111 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = VLong;
+				TargetAttributes = {
+					F6247E95181F9CD8000FA111 = {
+						TestTargetID = F6247E74181F9CD8000FA111;
+					};
+				};
+			};
+			buildConfigurationList = F6247E70181F9CD8000FA111 /* Build configuration list for PBXProject "9.3-CATimingSpeed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6247E6C181F9CD8000FA111;
+			productRefGroup = F6247E76181F9CD8000FA111 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6247E74181F9CD8000FA111 /* 9.3-CATimingSpeed */,
+				F6247E95181F9CD8000FA111 /* 9.3-CATimingSpeedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6247E73181F9CD8000FA111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247E91181F9CD8000FA111 /* Images.xcassets in Resources */,
+				F6247E83181F9CD8000FA111 /* InfoPlist.strings in Resources */,
+				F6247E8C181F9CD8000FA111 /* Main.storyboard in Resources */,
+				F6247EB0181FA22F000FA111 /* Ship@2x.png in Resources */,
+				F6247EAF181FA22F000FA111 /* Ship.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6247E94181F9CD8000FA111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247EA2181F9CD8000FA111 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6247E71181F9CD8000FA111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247E8F181F9CD8000FA111 /* ViewController.m in Sources */,
+				F6247E89181F9CD8000FA111 /* AppDelegate.m in Sources */,
+				F6247E85181F9CD8000FA111 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6247E92181F9CD8000FA111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6247EA4181F9CD8000FA111 /* __3_CATimingSpeedTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6247E9C181F9CD8000FA111 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6247E74181F9CD8000FA111 /* 9.3-CATimingSpeed */;
+			targetProxy = F6247E9B181F9CD8000FA111 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F6247E81181F9CD8000FA111 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6247E82181F9CD8000FA111 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F6247E8A181F9CD8000FA111 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6247E8B181F9CD8000FA111 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6247EA0181F9CD8000FA111 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6247EA1181F9CD8000FA111 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F6247EA5181F9CD8000FA111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F6247EA6181F9CD8000FA111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6247EA8181F9CD8000FA111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "9.3-CATimingSpeed/9.3-CATimingSpeed-Prefix.pch";
+				INFOPLIST_FILE = "9.3-CATimingSpeed/9.3-CATimingSpeed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F6247EA9181F9CD8000FA111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "9.3-CATimingSpeed/9.3-CATimingSpeed-Prefix.pch";
+				INFOPLIST_FILE = "9.3-CATimingSpeed/9.3-CATimingSpeed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F6247EAB181F9CD8000FA111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/9.3-CATimingSpeed.app/9.3-CATimingSpeed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "9.3-CATimingSpeed/9.3-CATimingSpeed-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "9.3-CATimingSpeedTests/9.3-CATimingSpeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F6247EAC181F9CD8000FA111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/9.3-CATimingSpeed.app/9.3-CATimingSpeed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "9.3-CATimingSpeed/9.3-CATimingSpeed-Prefix.pch";
+				INFOPLIST_FILE = "9.3-CATimingSpeedTests/9.3-CATimingSpeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6247E70181F9CD8000FA111 /* Build configuration list for PBXProject "9.3-CATimingSpeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6247EA5181F9CD8000FA111 /* Debug */,
+				F6247EA6181F9CD8000FA111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6247EA7181F9CD8000FA111 /* Build configuration list for PBXNativeTarget "9.3-CATimingSpeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6247EA8181F9CD8000FA111 /* Debug */,
+				F6247EA9181F9CD8000FA111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F6247EAA181F9CD8000FA111 /* Build configuration list for PBXNativeTarget "9.3-CATimingSpeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6247EAB181F9CD8000FA111 /* Debug */,
+				F6247EAC181F9CD8000FA111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6247E6D181F9CD8000FA111 /* Project object */;
+}
