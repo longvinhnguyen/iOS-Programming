@@ -58,6 +58,7 @@
     //update time offset and clamp result
     CFTimeInterval offsetTime = self.doorLayer.timeOffset;
     offsetTime = MIN(0.999, MAX(0.0, offsetTime - x));
+    NSLog(@"timeoffset:(%0.2f)", offsetTime);
     self.doorLayer.timeOffset = offsetTime;
     
     // reset pan Gesture
