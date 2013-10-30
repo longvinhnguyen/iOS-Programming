@@ -23,9 +23,9 @@
 {
     [super viewDidLoad];
     
-    self.hourHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
-    self.minuteHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
-    self.secondHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
+//    self.hourHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
+//    self.minuteHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
+//    self.secondHand.layer.anchorPoint = CGPointMake(0.5f, 0.9f);
     
     // start timer
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(tick) userInfo:nil repeats:YES];
@@ -48,7 +48,7 @@
     // calculate hour and angle
     CGFloat hourAngle = (components.hour / 12.0) * M_PI * 2;
     CGFloat minuteAngle = (components.minute / 60.0) * M_PI * 2;
-    CGFloat secondAngle = (components.hour / 60.0) * M_PI * 2;
+    CGFloat secondAngle = (components.second / 60.0) * M_PI * 2;
     
     // rotate hands
     [self setAngle:hourAngle forHand:self.hourHand animated:animated];
@@ -67,6 +67,11 @@
         animation.toValue = [NSValue valueWithCATransform3D:transform];
         animation.duration = 0.5f;
         animation.delegate = self;
+        
+        // update with timing function chapter 10
+        CAMediaTimingFunction *timingFunction = [CAMediaTimingFunction functionWithControlPoints:1 :0 :0.75 :1];
+        animation.timingFunction = timingFunction;
+        
         [animation setValue:handView forKey:@"handView"];
         [handView.layer addAnimation:animation forKey:nil];
     } else {

@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F62EB6E918210AD9006164EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB6E818210AD9006164EC /* Foundation.framework */; };
+		F62EB6EB18210AD9006164EC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB6EA18210AD9006164EC /* CoreGraphics.framework */; };
+		F62EB6ED18210AD9006164EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB6EC18210AD9006164EC /* UIKit.framework */; };
+		F62EB6F318210AD9006164EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62EB6F118210AD9006164EC /* InfoPlist.strings */; };
+		F62EB6F518210AD9006164EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F62EB6F418210AD9006164EC /* main.m */; };
+		F62EB6F918210AD9006164EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F62EB6F818210AD9006164EC /* AppDelegate.m */; };
+		F62EB6FC18210AD9006164EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F62EB6FA18210AD9006164EC /* Main.storyboard */; };
+		F62EB6FF18210AD9006164EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F62EB6FE18210AD9006164EC /* ViewController.m */; };
+		F62EB70118210AD9006164EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F62EB70018210AD9006164EC /* Images.xcassets */; };
+		F62EB70818210AD9006164EC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB70718210AD9006164EC /* XCTest.framework */; };
+		F62EB70918210AD9006164EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB6E818210AD9006164EC /* Foundation.framework */; };
+		F62EB70A18210AD9006164EC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EB6EC18210AD9006164EC /* UIKit.framework */; };
+		F62EB71218210AD9006164EC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F62EB71018210AD9006164EC /* InfoPlist.strings */; };
+		F62EB71418210AD9006164EC /* _0_4_TimingFunctionBezierCurveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F62EB71318210AD9006164EC /* _0_4_TimingFunctionBezierCurveTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F62EB70B18210AD9006164EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F62EB6DD18210AD9006164EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F62EB6E418210AD9006164EC;
+			remoteInfo = "10.4-TimingFunctionBezierCurve";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F62EB6E518210AD9006164EC /* 10.4-TimingFunctionBezierCurve.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "10.4-TimingFunctionBezierCurve.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62EB6E818210AD9006164EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F62EB6EA18210AD9006164EC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F62EB6EC18210AD9006164EC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F62EB6F018210AD9006164EC /* 10.4-TimingFunctionBezierCurve-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "10.4-TimingFunctionBezierCurve-Info.plist"; sourceTree = "<group>"; };
+		F62EB6F218210AD9006164EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F62EB6F418210AD9006164EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F62EB6F618210AD9006164EC /* 10.4-TimingFunctionBezierCurve-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "10.4-TimingFunctionBezierCurve-Prefix.pch"; sourceTree = "<group>"; };
+		F62EB6F718210AD9006164EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F62EB6F818210AD9006164EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F62EB6FB18210AD9006164EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F62EB6FD18210AD9006164EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F62EB6FE18210AD9006164EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F62EB70018210AD9006164EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F62EB70618210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "10.4-TimingFunctionBezierCurveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F62EB70718210AD9006164EC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F62EB70F18210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "10.4-TimingFunctionBezierCurveTests-Info.plist"; sourceTree = "<group>"; };
+		F62EB71118210AD9006164EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F62EB71318210AD9006164EC /* _0_4_TimingFunctionBezierCurveTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _0_4_TimingFunctionBezierCurveTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F62EB6E218210AD9006164EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB6EB18210AD9006164EC /* CoreGraphics.framework in Frameworks */,
+				F62EB6ED18210AD9006164EC /* UIKit.framework in Frameworks */,
+				F62EB6E918210AD9006164EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F62EB70318210AD9006164EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB70818210AD9006164EC /* XCTest.framework in Frameworks */,
+				F62EB70A18210AD9006164EC /* UIKit.framework in Frameworks */,
+				F62EB70918210AD9006164EC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F62EB6DC18210AD9006164EC = {
+			isa = PBXGroup;
+			children = (
+				F62EB6EE18210AD9006164EC /* 10.4-TimingFunctionBezierCurve */,
+				F62EB70D18210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests */,
+				F62EB6E718210AD9006164EC /* Frameworks */,
+				F62EB6E618210AD9006164EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F62EB6E618210AD9006164EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB6E518210AD9006164EC /* 10.4-TimingFunctionBezierCurve.app */,
+				F62EB70618210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F62EB6E718210AD9006164EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB6E818210AD9006164EC /* Foundation.framework */,
+				F62EB6EA18210AD9006164EC /* CoreGraphics.framework */,
+				F62EB6EC18210AD9006164EC /* UIKit.framework */,
+				F62EB70718210AD9006164EC /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F62EB6EE18210AD9006164EC /* 10.4-TimingFunctionBezierCurve */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB6F718210AD9006164EC /* AppDelegate.h */,
+				F62EB6F818210AD9006164EC /* AppDelegate.m */,
+				F62EB6FA18210AD9006164EC /* Main.storyboard */,
+				F62EB6FD18210AD9006164EC /* ViewController.h */,
+				F62EB6FE18210AD9006164EC /* ViewController.m */,
+				F62EB70018210AD9006164EC /* Images.xcassets */,
+				F62EB6EF18210AD9006164EC /* Supporting Files */,
+			);
+			path = "10.4-TimingFunctionBezierCurve";
+			sourceTree = "<group>";
+		};
+		F62EB6EF18210AD9006164EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB6F018210AD9006164EC /* 10.4-TimingFunctionBezierCurve-Info.plist */,
+				F62EB6F118210AD9006164EC /* InfoPlist.strings */,
+				F62EB6F418210AD9006164EC /* main.m */,
+				F62EB6F618210AD9006164EC /* 10.4-TimingFunctionBezierCurve-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F62EB70D18210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB71318210AD9006164EC /* _0_4_TimingFunctionBezierCurveTests.m */,
+				F62EB70E18210AD9006164EC /* Supporting Files */,
+			);
+			path = "10.4-TimingFunctionBezierCurveTests";
+			sourceTree = "<group>";
+		};
+		F62EB70E18210AD9006164EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F62EB70F18210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests-Info.plist */,
+				F62EB71018210AD9006164EC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F62EB6E418210AD9006164EC /* 10.4-TimingFunctionBezierCurve */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F62EB71718210AD9006164EC /* Build configuration list for PBXNativeTarget "10.4-TimingFunctionBezierCurve" */;
+			buildPhases = (
+				F62EB6E118210AD9006164EC /* Sources */,
+				F62EB6E218210AD9006164EC /* Frameworks */,
+				F62EB6E318210AD9006164EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "10.4-TimingFunctionBezierCurve";
+			productName = "10.4-TimingFunctionBezierCurve";
+			productReference = F62EB6E518210AD9006164EC /* 10.4-TimingFunctionBezierCurve.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F62EB70518210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F62EB71A18210AD9006164EC /* Build configuration list for PBXNativeTarget "10.4-TimingFunctionBezierCurveTests" */;
+			buildPhases = (
+				F62EB70218210AD9006164EC /* Sources */,
+				F62EB70318210AD9006164EC /* Frameworks */,
+				F62EB70418210AD9006164EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F62EB70C18210AD9006164EC /* PBXTargetDependency */,
+			);
+			name = "10.4-TimingFunctionBezierCurveTests";
+			productName = "10.4-TimingFunctionBezierCurveTests";
+			productReference = F62EB70618210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F62EB6DD18210AD9006164EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = VLong;
+				TargetAttributes = {
+					F62EB70518210AD9006164EC = {
+						TestTargetID = F62EB6E418210AD9006164EC;
+					};
+				};
+			};
+			buildConfigurationList = F62EB6E018210AD9006164EC /* Build configuration list for PBXProject "10.4-TimingFunctionBezierCurve" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F62EB6DC18210AD9006164EC;
+			productRefGroup = F62EB6E618210AD9006164EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F62EB6E418210AD9006164EC /* 10.4-TimingFunctionBezierCurve */,
+				F62EB70518210AD9006164EC /* 10.4-TimingFunctionBezierCurveTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F62EB6E318210AD9006164EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB70118210AD9006164EC /* Images.xcassets in Resources */,
+				F62EB6F318210AD9006164EC /* InfoPlist.strings in Resources */,
+				F62EB6FC18210AD9006164EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F62EB70418210AD9006164EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB71218210AD9006164EC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F62EB6E118210AD9006164EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB6FF18210AD9006164EC /* ViewController.m in Sources */,
+				F62EB6F918210AD9006164EC /* AppDelegate.m in Sources */,
+				F62EB6F518210AD9006164EC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F62EB70218210AD9006164EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F62EB71418210AD9006164EC /* _0_4_TimingFunctionBezierCurveTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F62EB70C18210AD9006164EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F62EB6E418210AD9006164EC /* 10.4-TimingFunctionBezierCurve */;
+			targetProxy = F62EB70B18210AD9006164EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F62EB6F118210AD9006164EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F62EB6F218210AD9006164EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F62EB6FA18210AD9006164EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F62EB6FB18210AD9006164EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F62EB71018210AD9006164EC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F62EB71118210AD9006164EC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F62EB71518210AD9006164EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F62EB71618210AD9006164EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F62EB71818210AD9006164EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Prefix.pch";
+				INFOPLIST_FILE = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F62EB71918210AD9006164EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Prefix.pch";
+				INFOPLIST_FILE = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F62EB71B18210AD9006164EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/10.4-TimingFunctionBezierCurve.app/10.4-TimingFunctionBezierCurve";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "10.4-TimingFunctionBezierCurveTests/10.4-TimingFunctionBezierCurveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F62EB71C18210AD9006164EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/10.4-TimingFunctionBezierCurve.app/10.4-TimingFunctionBezierCurve";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve-Prefix.pch";
+				INFOPLIST_FILE = "10.4-TimingFunctionBezierCurveTests/10.4-TimingFunctionBezierCurveTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F62EB6E018210AD9006164EC /* Build configuration list for PBXProject "10.4-TimingFunctionBezierCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F62EB71518210AD9006164EC /* Debug */,
+				F62EB71618210AD9006164EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F62EB71718210AD9006164EC /* Build configuration list for PBXNativeTarget "10.4-TimingFunctionBezierCurve" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F62EB71818210AD9006164EC /* Debug */,
+				F62EB71918210AD9006164EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F62EB71A18210AD9006164EC /* Build configuration list for PBXNativeTarget "10.4-TimingFunctionBezierCurveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F62EB71B18210AD9006164EC /* Debug */,
+				F62EB71C18210AD9006164EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F62EB6DD18210AD9006164EC /* Project object */;
+}

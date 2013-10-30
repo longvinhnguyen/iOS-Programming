@@ -48,6 +48,11 @@
     animation.keyPath = @"backgroundColor";
     animation.duration = 2.0f;
     animation.values = @[(__bridge id)[UIColor blueColor].CGColor, (__bridge id)[UIColor greenColor].CGColor, (__bridge id)[UIColor redColor].CGColor, (__bridge id)[UIColor blueColor].CGColor];
+    
+    // update 10.3 timing function
+    CAMediaTimingFunction *fn = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    animation.timingFunctions = @[fn, fn, fn];
+    
     [self.colorLayer addAnimation:animation forKey:nil];
     
 }
