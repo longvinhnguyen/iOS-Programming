@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EF6459DD-21C5-4D1D-9269-6F4FFEA591EE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>10.4-TimingFunctionBezierCurve</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2947CDF5-275C-4742-8ADD-EE57D7C1FB26</key>
+		<string>https://github.com/longvinhnguyen/iOS-Programming.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AdvancedAnimation/10.4-TimingFunctionBezierCurve/10.4-TimingFunctionBezierCurve.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2947CDF5-275C-4742-8ADD-EE57D7C1FB26</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/longvinhnguyen/iOS-Programming.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2947CDF5-275C-4742-8ADD-EE57D7C1FB26</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2947CDF5-275C-4742-8ADD-EE57D7C1FB26</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-Programming</string>
+		</dict>
+	</array>
+</dict>
+</plist>
