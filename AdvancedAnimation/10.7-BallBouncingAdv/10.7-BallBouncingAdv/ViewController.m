@@ -12,6 +12,23 @@ float interpolate(float from, float to, float time) {
     return (to - from) * time + from;
 }
 
+float quadraticEaseInOut(float t)
+{
+    return (t < 0.5)? (2 * t * t) : (-2 * t * t) + (4 * t) -1;
+}
+
+float bounceEaseOut(float t)
+{
+    if (t < 4/11.0) {
+        return (121 * t * t)/ 16.0;
+    } else if (t < 8/11.0) {
+        return (363/40.0f * t * t) - (99/10.0 * t * t) + 17/5.0;
+    } else if (t < 9/10.0) {
+        return (4356/361.0 * t * t) - (35442/1805.0 * t) + 16061/1805.0;
+    }
+    return (54/5.0 * t * t) - (513/25.0 * t) + 268/25.0;
+}
+
 @interface ViewController ()
 
 @property (nonatomic, weak) IBOutlet UIView *containerView;
@@ -49,9 +66,12 @@ float interpolate(float from, float to, float time) {
     // generate keyframes
     NSInteger numFrames = duration * 60;
     NSMutableArray *frames = [NSMutableArray array];
-    for (int i = 0; i <= numFrames; i++) {
+    for (int i = 0; i < numFrames; i++) {
         float time = 1/(float)numFrames * i;
-        NSLog(@"time %f", time);
+        
+        // apply easing
+        time = bounceEaseOut(time);
+        
         [frames addObject:[self interpolateFromValue:fromValue toValue:toValue time:time]];
     }
 
@@ -75,7 +95,7 @@ float interpolate(float from, float to, float time) {
     [self animate];
 }
 
-- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self animate];
 }
