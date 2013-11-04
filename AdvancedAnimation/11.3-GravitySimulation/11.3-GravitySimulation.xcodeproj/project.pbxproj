@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		412E1DC61827E197001DF7F1 /* libChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02CD1827AC32005D1C45 /* libChipmunk-iPhone.a */; };
 		F6FB02411827A2E5005D1C45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02401827A2E5005D1C45 /* Foundation.framework */; };
 		F6FB02431827A2E5005D1C45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02421827A2E5005D1C45 /* CoreGraphics.framework */; };
 		F6FB02451827A2E5005D1C45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02441827A2E5005D1C45 /* UIKit.framework */; };
@@ -22,8 +23,6 @@
 		F6FB026A1827A2E5005D1C45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02681827A2E5005D1C45 /* InfoPlist.strings */; };
 		F6FB026C1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB026B1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m */; };
 		F6FB02961827A481005D1C45 /* Crate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB02951827A481005D1C45 /* Crate.m */; };
-		F6FB02B11827AB9D005D1C45 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02B01827AB9D005D1C45 /* libglfw.a */; };
-		F6FB02CE1827AC32005D1C45 /* libChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02CD1827AC32005D1C45 /* libChipmunk-iPhone.a */; };
 		F6FB02D11827AC8C005D1C45 /* Crate.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02CF1827AC8C005D1C45 /* Crate.png */; };
 		F6FB02D21827AC8C005D1C45 /* Crate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02D01827AC8C005D1C45 /* Crate@2x.png */; };
 /* End PBXBuildFile section */
@@ -96,11 +95,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6FB02B11827AB9D005D1C45 /* libglfw.a in Frameworks */,
+				412E1DC61827E197001DF7F1 /* libChipmunk-iPhone.a in Frameworks */,
 				F6FB02431827A2E5005D1C45 /* CoreGraphics.framework in Frameworks */,
 				F6FB02451827A2E5005D1C45 /* UIKit.framework in Frameworks */,
 				F6FB02411827A2E5005D1C45 /* Foundation.framework in Frameworks */,
-				F6FB02CE1827AC32005D1C45 /* libChipmunk-iPhone.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +472,7 @@
 					"$(inherited)",
 					"/Users/visikardmacbookpro/Downloads/Chipmunk-6.2.1/xcode/libglfw/lib",
 					"/Users/visikardmacbookpro/iOS-Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
+					"/Users/longnguyen/iOS\\ Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -493,6 +492,7 @@
 					"$(inherited)",
 					"/Users/visikardmacbookpro/Downloads/Chipmunk-6.2.1/xcode/libglfw/lib",
 					"/Users/visikardmacbookpro/iOS-Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
+					"/Users/longnguyen/iOS\\ Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -560,6 +560,7 @@
 				F6FB02711827A2E5005D1C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F6FB02721827A2E5005D1C45 /* Build configuration list for PBXNativeTarget "11.3-GravitySimulationTests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +569,7 @@
 				F6FB02741827A2E5005D1C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
