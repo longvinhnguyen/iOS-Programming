@@ -21,6 +21,8 @@
 		F616FFC118239D9B0033ED5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F616FFA318239D9B0033ED5D /* UIKit.framework */; };
 		F616FFC918239D9B0033ED5D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F616FFC718239D9B0033ED5D /* InfoPlist.strings */; };
 		F616FFCB18239D9B0033ED5D /* _1_1_BouncingTimerBasedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F616FFCA18239D9B0033ED5D /* _1_1_BouncingTimerBasedTests.m */; };
+		F616FFD61823A1F70033ED5D /* Ball.png in Resources */ = {isa = PBXBuildFile; fileRef = F616FFD41823A1F70033ED5D /* Ball.png */; };
+		F616FFD71823A1F70033ED5D /* Ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F616FFD51823A1F70033ED5D /* Ball@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		F616FFC618239D9B0033ED5D /* 11.1-BouncingTimerBasedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "11.1-BouncingTimerBasedTests-Info.plist"; sourceTree = "<group>"; };
 		F616FFC818239D9B0033ED5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F616FFCA18239D9B0033ED5D /* _1_1_BouncingTimerBasedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _1_1_BouncingTimerBasedTests.m; sourceTree = "<group>"; };
+		F616FFD41823A1F70033ED5D /* Ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ball.png; sourceTree = "<group>"; };
+		F616FFD51823A1F70033ED5D /* Ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ball@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 		F616FFA518239D9B0033ED5D /* 11.1-BouncingTimerBased */ = {
 			isa = PBXGroup;
 			children = (
+				F616FFD41823A1F70033ED5D /* Ball.png */,
+				F616FFD51823A1F70033ED5D /* Ball@2x.png */,
 				F616FFAE18239D9B0033ED5D /* AppDelegate.h */,
 				F616FFAF18239D9B0033ED5D /* AppDelegate.m */,
 				F616FFB118239D9B0033ED5D /* Main.storyboard */,
@@ -230,6 +236,8 @@
 			files = (
 				F616FFB818239D9B0033ED5D /* Images.xcassets in Resources */,
 				F616FFAA18239D9B0033ED5D /* InfoPlist.strings in Resources */,
+				F616FFD61823A1F70033ED5D /* Ball.png in Resources */,
+				F616FFD71823A1F70033ED5D /* Ball@2x.png in Resources */,
 				F616FFB318239D9B0033ED5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

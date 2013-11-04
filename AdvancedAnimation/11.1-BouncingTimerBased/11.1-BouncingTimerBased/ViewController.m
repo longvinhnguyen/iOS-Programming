@@ -10,7 +10,7 @@
 
 float interpolate (float from, float to, float time)
 {
-    return (to - from) * time + to;
+    return (to - from) * time + from;
 }
 
 float bounceEaseOut( float t) {
@@ -28,11 +28,13 @@ float bounceEaseOut( float t) {
 
 @property (nonatomic, weak) IBOutlet UIView *containerView;
 @property (nonatomic, strong) UIImageView *ballView;
-@property (nonatomic, strong) NSTimer *timer;
+//@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) CADisplayLink *timer;
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, assign) NSTimeInterval timeOffset;
 @property (nonatomic, strong) id fromValue;
 @property (nonatomic, strong) id toValue;
+@property (nonatomic, assign) CFTimeInterval lastStep;
 
 @end
 
@@ -44,8 +46,8 @@ float bounceEaseOut( float t) {
     
     // add ball image view
     UIImage *image = [UIImage imageNamed:@"Ball.png"];
-    UIImageView *ballView = [[UIImageView alloc] initWithImage:image];
-    [self.containerView addSubview:ballView];
+    self.ballView = [[UIImageView alloc] initWithImage:image];
+    [self.containerView addSubview:self.ballView];
     
     // animate
     [self animate];
@@ -66,16 +68,12 @@ float bounceEaseOut( float t) {
     return time < 0.5?fromValue:toValue;
 }
 
-
-
-
-
 - (void)animate
 {
     // reset ball to top screen
     self.ballView.center = CGPointMake(150, 32);
-    
-    // configure the animation
+//
+//    // configure the animation
     self.duration = 1.0f;
     self.timeOffset = 0.0;
     self.fromValue = [NSValue valueWithCGPoint:CGPointMake(150, 32)];
@@ -84,14 +82,24 @@ float bounceEaseOut( float t) {
     // stop timer if it's already running
     [self.timer invalidate];
     
+    self.lastStep = CACurrentMediaTime();
+    
     // start the timer
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60.0 target:self selector:@selector(step:) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60.0 target:self selector:@selector(step:) userInfo:nil repeats:YES];
+    self.timer = [CADisplayLink displayLinkWithTarget:self selector:@selector(step:)];
+    [self.timer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
 - (void)step:(NSTimer *)timer
 {
+    // calculate the time delta
+    CFTimeInterval thisStep = CACurrentMediaTime();
+    CFTimeInterval stepDuration = thisStep - self.lastStep;
+    self.lastStep = thisStep;
+    NSLog(@"stepDuration %f", stepDuration);
+    
     // update time offset
-    self.timeOffset = MIN(self.timeOffset + 1/60.0, self.duration);
+    self.timeOffset = MIN(self.timeOffset + stepDuration, self.duration);
     
     // get normalized the time offset
     float time = self.timeOffset / self.duration;
@@ -101,6 +109,7 @@ float bounceEaseOut( float t) {
     
     // interpolate position
     id  position = [self interpolateFromValue:self.fromValue toValue:self.toValue time:time];
+    NSLog(@"position %@", position);
     
     // move ball to new position
     self.ballView.center = [position CGPointValue];

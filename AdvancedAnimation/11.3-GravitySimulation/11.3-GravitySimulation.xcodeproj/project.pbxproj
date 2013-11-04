@@ -1,0 +1,575 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6FB02411827A2E5005D1C45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02401827A2E5005D1C45 /* Foundation.framework */; };
+		F6FB02431827A2E5005D1C45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02421827A2E5005D1C45 /* CoreGraphics.framework */; };
+		F6FB02451827A2E5005D1C45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02441827A2E5005D1C45 /* UIKit.framework */; };
+		F6FB024B1827A2E5005D1C45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02491827A2E5005D1C45 /* InfoPlist.strings */; };
+		F6FB024D1827A2E5005D1C45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB024C1827A2E5005D1C45 /* main.m */; };
+		F6FB02511827A2E5005D1C45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB02501827A2E5005D1C45 /* AppDelegate.m */; };
+		F6FB02541827A2E5005D1C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02521827A2E5005D1C45 /* Main.storyboard */; };
+		F6FB02571827A2E5005D1C45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB02561827A2E5005D1C45 /* ViewController.m */; };
+		F6FB02591827A2E5005D1C45 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02581827A2E5005D1C45 /* Images.xcassets */; };
+		F6FB02601827A2E5005D1C45 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB025F1827A2E5005D1C45 /* XCTest.framework */; };
+		F6FB02611827A2E5005D1C45 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02401827A2E5005D1C45 /* Foundation.framework */; };
+		F6FB02621827A2E5005D1C45 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02441827A2E5005D1C45 /* UIKit.framework */; };
+		F6FB026A1827A2E5005D1C45 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02681827A2E5005D1C45 /* InfoPlist.strings */; };
+		F6FB026C1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB026B1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m */; };
+		F6FB02961827A481005D1C45 /* Crate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FB02951827A481005D1C45 /* Crate.m */; };
+		F6FB02B11827AB9D005D1C45 /* libglfw.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02B01827AB9D005D1C45 /* libglfw.a */; };
+		F6FB02CE1827AC32005D1C45 /* libChipmunk-iPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FB02CD1827AC32005D1C45 /* libChipmunk-iPhone.a */; };
+		F6FB02D11827AC8C005D1C45 /* Crate.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02CF1827AC8C005D1C45 /* Crate.png */; };
+		F6FB02D21827AC8C005D1C45 /* Crate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FB02D01827AC8C005D1C45 /* Crate@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F6FB02631827A2E5005D1C45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F6FB02351827A2E4005D1C45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F6FB023C1827A2E4005D1C45;
+			remoteInfo = "11.3-GravitySimulation";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F6FB023D1827A2E5005D1C45 /* 11.3-GravitySimulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "11.3-GravitySimulation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6FB02401827A2E5005D1C45 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F6FB02421827A2E5005D1C45 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F6FB02441827A2E5005D1C45 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F6FB02481827A2E5005D1C45 /* 11.3-GravitySimulation-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "11.3-GravitySimulation-Info.plist"; sourceTree = "<group>"; };
+		F6FB024A1827A2E5005D1C45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6FB024C1827A2E5005D1C45 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F6FB024E1827A2E5005D1C45 /* 11.3-GravitySimulation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "11.3-GravitySimulation-Prefix.pch"; sourceTree = "<group>"; };
+		F6FB024F1827A2E5005D1C45 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F6FB02501827A2E5005D1C45 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F6FB02531827A2E5005D1C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F6FB02551827A2E5005D1C45 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F6FB02561827A2E5005D1C45 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F6FB02581827A2E5005D1C45 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F6FB025E1827A2E5005D1C45 /* 11.3-GravitySimulationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "11.3-GravitySimulationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6FB025F1827A2E5005D1C45 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F6FB02671827A2E5005D1C45 /* 11.3-GravitySimulationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "11.3-GravitySimulationTests-Info.plist"; sourceTree = "<group>"; };
+		F6FB02691827A2E5005D1C45 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F6FB026B1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _1_3_GravitySimulationTests.m; sourceTree = "<group>"; };
+		F6FB02941827A481005D1C45 /* Crate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crate.h; sourceTree = "<group>"; };
+		F6FB02951827A481005D1C45 /* Crate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crate.m; sourceTree = "<group>"; };
+		F6FB02B01827AB9D005D1C45 /* libglfw.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw.a; path = "../../../Downloads/Chipmunk-6.2.1/xcode/libglfw/lib/libglfw.a"; sourceTree = "<group>"; };
+		F6FB02B31827AC32005D1C45 /* chipmunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk.h; sourceTree = "<group>"; };
+		F6FB02B41827AC32005D1C45 /* chipmunk_ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_ffi.h; sourceTree = "<group>"; };
+		F6FB02B51827AC32005D1C45 /* chipmunk_private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_private.h; sourceTree = "<group>"; };
+		F6FB02B61827AC32005D1C45 /* chipmunk_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_types.h; sourceTree = "<group>"; };
+		F6FB02B71827AC32005D1C45 /* chipmunk_unsafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chipmunk_unsafe.h; sourceTree = "<group>"; };
+		F6FB02B91827AC32005D1C45 /* cpConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpConstraint.h; sourceTree = "<group>"; };
+		F6FB02BA1827AC32005D1C45 /* cpDampedRotarySpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpDampedRotarySpring.h; sourceTree = "<group>"; };
+		F6FB02BB1827AC32005D1C45 /* cpDampedSpring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpDampedSpring.h; sourceTree = "<group>"; };
+		F6FB02BC1827AC32005D1C45 /* cpGearJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpGearJoint.h; sourceTree = "<group>"; };
+		F6FB02BD1827AC32005D1C45 /* cpGrooveJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpGrooveJoint.h; sourceTree = "<group>"; };
+		F6FB02BE1827AC32005D1C45 /* cpPinJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpPinJoint.h; sourceTree = "<group>"; };
+		F6FB02BF1827AC32005D1C45 /* cpPivotJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpPivotJoint.h; sourceTree = "<group>"; };
+		F6FB02C01827AC32005D1C45 /* cpRatchetJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpRatchetJoint.h; sourceTree = "<group>"; };
+		F6FB02C11827AC32005D1C45 /* cpRotaryLimitJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpRotaryLimitJoint.h; sourceTree = "<group>"; };
+		F6FB02C21827AC32005D1C45 /* cpSimpleMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpSimpleMotor.h; sourceTree = "<group>"; };
+		F6FB02C31827AC32005D1C45 /* cpSlideJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpSlideJoint.h; sourceTree = "<group>"; };
+		F6FB02C41827AC32005D1C45 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		F6FB02C51827AC32005D1C45 /* cpArbiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpArbiter.h; sourceTree = "<group>"; };
+		F6FB02C61827AC32005D1C45 /* cpBB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpBB.h; sourceTree = "<group>"; };
+		F6FB02C71827AC32005D1C45 /* cpBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpBody.h; sourceTree = "<group>"; };
+		F6FB02C81827AC32005D1C45 /* cpPolyShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpPolyShape.h; sourceTree = "<group>"; };
+		F6FB02C91827AC32005D1C45 /* cpShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpShape.h; sourceTree = "<group>"; };
+		F6FB02CA1827AC32005D1C45 /* cpSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpSpace.h; sourceTree = "<group>"; };
+		F6FB02CB1827AC32005D1C45 /* cpSpatialIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpSpatialIndex.h; sourceTree = "<group>"; };
+		F6FB02CC1827AC32005D1C45 /* cpVect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpVect.h; sourceTree = "<group>"; };
+		F6FB02CD1827AC32005D1C45 /* libChipmunk-iPhone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libChipmunk-iPhone.a"; sourceTree = "<group>"; };
+		F6FB02CF1827AC8C005D1C45 /* Crate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crate.png; sourceTree = "<group>"; };
+		F6FB02D01827AC8C005D1C45 /* Crate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crate@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6FB023A1827A2E4005D1C45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB02B11827AB9D005D1C45 /* libglfw.a in Frameworks */,
+				F6FB02431827A2E5005D1C45 /* CoreGraphics.framework in Frameworks */,
+				F6FB02451827A2E5005D1C45 /* UIKit.framework in Frameworks */,
+				F6FB02411827A2E5005D1C45 /* Foundation.framework in Frameworks */,
+				F6FB02CE1827AC32005D1C45 /* libChipmunk-iPhone.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6FB025B1827A2E5005D1C45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB02601827A2E5005D1C45 /* XCTest.framework in Frameworks */,
+				F6FB02621827A2E5005D1C45 /* UIKit.framework in Frameworks */,
+				F6FB02611827A2E5005D1C45 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6FB02341827A2E4005D1C45 = {
+			isa = PBXGroup;
+			children = (
+				F6FB02461827A2E5005D1C45 /* 11.3-GravitySimulation */,
+				F6FB02651827A2E5005D1C45 /* 11.3-GravitySimulationTests */,
+				F6FB023F1827A2E5005D1C45 /* Frameworks */,
+				F6FB023E1827A2E5005D1C45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6FB023E1827A2E5005D1C45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB023D1827A2E5005D1C45 /* 11.3-GravitySimulation.app */,
+				F6FB025E1827A2E5005D1C45 /* 11.3-GravitySimulationTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6FB023F1827A2E5005D1C45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02B01827AB9D005D1C45 /* libglfw.a */,
+				F6FB02401827A2E5005D1C45 /* Foundation.framework */,
+				F6FB02421827A2E5005D1C45 /* CoreGraphics.framework */,
+				F6FB02441827A2E5005D1C45 /* UIKit.framework */,
+				F6FB025F1827A2E5005D1C45 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6FB02461827A2E5005D1C45 /* 11.3-GravitySimulation */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02CF1827AC8C005D1C45 /* Crate.png */,
+				F6FB02D01827AC8C005D1C45 /* Crate@2x.png */,
+				F6FB02B21827AC32005D1C45 /* Chipmunk-iPhone */,
+				F6FB024F1827A2E5005D1C45 /* AppDelegate.h */,
+				F6FB02501827A2E5005D1C45 /* AppDelegate.m */,
+				F6FB02521827A2E5005D1C45 /* Main.storyboard */,
+				F6FB02551827A2E5005D1C45 /* ViewController.h */,
+				F6FB02561827A2E5005D1C45 /* ViewController.m */,
+				F6FB02581827A2E5005D1C45 /* Images.xcassets */,
+				F6FB02471827A2E5005D1C45 /* Supporting Files */,
+				F6FB02941827A481005D1C45 /* Crate.h */,
+				F6FB02951827A481005D1C45 /* Crate.m */,
+			);
+			path = "11.3-GravitySimulation";
+			sourceTree = "<group>";
+		};
+		F6FB02471827A2E5005D1C45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02481827A2E5005D1C45 /* 11.3-GravitySimulation-Info.plist */,
+				F6FB02491827A2E5005D1C45 /* InfoPlist.strings */,
+				F6FB024C1827A2E5005D1C45 /* main.m */,
+				F6FB024E1827A2E5005D1C45 /* 11.3-GravitySimulation-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6FB02651827A2E5005D1C45 /* 11.3-GravitySimulationTests */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB026B1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m */,
+				F6FB02661827A2E5005D1C45 /* Supporting Files */,
+			);
+			path = "11.3-GravitySimulationTests";
+			sourceTree = "<group>";
+		};
+		F6FB02661827A2E5005D1C45 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02671827A2E5005D1C45 /* 11.3-GravitySimulationTests-Info.plist */,
+				F6FB02681827A2E5005D1C45 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F6FB02B21827AC32005D1C45 /* Chipmunk-iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02B31827AC32005D1C45 /* chipmunk.h */,
+				F6FB02B41827AC32005D1C45 /* chipmunk_ffi.h */,
+				F6FB02B51827AC32005D1C45 /* chipmunk_private.h */,
+				F6FB02B61827AC32005D1C45 /* chipmunk_types.h */,
+				F6FB02B71827AC32005D1C45 /* chipmunk_unsafe.h */,
+				F6FB02B81827AC32005D1C45 /* constraints */,
+				F6FB02C51827AC32005D1C45 /* cpArbiter.h */,
+				F6FB02C61827AC32005D1C45 /* cpBB.h */,
+				F6FB02C71827AC32005D1C45 /* cpBody.h */,
+				F6FB02C81827AC32005D1C45 /* cpPolyShape.h */,
+				F6FB02C91827AC32005D1C45 /* cpShape.h */,
+				F6FB02CA1827AC32005D1C45 /* cpSpace.h */,
+				F6FB02CB1827AC32005D1C45 /* cpSpatialIndex.h */,
+				F6FB02CC1827AC32005D1C45 /* cpVect.h */,
+				F6FB02CD1827AC32005D1C45 /* libChipmunk-iPhone.a */,
+			);
+			path = "Chipmunk-iPhone";
+			sourceTree = "<group>";
+		};
+		F6FB02B81827AC32005D1C45 /* constraints */ = {
+			isa = PBXGroup;
+			children = (
+				F6FB02B91827AC32005D1C45 /* cpConstraint.h */,
+				F6FB02BA1827AC32005D1C45 /* cpDampedRotarySpring.h */,
+				F6FB02BB1827AC32005D1C45 /* cpDampedSpring.h */,
+				F6FB02BC1827AC32005D1C45 /* cpGearJoint.h */,
+				F6FB02BD1827AC32005D1C45 /* cpGrooveJoint.h */,
+				F6FB02BE1827AC32005D1C45 /* cpPinJoint.h */,
+				F6FB02BF1827AC32005D1C45 /* cpPivotJoint.h */,
+				F6FB02C01827AC32005D1C45 /* cpRatchetJoint.h */,
+				F6FB02C11827AC32005D1C45 /* cpRotaryLimitJoint.h */,
+				F6FB02C21827AC32005D1C45 /* cpSimpleMotor.h */,
+				F6FB02C31827AC32005D1C45 /* cpSlideJoint.h */,
+				F6FB02C41827AC32005D1C45 /* util.h */,
+			);
+			path = constraints;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6FB023C1827A2E4005D1C45 /* 11.3-GravitySimulation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6FB026F1827A2E5005D1C45 /* Build configuration list for PBXNativeTarget "11.3-GravitySimulation" */;
+			buildPhases = (
+				F6FB02391827A2E4005D1C45 /* Sources */,
+				F6FB023A1827A2E4005D1C45 /* Frameworks */,
+				F6FB023B1827A2E4005D1C45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "11.3-GravitySimulation";
+			productName = "11.3-GravitySimulation";
+			productReference = F6FB023D1827A2E5005D1C45 /* 11.3-GravitySimulation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F6FB025D1827A2E5005D1C45 /* 11.3-GravitySimulationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6FB02721827A2E5005D1C45 /* Build configuration list for PBXNativeTarget "11.3-GravitySimulationTests" */;
+			buildPhases = (
+				F6FB025A1827A2E5005D1C45 /* Sources */,
+				F6FB025B1827A2E5005D1C45 /* Frameworks */,
+				F6FB025C1827A2E5005D1C45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F6FB02641827A2E5005D1C45 /* PBXTargetDependency */,
+			);
+			name = "11.3-GravitySimulationTests";
+			productName = "11.3-GravitySimulationTests";
+			productReference = F6FB025E1827A2E5005D1C45 /* 11.3-GravitySimulationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6FB02351827A2E4005D1C45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = VLong;
+				TargetAttributes = {
+					F6FB025D1827A2E5005D1C45 = {
+						TestTargetID = F6FB023C1827A2E4005D1C45;
+					};
+				};
+			};
+			buildConfigurationList = F6FB02381827A2E4005D1C45 /* Build configuration list for PBXProject "11.3-GravitySimulation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F6FB02341827A2E4005D1C45;
+			productRefGroup = F6FB023E1827A2E5005D1C45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6FB023C1827A2E4005D1C45 /* 11.3-GravitySimulation */,
+				F6FB025D1827A2E5005D1C45 /* 11.3-GravitySimulationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6FB023B1827A2E4005D1C45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB02591827A2E5005D1C45 /* Images.xcassets in Resources */,
+				F6FB024B1827A2E5005D1C45 /* InfoPlist.strings in Resources */,
+				F6FB02541827A2E5005D1C45 /* Main.storyboard in Resources */,
+				F6FB02D21827AC8C005D1C45 /* Crate@2x.png in Resources */,
+				F6FB02D11827AC8C005D1C45 /* Crate.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6FB025C1827A2E5005D1C45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB026A1827A2E5005D1C45 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6FB02391827A2E4005D1C45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB02571827A2E5005D1C45 /* ViewController.m in Sources */,
+				F6FB02961827A481005D1C45 /* Crate.m in Sources */,
+				F6FB02511827A2E5005D1C45 /* AppDelegate.m in Sources */,
+				F6FB024D1827A2E5005D1C45 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F6FB025A1827A2E5005D1C45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6FB026C1827A2E5005D1C45 /* _1_3_GravitySimulationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F6FB02641827A2E5005D1C45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F6FB023C1827A2E4005D1C45 /* 11.3-GravitySimulation */;
+			targetProxy = F6FB02631827A2E5005D1C45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F6FB02491827A2E5005D1C45 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6FB024A1827A2E5005D1C45 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F6FB02521827A2E5005D1C45 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6FB02531827A2E5005D1C45 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F6FB02681827A2E5005D1C45 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F6FB02691827A2E5005D1C45 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F6FB026D1827A2E5005D1C45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F6FB026E1827A2E5005D1C45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F6FB02701827A2E5005D1C45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "11.3-GravitySimulation/11.3-GravitySimulation-Prefix.pch";
+				INFOPLIST_FILE = "11.3-GravitySimulation/11.3-GravitySimulation-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/visikardmacbookpro/Downloads/Chipmunk-6.2.1/xcode/libglfw/lib",
+					"/Users/visikardmacbookpro/iOS-Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F6FB02711827A2E5005D1C45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "11.3-GravitySimulation/11.3-GravitySimulation-Prefix.pch";
+				INFOPLIST_FILE = "11.3-GravitySimulation/11.3-GravitySimulation-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/visikardmacbookpro/Downloads/Chipmunk-6.2.1/xcode/libglfw/lib",
+					"/Users/visikardmacbookpro/iOS-Programming/AdvancedAnimation/11.3-GravitySimulation/11.3-GravitySimulation/Chipmunk-iPhone",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		F6FB02731827A2E5005D1C45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/11.3-GravitySimulation.app/11.3-GravitySimulation";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "11.3-GravitySimulation/11.3-GravitySimulation-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "11.3-GravitySimulationTests/11.3-GravitySimulationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F6FB02741827A2E5005D1C45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/11.3-GravitySimulation.app/11.3-GravitySimulation";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "11.3-GravitySimulation/11.3-GravitySimulation-Prefix.pch";
+				INFOPLIST_FILE = "11.3-GravitySimulationTests/11.3-GravitySimulationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6FB02381827A2E4005D1C45 /* Build configuration list for PBXProject "11.3-GravitySimulation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6FB026D1827A2E5005D1C45 /* Debug */,
+				F6FB026E1827A2E5005D1C45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6FB026F1827A2E5005D1C45 /* Build configuration list for PBXNativeTarget "11.3-GravitySimulation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6FB02701827A2E5005D1C45 /* Debug */,
+				F6FB02711827A2E5005D1C45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F6FB02721827A2E5005D1C45 /* Build configuration list for PBXNativeTarget "11.3-GravitySimulationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6FB02731827A2E5005D1C45 /* Debug */,
+				F6FB02741827A2E5005D1C45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6FB02351827A2E4005D1C45 /* Project object */;
+}
