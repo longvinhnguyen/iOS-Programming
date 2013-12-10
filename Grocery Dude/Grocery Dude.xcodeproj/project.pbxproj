@@ -25,6 +25,12 @@
 		417364FC1856066A0029E0F3 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 417364FB1856066A0029E0F3 /* CoreDataHelper.m */; };
 		41736500185614E40029E0F3 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 417364FE185614E40029E0F3 /* Model.xcdatamodeld */; };
 		41736503185619170029E0F3 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736502185619170029E0F3 /* Item.m */; };
+		41736507185764FC0029E0F3 /* Measurement.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736506185764FC0029E0F3 /* Measurement.m */; };
+		4173650B1857694C0029E0F3 /* Amount.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173650A1857694C0029E0F3 /* Amount.m */; };
+		4173650D185769A00029E0F3 /* Model2toModel3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4173650C185769A00029E0F3 /* Model2toModel3.xcmappingmodel */; };
+		4173651418576E330029E0F3 /* MigrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173651318576E330029E0F3 /* MigrationVC.m */; };
+		41736518185779350029E0F3 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736517185779350029E0F3 /* Unit.m */; };
+		4173651A1857796E0029E0F3 /* Model3toModel4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 417365191857796E0029E0F3 /* Model3toModel4.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,19 @@
 		417364FF185614E40029E0F3 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		41736501185619170029E0F3 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		41736502185619170029E0F3 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		41736504185762E70029E0F3 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		41736505185764FC0029E0F3 /* Measurement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Measurement.h; sourceTree = "<group>"; };
+		41736506185764FC0029E0F3 /* Measurement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Measurement.m; sourceTree = "<group>"; };
+		41736508185768C50029E0F3 /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
+		417365091857694C0029E0F3 /* Amount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Amount.h; sourceTree = "<group>"; };
+		4173650A1857694C0029E0F3 /* Amount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Amount.m; sourceTree = "<group>"; };
+		4173650C185769A00029E0F3 /* Model2toModel3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model2toModel3.xcmappingmodel; sourceTree = "<group>"; };
+		4173651218576E330029E0F3 /* MigrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MigrationVC.h; sourceTree = "<group>"; };
+		4173651318576E330029E0F3 /* MigrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationVC.m; sourceTree = "<group>"; };
+		41736515185778FE0029E0F3 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
+		41736516185779350029E0F3 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
+		41736517185779350029E0F3 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
+		417365191857796E0029E0F3 /* Model3toModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3toModel4.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +143,7 @@
 		417364C8185605CB0029E0F3 /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				4173650E18576CD40029E0F3 /* Grocery Dude View Controllers */,
 				417364FD185614D40029E0F3 /* Data Model */,
 				417364F9185606320029E0F3 /* Generic CoreData Classes */,
 				417364D1185605CB0029E0F3 /* AppDelegate.h */,
@@ -179,10 +199,27 @@
 			isa = PBXGroup;
 			children = (
 				417364FE185614E40029E0F3 /* Model.xcdatamodeld */,
+				41736516185779350029E0F3 /* Unit.h */,
+				41736517185779350029E0F3 /* Unit.m */,
+				417365091857694C0029E0F3 /* Amount.h */,
+				4173650A1857694C0029E0F3 /* Amount.m */,
+				41736505185764FC0029E0F3 /* Measurement.h */,
+				41736506185764FC0029E0F3 /* Measurement.m */,
 				41736501185619170029E0F3 /* Item.h */,
 				41736502185619170029E0F3 /* Item.m */,
+				4173650C185769A00029E0F3 /* Model2toModel3.xcmappingmodel */,
+				417365191857796E0029E0F3 /* Model3toModel4.xcmappingmodel */,
 			);
 			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		4173650E18576CD40029E0F3 /* Grocery Dude View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4173651218576E330029E0F3 /* MigrationVC.h */,
+				4173651318576E330029E0F3 /* MigrationVC.m */,
+			);
+			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +322,15 @@
 				41736503185619170029E0F3 /* Item.m in Sources */,
 				417364D9185605CB0029E0F3 /* ViewController.m in Sources */,
 				417364D3185605CB0029E0F3 /* AppDelegate.m in Sources */,
+				4173651418576E330029E0F3 /* MigrationVC.m in Sources */,
 				41736500185614E40029E0F3 /* Model.xcdatamodeld in Sources */,
 				417364FC1856066A0029E0F3 /* CoreDataHelper.m in Sources */,
+				4173650D185769A00029E0F3 /* Model2toModel3.xcmappingmodel in Sources */,
+				41736507185764FC0029E0F3 /* Measurement.m in Sources */,
+				41736518185779350029E0F3 /* Unit.m in Sources */,
 				417364CF185605CB0029E0F3 /* main.m in Sources */,
+				4173650B1857694C0029E0F3 /* Amount.m in Sources */,
+				4173651A1857796E0029E0F3 /* Model3toModel4.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +539,7 @@
 				417364F3185605CB0029E0F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		417364F4185605CB0029E0F3 /* Build configuration list for PBXNativeTarget "Grocery DudeTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +548,7 @@
 				417364F6185605CB0029E0F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -511,9 +556,12 @@
 		417364FE185614E40029E0F3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				41736508185768C50029E0F3 /* Model 3.xcdatamodel */,
+				41736515185778FE0029E0F3 /* Model 4.xcdatamodel */,
+				41736504185762E70029E0F3 /* Model 2.xcdatamodel */,
 				417364FF185614E40029E0F3 /* Model.xcdatamodel */,
 			);
-			currentVersion = 417364FF185614E40029E0F3 /* Model.xcdatamodel */;
+			currentVersion = 41736515185778FE0029E0F3 /* Model 4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Item.h"
+#import "Unit.h"
 
 @implementation AppDelegate
 
@@ -59,19 +60,7 @@
 - (void)demo
 {
     if (debug == 1) {
-        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
-    }
-    
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
-    
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [request setSortDescriptors:@[sort]];
-
-    
-    NSArray *fetchedObjects = [_coreDataHelper.context executeFetchRequest:request error:nil];
-    for (Item *item in fetchedObjects) {
-        NSLog(@"Deleting Object = %@", item.name);
-        [_coreDataHelper.context deleteObject:item];
+        NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
 }
 
