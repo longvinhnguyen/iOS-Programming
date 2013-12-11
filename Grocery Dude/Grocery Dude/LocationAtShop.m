@@ -1,18 +1,18 @@
 //
-//  Unit.m
+//  LocationAtShop.m
 //  Grocery Dude
 //
 //  Created by Long Vinh Nguyen on 12/11/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
-#import "Unit.h"
+#import "LocationAtShop.h"
 #import "Item.h"
 
 
-@implementation Unit
+@implementation LocationAtShop
 
-@dynamic name;
+@dynamic aisle;
 @dynamic items;
 
 @end

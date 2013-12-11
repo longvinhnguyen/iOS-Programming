@@ -1,18 +1,18 @@
 //
-//  Unit.m
+//  LocationAtHome.m
 //  Grocery Dude
 //
 //  Created by Long Vinh Nguyen on 12/11/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
-#import "Unit.h"
+#import "LocationAtHome.h"
 #import "Item.h"
 
 
-@implementation Unit
+@implementation LocationAtHome
 
-@dynamic name;
+@dynamic storedIn;
 @dynamic items;
 
 @end

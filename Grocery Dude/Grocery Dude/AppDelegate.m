@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "Item.h"
 #import "Unit.h"
+#import "LocationAtHome.h"
+#import "LocationAtShop.h"
 
 @implementation AppDelegate
 
@@ -62,6 +64,40 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'",self.class, NSStringFromSelector(_cmd));
     }
+    
+    //
+    NSFetchRequest *units = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSArray *fetchedUnits = [_coreDataHelper.context executeFetchRequest:units error:nil];
+    for (Unit *unit in fetchedUnits) {
+        [_coreDataHelper.context deleteObject:unit];
+        NSLog(@"Deleted unit %@", unit);
+    }
+    
+    [[self cdh] saveContext];
+}
+
+- (void)showUnitAndItemCount
+{
+    // List how many items there are in the database
+    NSFetchRequest *items = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
+    NSError *itemError = nil;
+    NSArray *fetchedItems = [[self cdh].context executeFetchRequest:items error:&itemError];
+    if (!fetchedItems) {
+        NSLog(@"%@", itemError);
+    } else {
+        NSLog(@"Found %lu item(s)", (unsigned long)fetchedItems.count);
+    }
+    
+    // List how many units there are in the database
+    NSFetchRequest *units = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
+    NSError *unitError = nil;
+    NSArray *fetchedUnits = [[self cdh].context executeFetchRequest:units error:&unitError];
+    if (!fetchedUnits) {
+        NSLog(@"%@", itemError);
+    } else {
+        NSLog(@"Found %lu unit(s)", (unsigned long)fetchedUnits.count);
+    }
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
