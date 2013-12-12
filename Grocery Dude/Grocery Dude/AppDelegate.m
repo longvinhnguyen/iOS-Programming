@@ -22,7 +22,10 @@
     }
     
     if (!_coreDataHelper) {
-        _coreDataHelper = [CoreDataHelper new];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _coreDataHelper = [CoreDataHelper new];
+        });
         [_coreDataHelper setupCoreData];
     }
     
@@ -66,14 +69,6 @@
     }
     
     //
-    NSFetchRequest *units = [NSFetchRequest fetchRequestWithEntityName:@"Unit"];
-    NSArray *fetchedUnits = [_coreDataHelper.context executeFetchRequest:units error:nil];
-    for (Unit *unit in fetchedUnits) {
-        [_coreDataHelper.context deleteObject:unit];
-        NSLog(@"Deleted unit %@", unit);
-    }
-    
-    [[self cdh] saveContext];
 }
 
 - (void)showUnitAndItemCount

@@ -34,6 +34,8 @@
 		4173652E1858C7710029E0F3 /* LocationAtHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173652D1858C7710029E0F3 /* LocationAtHome.m */; };
 		417365311858C7720029E0F3 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 417365301858C7720029E0F3 /* Location.m */; };
 		417365341858C7720029E0F3 /* LocationAtShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 417365331858C7720029E0F3 /* LocationAtShop.m */; };
+		417365371859FB3D0029E0F3 /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 417365361859FB3D0029E0F3 /* CoreDataTVC.m */; };
+		4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736539185A04C10029E0F3 /* PrepareTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,10 +83,10 @@
 		4173651318576E330029E0F3 /* MigrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MigrationVC.m; sourceTree = "<group>"; };
 		41736515185778FE0029E0F3 /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		417365191857796E0029E0F3 /* Model3toModel4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model3toModel4.xcmappingmodel; sourceTree = "<group>"; };
-		4173651B1858AD030029E0F3 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
+		4173651B1858AD030029E0F3 /* Model 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 5.xcdatamodel"; sourceTree = "<group>"; };
 		4173651F1858AE1D0029E0F3 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Unit.h; sourceTree = "<group>"; };
 		417365201858AE1D0029E0F3 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Unit.m; sourceTree = "<group>"; };
-		417365221858C0040029E0F3 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
+		417365221858C0040029E0F3 /* Model 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 6.xcdatamodel"; sourceTree = "<group>"; };
 		417365231858C1740029E0F3 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		417365241858C1740029E0F3 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		4173652C1858C7710029E0F3 /* LocationAtHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHome.h; sourceTree = "<group>"; };
@@ -93,6 +95,10 @@
 		417365301858C7720029E0F3 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		417365321858C7720029E0F3 /* LocationAtShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShop.h; sourceTree = "<group>"; };
 		417365331858C7720029E0F3 /* LocationAtShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShop.m; sourceTree = "<group>"; };
+		417365351859FB3D0029E0F3 /* CoreDataTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTVC.h; sourceTree = "<group>"; };
+		417365361859FB3D0029E0F3 /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTVC.m; sourceTree = "<group>"; };
+		41736538185A04C10029E0F3 /* PrepareTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTVC.h; sourceTree = "<group>"; };
+		41736539185A04C10029E0F3 /* PrepareTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,8 @@
 			children = (
 				417364FA1856066A0029E0F3 /* CoreDataHelper.h */,
 				417364FB1856066A0029E0F3 /* CoreDataHelper.m */,
+				417365351859FB3D0029E0F3 /* CoreDataTVC.h */,
+				417365361859FB3D0029E0F3 /* CoreDataTVC.m */,
 			);
 			name = "Generic CoreData Classes";
 			sourceTree = "<group>";
@@ -235,6 +243,8 @@
 			children = (
 				4173651218576E330029E0F3 /* MigrationVC.h */,
 				4173651318576E330029E0F3 /* MigrationVC.m */,
+				41736538185A04C10029E0F3 /* PrepareTVC.h */,
+				41736539185A04C10029E0F3 /* PrepareTVC.m */,
 			);
 			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -343,7 +353,9 @@
 				4173651418576E330029E0F3 /* MigrationVC.m in Sources */,
 				417365341858C7720029E0F3 /* LocationAtShop.m in Sources */,
 				41736500185614E40029E0F3 /* Model.xcdatamodeld in Sources */,
+				4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */,
 				417364FC1856066A0029E0F3 /* CoreDataHelper.m in Sources */,
+				417365371859FB3D0029E0F3 /* CoreDataTVC.m in Sources */,
 				4173650D185769A00029E0F3 /* Model2toModel3.xcmappingmodel in Sources */,
 				41736507185764FC0029E0F3 /* Measurement.m in Sources */,
 				417364CF185605CB0029E0F3 /* main.m in Sources */,
