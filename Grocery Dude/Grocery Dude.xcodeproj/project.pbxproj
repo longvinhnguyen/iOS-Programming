@@ -36,6 +36,8 @@
 		417365341858C7720029E0F3 /* LocationAtShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 417365331858C7720029E0F3 /* LocationAtShop.m */; };
 		417365371859FB3D0029E0F3 /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 417365361859FB3D0029E0F3 /* CoreDataTVC.m */; };
 		4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736539185A04C10029E0F3 /* PrepareTVC.m */; };
+		4173653D185F40830029E0F3 /* ShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173653C185F40830029E0F3 /* ShopTVC.m */; };
+		41736540185F4FD20029E0F3 /* ItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173653F185F4FD20029E0F3 /* ItemVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,10 @@
 		417365361859FB3D0029E0F3 /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTVC.m; sourceTree = "<group>"; };
 		41736538185A04C10029E0F3 /* PrepareTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrepareTVC.h; sourceTree = "<group>"; };
 		41736539185A04C10029E0F3 /* PrepareTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrepareTVC.m; sourceTree = "<group>"; };
+		4173653B185F40830029E0F3 /* ShopTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTVC.h; sourceTree = "<group>"; };
+		4173653C185F40830029E0F3 /* ShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTVC.m; sourceTree = "<group>"; };
+		4173653E185F4FD20029E0F3 /* ItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVC.h; sourceTree = "<group>"; };
+		4173653F185F4FD20029E0F3 /* ItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +251,10 @@
 				4173651318576E330029E0F3 /* MigrationVC.m */,
 				41736538185A04C10029E0F3 /* PrepareTVC.h */,
 				41736539185A04C10029E0F3 /* PrepareTVC.m */,
+				4173653B185F40830029E0F3 /* ShopTVC.h */,
+				4173653C185F40830029E0F3 /* ShopTVC.m */,
+				4173653E185F4FD20029E0F3 /* ItemVC.h */,
+				4173653F185F4FD20029E0F3 /* ItemVC.m */,
 			);
 			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -347,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				417365251858C1740029E0F3 /* Item.m in Sources */,
+				41736540185F4FD20029E0F3 /* ItemVC.m in Sources */,
 				417365311858C7720029E0F3 /* Location.m in Sources */,
 				417364D9185605CB0029E0F3 /* ViewController.m in Sources */,
 				417364D3185605CB0029E0F3 /* AppDelegate.m in Sources */,
@@ -363,6 +374,7 @@
 				4173650B1857694C0029E0F3 /* Amount.m in Sources */,
 				4173652E1858C7710029E0F3 /* LocationAtHome.m in Sources */,
 				4173651A1857796E0029E0F3 /* Model3toModel4.xcmappingmodel in Sources */,
+				4173653D185F40830029E0F3 /* ShopTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
