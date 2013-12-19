@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "LocationAtHome.h"
 #import "LocationAtShop.h"
+#import "Unit.h"
 
 @interface ItemVC ()
 
@@ -49,6 +50,12 @@
         Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedItemID error:nil];
         self.nameTextField.text = item.name;
         self.quantityTextField.text = item.quantity.stringValue;
+        self.unitPickerTextField.text = item.unit.name;
+        self.unitPickerTextField.selectedObjectID = item.unit.objectID;
+        self.homeLocationPickerTextField.text = item.locationAtHome.storedIn;
+        self.homeLocationPickerTextField.selectedObjectID = item.locationAtHome.objectID;
+        self.shopLocationPickerTextField.text = item.locationAtShop.aisle;
+        self.shopLocationPickerTextField.selectedObjectID = item.locationAtShop.objectID;
     }
 }
 
@@ -60,6 +67,12 @@
     
     [super viewDidLoad];
     [self hideKeyboardWhenBackgroundIsTapped];
+    self.unitPickerTextField.delegate = self;
+    self.unitPickerTextField.pickerDelegate = self;
+    self.homeLocationPickerTextField.delegate = self;
+    self.homeLocationPickerTextField.pickerDelegate = self;
+    self.shopLocationPickerTextField.delegate = self;
+    self.shopLocationPickerTextField.pickerDelegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -126,6 +139,16 @@
         if ([self.nameTextField.text isEqualToString:@"New Item"]) {
             self.nameTextField.text = @"";
         }
+    }
+    if (textField == _unitPickerTextField) {
+        [_unitPickerTextField fetch];
+        [_unitPickerTextField.picker reloadAllComponents];
+    } else if (textField == _homeLocationPickerTextField) {
+        [_homeLocationPickerTextField fetch];
+        [_homeLocationPickerTextField.picker reloadAllComponents];
+    } else if (textField == _shopLocationPickerTextField) {
+        [_shopLocationPickerTextField fetch];
+        [_shopLocationPickerTextField.picker reloadAllComponents];
     }
 }
 
@@ -206,6 +229,62 @@
                 item.locationAtShop = locationAtShop;
             }
         }
+    }
+}
+
+#pragma mark - PICKERS
+- (void)selectedObjectID:(NSManagedObjectID *)objectID changedForPickerTF:(CoreDataPickerTF *)pickerTF
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (self.selectedItemID) {
+        CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+        Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        NSError *error = nil;
+        if (pickerTF == self.unitPickerTextField) {
+            Unit *unit = (Unit *)[cdh.context existingObjectWithID:objectID error:&error];
+            item.unit = unit;
+            self.unitPickerTextField.text = item.unit.name;
+        } else if (pickerTF == self.homeLocationPickerTextField) {
+            LocationAtHome *locationAtHome = (LocationAtHome *)[cdh.context existingObjectWithID:objectID error:&error];
+            item.locationAtHome = locationAtHome;
+            self.homeLocationPickerTextField.text = locationAtHome.storedIn;
+        } else if (pickerTF == self.shopLocationPickerTextField)
+        {
+            LocationAtShop *locationAtShop = (LocationAtShop *)[cdh.context existingObjectWithID:objectID error:&error];
+            item.locationAtShop = locationAtShop;
+            self.shopLocationPickerTextField.text = locationAtShop.aisle;
+        }
+        [self refreshInterface];
+        if (error) {
+            NSLog(@"Error selecting object on picker: %@, %@", error, error.localizedDescription);
+        }
+    }
+}
+
+- (void)selectedObjectClearedForPickerTF:(CoreDataPickerTF *)pickerTF
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (self.selectedItemID) {
+        CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+        Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        if (pickerTF == self.unitPickerTextField) {
+            item.unit = nil;
+            self.unitPickerTextField.text = @"";
+        } else if (pickerTF == self.homeLocationPickerTextField) {
+            item.locationAtHome = nil;
+            self.homeLocationPickerTextField.text = @"";
+        } else if (pickerTF == self.shopLocationPickerTextField)
+        {
+            item.locationAtShop = nil;
+            self.shopLocationPickerTextField.text = @"";
+        }
+        [self refreshInterface];
     }
 }
 

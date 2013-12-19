@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		415C988A186337B100CC8BE7 /* LocationsAtHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C9889186337B100CC8BE7 /* LocationsAtHomeTVC.m */; };
+		415C988D1863394C00CC8BE7 /* LocationAtHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C988C1863394C00CC8BE7 /* LocationAtHomeVC.m */; };
+		415C989218633A0C00CC8BE7 /* LocationAtShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C988F18633A0C00CC8BE7 /* LocationAtShopVC.m */; };
+		415C989318633A0C00CC8BE7 /* LocationsAtShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C989118633A0C00CC8BE7 /* LocationsAtShopTVC.m */; };
+		415C98961863420600CC8BE7 /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98951863420600CC8BE7 /* CoreDataPickerTF.m */; };
+		415C989A1863498900CC8BE7 /* UnitPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98991863498900CC8BE7 /* UnitPickerTF.m */; };
+		415C989D1863527900CC8BE7 /* LocationAtHomeTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C989C1863527900CC8BE7 /* LocationAtHomeTF.m */; };
+		415C98A01863537600CC8BE7 /* LocationAtShopTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C989F1863537600CC8BE7 /* LocationAtShopTF.m */; };
+		41714A0118609A9D00744C86 /* UnitsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41714A0018609A9D00744C86 /* UnitsTVC.m */; };
+		41714A0718609E1B00744C86 /* UnitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41714A0618609E1B00744C86 /* UnitVC.m */; };
 		417364C3185605CB0029E0F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417364C2185605CB0029E0F3 /* Foundation.framework */; };
 		417364C5185605CB0029E0F3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417364C4185605CB0029E0F3 /* CoreGraphics.framework */; };
 		417364C7185605CB0029E0F3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417364C6185605CB0029E0F3 /* UIKit.framework */; };
@@ -51,6 +61,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		415C9888186337B100CC8BE7 /* LocationsAtHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsAtHomeTVC.h; sourceTree = "<group>"; };
+		415C9889186337B100CC8BE7 /* LocationsAtHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsAtHomeTVC.m; sourceTree = "<group>"; };
+		415C988B1863394C00CC8BE7 /* LocationAtHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomeVC.h; sourceTree = "<group>"; };
+		415C988C1863394C00CC8BE7 /* LocationAtHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeVC.m; sourceTree = "<group>"; };
+		415C988E18633A0C00CC8BE7 /* LocationAtShopVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopVC.h; sourceTree = "<group>"; };
+		415C988F18633A0C00CC8BE7 /* LocationAtShopVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopVC.m; sourceTree = "<group>"; };
+		415C989018633A0C00CC8BE7 /* LocationsAtShopTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsAtShopTVC.h; sourceTree = "<group>"; };
+		415C989118633A0C00CC8BE7 /* LocationsAtShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsAtShopTVC.m; sourceTree = "<group>"; };
+		415C98941863420600CC8BE7 /* CoreDataPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataPickerTF.h; sourceTree = "<group>"; };
+		415C98951863420600CC8BE7 /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataPickerTF.m; sourceTree = "<group>"; };
+		415C98981863498900CC8BE7 /* UnitPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitPickerTF.h; sourceTree = "<group>"; };
+		415C98991863498900CC8BE7 /* UnitPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitPickerTF.m; sourceTree = "<group>"; };
+		415C989B1863527900CC8BE7 /* LocationAtHomeTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomeTF.h; sourceTree = "<group>"; };
+		415C989C1863527900CC8BE7 /* LocationAtHomeTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeTF.m; sourceTree = "<group>"; };
+		415C989E1863537600CC8BE7 /* LocationAtShopTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopTF.h; sourceTree = "<group>"; };
+		415C989F1863537600CC8BE7 /* LocationAtShopTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopTF.m; sourceTree = "<group>"; };
+		417149FF18609A9D00744C86 /* UnitsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTVC.h; sourceTree = "<group>"; };
+		41714A0018609A9D00744C86 /* UnitsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTVC.m; sourceTree = "<group>"; };
+		41714A0518609E1B00744C86 /* UnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitVC.h; sourceTree = "<group>"; };
+		41714A0618609E1B00744C86 /* UnitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitVC.m; sourceTree = "<group>"; };
 		417364BF185605CB0029E0F3 /* Grocery Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Grocery Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		417364C2185605CB0029E0F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		417364C4185605CB0029E0F3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +162,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		415C98971863420900CC8BE7 /* Grocery Dude Picker Text Fields */ = {
+			isa = PBXGroup;
+			children = (
+				415C98951863420600CC8BE7 /* CoreDataPickerTF.m */,
+				415C98941863420600CC8BE7 /* CoreDataPickerTF.h */,
+				415C98981863498900CC8BE7 /* UnitPickerTF.h */,
+				415C98991863498900CC8BE7 /* UnitPickerTF.m */,
+				415C989B1863527900CC8BE7 /* LocationAtHomeTF.h */,
+				415C989C1863527900CC8BE7 /* LocationAtHomeTF.m */,
+				415C989E1863537600CC8BE7 /* LocationAtShopTF.h */,
+				415C989F1863537600CC8BE7 /* LocationAtShopTF.m */,
+			);
+			name = "Grocery Dude Picker Text Fields";
+			sourceTree = "<group>";
+		};
 		417364B6185605CB0029E0F3 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +221,7 @@
 				417364D8185605CB0029E0F3 /* ViewController.m */,
 				417364DA185605CB0029E0F3 /* Images.xcassets */,
 				417364C9185605CB0029E0F3 /* Supporting Files */,
+				415C98971863420900CC8BE7 /* Grocery Dude Picker Text Fields */,
 			);
 			path = "Grocery Dude";
 			sourceTree = "<group>";
@@ -247,6 +293,14 @@
 		4173650E18576CD40029E0F3 /* Grocery Dude View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				415C988E18633A0C00CC8BE7 /* LocationAtShopVC.h */,
+				415C988F18633A0C00CC8BE7 /* LocationAtShopVC.m */,
+				415C989018633A0C00CC8BE7 /* LocationsAtShopTVC.h */,
+				415C989118633A0C00CC8BE7 /* LocationsAtShopTVC.m */,
+				415C988B1863394C00CC8BE7 /* LocationAtHomeVC.h */,
+				415C988C1863394C00CC8BE7 /* LocationAtHomeVC.m */,
+				415C9888186337B100CC8BE7 /* LocationsAtHomeTVC.h */,
+				415C9889186337B100CC8BE7 /* LocationsAtHomeTVC.m */,
 				4173651218576E330029E0F3 /* MigrationVC.h */,
 				4173651318576E330029E0F3 /* MigrationVC.m */,
 				41736538185A04C10029E0F3 /* PrepareTVC.h */,
@@ -255,6 +309,10 @@
 				4173653C185F40830029E0F3 /* ShopTVC.m */,
 				4173653E185F4FD20029E0F3 /* ItemVC.h */,
 				4173653F185F4FD20029E0F3 /* ItemVC.m */,
+				417149FF18609A9D00744C86 /* UnitsTVC.h */,
+				41714A0018609A9D00744C86 /* UnitsTVC.m */,
+				41714A0518609E1B00744C86 /* UnitVC.h */,
+				41714A0618609E1B00744C86 /* UnitVC.m */,
 			);
 			name = "Grocery Dude View Controllers";
 			sourceTree = "<group>";
@@ -358,23 +416,33 @@
 			files = (
 				417365251858C1740029E0F3 /* Item.m in Sources */,
 				41736540185F4FD20029E0F3 /* ItemVC.m in Sources */,
+				415C989D1863527900CC8BE7 /* LocationAtHomeTF.m in Sources */,
 				417365311858C7720029E0F3 /* Location.m in Sources */,
 				417364D9185605CB0029E0F3 /* ViewController.m in Sources */,
+				415C98961863420600CC8BE7 /* CoreDataPickerTF.m in Sources */,
 				417364D3185605CB0029E0F3 /* AppDelegate.m in Sources */,
+				41714A0118609A9D00744C86 /* UnitsTVC.m in Sources */,
+				41714A0718609E1B00744C86 /* UnitVC.m in Sources */,
 				4173651418576E330029E0F3 /* MigrationVC.m in Sources */,
+				415C98A01863537600CC8BE7 /* LocationAtShopTF.m in Sources */,
 				417365341858C7720029E0F3 /* LocationAtShop.m in Sources */,
 				41736500185614E40029E0F3 /* Model.xcdatamodeld in Sources */,
 				4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */,
 				417364FC1856066A0029E0F3 /* CoreDataHelper.m in Sources */,
 				417365371859FB3D0029E0F3 /* CoreDataTVC.m in Sources */,
 				4173650D185769A00029E0F3 /* Model2toModel3.xcmappingmodel in Sources */,
+				415C989218633A0C00CC8BE7 /* LocationAtShopVC.m in Sources */,
+				415C988D1863394C00CC8BE7 /* LocationAtHomeVC.m in Sources */,
 				41736507185764FC0029E0F3 /* Measurement.m in Sources */,
 				417364CF185605CB0029E0F3 /* main.m in Sources */,
 				417365211858AE1D0029E0F3 /* Unit.m in Sources */,
 				4173650B1857694C0029E0F3 /* Amount.m in Sources */,
+				415C988A186337B100CC8BE7 /* LocationsAtHomeTVC.m in Sources */,
 				4173652E1858C7710029E0F3 /* LocationAtHome.m in Sources */,
 				4173651A1857796E0029E0F3 /* Model3toModel4.xcmappingmodel in Sources */,
 				4173653D185F40830029E0F3 /* ShopTVC.m in Sources */,
+				415C989A1863498900CC8BE7 /* UnitPickerTF.m in Sources */,
+				415C989318633A0C00CC8BE7 /* LocationsAtShopTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
