@@ -21,5 +21,6 @@
 @property (nonatomic, weak) IBOutlet UnitPickerTF *unitPickerTextField;
 @property (nonatomic, weak) IBOutlet LocationAtHomeTF *homeLocationPickerTextField;
 @property (nonatomic, weak) IBOutlet LocationAtShopTF *shopLocationPickerTextField;
+@property (nonatomic, weak) IBOutlet UITextField *activeField;
 
 @end

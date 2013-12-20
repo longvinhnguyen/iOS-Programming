@@ -73,6 +73,7 @@
     self.homeLocationPickerTextField.pickerDelegate = self;
     self.shopLocationPickerTextField.delegate = self;
     self.shopLocationPickerTextField.pickerDelegate = self;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height);
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -88,6 +89,9 @@
     }
     [self ensureItemHomeLocationIsNotNull];
     [self ensureItemShopLocationIsNotNull];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -98,7 +102,11 @@
     
     CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
     [cdh saveContext];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
+
 
 #pragma mark - INTERACTION
 - (IBAction)done:(id)sender
@@ -128,6 +136,36 @@
     [self.view endEditing:YES];
 }
 
+- (void)keyBoardDidShow: (NSNotification *)n
+{
+    // Find the top of keyboard input view
+    CGRect keyboardRect = [[[n userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    keyboardRect = [self.view convertRect:keyboardRect fromView:nil];
+    CGFloat keyboardTop = keyboardRect.origin.y;
+    
+    // Resize scroll view
+    CGRect newScrollViewFrame = CGRectMake(0, 0, self.view.bounds.size.width, keyboardTop);
+    newScrollViewFrame.size.height = keyboardTop - self.view.bounds.origin.y;
+    self.scrollView.frame = newScrollViewFrame;
+    
+    NSLog(@"%@ %@ %@",NSStringFromCGRect(self.scrollView.frame), NSStringFromCGSize(self.scrollView.contentSize), NSStringFromCGRect(self.activeField.frame));
+    
+    // Scroll to active text field
+    [self.scrollView scrollRectToVisible:self.activeField.frame animated:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification *)n
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    CGRect defaultFrame = CGRectMake(self.scrollView.frame.origin.x, self.scrollView.frame.origin.y, self.scrollView.frame.size.width, self.view.frame.size.height);
+    self.scrollView.frame = defaultFrame;
+    // Scroll to top again
+    [self.scrollView scrollRectToVisible:self.nameTextField.frame animated:YES];
+}
+
 
 #pragma mark - DELEGATE
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -150,6 +188,8 @@
         [_shopLocationPickerTextField fetch];
         [_shopLocationPickerTextField.picker reloadAllComponents];
     }
+    
+    _activeField = textField;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
@@ -169,6 +209,8 @@
     } else if (textField == self.quantityTextField) {
         item.quantity = [NSNumber numberWithFloat:self.quantityTextField.text.floatValue];
     }
+    
+    _activeField = nil;
 }
 
 #pragma mark - DATA

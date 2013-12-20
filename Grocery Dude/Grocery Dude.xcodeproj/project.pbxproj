@@ -77,6 +77,7 @@
 		415C989C1863527900CC8BE7 /* LocationAtHomeTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHomeTF.m; sourceTree = "<group>"; };
 		415C989E1863537600CC8BE7 /* LocationAtShopTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShopTF.h; sourceTree = "<group>"; };
 		415C989F1863537600CC8BE7 /* LocationAtShopTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShopTF.m; sourceTree = "<group>"; };
+		415C98A11864A6AD00CC8BE7 /* Model 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 7.xcdatamodel"; sourceTree = "<group>"; };
 		417149FF18609A9D00744C86 /* UnitsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTVC.h; sourceTree = "<group>"; };
 		41714A0018609A9D00744C86 /* UnitsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTVC.m; sourceTree = "<group>"; };
 		41714A0518609E1B00744C86 /* UnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitVC.h; sourceTree = "<group>"; };
@@ -572,6 +573,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Grocery Dude/Grocery Dude-Prefix.pch";
 				INFOPLIST_FILE = "Grocery Dude/Grocery Dude-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -585,6 +587,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Grocery Dude/Grocery Dude-Prefix.pch";
 				INFOPLIST_FILE = "Grocery Dude/Grocery Dude-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -668,6 +671,7 @@
 		417364FE185614E40029E0F3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				415C98A11864A6AD00CC8BE7 /* Model 7.xcdatamodel */,
 				417365221858C0040029E0F3 /* Model 6.xcdatamodel */,
 				4173651B1858AD030029E0F3 /* Model 5.xcdatamodel */,
 				41736508185768C50029E0F3 /* Model 3.xcdatamodel */,
@@ -675,7 +679,7 @@
 				41736504185762E70029E0F3 /* Model 2.xcdatamodel */,
 				417364FF185614E40029E0F3 /* Model.xcdatamodel */,
 			);
-			currentVersion = 417365221858C0040029E0F3 /* Model 6.xcdatamodel */;
+			currentVersion = 415C98A11864A6AD00CC8BE7 /* Model 7.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

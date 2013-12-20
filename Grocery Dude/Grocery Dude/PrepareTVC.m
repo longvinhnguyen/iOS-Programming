@@ -86,7 +86,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Item *deleteTarget = [self.frc objectAtIndexPath:indexPath];
         [self.frc.managedObjectContext deleteObject:deleteTarget];
-//        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
 

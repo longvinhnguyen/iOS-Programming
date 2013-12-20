@@ -8,6 +8,7 @@
 
 #import "Item.h"
 #import "Unit.h"
+#import "LocationAtHome.h"
 
 
 @implementation Item
@@ -20,5 +21,7 @@
 @dynamic unit;
 @dynamic locationAtHome;
 @dynamic locationAtShop;
+
+
 
 @end

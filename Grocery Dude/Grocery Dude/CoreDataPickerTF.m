@@ -97,7 +97,7 @@
     
     self.picker = [[UIPickerView alloc] initWithFrame:CGRectZero];
     self.picker.showsSelectionIndicator = YES;
-    self.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.picker.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.picker.dataSource = self;
     self.picker.delegate = self;
     [self fetch];
