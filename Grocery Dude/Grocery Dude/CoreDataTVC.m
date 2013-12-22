@@ -8,7 +8,7 @@
 
 #import "CoreDataTVC.h"
 
-#define debug 1
+#define debug 0
 
 @interface CoreDataTVC ()
 

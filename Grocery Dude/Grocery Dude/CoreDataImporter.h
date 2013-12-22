@@ -17,5 +17,6 @@
 - (instancetype)initWithUniqueAttributes:(NSDictionary *)uniqueAttributes;
 - (NSManagedObject *)insertUniqueObjectInTargetEntity:(NSString *)entity uniqueAttributeValue:(NSString *)uniqueAttributeValue attributeValues:(NSDictionary *)attributeValues inContext:(NSManagedObjectContext *)context;
 - (NSManagedObject *)insertBasicObjectInTargetEntity:(NSString *)entity targetEntityAttribute:(NSString *)targetEntityAttribute sourceXMLAttribute:(NSString *)sourceXMLAttribute attributeDict:(NSDictionary *)attributeDict context:(NSManagedObjectContext *)context;
+- (void)deepCopyEntities:(NSArray *)entities fromContext:(NSManagedObjectContext *)sourceContext toContext:(NSManagedObjectContext *)targetContext;
 
 @end

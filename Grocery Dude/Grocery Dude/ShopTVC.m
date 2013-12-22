@@ -18,7 +18,7 @@
 
 @implementation ShopTVC
 
-#define debug 1
+#define debug 0
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

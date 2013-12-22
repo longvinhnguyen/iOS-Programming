@@ -13,7 +13,7 @@
 #import "Unit.h"
 #import "ItemVC.h"
 
-#define debug 1
+#define debug 0
 
 @interface PrepareTVC ()
 

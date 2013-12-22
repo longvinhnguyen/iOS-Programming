@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 
 @implementation LocationAtHomeVC
-#define debug 1
+#define debug 0
 
 #pragma mark - VIEW
 - (void)refreshInterface {
