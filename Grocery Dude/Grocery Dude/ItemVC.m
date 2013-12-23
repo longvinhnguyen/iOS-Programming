@@ -12,6 +12,7 @@
 #import "LocationAtHome.h"
 #import "LocationAtShop.h"
 #import "Unit.h"
+#import "Item_Photo.h"
 
 @interface ItemVC ()
 
@@ -56,6 +57,8 @@
         self.homeLocationPickerTextField.selectedObjectID = item.locationAtHome.objectID;
         self.shopLocationPickerTextField.text = item.locationAtShop.aisle;
         self.shopLocationPickerTextField.selectedObjectID = item.locationAtShop.objectID;
+        self.photoImageView.image = [UIImage imageWithData:item.photo.data];
+        [self checkCamera];
     }
 }
 
@@ -105,7 +108,19 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+    
+    // Turn item & item photo into a fault
+    NSError *error;
+    Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedItemID error:&error];
+    if (error) {
+        NSLog(@"ERROR!!! --> %@", error.localizedDescription);
+    } else {
+        [cdh.context refreshObject:item.photo mergeChanges:NO];
+        [cdh.context refreshObject:item mergeChanges:NO];
+    }
+    
 }
+
 
 
 #pragma mark - INTERACTION
@@ -329,5 +344,64 @@
         [self refreshInterface];
     }
 }
+
+#pragma mark - CAMERA
+- (void)checkCamera
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    self.cameraButton.enabled = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (IBAction)showCamera:(id)sender
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSLog(@"Camera is available");
+        _camera = [[UIImagePickerController alloc] init];
+        _camera.sourceType = UIImagePickerControllerSourceTypeCamera;
+        _camera.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        _camera.allowsEditing = YES;
+        _camera.delegate = self;
+        [self.navigationController presentViewController:_camera animated:YES completion:nil];
+    } else {
+        NSLog(@"Camera is not available");
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    Item *item = (Item *)[cdh.context existingObjectWithID:_selectedItemID error:nil];
+    UIImage *photo = (UIImage *)[info objectForKey:UIImagePickerControllerEditedImage];
+    NSLog(@"Captured %f x %f photo", photo.size.height, photo.size.width);
+    if (!item.photo) {
+        Item_Photo *newPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"Item_Photo" inManagedObjectContext:cdh.context];
+        [cdh.context obtainPermanentIDsForObjects:@[newPhoto] error:nil];
+        item.photo = newPhoto;
+    }
+    item.photo.data = UIImageJPEGRepresentation(photo, 0.5);
+    self.photoImageView.image = photo;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end

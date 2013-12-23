@@ -1,5 +1,5 @@
 //
-//  Location.h
+//  Item_Photo.h
 //  Grocery Dude
 //
 //  Created by Long Vinh Nguyen on 12/23/13.
@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Item;
 
-@interface Location : NSManagedObject
+@interface Item_Photo : NSManagedObject
 
-@property (nonatomic, retain) NSString * summary;
+@property (nonatomic, retain) NSData * data;
+@property (nonatomic, retain) Item *item;
 
 @end

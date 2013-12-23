@@ -1,18 +1,18 @@
 //
-//  Unit.m
+//  Item_Photo.m
 //  Grocery Dude
 //
 //  Created by Long Vinh Nguyen on 12/23/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
-#import "Unit.h"
+#import "Item_Photo.h"
 #import "Item.h"
 
 
-@implementation Unit
+@implementation Item_Photo
 
-@dynamic name;
-@dynamic items;
+@dynamic data;
+@dynamic item;
 
 @end

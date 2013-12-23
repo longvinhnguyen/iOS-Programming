@@ -74,6 +74,7 @@
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue" size:16];
         cell.textLabel.textColor = [UIColor grayColor];
     }
+    cell.imageView.image = [UIImage imageWithData:item.thumbnail];
     
     return cell;
 }
@@ -125,7 +126,9 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-    [request setFetchBatchSize:50];
+//    [request setFetchBatchSize:15];
+    [request setFetchLimit:20];
+    [request setFetchOffset:50];
     self.frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:cdh.context sectionNameKeyPath:@"locationAtHome.storedIn" cacheName:nil];
     self.frc.delegate = self;
 }

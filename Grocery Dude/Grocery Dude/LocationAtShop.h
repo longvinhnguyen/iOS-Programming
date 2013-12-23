@@ -2,7 +2,7 @@
 //  LocationAtShop.h
 //  Grocery Dude
 //
-//  Created by Long Vinh Nguyen on 12/11/13.
+//  Created by Long Vinh Nguyen on 12/23/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
@@ -15,6 +15,14 @@
 @interface LocationAtShop : Location
 
 @property (nonatomic, retain) NSString * aisle;
-@property (nonatomic, retain) Item *items;
+@property (nonatomic, retain) NSSet *items;
+@end
+
+@interface LocationAtShop (CoreDataGeneratedAccessors)
+
+- (void)addItemsObject:(Item *)value;
+- (void)removeItemsObject:(Item *)value;
+- (void)addItems:(NSSet *)values;
+- (void)removeItems:(NSSet *)values;
 
 @end

@@ -11,6 +11,7 @@
 #import "Unit.h"
 #import "AppDelegate.h"
 #import "ItemVC.h"
+#import "Item_Photo.h"
 
 @interface ShopTVC ()
 
@@ -75,6 +76,7 @@
         cell.textLabel.textColor = [UIColor orangeColor];
         cell.accessoryType = UITableViewCellAccessoryDetailButton;
     }
+    cell.imageView.image = [UIImage imageWithData:item.photo.data];
     
     return cell;
 }

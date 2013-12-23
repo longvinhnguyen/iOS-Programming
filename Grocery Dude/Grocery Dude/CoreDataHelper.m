@@ -76,14 +76,17 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
         _coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
         _context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_context setPersistentStoreCoordinator:_coordinator];
+        [_context setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
         _importContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         [_importContext performBlockAndWait:^{
             [_importContext setPersistentStoreCoordinator:_coordinator];
             [_importContext setUndoManager:nil];
         }];
+        [_importContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
         
         _sourceCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
         _sourceContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_sourceContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
         [_sourceContext performBlockAndWait:^{
             [_sourceContext setPersistentStoreCoordinator:_sourceCoordinator];
             [_sourceContext setUndoManager:nil];
@@ -109,7 +112,7 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
         
         NSError *error = nil;
         NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                  NSInferMappingModelAutomaticallyOption:@YES,
+                                  NSInferMappingModelAutomaticallyOption:@NO,
 //                                  NSSQLitePragmasOption: @{@"journal_mode": @"DELETE"}
                                   };
         _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
@@ -153,7 +156,8 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     }
 //    [self setDefaultDataStoreAsInitialStore];
     [self loadStore];
-    [self checkIfDefaultDataNeedsImporting];
+    [self importGroceryDudeTestData];
+//    [self checkIfDefaultDataNeedsImporting];
 //    [self loadSourceStore];
 //    [_sourceContext performBlock:^{
 //        NSLog(@"*** Attempting to migrate '%@' into '%@' .. Please wait ***", sourceStoreFileName, storeFileName);
@@ -522,10 +526,12 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     [entities addObject:@"Unit"];
     [entities addObject:@"LocationAtHome"];
     [entities addObject:@"LocationAtShop"];
+    [entities addObject:@"Item_Photo"];
     [attributes addObject:@"name"];
     [attributes addObject:@"name"];
     [attributes addObject:@"storedIn"];
     [attributes addObject:@"aisle"];
+    [attributes addObject:@"data"];
     
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:attributes forKeys:entities];
     
@@ -629,6 +635,52 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     
     // Send a notification that tells observing interfaces to refresh their data
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+}
+
+#pragma mark - TEST DATA IMPORT (This code is Grocery Dude data specific)
+- (void)importGroceryDudeTestData
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    NSNumber *imported = [[NSUserDefaults standardUserDefaults] objectForKey:@"TestDataImport"];
+    if (!imported.boolValue) {
+        NSLog(@"Importing test data ...");
+        [_importContext performBlock:^{
+            NSManagedObject *locationAtHome = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtHome" inManagedObjectContext:_importContext];
+            NSManagedObject *locationAtShop = [NSEntityDescription insertNewObjectForEntityForName:@"LocationAtShop" inManagedObjectContext:_importContext];
+            [locationAtHome setValue:@"Test Home Location" forKey:@"storedIn"];
+            [locationAtShop setValue:@"Test Shop Location" forKey:@"aisle"];
+            for (int i = 1; i < 101; i++) {
+                @autoreleasepool {
+                    NSManagedObject *item = [NSEntityDescription insertNewObjectForEntityForName:@"Item" inManagedObjectContext:_importContext];
+                    [item setValue:[NSString stringWithFormat:@"Test item %i", i] forKey:@"name"];
+                    [item setValue:locationAtHome forKey:@"locationAtHome"];
+                    [item setValue:locationAtShop forKey:@"locationAtShop"];
+                    
+                    // Insert Photo
+                    NSManagedObject *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Item_Photo" inManagedObjectContext:_importContext];
+                    [photo setValue:UIImagePNGRepresentation([UIImage imageNamed:@"GroceryHead.png"]) forKey:@"data"];
+                    [item setValue:photo forKey:@"photo"];
+                    NSLog(@"Inserting %@", [item valueForKey:@"name"]);
+                    [CoreDataImporter saveContext:_importContext];
+                    [_importContext refreshObject:item mergeChanges:NO];
+                    [_importContext refreshObject:photo mergeChanges:NO];
+                }
+            }
+            
+            // force table refresh
+            [self somethingChanged];
+            
+            // ensure import was a one off
+            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:YES] forKey:@"TestDataImport"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }];
+    } else {
+        NSLog(@"Skipped test data import");
+    }
+
 }
 
 
