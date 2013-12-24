@@ -12,6 +12,7 @@
 #import "Item.h"
 #import "Unit.h"
 #import "ItemVC.h"
+#import "Thumbnailer.h"
 
 #define debug 0
 
@@ -52,6 +53,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performFetch) name:@"SomethingChanged" object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    [super viewDidAppear:animated];
+    
+    // Create missing thumbnails
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    [Thumbnailer createMissingThumbnailsForEntityName:@"Item" withThumbnailAttributeName:@"thumbnail" withPhotoRelationshipName:@"photo" withPhotoAttributeName:@"data" withSortDescriptors:sortDescriptors withImportContext:cdh.importContext];
+                            
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (debug == 1) {
@@ -87,6 +103,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Item *deleteTarget = [self.frc objectAtIndexPath:indexPath];
         [self.frc.managedObjectContext deleteObject:deleteTarget];
+        CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+        [cdh backgroundSaveContext];
     }
 }
 
@@ -126,9 +144,9 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Item"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
-//    [request setFetchBatchSize:15];
-    [request setFetchLimit:20];
-    [request setFetchOffset:50];
+    [request setFetchBatchSize:15];
+//    [request setFetchLimit:20];
+//    [request setFetchOffset:50];
     self.frc = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:cdh.context sectionNameKeyPath:@"locationAtHome.storedIn" cacheName:nil];
     self.frc.delegate = self;
 }
@@ -152,6 +170,7 @@
         [alert show];
     }
     shoppingList = nil;
+    [cdh backgroundSaveContext];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -177,6 +196,7 @@
     for (Item *item in shoppingList) {
         item.listed = @(NO);
     }
+    [cdh backgroundSaveContext];
 }
 
 #pragma mark - SEGUE

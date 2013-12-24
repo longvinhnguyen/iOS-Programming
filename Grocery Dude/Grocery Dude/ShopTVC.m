@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "ItemVC.h"
 #import "Item_Photo.h"
+#import "Thumbnailer.h"
 
 @interface ShopTVC ()
 
@@ -52,6 +53,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performFetch) name:@"SomethingChanged" object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    // Create missing thumbnails
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+    [Thumbnailer createMissingThumbnailsForEntityName:@"Item" withThumbnailAttributeName:@"thumbnail" withPhotoRelationshipName:@"photo" withPhotoAttributeName:@"data" withSortDescriptors:sortDescriptors withImportContext:cdh.importContext];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (debug == 1) {
@@ -76,7 +89,7 @@
         cell.textLabel.textColor = [UIColor orangeColor];
         cell.accessoryType = UITableViewCellAccessoryDetailButton;
     }
-    cell.imageView.image = [UIImage imageWithData:item.photo.data];
+    cell.imageView.image = [UIImage imageWithData:item.thumbnail];
     
     return cell;
 }
@@ -144,6 +157,8 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Select items to be removed from the list before pressing Clear" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    [cdh backgroundSaveContext];
 }
 
 #pragma mark - SEGUE

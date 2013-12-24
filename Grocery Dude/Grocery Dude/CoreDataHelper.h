@@ -12,6 +12,7 @@
 
 @interface CoreDataHelper : NSObject<UIAlertViewDelegate, NSXMLParserDelegate>
 
+@property (nonatomic, readonly) NSManagedObjectContext *parentContext;
 @property (nonatomic, readonly) NSManagedObjectContext *context;
 @property (nonatomic, readonly) NSManagedObjectModel *model;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *coordinator;
@@ -29,5 +30,6 @@
 
 - (void)setupCoreData;
 - (void)saveContext;
+- (void)backgroundSaveContext;
 
 @end

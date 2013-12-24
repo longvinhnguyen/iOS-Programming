@@ -25,6 +25,8 @@
 		415C98BD18688FC700CC8BE7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98BC18688FC700CC8BE7 /* Item.m */; };
 		415C98C018688FC700CC8BE7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98BF18688FC700CC8BE7 /* Location.m */; };
 		415C98C318688FC800CC8BE7 /* LocationAtHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C218688FC800CC8BE7 /* LocationAtHome.m */; };
+		415C98C61869D18500CC8BE7 /* Faulter.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C51869D18500CC8BE7 /* Faulter.m */; };
+		415C98CA1869D68500CC8BE7 /* Thumbnailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C91869D68500CC8BE7 /* Thumbnailer.m */; };
 		41714A0118609A9D00744C86 /* UnitsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41714A0018609A9D00744C86 /* UnitsTVC.m */; };
 		41714A0718609E1B00744C86 /* UnitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41714A0618609E1B00744C86 /* UnitVC.m */; };
 		417364C3185605CB0029E0F3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 417364C2185605CB0029E0F3 /* Foundation.framework */; };
@@ -87,8 +89,8 @@
 		415C98A418658CB000CC8BE7 /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
 		415C98A518658CB000CC8BE7 /* CoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataImporter.m; sourceTree = "<group>"; };
 		415C98A718659DDE00CC8BE7 /* DefaultData.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = DefaultData.sqlite; sourceTree = "<group>"; };
-		415C98A918688A2800CC8BE7 /* Model 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 8.xcdatamodel"; sourceTree = "<group>"; };
-		415C98AD18688BE600CC8BE7 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
+		415C98A918688A2800CC8BE7 /* Model 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 8.xcdatamodel"; sourceTree = "<group>"; };
+		415C98AD18688BE600CC8BE7 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
 		415C98B018688EF300CC8BE7 /* Model8ToModel9.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model8ToModel9.xcmappingmodel; sourceTree = "<group>"; };
 		415C98B218688FC600CC8BE7 /* LocationAtShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShop.h; sourceTree = "<group>"; };
 		415C98B318688FC600CC8BE7 /* LocationAtShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtShop.m; sourceTree = "<group>"; };
@@ -102,6 +104,10 @@
 		415C98BF18688FC700CC8BE7 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		415C98C118688FC700CC8BE7 /* LocationAtHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHome.h; sourceTree = "<group>"; };
 		415C98C218688FC800CC8BE7 /* LocationAtHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAtHome.m; sourceTree = "<group>"; };
+		415C98C41869D18500CC8BE7 /* Faulter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faulter.h; sourceTree = "<group>"; };
+		415C98C51869D18500CC8BE7 /* Faulter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faulter.m; sourceTree = "<group>"; };
+		415C98C81869D68500CC8BE7 /* Thumbnailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbnailer.h; sourceTree = "<group>"; };
+		415C98C91869D68500CC8BE7 /* Thumbnailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbnailer.m; sourceTree = "<group>"; };
 		417149FF18609A9D00744C86 /* UnitsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTVC.h; sourceTree = "<group>"; };
 		41714A0018609A9D00744C86 /* UnitsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTVC.m; sourceTree = "<group>"; };
 		41714A0518609E1B00744C86 /* UnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitVC.h; sourceTree = "<group>"; };
@@ -192,6 +198,17 @@
 			name = "Grocery Dude Picker Text Fields";
 			sourceTree = "<group>";
 		};
+		415C98C71869D66400CC8BE7 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				415C98C41869D18500CC8BE7 /* Faulter.h */,
+				415C98C51869D18500CC8BE7 /* Faulter.m */,
+				415C98C81869D68500CC8BE7 /* Thumbnailer.h */,
+				415C98C91869D68500CC8BE7 /* Thumbnailer.m */,
+			);
+			name = "Helper Classes";
+			sourceTree = "<group>";
+		};
 		417364B6185605CB0029E0F3 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +254,7 @@
 				417364DA185605CB0029E0F3 /* Images.xcassets */,
 				417364C9185605CB0029E0F3 /* Supporting Files */,
 				415C98971863420900CC8BE7 /* Grocery Dude Picker Text Fields */,
+				415C98C71869D66400CC8BE7 /* Helper Classes */,
 			);
 			path = "Grocery Dude";
 			sourceTree = "<group>";
@@ -445,9 +463,11 @@
 				417364D9185605CB0029E0F3 /* ViewController.m in Sources */,
 				415C98961863420600CC8BE7 /* CoreDataPickerTF.m in Sources */,
 				417364D3185605CB0029E0F3 /* AppDelegate.m in Sources */,
+				415C98C61869D18500CC8BE7 /* Faulter.m in Sources */,
 				41714A0118609A9D00744C86 /* UnitsTVC.m in Sources */,
 				41714A0718609E1B00744C86 /* UnitVC.m in Sources */,
 				4173651418576E330029E0F3 /* MigrationVC.m in Sources */,
+				415C98CA1869D68500CC8BE7 /* Thumbnailer.m in Sources */,
 				415C98A01863537600CC8BE7 /* LocationAtShopTF.m in Sources */,
 				41736500185614E40029E0F3 /* Model.xcdatamodeld in Sources */,
 				4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */,

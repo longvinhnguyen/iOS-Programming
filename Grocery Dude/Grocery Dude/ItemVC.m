@@ -57,7 +57,9 @@
         self.homeLocationPickerTextField.selectedObjectID = item.locationAtHome.objectID;
         self.shopLocationPickerTextField.text = item.locationAtShop.aisle;
         self.shopLocationPickerTextField.selectedObjectID = item.locationAtShop.objectID;
-        self.photoImageView.image = [UIImage imageWithData:item.photo.data];
+        [cdh.context performBlock:^{
+            self.photoImageView.image = [UIImage imageWithData:item.photo.data];
+        }];
         [self checkCamera];
     }
 }
@@ -104,7 +106,7 @@
     }
     
     CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
-    [cdh saveContext];
+    [cdh backgroundSaveContext];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
@@ -390,6 +392,7 @@
         item.photo = newPhoto;
     }
     item.photo.data = UIImageJPEGRepresentation(photo, 0.5);
+    item.thumbnail = nil;
     self.photoImageView.image = photo;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

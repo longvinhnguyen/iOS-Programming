@@ -52,7 +52,7 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    [[self cdh] saveContext];
+    [[self cdh] backgroundSaveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -109,7 +109,7 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    [[self cdh] saveContext];
+    [[self cdh] backgroundSaveContext];
 }
 
 @end
