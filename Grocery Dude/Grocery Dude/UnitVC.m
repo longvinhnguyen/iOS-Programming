@@ -15,7 +15,7 @@
 @end
 
 @implementation UnitVC
-#define debug 1
+#define debug 0
 
 
 

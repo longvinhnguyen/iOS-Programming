@@ -49,6 +49,7 @@
     [super viewDidLoad];
 	[self configureFetch];
     [self performFetch];
+    [self configureSearch];
     self.clearConfirmActionSheet.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performFetch) name:@"SomethingChanged" object:nil];
 }
@@ -74,10 +75,14 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     static NSString *cellIdentifier = @"Item Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+    }
     
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
-    Item *item = [self.frc objectAtIndexPath:indexPath];
+    Item *item = [[self frcFromTV:tableView] objectAtIndexPath:indexPath];
     NSMutableString *title = [NSMutableString stringWithFormat:@"%@%@ %@", item.quantity, item.unit.name, item.name];
     [title replaceOccurrencesOfString:@"(null)" withString:@"" options:0 range:NSMakeRange(0, title.length)];
     cell.textLabel.text = title;
@@ -101,8 +106,9 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSFetchedResultsController *frc = [self frcFromTV:tableView];
         Item *deleteTarget = [self.frc objectAtIndexPath:indexPath];
-        [self.frc.managedObjectContext deleteObject:deleteTarget];
+        [frc.managedObjectContext deleteObject:deleteTarget];
         CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
         [cdh backgroundSaveContext];
     }
@@ -114,9 +120,9 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     
-    NSManagedObjectID *itemid = [[self.frc objectAtIndexPath:indexPath] objectID];
+    NSManagedObjectID *itemid = [[[self frcFromTV:tableView] objectAtIndexPath:indexPath] objectID];
     
-    Item *item = (Item *)[self.frc.managedObjectContext existingObjectWithID:itemid error:nil];
+    Item *item = (Item *)[[self frcFromTV:tableView].managedObjectContext existingObjectWithID:itemid error:nil];
     
     if ([item.listed boolValue]) {
         item.listed = @(NO);
@@ -125,7 +131,7 @@
         item.collected = @(NO);
     }
     
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
@@ -227,8 +233,30 @@
     }
     
     ItemVC *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemVC"];
-    itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    itemVC.selectedItemID = [[[self frcFromTV:tableView] objectAtIndexPath:indexPath] objectID];
     [self.navigationController pushViewController:itemVC animated:YES];
 }
 
+
+#pragma mark - SEARCH
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (searchString.length > 0) {
+        NSLog(@"--> Searching for '%@'", searchString);
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[ cd] %@", searchString];
+        
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        
+        CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+        [self reloadSearchFRCForPredicate:predicate withEntity:@"Item" inContext:cdh.context withSortDescriptions:sortDescriptors withSectionNameKeyPath:@"locationAtHome.storedIn"];
+    } else {
+        return NO;
+    }
+    
+    return YES;
+}
 @end

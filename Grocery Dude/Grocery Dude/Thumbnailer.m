@@ -10,7 +10,7 @@
 #import "Faulter.h"
 
 @implementation Thumbnailer
-#define debug 1
+#define debug 0
 
 + (void)createMissingThumbnailsForEntityName:(NSString *)entityName withThumbnailAttributeName:(NSString *)thumbnailAttributeName withPhotoRelationshipName:(NSString *)photoRelationshipName withPhotoAttributeName:(NSString *)photoAttributeName withSortDescriptors:(NSArray *)sortDescriptors withImportContext:(NSManagedObjectContext *)importContext
 {

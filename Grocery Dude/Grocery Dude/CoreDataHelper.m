@@ -12,7 +12,7 @@
 
 @implementation CoreDataHelper
 
-#define debug 0
+#define debug 1
 
 #pragma mark - FILES
 NSString *storeFileName =  @"Grocery-Dude.sqlite";

@@ -48,6 +48,7 @@
     [super viewDidLoad];
     [self configureFetch];
     [self performFetch];
+    [self configureSearch];
     
     // Respond changes in underlying store
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(performFetch) name:@"SomethingChanged" object:nil];
@@ -74,7 +75,11 @@
     static NSString *cellIdentifier = @"Shop Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    Item * item = [self.frc objectAtIndexPath:indexPath];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+    }
+    
+    Item * item = [[self frcFromTV:tableView] objectAtIndexPath:indexPath];
     NSMutableString *title = [NSMutableString stringWithFormat:@"%@%@ %@", item.quantity, item.unit, item.name];
     [title replaceOccurrencesOfString:@"(null)" withString:@"" options:0 range:NSMakeRange(0, [title length])];
     cell.textLabel.text = item.name;
@@ -105,7 +110,7 @@
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
     
-    Item *item = [self.frc objectAtIndexPath:indexPath];
+    Item *item = [[self frcFromTV:tableView] objectAtIndexPath:indexPath];
     if ([item.collected boolValue]) {
         item.collected = [NSNumber numberWithBool:NO];
     } else {
@@ -169,8 +174,30 @@
     }
     
     ItemVC *itemVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ItemVC"];
-    itemVC.selectedItemID = [[self.frc objectAtIndexPath:indexPath] objectID];
+    itemVC.selectedItemID = [[[self frcFromTV:tableView] objectAtIndexPath:indexPath] objectID];
     [self.navigationController pushViewController:itemVC animated:YES];
+}
+
+#pragma mark - SEARCH
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (searchString.length > 0) {
+        NSLog(@"--> Searching for '%@'", searchString);
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS[ cd] %@ AND listed == YES", searchString];
+        
+        NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtShop.aisle" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
+        
+        CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+        [self reloadSearchFRCForPredicate:predicate withEntity:@"Item" inContext:cdh.context withSortDescriptions:sortDescriptors withSectionNameKeyPath:@"locationAtShop.aisle"];
+    } else {
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

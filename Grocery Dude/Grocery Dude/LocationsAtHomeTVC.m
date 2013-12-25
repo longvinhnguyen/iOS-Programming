@@ -13,7 +13,7 @@
 #import "LocationAtHome.h"
 
 @implementation LocationsAtHomeTVC
-#define debug 1
+#define debug 0
 
 #pragma mark - DATA
 - (void)configureFetch {

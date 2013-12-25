@@ -11,7 +11,7 @@
 #import "LocationAtShop.h"
 
 @implementation LocationAtShopTF
-#define debug 1
+#define debug 0
 
 - (id)initWithFrame:(CGRect)frame
 {

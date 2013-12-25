@@ -9,7 +9,7 @@
 #import "CoreDataImporter.h"
 
 @implementation CoreDataImporter
-#define debug 1
+#define debug 0
 
 + (void)saveContext:(NSManagedObjectContext *)context
 {

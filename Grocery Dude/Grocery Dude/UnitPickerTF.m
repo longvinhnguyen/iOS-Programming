@@ -11,7 +11,7 @@
 #import "Unit.h"
 
 @implementation UnitPickerTF
-#define debug 1
+#define debug 0
 
 - (id)initWithFrame:(CGRect)frame
 {

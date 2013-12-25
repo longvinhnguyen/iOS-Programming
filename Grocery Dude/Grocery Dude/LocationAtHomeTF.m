@@ -11,7 +11,7 @@
 #import "LocationAtHome.h"
 
 @implementation LocationAtHomeTF
-#define debug 1
+#define debug 0
 
 - (id)initWithFrame:(CGRect)frame
 {
