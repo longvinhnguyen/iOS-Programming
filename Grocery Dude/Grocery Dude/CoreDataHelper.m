@@ -711,5 +711,35 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     }];
 }
 
+#pragma mark - CORE DATA RESET
+- (void)resetContext:(NSManagedObjectContext *)moc
+{
+    [moc performBlockAndWait:^{
+        [moc reset];
+    }];
+}
+
+- (BOOL)reloadStore
+{
+    BOOL success = NO;
+    NSError *error = nil;
+    if (![_coordinator removePersistentStore:_store error:&error]) {
+        NSLog(@"Unable to remove persistent store : %@", error);
+    }
+    
+    [self resetContext:_sourceContext];
+    [self resetContext:_importContext];
+    [self resetContext:_context];
+    [self resetContext:_parentContext];
+    _store = nil;
+    [self setupCoreData];
+    [self somethingChanged];
+    if (_store) {
+        success = YES;
+    }
+    
+    return success;
+}
+
 
 @end

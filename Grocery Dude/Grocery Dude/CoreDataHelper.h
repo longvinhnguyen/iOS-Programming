@@ -26,6 +26,8 @@
 @property (nonatomic, readonly) NSManagedObjectContext *sourceContext;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *sourceCoordinator;
 @property (nonatomic, readonly) NSPersistentStore *sourceStore;
+- (NSURL *)applicationStoresDirectory;
+- (BOOL)reloadStore;
 
 
 - (void)setupCoreData;

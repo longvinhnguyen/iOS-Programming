@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+
 @interface CoreDataImporter : NSObject
 
 @property (nonatomic, strong) NSDictionary *entitiesWithUniqueAttribues;
