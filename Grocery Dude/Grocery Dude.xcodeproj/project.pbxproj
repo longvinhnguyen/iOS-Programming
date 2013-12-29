@@ -87,6 +87,7 @@
 		4173653A185A04C10029E0F3 /* PrepareTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41736539185A04C10029E0F3 /* PrepareTVC.m */; };
 		4173653D185F40830029E0F3 /* ShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173653C185F40830029E0F3 /* ShopTVC.m */; };
 		41736540185F4FD20029E0F3 /* ItemVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4173653F185F4FD20029E0F3 /* ItemVC.m */; };
+		41DED0D31870669A00320639 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 41DED0D21870669A00320639 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +198,7 @@
 		415C990D186BE56700CC8BE7 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zlib.h; sourceTree = "<group>"; };
 		415C990E186BE56700CC8BE7 /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
 		415C990F186BE56700CC8BE7 /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
+		415C9928186D691F00CC8BE7 /* Grocery Dude.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Grocery Dude.entitlements"; sourceTree = "<group>"; };
 		417149FF18609A9D00744C86 /* UnitsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsTVC.h; sourceTree = "<group>"; };
 		41714A0018609A9D00744C86 /* UnitsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsTVC.m; sourceTree = "<group>"; };
 		41714A0518609E1B00744C86 /* UnitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitVC.h; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		4173653C185F40830029E0F3 /* ShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTVC.m; sourceTree = "<group>"; };
 		4173653E185F4FD20029E0F3 /* ItemVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemVC.h; sourceTree = "<group>"; };
 		4173653F185F4FD20029E0F3 /* ItemVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemVC.m; sourceTree = "<group>"; };
+		41DED0D21870669A00320639 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +427,7 @@
 		417364C8185605CB0029E0F3 /* Grocery Dude */ = {
 			isa = PBXGroup;
 			children = (
+				415C9928186D691F00CC8BE7 /* Grocery Dude.entitlements */,
 				415C98DD186BE56700CC8BE7 /* Objective-Zip */,
 				4173650E18576CD40029E0F3 /* Grocery Dude View Controllers */,
 				417364FD185614D40029E0F3 /* Data Model */,
@@ -448,6 +452,7 @@
 				417364CB185605CB0029E0F3 /* InfoPlist.strings */,
 				417364CE185605CB0029E0F3 /* main.m */,
 				417364D0185605CB0029E0F3 /* Grocery Dude-Prefix.pch */,
+				41DED0D21870669A00320639 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -588,6 +593,14 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Home Inc";
 				TargetAttributes = {
+					417364BE185605CB0029E0F3 = {
+						DevelopmentTeam = K6NVR2826P;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					417364DF185605CB0029E0F3 = {
 						TestTargetID = 417364BE185605CB0029E0F3;
 					};
@@ -621,6 +634,7 @@
 				417364DB185605CB0029E0F3 /* Images.xcassets in Resources */,
 				415C98A31865830E00CC8BE7 /* DefaultData.xml in Resources */,
 				417364CD185605CB0029E0F3 /* InfoPlist.strings in Resources */,
+				41DED0D31870669A00320639 /* Settings.bundle in Resources */,
 				417364D6185605CB0029E0F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -826,6 +840,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Grocery Dude/Grocery Dude.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/longnguyen/iOS\\ Programming/Grocery\\ Dude",
@@ -835,6 +852,7 @@
 				INFOPLIST_FILE = "Grocery Dude/Grocery Dude-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -844,6 +862,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Grocery Dude/Grocery Dude.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/longnguyen/iOS\\ Programming/Grocery\\ Dude",
@@ -853,6 +874,7 @@
 				INFOPLIST_FILE = "Grocery Dude/Grocery Dude-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -26,6 +26,7 @@
 @property (nonatomic, readonly) NSManagedObjectContext *sourceContext;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *sourceCoordinator;
 @property (nonatomic, readonly) NSPersistentStore *sourceStore;
+@property (nonatomic, readonly) NSPersistentStore *iCloudStore;
 - (NSURL *)applicationStoresDirectory;
 - (BOOL)reloadStore;
 
@@ -33,5 +34,7 @@
 - (void)setupCoreData;
 - (void)saveContext;
 - (void)backgroundSaveContext;
+- (BOOL)iCloudAccountIsSingedIn;
+- (void)ensureApproriateStoreIsLoaded;
 
 @end

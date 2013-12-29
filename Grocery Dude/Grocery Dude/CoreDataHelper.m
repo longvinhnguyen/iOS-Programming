@@ -17,6 +17,7 @@
 #pragma mark - FILES
 NSString *storeFileName =  @"Grocery-Dude.sqlite";
 NSString *sourceStoreFileName = @"DefaultData.sqlite";
+NSString *iCloudStoreFileName = @"iCloud.sqlite";
 
 #pragma mark - PATHS
 - (NSString *)applicationDocumentsDirectory {
@@ -63,6 +64,14 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     return [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:[sourceStoreFileName stringByDeletingPathExtension] ofType:[sourceStoreFileName pathExtension]]];
 }
 
+- (NSURL *)iCloudStoreURL
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    return [[self applicationStoresDirectory] URLByAppendingPathComponent:iCloudStoreFileName];
+}
+
 
 
 
@@ -98,6 +107,7 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
             [_sourceContext setUndoManager:nil];
         }];
         _sourceContext.parentContext = _context;
+        [self listentForStoreChanges];
     }
     return self;
 }
@@ -156,13 +166,50 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     }
 }
 
+- (BOOL)loadiCloudStore
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (_iCloudStore) {
+        return NO;
+    }
+    
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption: @(YES),
+                              NSInferMappingModelAutomaticallyOption: @(YES),
+                              NSPersistentStoreUbiquitousContentNameKey:@"Grocery-Dude"
+//                              ,NSPersistentStoreUbiquitousContentURLKey:@"ChangeLogs"
+                              };
+    
+    NSError *error;
+    _iCloudStore = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:Nil URL:[self iCloudStoreURL] options:options error:&error];
+    if (_iCloudStore) {
+        NSLog(@"** The iCloud Store has been successfully configured at '%@' **", _iCloudStore.URL.path);
+        return YES;
+    }
+    NSLog(@"FAILED to configure the iCloud Store: %@ **", error);
+    return NO;
+}
+
 - (void)setupCoreData
 {
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
-    [self setDefaultDataStoreAsInitialStore];
-    [self loadStore];
+    
+    if (!_store && !_iCloudStore) {
+        if ([self iCloudEnabledByUser]) {
+            NSLog(@"** Attempting to load the iCloud Store **");
+            if ([self loadiCloudStore]) return;
+        }
+        
+        NSLog(@"** Attempting to load the Local, Non-iCloud Store **");
+        [self setDefaultDataStoreAsInitialStore];
+        [self loadStore];
+    } else {
+        NSLog(@"SKIPPED setupCoreData, there's an existing Store:\n ** _store(%@)\n **_iCloudStore(%@)", _store, _iCloudStore);
+    }
 //    [self importGroceryDudeTestData];
 //    [self checkIfDefaultDataNeedsImporting];
 //    [self loadSourceStore];
@@ -739,6 +786,174 @@ NSString *sourceStoreFileName = @"DefaultData.sqlite";
     }
     
     return success;
+}
+
+#pragma mark - ICLOUD
+- (BOOL)iCloudAccountIsSingedIn
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    id token = [[NSFileManager defaultManager] ubiquityIdentityToken];
+    if (token) {
+        NSLog(@"** iCloud is SIGNED IN with token '%@'", token);
+        return YES;
+    }
+    
+    NSLog(@"** iCloud is NOT SIGNED IN");
+    NSLog(@"--> Is iCloud Documents and Data enabled for a valid iCloud account on your Mac & iOS Device or iOS Simulator");
+    NSLog(@"--> Have you enabled the iCloud Capability in the Application Target?");
+    NSLog(@"--> Is there a CODE_SIGN_ENTITLEMENTS Xcode warning that needs fixing? You may need to specifically choose a developer instead of using Automatic selection");
+    NSLog(@"--> Are you using a Pre-iOS7 Simulator?");
+    return NO;
+}
+
+- (void)listentForStoreChanges
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    NSNotificationCenter *dc = [NSNotificationCenter defaultCenter];
+    [dc addObserver:self selector:@selector(storesWillChange:) name:NSPersistentStoreCoordinatorStoresWillChangeNotification object:_coordinator];
+    [dc addObserver:self selector:@selector(storesDidChange:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:_coordinator];
+    [dc addObserver:self selector:@selector(persistentStoreDidImportUbiquitiousContentChanges:) name:NSPersistentStoreDidImportUbiquitousContentChangesNotification object:_coordinator];
+
+}
+
+- (void)storesWillChange:(NSNotification *)n
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    [_importContext performBlockAndWait:^{
+        [_importContext save:nil];
+        [self resetContext:_importContext];
+    }];
+    
+    [_context performBlockAndWait:^{
+        [_context save:nil];
+        [self resetContext:_context];
+    }];
+    
+    [_parentContext performBlockAndWait:^{
+        [_parentContext save:nil];
+        [self resetContext:_parentContext];
+    }];
+    
+    // Refresh UI
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil userInfo:nil];
+}
+
+- (void)storesDidChange:(NSNotification *)n
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    // Refresh UI
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil userInfo:nil];
+}
+
+- (void)persistentStoreDidImportUbiquitiousContentChanges:(NSNotification *)n
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    [_context performBlockAndWait:^{
+        [_context mergeChangesFromContextDidSaveNotification:n];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil userInfo:nil];
+    }];
+}
+
+- (BOOL)iCloudEnabledByUser
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize]; // Ensure current value
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"iCloudEnabled"] boolValue]) {
+        NSLog(@"** iCloud is ENABLED in Settings **");
+        return YES;
+    }
+    NSLog(@"** iCloud is DISABLED in Settings");
+    return NO;
+}
+
+#pragma mark - CORE DATA RESET
+- (void)removeAllStoresFromCoordinator:(NSPersistentStoreCoordinator *)psc
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    for (NSPersistentStore *s in psc.persistentStores) {
+        NSError *error = nil;
+        if (![psc removePersistentStore:s error:&error]) {
+            NSLog(@"Error removing persistent store: %@", error);
+        }
+    }
+}
+
+- (void)resetCoreData
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    [_importContext performBlockAndWait:^{
+        [_importContext save:nil];
+        [self resetContext:_importContext];
+    }];
+    
+    [_context performBlockAndWait:^{
+        [_context save:nil];
+        [self resetContext:_importContext];
+    }];
+    
+    [_parentContext performBlockAndWait:^{
+        [_parentContext save:nil];
+        [self resetContext:_parentContext];
+    }];
+    [self removeAllStoresFromCoordinator:_coordinator];
+    _store = nil;
+    _iCloudStore = nil;
+    
+}
+
+- (void)ensureApproriateStoreIsLoaded
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+
+    if (!_store && !_iCloudStore) {
+        return; // If neither store is loaded, skip (usually first launch)
+    }
+    
+    if (![self iCloudEnabledByUser] && _store) {
+        NSLog(@"The Non-iCloud Store is loaded as it should be");
+        return;
+    }
+    
+    if ([self iCloudEnabledByUser] && _iCloudStore) {
+        NSLog(@"The iCloud Store is loaded as it should be");
+        return;
+    }
+    
+    NSLog(@"** The user preference on using iCloud with this application appears to have changed. Core Data will now be reset. **");
+    [self resetCoreData];
+    [self setupCoreData];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Your preference on using iCloud with this application appears to have changed" message:@"Content has been update accordingly" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
+    
+    
 }
 
 

@@ -49,6 +49,7 @@
         DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
         [DBFilesystem setSharedFilesystem:filesystem];
     }
+    [[self cdh] iCloudAccountIsSingedIn];
     return YES;
 }
 							
@@ -72,6 +73,7 @@
     if (debug == 1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     }
+    [[self cdh] ensureApproriateStoreIsLoaded];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
