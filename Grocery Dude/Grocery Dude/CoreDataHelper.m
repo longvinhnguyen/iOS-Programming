@@ -107,6 +107,15 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
             [_sourceContext setUndoManager:nil];
         }];
         _sourceContext.parentContext = _context;
+        
+        _seedCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
+        _seedContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [_seedContext performBlockAndWait:^{
+            [_seedContext setPersistentStoreCoordinator:_seedCoordinator];
+            [_seedContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
+            [_seedContext setUndoManager:nil];
+        }];
+        _seedInProgress = NO;
         [self listentForStoreChanges];
     }
     return self;
@@ -129,7 +138,7 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
         
         NSError *error = nil;
         NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                  NSInferMappingModelAutomaticallyOption:@NO,
+                                  NSInferMappingModelAutomaticallyOption:@YES,
 //                                  NSSQLitePragmasOption: @{@"journal_mode": @"DELETE"}
                                   };
         _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
@@ -186,6 +195,7 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
     _iCloudStore = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:Nil URL:[self iCloudStoreURL] options:options error:&error];
     if (_iCloudStore) {
         NSLog(@"** The iCloud Store has been successfully configured at '%@' **", _iCloudStore.URL.path);
+        [self confirmMergeWithiCloud];
         return YES;
     }
     NSLog(@"FAILED to configure the iCloud Store: %@ **", error);
@@ -561,6 +571,10 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
         }
         
         [self setDefaultDataAsImportedForDate:_store];
+    } else if (alertView == self.seedAlertView) {
+        if (buttonIndex == alertView.firstOtherButtonIndex) {
+            [self mergeNoniCloudDataWithiCloud];
+        }
     }
 }
 
@@ -956,5 +970,127 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
     
 }
 
+
+- (BOOL)unloadStore:(NSPersistentStore *)ps
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (ps) {
+        NSPersistentStoreCoordinator *psc = ps.persistentStoreCoordinator;
+        NSError *error = nil;
+        if (![psc removePersistentStore:ps error:&error]) {
+            NSLog(@"ERROR removing store from the coordinator: %@", error);
+            return NO;
+        } else {
+            ps = nil;
+            return YES;
+        }
+    }
+    
+    return YES;
+}
+
+- (void)removeFileAtURL:(NSURL *)url
+{
+    NSError *error = nil;
+    if (![[NSFileManager defaultManager] removeItemAtURL:url error:&error]) {
+        NSLog(@"Failed to delete '%@' from %@", [url lastPathComponent], [url URLByDeletingLastPathComponent]);
+    } else {
+        NSLog(@"Deleted '%@' from %@", [url lastPathComponent], [url URLByDeletingLastPathComponent]);
+    }
+}
+
+#pragma mark - ICLOUD SEEDING
+- (BOOL)loadNoniCloudStoreAsSeedStore
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (_seedInProgress) {
+        NSLog(@"Seed already in progress ...");
+        return NO;
+    }
+    
+    if (![self unloadStore:_seedStore]) {
+        NSLog(@"Failed to ensure _seedStore was removed prior to migration");
+        return NO;
+    }
+    
+    if (![self unloadStore:_store]) {
+        NSLog(@"Failed to ensure _store was removed prior to migration");
+        return NO;
+    }
+    
+    NSDictionary *options = @{NSReadOnlyPersistentStoreOption: @(YES)};
+    NSError *error = nil;
+    _seedStore = [_seedCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[self storeURL] options:options error:&error];
+    if (!_seedStore) {
+        NSLog(@"Failed to load Non-iCloud Store as Seed Store. Error: %@", error);
+        return NO;
+    }
+    NSLog(@"Successfully loaded Non-iCloud Store as Seed Store: %@", _seedStore);
+    return YES;
+}
+
+- (void)mergeNoniCloudDataWithiCloud
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    _importTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(somethingChanged) userInfo:nil repeats:YES];
+    [_seedContext performBlock:^{
+        if ([self loadNoniCloudStoreAsSeedStore]) {
+            NSLog(@"*** STARTED DEEP COPY FROM NON-ICLOUD STORE TO ICLOUD STORE ***");
+            NSArray *entitiesToCopy = @[@"Item", @"Unit", @"LocationAtHome", @"LocationAtShop"];
+            CoreDataImporter *importer = [[CoreDataImporter alloc] initWithUniqueAttributes:[self selectedUniqueAttributes]];
+            [importer deepCopyEntities:entitiesToCopy fromContext:_seedContext toContext:_importContext];
+        }
+        
+        [_context performBlock:^{
+            // Tell the interface to refresh once import completes
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+        }];
+        
+        NSLog(@"*** FINISHED DEEP COPY FROM NON-ICLOUD STORE TO ICLOUD STORE");
+        NSLog(@"*** REMOVING OLD NON-ICLOUD STORE");
+        if ([self unloadStore:_seedStore]) {
+            [_context performBlock:^{
+                // Tell the interface to refresh once import completes
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"SomethingChanged" object:nil];
+                
+                // Remove migrated store
+                NSString *wal = [storeFileName stringByAppendingString:@"-wal"];
+                NSString *shm = [storeFileName stringByAppendingString:@"-shm"];
+                [self removeFileAtURL:[self storeURL]];
+                [self removeFileAtURL:[[self applicationStoresDirectory] URLByAppendingPathComponent:wal]];
+                [self removeFileAtURL:[[self applicationStoresDirectory] URLByAppendingPathComponent:shm]];
+            }];
+        }
+        
+        [_context performBlock:^{
+            // Stop periodically refreshing the interface 
+            [_importTimer invalidate];
+        }];
+    }];
+}
+
+- (void)confirmMergeWithiCloud
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[[self storeURL] path]]) {
+        NSLog(@"Skipped unnecessary migration of Non-iCloud store to iCloud (there's no store file).");
+        return;
+    }
+    
+    _seedAlertView = [[UIAlertView alloc] initWithTitle:@"Merge with iCloud?" message:@"This will move your existing data into iCloud. If you don't merge now, you can merge later by toggling iCloud for this application in Settings" delegate:self cancelButtonTitle:@"Don't Merge" otherButtonTitles:@"Merge", nil];
+    [_seedAlertView show];
+}
 
 @end

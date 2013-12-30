@@ -166,6 +166,9 @@
         
         // COPY object
         NSManagedObject *copiedObject = [self insertUniqueObjectInTargetEntity:entity uniqueAttributeValue:uniqueAttributeValue attributeValues:attributeValuesToCopy inContext:targetContext];
+        if ([[[copiedObject entity] attributesByName] objectForKey:@"modified"]) {
+            [copiedObject setValue:[NSDate date] forKey:@"modified"];
+        }
         return copiedObject;
     }
     return nil;

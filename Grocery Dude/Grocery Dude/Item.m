@@ -2,7 +2,7 @@
 //  Item.m
 //  Grocery Dude
 //
-//  Created by Long Vinh Nguyen on 12/23/13.
+//  Created by Long Vinh Nguyen on 12/30/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
@@ -20,9 +20,10 @@
 @dynamic name;
 @dynamic quantity;
 @dynamic thumbnail;
+@dynamic modified;
 @dynamic locationAtHome;
 @dynamic locationAtShop;
-@dynamic unit;
 @dynamic photo;
+@dynamic unit;
 
 @end

@@ -49,6 +49,7 @@
     if (self.selectedItemID) {
         CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
         Item *item = (Item *)[cdh.context existingObjectWithID:self.selectedItemID error:nil];
+        item.modified = [NSDate date];
         self.nameTextField.text = item.name;
         self.quantityTextField.text = item.quantity.stringValue;
         self.unitPickerTextField.text = item.unit.name;

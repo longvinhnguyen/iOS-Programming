@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		413A42B91871B46800E1DB44 /* Deduplicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A42B81871B46800E1DB44 /* Deduplicator.m */; };
+		413A42DB1871BB8C00E1DB44 /* LocationAtHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A42DA1871BB8C00E1DB44 /* LocationAtHome.m */; };
+		413A42DE1871BB8C00E1DB44 /* Item_Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A42DD1871BB8C00E1DB44 /* Item_Photo.m */; };
 		415C988A186337B100CC8BE7 /* LocationsAtHomeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C9889186337B100CC8BE7 /* LocationsAtHomeTVC.m */; };
 		415C988D1863394C00CC8BE7 /* LocationAtHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C988C1863394C00CC8BE7 /* LocationAtHomeVC.m */; };
 		415C989218633A0C00CC8BE7 /* LocationAtShopVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C988F18633A0C00CC8BE7 /* LocationAtShopVC.m */; };
@@ -21,10 +24,8 @@
 		415C98B118688EF300CC8BE7 /* Model8ToModel9.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 415C98B018688EF300CC8BE7 /* Model8ToModel9.xcmappingmodel */; };
 		415C98B418688FC600CC8BE7 /* LocationAtShop.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98B318688FC600CC8BE7 /* LocationAtShop.m */; };
 		415C98B718688FC700CC8BE7 /* Unit.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98B618688FC700CC8BE7 /* Unit.m */; };
-		415C98BA18688FC700CC8BE7 /* Item_Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98B918688FC700CC8BE7 /* Item_Photo.m */; };
 		415C98BD18688FC700CC8BE7 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98BC18688FC700CC8BE7 /* Item.m */; };
 		415C98C018688FC700CC8BE7 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98BF18688FC700CC8BE7 /* Location.m */; };
-		415C98C318688FC800CC8BE7 /* LocationAtHome.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C218688FC800CC8BE7 /* LocationAtHome.m */; };
 		415C98C61869D18500CC8BE7 /* Faulter.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C51869D18500CC8BE7 /* Faulter.m */; };
 		415C98CA1869D68500CC8BE7 /* Thumbnailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 415C98C91869D68500CC8BE7 /* Thumbnailer.m */; };
 		415C98CC186BCFB300CC8BE7 /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 415C98CB186BCFB300CC8BE7 /* Dropbox.framework */; };
@@ -101,6 +102,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		413A42B71871B46800E1DB44 /* Deduplicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deduplicator.h; sourceTree = "<group>"; };
+		413A42B81871B46800E1DB44 /* Deduplicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deduplicator.m; sourceTree = "<group>"; };
+		413A42BA1871BAAF00E1DB44 /* Model 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 10.xcdatamodel"; sourceTree = "<group>"; };
+		413A42CD1871BB8B00E1DB44 /* LocationAtShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAtShop.h; path = "Grocery Dude/LocationAtShop.h"; sourceTree = "<group>"; };
+		413A42CE1871BB8B00E1DB44 /* LocationAtShop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtShop.m; path = "Grocery Dude/LocationAtShop.m"; sourceTree = "<group>"; };
+		413A42D01871BB8C00E1DB44 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item.h; path = "Grocery Dude/Item.h"; sourceTree = "<group>"; };
+		413A42D11871BB8C00E1DB44 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item.m; path = "Grocery Dude/Item.m"; sourceTree = "<group>"; };
+		413A42D31871BB8C00E1DB44 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "Grocery Dude/Location.h"; sourceTree = "<group>"; };
+		413A42D41871BB8C00E1DB44 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "Grocery Dude/Location.m"; sourceTree = "<group>"; };
+		413A42D61871BB8C00E1DB44 /* Unit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Unit.h; path = "Grocery Dude/Unit.h"; sourceTree = "<group>"; };
+		413A42D71871BB8C00E1DB44 /* Unit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Unit.m; path = "Grocery Dude/Unit.m"; sourceTree = "<group>"; };
+		413A42D91871BB8C00E1DB44 /* LocationAtHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAtHome.h; path = "Grocery Dude/LocationAtHome.h"; sourceTree = "<group>"; };
+		413A42DA1871BB8C00E1DB44 /* LocationAtHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAtHome.m; path = "Grocery Dude/LocationAtHome.m"; sourceTree = "<group>"; };
+		413A42DC1871BB8C00E1DB44 /* Item_Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Item_Photo.h; path = "Grocery Dude/Item_Photo.h"; sourceTree = "<group>"; };
+		413A42DD1871BB8C00E1DB44 /* Item_Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Item_Photo.m; path = "Grocery Dude/Item_Photo.m"; sourceTree = "<group>"; };
 		415C9888186337B100CC8BE7 /* LocationsAtHomeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationsAtHomeTVC.h; sourceTree = "<group>"; };
 		415C9889186337B100CC8BE7 /* LocationsAtHomeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationsAtHomeTVC.m; sourceTree = "<group>"; };
 		415C988B1863394C00CC8BE7 /* LocationAtHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtHomeVC.h; sourceTree = "<group>"; };
@@ -305,6 +321,8 @@
 				415C98C91869D68500CC8BE7 /* Thumbnailer.m */,
 				415C98D7186BD2CA00CC8BE7 /* DropboxHelper.h */,
 				415C98D8186BD2CA00CC8BE7 /* DropboxHelper.m */,
+				413A42B71871B46800E1DB44 /* Deduplicator.h */,
+				413A42B81871B46800E1DB44 /* Deduplicator.m */,
 			);
 			name = "Helper Classes";
 			sourceTree = "<group>";
@@ -391,6 +409,18 @@
 			isa = PBXGroup;
 			children = (
 				417364C8185605CB0029E0F3 /* Grocery Dude */,
+				413A42DC1871BB8C00E1DB44 /* Item_Photo.h */,
+				413A42DD1871BB8C00E1DB44 /* Item_Photo.m */,
+				413A42D91871BB8C00E1DB44 /* LocationAtHome.h */,
+				413A42DA1871BB8C00E1DB44 /* LocationAtHome.m */,
+				413A42D61871BB8C00E1DB44 /* Unit.h */,
+				413A42D71871BB8C00E1DB44 /* Unit.m */,
+				413A42D31871BB8C00E1DB44 /* Location.h */,
+				413A42D41871BB8C00E1DB44 /* Location.m */,
+				413A42D01871BB8C00E1DB44 /* Item.h */,
+				413A42D11871BB8C00E1DB44 /* Item.m */,
+				413A42CD1871BB8B00E1DB44 /* LocationAtShop.h */,
+				413A42CE1871BB8B00E1DB44 /* LocationAtShop.m */,
 				417364E7185605CB0029E0F3 /* Grocery DudeTests */,
 				417364C1185605CB0029E0F3 /* Frameworks */,
 				417364C0185605CB0029E0F3 /* Products */,
@@ -656,13 +686,13 @@
 			files = (
 				41736540185F4FD20029E0F3 /* ItemVC.m in Sources */,
 				415C989D1863527900CC8BE7 /* LocationAtHomeTF.m in Sources */,
-				415C98C318688FC800CC8BE7 /* LocationAtHome.m in Sources */,
 				415C98D9186BD2CA00CC8BE7 /* DropboxHelper.m in Sources */,
 				415C98B418688FC600CC8BE7 /* LocationAtShop.m in Sources */,
 				417364D9185605CB0029E0F3 /* ViewController.m in Sources */,
 				415C9918186BE56700CC8BE7 /* ZipWriteStream.m in Sources */,
 				415C9913186BE56700CC8BE7 /* unzip.c in Sources */,
 				415C98961863420600CC8BE7 /* CoreDataPickerTF.m in Sources */,
+				413A42DE1871BB8C00E1DB44 /* Item_Photo.m in Sources */,
 				417364D3185605CB0029E0F3 /* AppDelegate.m in Sources */,
 				415C991F186BE56700CC8BE7 /* gzread.c in Sources */,
 				415C98C61869D18500CC8BE7 /* Faulter.m in Sources */,
@@ -696,6 +726,7 @@
 				415C989218633A0C00CC8BE7 /* LocationAtShopVC.m in Sources */,
 				415C9910186BE56700CC8BE7 /* FileInZipInfo.m in Sources */,
 				415C98DC186BD50700CC8BE7 /* DropboxTVC.m in Sources */,
+				413A42B91871B46800E1DB44 /* Deduplicator.m in Sources */,
 				415C988D1863394C00CC8BE7 /* LocationAtHomeVC.m in Sources */,
 				41736507185764FC0029E0F3 /* Measurement.m in Sources */,
 				417364CF185605CB0029E0F3 /* main.m in Sources */,
@@ -711,8 +742,8 @@
 				415C989A1863498900CC8BE7 /* UnitPickerTF.m in Sources */,
 				415C989318633A0C00CC8BE7 /* LocationsAtShopTVC.m in Sources */,
 				415C98C018688FC700CC8BE7 /* Location.m in Sources */,
+				413A42DB1871BB8C00E1DB44 /* LocationAtHome.m in Sources */,
 				415C9919186BE56700CC8BE7 /* adler32.c in Sources */,
-				415C98BA18688FC700CC8BE7 /* Item_Photo.m in Sources */,
 				415C9912186BE56700CC8BE7 /* mztools.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,6 +988,7 @@
 		417364FE185614E40029E0F3 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				413A42BA1871BAAF00E1DB44 /* Model 10.xcdatamodel */,
 				415C98A11864A6AD00CC8BE7 /* Model 7.xcdatamodel */,
 				415C98A918688A2800CC8BE7 /* Model 8.xcdatamodel */,
 				415C98AD18688BE600CC8BE7 /* Model 9.xcdatamodel */,
@@ -967,7 +999,7 @@
 				41736504185762E70029E0F3 /* Model 2.xcdatamodel */,
 				417364FF185614E40029E0F3 /* Model.xcdatamodel */,
 			);
-			currentVersion = 415C98AD18688BE600CC8BE7 /* Model 9.xcdatamodel */;
+			currentVersion = 413A42BA1871BAAF00E1DB44 /* Model 10.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

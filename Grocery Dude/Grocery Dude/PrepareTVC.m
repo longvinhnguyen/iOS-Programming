@@ -13,6 +13,7 @@
 #import "Unit.h"
 #import "ItemVC.h"
 #import "Thumbnailer.h"
+#import "Deduplicator.h"
 
 #define debug 0
 
@@ -66,6 +67,12 @@
     CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
     NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"locationAtHome.storedIn" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]];
     [Thumbnailer createMissingThumbnailsForEntityName:@"Item" withThumbnailAttributeName:@"thumbnail" withPhotoRelationshipName:@"photo" withPhotoAttributeName:@"data" withSortDescriptors:sortDescriptors withImportContext:cdh.importContext];
+    [cdh.context performBlock:^{
+        [Deduplicator deDuplicateEntityWithName:@"Item" withUniqueAttributeName:@"name" withImportContext:cdh.importContext];
+        [Deduplicator deDuplicateEntityWithName:@"Unit" withUniqueAttributeName:@"name" withImportContext:cdh.importContext];
+        [Deduplicator deDuplicateEntityWithName:@"LocationAtHome" withUniqueAttributeName:@"storedIn" withImportContext:cdh.importContext];
+        [Deduplicator deDuplicateEntityWithName:@"LocationAtShop" withUniqueAttributeName:@"aisle" withImportContext:cdh.importContext];
+    }];
                             
 }
 

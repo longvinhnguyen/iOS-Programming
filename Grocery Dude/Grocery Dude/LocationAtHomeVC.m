@@ -22,6 +22,7 @@
         CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
         LocationAtHome *locationAtHome = (LocationAtHome*)[cdh.context existingObjectWithID:self.selectedObjectID
                                                                                       error:nil];
+        locationAtHome.modified = [NSDate date];
         self.nameTextField.text = locationAtHome.storedIn;
     }
 }

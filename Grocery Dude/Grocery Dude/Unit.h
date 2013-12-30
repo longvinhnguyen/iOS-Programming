@@ -2,7 +2,7 @@
 //  Unit.h
 //  Grocery Dude
 //
-//  Created by Long Vinh Nguyen on 12/23/13.
+//  Created by Long Vinh Nguyen on 12/30/13.
 //  Copyright (c) 2013 Home Inc. All rights reserved.
 //
 
@@ -14,6 +14,7 @@
 @interface Unit : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * modified;
 @property (nonatomic, retain) NSSet *items;
 @end
 

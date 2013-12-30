@@ -38,6 +38,7 @@
     if (self.selectedObjectID) {
         CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
         Unit *unit = (Unit *)[cdh.context existingObjectWithID:self.selectedObjectID error:nil];
+        unit.modified = [NSDate date];
         self.nameTextField.text = unit.name;
     }
 }

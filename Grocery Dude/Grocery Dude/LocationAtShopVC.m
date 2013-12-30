@@ -22,6 +22,7 @@
         CoreDataHelper *cdh = [(AppDelegate *)[[UIApplication sharedApplication] delegate] cdh];
         LocationAtShop *locationAtShop = (LocationAtShop*)[cdh.context existingObjectWithID:self.selectedObjectID
                                                                                       error:nil];
+        locationAtShop.modified = [NSDate date];
         self.nameTextField.text = locationAtShop.aisle;
     }
 }

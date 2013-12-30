@@ -27,6 +27,12 @@
 @property (nonatomic, readonly) NSPersistentStoreCoordinator *sourceCoordinator;
 @property (nonatomic, readonly) NSPersistentStore *sourceStore;
 @property (nonatomic, readonly) NSPersistentStore *iCloudStore;
+
+@property (nonatomic, readonly) NSManagedObjectContext *seedContext;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator *seedCoordinator;
+@property (nonatomic, readonly) NSPersistentStore *seedStore;
+@property (nonatomic, strong) UIAlertView *seedAlertView;
+@property (nonatomic, assign) BOOL seedInProgress;
 - (NSURL *)applicationStoresDirectory;
 - (BOOL)reloadStore;
 
