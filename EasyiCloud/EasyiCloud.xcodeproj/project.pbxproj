@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		413A42EC1875B36100E1DB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A42EB1875B36100E1DB44 /* Foundation.framework */; };
+		413A42EE1875B36100E1DB44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A42ED1875B36100E1DB44 /* CoreGraphics.framework */; };
+		413A42F01875B36100E1DB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A42EF1875B36100E1DB44 /* UIKit.framework */; };
+		413A42F61875B36100E1DB44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 413A42F41875B36100E1DB44 /* InfoPlist.strings */; };
+		413A42F81875B36100E1DB44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A42F71875B36100E1DB44 /* main.m */; };
+		413A42FC1875B36100E1DB44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A42FB1875B36100E1DB44 /* AppDelegate.m */; };
+		413A42FF1875B36100E1DB44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 413A42FD1875B36100E1DB44 /* Main.storyboard */; };
+		413A43021875B36100E1DB44 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43011875B36100E1DB44 /* ViewController.m */; };
+		413A43041875B36100E1DB44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 413A43031875B36100E1DB44 /* Images.xcassets */; };
+		413A430B1875B36200E1DB44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A430A1875B36200E1DB44 /* XCTest.framework */; };
+		413A430C1875B36200E1DB44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A42EB1875B36100E1DB44 /* Foundation.framework */; };
+		413A430D1875B36200E1DB44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413A42EF1875B36100E1DB44 /* UIKit.framework */; };
+		413A43151875B36200E1DB44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 413A43131875B36200E1DB44 /* InfoPlist.strings */; };
+		413A43171875B36200E1DB44 /* EasyiCloudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43161875B36200E1DB44 /* EasyiCloudTests.m */; };
+		413A432F1875B38100E1DB44 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43221875B38100E1DB44 /* CoreDataHelper.m */; };
+		413A43301875B38100E1DB44 /* CoreDataImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43241875B38100E1DB44 /* CoreDataImporter.m */; };
+		413A43311875B38100E1DB44 /* CoreDataPickerTF.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43261875B38100E1DB44 /* CoreDataPickerTF.m */; };
+		413A43321875B38100E1DB44 /* CoreDataTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A43281875B38100E1DB44 /* CoreDataTVC.m */; };
+		413A43331875B38100E1DB44 /* Deduplicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A432A1875B38100E1DB44 /* Deduplicator.m */; };
+		413A43341875B38100E1DB44 /* Faulter.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A432C1875B38100E1DB44 /* Faulter.m */; };
+		413A43351875B38100E1DB44 /* Thumbnailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A432E1875B38100E1DB44 /* Thumbnailer.m */; };
+		413A43381875B3A600E1DB44 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 413A43361875B3A600E1DB44 /* Model.xcdatamodeld */; };
+		413A433B1875B3F000E1DB44 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A433A1875B3F000E1DB44 /* Test.m */; };
+		413A433E1875B41800E1DB44 /* TestTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 413A433D1875B41800E1DB44 /* TestTVC.m */; };
+		413A43411875B84C00E1DB44 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 413A43401875B84C00E1DB44 /* Settings.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		413A430E1875B36200E1DB44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 413A42E01875B36100E1DB44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 413A42E71875B36100E1DB44;
+			remoteInfo = EasyiCloud;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		413A42E81875B36100E1DB44 /* EasyiCloud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyiCloud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		413A42EB1875B36100E1DB44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		413A42ED1875B36100E1DB44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		413A42EF1875B36100E1DB44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		413A42F31875B36100E1DB44 /* EasyiCloud-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyiCloud-Info.plist"; sourceTree = "<group>"; };
+		413A42F51875B36100E1DB44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		413A42F71875B36100E1DB44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		413A42F91875B36100E1DB44 /* EasyiCloud-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyiCloud-Prefix.pch"; sourceTree = "<group>"; };
+		413A42FA1875B36100E1DB44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		413A42FB1875B36100E1DB44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		413A42FE1875B36100E1DB44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		413A43001875B36100E1DB44 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		413A43011875B36100E1DB44 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		413A43031875B36100E1DB44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		413A43091875B36200E1DB44 /* EasyiCloudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyiCloudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		413A430A1875B36200E1DB44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		413A43121875B36200E1DB44 /* EasyiCloudTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyiCloudTests-Info.plist"; sourceTree = "<group>"; };
+		413A43141875B36200E1DB44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		413A43161875B36200E1DB44 /* EasyiCloudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EasyiCloudTests.m; sourceTree = "<group>"; };
+		413A43211875B38100E1DB44 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		413A43221875B38100E1DB44 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		413A43231875B38100E1DB44 /* CoreDataImporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataImporter.h; sourceTree = "<group>"; };
+		413A43241875B38100E1DB44 /* CoreDataImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataImporter.m; sourceTree = "<group>"; };
+		413A43251875B38100E1DB44 /* CoreDataPickerTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataPickerTF.h; sourceTree = "<group>"; };
+		413A43261875B38100E1DB44 /* CoreDataPickerTF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataPickerTF.m; sourceTree = "<group>"; };
+		413A43271875B38100E1DB44 /* CoreDataTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTVC.h; sourceTree = "<group>"; };
+		413A43281875B38100E1DB44 /* CoreDataTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTVC.m; sourceTree = "<group>"; };
+		413A43291875B38100E1DB44 /* Deduplicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deduplicator.h; sourceTree = "<group>"; };
+		413A432A1875B38100E1DB44 /* Deduplicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deduplicator.m; sourceTree = "<group>"; };
+		413A432B1875B38100E1DB44 /* Faulter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Faulter.h; sourceTree = "<group>"; };
+		413A432C1875B38100E1DB44 /* Faulter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Faulter.m; sourceTree = "<group>"; };
+		413A432D1875B38100E1DB44 /* Thumbnailer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thumbnailer.h; sourceTree = "<group>"; };
+		413A432E1875B38100E1DB44 /* Thumbnailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thumbnailer.m; sourceTree = "<group>"; };
+		413A43371875B3A600E1DB44 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		413A43391875B3F000E1DB44 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		413A433A1875B3F000E1DB44 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		413A433C1875B41800E1DB44 /* TestTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTVC.h; sourceTree = "<group>"; };
+		413A433D1875B41800E1DB44 /* TestTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTVC.m; sourceTree = "<group>"; };
+		413A433F1875B81F00E1DB44 /* EasyiCloud.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = EasyiCloud.entitlements; sourceTree = "<group>"; };
+		413A43401875B84C00E1DB44 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		413A42E51875B36100E1DB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A42EE1875B36100E1DB44 /* CoreGraphics.framework in Frameworks */,
+				413A42F01875B36100E1DB44 /* UIKit.framework in Frameworks */,
+				413A42EC1875B36100E1DB44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		413A43061875B36200E1DB44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A430B1875B36200E1DB44 /* XCTest.framework in Frameworks */,
+				413A430D1875B36200E1DB44 /* UIKit.framework in Frameworks */,
+				413A430C1875B36200E1DB44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		413A42DF1875B36100E1DB44 = {
+			isa = PBXGroup;
+			children = (
+				413A42F11875B36100E1DB44 /* EasyiCloud */,
+				413A43391875B3F000E1DB44 /* Test.h */,
+				413A433A1875B3F000E1DB44 /* Test.m */,
+				413A43101875B36200E1DB44 /* EasyiCloudTests */,
+				413A42EA1875B36100E1DB44 /* Frameworks */,
+				413A42E91875B36100E1DB44 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		413A42E91875B36100E1DB44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				413A42E81875B36100E1DB44 /* EasyiCloud.app */,
+				413A43091875B36200E1DB44 /* EasyiCloudTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		413A42EA1875B36100E1DB44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				413A42EB1875B36100E1DB44 /* Foundation.framework */,
+				413A42ED1875B36100E1DB44 /* CoreGraphics.framework */,
+				413A42EF1875B36100E1DB44 /* UIKit.framework */,
+				413A430A1875B36200E1DB44 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		413A42F11875B36100E1DB44 /* EasyiCloud */ = {
+			isa = PBXGroup;
+			children = (
+				413A433F1875B81F00E1DB44 /* EasyiCloud.entitlements */,
+				413A43201875B38100E1DB44 /* Generic Core Data Classes */,
+				413A42FA1875B36100E1DB44 /* AppDelegate.h */,
+				413A42FB1875B36100E1DB44 /* AppDelegate.m */,
+				413A42FD1875B36100E1DB44 /* Main.storyboard */,
+				413A43001875B36100E1DB44 /* ViewController.h */,
+				413A43011875B36100E1DB44 /* ViewController.m */,
+				413A43031875B36100E1DB44 /* Images.xcassets */,
+				413A42F21875B36100E1DB44 /* Supporting Files */,
+				413A43361875B3A600E1DB44 /* Model.xcdatamodeld */,
+				413A433C1875B41800E1DB44 /* TestTVC.h */,
+				413A433D1875B41800E1DB44 /* TestTVC.m */,
+			);
+			path = EasyiCloud;
+			sourceTree = "<group>";
+		};
+		413A42F21875B36100E1DB44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				413A42F31875B36100E1DB44 /* EasyiCloud-Info.plist */,
+				413A42F41875B36100E1DB44 /* InfoPlist.strings */,
+				413A42F71875B36100E1DB44 /* main.m */,
+				413A42F91875B36100E1DB44 /* EasyiCloud-Prefix.pch */,
+				413A43401875B84C00E1DB44 /* Settings.bundle */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		413A43101875B36200E1DB44 /* EasyiCloudTests */ = {
+			isa = PBXGroup;
+			children = (
+				413A43161875B36200E1DB44 /* EasyiCloudTests.m */,
+				413A43111875B36200E1DB44 /* Supporting Files */,
+			);
+			path = EasyiCloudTests;
+			sourceTree = "<group>";
+		};
+		413A43111875B36200E1DB44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				413A43121875B36200E1DB44 /* EasyiCloudTests-Info.plist */,
+				413A43131875B36200E1DB44 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		413A43201875B38100E1DB44 /* Generic Core Data Classes */ = {
+			isa = PBXGroup;
+			children = (
+				413A43211875B38100E1DB44 /* CoreDataHelper.h */,
+				413A43221875B38100E1DB44 /* CoreDataHelper.m */,
+				413A43231875B38100E1DB44 /* CoreDataImporter.h */,
+				413A43241875B38100E1DB44 /* CoreDataImporter.m */,
+				413A43251875B38100E1DB44 /* CoreDataPickerTF.h */,
+				413A43261875B38100E1DB44 /* CoreDataPickerTF.m */,
+				413A43271875B38100E1DB44 /* CoreDataTVC.h */,
+				413A43281875B38100E1DB44 /* CoreDataTVC.m */,
+				413A43291875B38100E1DB44 /* Deduplicator.h */,
+				413A432A1875B38100E1DB44 /* Deduplicator.m */,
+				413A432B1875B38100E1DB44 /* Faulter.h */,
+				413A432C1875B38100E1DB44 /* Faulter.m */,
+				413A432D1875B38100E1DB44 /* Thumbnailer.h */,
+				413A432E1875B38100E1DB44 /* Thumbnailer.m */,
+			);
+			path = "Generic Core Data Classes";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		413A42E71875B36100E1DB44 /* EasyiCloud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 413A431A1875B36200E1DB44 /* Build configuration list for PBXNativeTarget "EasyiCloud" */;
+			buildPhases = (
+				413A42E41875B36100E1DB44 /* Sources */,
+				413A42E51875B36100E1DB44 /* Frameworks */,
+				413A42E61875B36100E1DB44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyiCloud;
+			productName = EasyiCloud;
+			productReference = 413A42E81875B36100E1DB44 /* EasyiCloud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		413A43081875B36200E1DB44 /* EasyiCloudTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 413A431D1875B36200E1DB44 /* Build configuration list for PBXNativeTarget "EasyiCloudTests" */;
+			buildPhases = (
+				413A43051875B36200E1DB44 /* Sources */,
+				413A43061875B36200E1DB44 /* Frameworks */,
+				413A43071875B36200E1DB44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				413A430F1875B36200E1DB44 /* PBXTargetDependency */,
+			);
+			name = EasyiCloudTests;
+			productName = EasyiCloudTests;
+			productReference = 413A43091875B36200E1DB44 /* EasyiCloudTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		413A42E01875B36100E1DB44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Home Inc";
+				TargetAttributes = {
+					413A42E71875B36100E1DB44 = {
+						DevelopmentTeam = K6NVR2826P;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+					413A43081875B36200E1DB44 = {
+						TestTargetID = 413A42E71875B36100E1DB44;
+					};
+				};
+			};
+			buildConfigurationList = 413A42E31875B36100E1DB44 /* Build configuration list for PBXProject "EasyiCloud" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 413A42DF1875B36100E1DB44;
+			productRefGroup = 413A42E91875B36100E1DB44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				413A42E71875B36100E1DB44 /* EasyiCloud */,
+				413A43081875B36200E1DB44 /* EasyiCloudTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		413A42E61875B36100E1DB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A43411875B84C00E1DB44 /* Settings.bundle in Resources */,
+				413A43041875B36100E1DB44 /* Images.xcassets in Resources */,
+				413A42F61875B36100E1DB44 /* InfoPlist.strings in Resources */,
+				413A42FF1875B36100E1DB44 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		413A43071875B36200E1DB44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A43151875B36200E1DB44 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		413A42E41875B36100E1DB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A43021875B36100E1DB44 /* ViewController.m in Sources */,
+				413A43351875B38100E1DB44 /* Thumbnailer.m in Sources */,
+				413A43341875B38100E1DB44 /* Faulter.m in Sources */,
+				413A433E1875B41800E1DB44 /* TestTVC.m in Sources */,
+				413A43331875B38100E1DB44 /* Deduplicator.m in Sources */,
+				413A43301875B38100E1DB44 /* CoreDataImporter.m in Sources */,
+				413A43311875B38100E1DB44 /* CoreDataPickerTF.m in Sources */,
+				413A42FC1875B36100E1DB44 /* AppDelegate.m in Sources */,
+				413A432F1875B38100E1DB44 /* CoreDataHelper.m in Sources */,
+				413A42F81875B36100E1DB44 /* main.m in Sources */,
+				413A433B1875B3F000E1DB44 /* Test.m in Sources */,
+				413A43381875B3A600E1DB44 /* Model.xcdatamodeld in Sources */,
+				413A43321875B38100E1DB44 /* CoreDataTVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		413A43051875B36200E1DB44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				413A43171875B36200E1DB44 /* EasyiCloudTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		413A430F1875B36200E1DB44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 413A42E71875B36100E1DB44 /* EasyiCloud */;
+			targetProxy = 413A430E1875B36200E1DB44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		413A42F41875B36100E1DB44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				413A42F51875B36100E1DB44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		413A42FD1875B36100E1DB44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				413A42FE1875B36100E1DB44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		413A43131875B36200E1DB44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				413A43141875B36200E1DB44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		413A43181875B36200E1DB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		413A43191875B36200E1DB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		413A431B1875B36200E1DB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = EasyiCloud/EasyiCloud.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyiCloud/EasyiCloud-Prefix.pch";
+				INFOPLIST_FILE = "EasyiCloud/EasyiCloud-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		413A431C1875B36200E1DB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = EasyiCloud/EasyiCloud.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyiCloud/EasyiCloud-Prefix.pch";
+				INFOPLIST_FILE = "EasyiCloud/EasyiCloud-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		413A431E1875B36200E1DB44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyiCloud.app/EasyiCloud";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyiCloud/EasyiCloud-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EasyiCloudTests/EasyiCloudTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		413A431F1875B36200E1DB44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EasyiCloud.app/EasyiCloud";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyiCloud/EasyiCloud-Prefix.pch";
+				INFOPLIST_FILE = "EasyiCloudTests/EasyiCloudTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		413A42E31875B36100E1DB44 /* Build configuration list for PBXProject "EasyiCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				413A43181875B36200E1DB44 /* Debug */,
+				413A43191875B36200E1DB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		413A431A1875B36200E1DB44 /* Build configuration list for PBXNativeTarget "EasyiCloud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				413A431B1875B36200E1DB44 /* Debug */,
+				413A431C1875B36200E1DB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		413A431D1875B36200E1DB44 /* Build configuration list for PBXNativeTarget "EasyiCloudTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				413A431E1875B36200E1DB44 /* Debug */,
+				413A431F1875B36200E1DB44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		413A43361875B3A600E1DB44 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				413A43371875B3A600E1DB44 /* Model.xcdatamodel */,
+			);
+			currentVersion = 413A43371875B3A600E1DB44 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 413A42E01875B36100E1DB44 /* Project object */;
+}

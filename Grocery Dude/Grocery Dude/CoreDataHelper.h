@@ -42,5 +42,6 @@
 - (void)backgroundSaveContext;
 - (BOOL)iCloudAccountIsSingedIn;
 - (void)ensureApproriateStoreIsLoaded;
+- (BOOL)iCloudEnabledByUser;
 
 @end

@@ -196,6 +196,7 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
     if (_iCloudStore) {
         NSLog(@"** The iCloud Store has been successfully configured at '%@' **", _iCloudStore.URL.path);
         [self confirmMergeWithiCloud];
+//        [self destroyAlliCloudDataForThisApplication];
         return YES;
     }
     NSLog(@"FAILED to configure the iCloud Store: %@ **", error);
@@ -1091,6 +1092,40 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
     
     _seedAlertView = [[UIAlertView alloc] initWithTitle:@"Merge with iCloud?" message:@"This will move your existing data into iCloud. If you don't merge now, you can merge later by toggling iCloud for this application in Settings" delegate:self cancelButtonTitle:@"Don't Merge" otherButtonTitles:@"Merge", nil];
     [_seedAlertView show];
+}
+
+#pragma mark - ICLOUD RESET
+- (void)destroyAlliCloudDataForThisApplication
+{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[[_iCloudStore URL] path]]) {
+        NSLog(@"Skipped destroying iCloud content, _iCloudStore.URL is %@", [_iCloudStore URL].path);
+        return;
+    }
+    
+    NSLog(@"\n\n\n\n\n**** Destroying ALL iCloud content for this application, this could take a while... ****\n\n\n\n");
+    [self removeAllStoresFromCoordinator:_coordinator];
+    [self removeAllStoresFromCoordinator:_seedCoordinator];
+    _coordinator = nil;
+    _seedCoordinator = nil;
+    
+    NSDictionary *options = @{NSPersistentStoreUbiquitousContentNameKey: @"Grocery-Dude",
+//                              NSPersistentStoreUbiquitousContentURLKey: @"ChangeLogs" // Optional since iOS 7
+                              };
+    NSError *error;
+    if ([NSPersistentStoreCoordinator removeUbiquitousContentAndPersistentStoreAtURL:[_iCloudStore URL] options:options error:&error]) {
+        NSLog(@"\n\n\n\n\n");
+        NSLog(@"*This application's iCloud content has been destroyed*");
+        NSLog(@"*On ALL devices, please delete any reference to this application in *");
+        NSLog(@"*Settings > iCloud > Storage & Backup > Manage Storage > Show All*");
+        NSLog(@"\n\n\n\n\n");
+        abort();
+        /*
+         The application is forced closed to ensure iCloud data is wiped cleanly.
+         This method shouldn't be called in a production application.
+         */
+    } else {
+        NSLog(@"\n\n FAILED to destroy iCloud content at URL: %@ Error:%@", [_iCloudStore URL], error);
+    }
 }
 
 @end

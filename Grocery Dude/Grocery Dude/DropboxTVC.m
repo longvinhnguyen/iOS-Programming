@@ -120,6 +120,13 @@ NSInteger sort( DBFileInfo *a, DBFileInfo *b, void *ctx) {
 #pragma mark - BACKUP
 - (IBAction)backup:(id)sender
 {
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    if ([cdh iCloudEnabledByUser]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Supported" message:@"This functionality is disabled because iCloud is enabled" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
     [DropboxHelper linkToDropboxWithUI:self];
     DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
     if (account.isLinked) {
@@ -237,6 +244,13 @@ NSInteger sort( DBFileInfo *a, DBFileInfo *b, void *ctx) {
 #pragma mark - RESTORE
 - (void)restore
 {
+    CoreDataHelper *cdh = [(AppDelegate *)[UIApplication sharedApplication].delegate cdh];
+    if ([cdh iCloudEnabledByUser]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Not Supported" message:@"This functionality is disabled because iCloud is enabled" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+        [alert show];
+        return;
+    }
+    
     DBAccount *account = [[DBAccountManager sharedManager] linkedAccount];
     if (!account.isLinked) {
         [DropboxHelper linkToDropboxWithUI:self];
