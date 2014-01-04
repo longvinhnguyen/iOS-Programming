@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "StackMob.h"
 
 
-@interface User : NSManagedObject
+@interface User : SMUserManagedObject
 
 @property (nonatomic, retain) NSDate * createddate;
 @property (nonatomic, retain) NSDate * lastmoddate;
 @property (nonatomic, retain) NSString * user_id;
 @property (nonatomic, retain) NSString * username;
+- (id)initWithNewUserInContext:(NSManagedObjectContext *)context;
 
 @end

@@ -13,6 +13,9 @@
 @property (strong, nonatomic) NSFetchedResultsController *frc;
 @property (strong, nonatomic) NSFetchedResultsController *searchFRC;
 @property (strong, nonatomic) UISearchDisplayController *searchDC;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, strong) UIView *activityIndicatorBackground;
+
 - (void)performFetch;
 - (NSFetchedResultsController*)frcFromTV:(UITableView*)tableView;
 - (UITableView*)TVFromFRC:(NSFetchedResultsController*)frc;

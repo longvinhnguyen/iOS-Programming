@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41AEBF171877E7A4003690BD /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 41AEBF161877E7A4003690BD /* LoginVC.m */; };
 		41AF93711877015400148A35 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 41AF93391877015400148A35 /* CHANGELOG.md */; };
 		41AF93721877015400148A35 /* libstackmob-v2.2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AF93701877015400148A35 /* libstackmob-v2.2.0.a */; };
 		41AF93741877017A00148A35 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41AF93731877017A00148A35 /* MobileCoreServices.framework */; };
@@ -75,7 +76,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		41AF93341876FD1000148A35 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
+		41AEBF151877E7A4003690BD /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		41AEBF161877E7A4003690BD /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		41AF93341876FD1000148A35 /* Model 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 9.xcdatamodel"; sourceTree = "<group>"; };
 		41AF93391877015400148A35 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
 		41AF933B1877015400148A35 /* AFHTTPClient+StackMob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPClient+StackMob.h"; sourceTree = "<group>"; };
 		41AF933C1877015400148A35 /* AFHTTPRequestOperation+RemoveContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AFHTTPRequestOperation+RemoveContentType.h"; sourceTree = "<group>"; };
@@ -134,7 +137,7 @@
 		41AF93751877018200148A35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		41AF93771877018900148A35 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		41AF93791877018F00148A35 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		41AF937B187705F600148A35 /* Model 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Model 10.xcdatamodel"; sourceTree = "<group>"; };
+		41AF937B187705F600148A35 /* Model 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 10.xcdatamodel"; sourceTree = "<group>"; };
 		41AF93911877086800148A35 /* Item_Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item_Photo.h; sourceTree = "<group>"; };
 		41AF93921877086800148A35 /* Item_Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item_Photo.m; sourceTree = "<group>"; };
 		41AF93941877086900148A35 /* LocationAtShop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAtShop.h; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				42EBEF7517EA98F7000E9046 /* ItemVC.m */,
 				42EBEFBB17EACA38000E9046 /* UnitVC.h */,
 				42EBEFBC17EACA38000E9046 /* UnitVC.m */,
+				41AEBF151877E7A4003690BD /* LoginVC.h */,
+				41AEBF161877E7A4003690BD /* LoginVC.m */,
 			);
 			name = "Grocery Cloud View Controllers";
 			sourceTree = "<group>";
@@ -617,6 +622,7 @@
 			files = (
 				42EBEF7617EA98F7000E9046 /* ItemVC.m in Sources */,
 				42EBEFD317EB0BCD000E9046 /* LocationAtHomePickerTF.m in Sources */,
+				41AEBF171877E7A4003690BD /* LoginVC.m in Sources */,
 				41AF939C1877086900148A35 /* LocationAtHome.m in Sources */,
 				42EBEFCC17EAD70B000E9046 /* CoreDataPickerTF.m in Sources */,
 				41AF93A21877086900148A35 /* User.m in Sources */,

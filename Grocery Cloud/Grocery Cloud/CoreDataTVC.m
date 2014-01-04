@@ -10,10 +10,66 @@
 @implementation CoreDataTVC
 #define debug 0
 
+#pragma mark - VIEW
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    UIRefreshControl *refreshControl = [UIRefreshControl new];
+    [refreshControl addTarget:self action:@selector(performFetch) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
+}
+
+
+#pragma mark - WAITING
+- (void)showWait:(BOOL)visible
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (!_activityIndicatorBackground) {
+        _activityIndicatorBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    }
+    
+    [_activityIndicatorBackground setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
+    [_activityIndicatorBackground setBackgroundColor:[UIColor blackColor]];
+    _activityIndicatorBackground.alpha = 0.5;
+    _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    _activityIndicatorView.center = CGPointMake(_activityIndicatorView.frame.size.width / 2, _activityIndicatorView.frame.size.height / 2);
+    if (visible) {
+        [self.view addSubview:_activityIndicatorBackground];
+        [_activityIndicatorBackground addSubview:_activityIndicatorView];
+        [_activityIndicatorView startAnimating];
+    } else {
+        [_activityIndicatorView stopAnimating];
+        [_activityIndicatorView removeFromSuperview];
+        [_activityIndicatorBackground removeFromSuperview];
+    }
+}
+
+#pragma mark - ALERTING
+- (void)showAlertWithTitle:(NSString *)title message:(NSString *)message
+{
+    if (debug == 1) {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    [alert show];
+    [self showWait:NO];
+}
+
+
 #pragma mark - FETCHING
 - (void)performFetch {
     if (debug==1) {
         NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    }
+    
+    if (self.refreshControl.refreshing) {
+        [self.refreshControl endRefreshing];
+    } else {
+        [self showWait:YES];
     }
     
     if (self.frc) {
@@ -21,10 +77,17 @@
             
             NSError *error = nil;
             if (![self.frc performFetch:&error]) {
-                
-                NSLog(@"Failed to perform fetch: %@", error);
+                NSLog(@"%@ '%@' %@", self.class, NSStringFromSelector(_cmd), error);
+                if ([error.domain isEqualToString:@"HTTP"] && error.code == 401) {
+                    [self showAlertWithTitle:@"Access Denied" message:@"Please Create or Enter a Shared List on the More tab"];
+                } else {
+                    if (error) {
+                        [self showAlertWithTitle:@"Fetch Failed" message:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+                    }
+                }
             }
             [self.tableView reloadData];
+            [self showWait:NO];
         }];
     } else {
         NSLog(@"Failed to fetch, the fetched results controller is nil.");

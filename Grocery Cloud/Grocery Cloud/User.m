@@ -16,4 +16,10 @@
 @dynamic user_id;
 @dynamic username;
 
+- (id)initWithNewUserInContext:(NSManagedObjectContext *)context
+{
+    self = [super initWithEntityName:@"User" insertIntoManagedObjectContext:context];
+    return self;
+}
+
 @end
