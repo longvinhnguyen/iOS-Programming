@@ -216,7 +216,9 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
         }
         
         NSLog(@"** Attempting to load the Local, Non-iCloud Store **");
-        [self setDefaultDataStoreAsInitialStore];
+//        [self setDefaultDataStoreAsInitialStore];
+        [self checkIfDefaultDataNeedsImporting];
+        
         [self loadStore];
     } else {
         NSLog(@"SKIPPED setupCoreData, there's an existing Store:\n ** _store(%@)\n **_iCloudStore(%@)", _store, _iCloudStore);
@@ -566,12 +568,12 @@ NSString *iCloudStoreFileName = @"iCloud.sqlite";
                 // Deep Copy Import From persistent store
 //                [self loadSourceStore];
 //                [self deepCopyFromPersistentStore:[self sourceStoreURL]];
+                [self setDefaultDataAsImportedForDate:_store];
             }];
         } else {
             NSLog(@"Default Data Import Cancelled by User");
         }
         
-        [self setDefaultDataAsImportedForDate:_store];
     } else if (alertView == self.seedAlertView) {
         if (buttonIndex == alertView.firstOtherButtonIndex) {
             [self mergeNoniCloudDataWithiCloud];
