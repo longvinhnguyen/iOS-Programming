@@ -35,7 +35,15 @@
     } else {
         [pushQuery whereKey:@"deviceToken" equalTo:@"e7d86db3d69cc37da7d164e37f7ef6eebcb3f062ab42372e4d687c054a03d85c"];
     }
-    [PFPush sendPushMessageToQuery:pushQuery withMessage:@"I know you were trouble when you walk in. Shame on me right now." error:nil];
+    [PFPush sendPushMessageToQueryInBackground:pushQuery withMessage:@"Hello Parse!!! I am going to build an innovative Push Message App" block:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [[[UIAlertView alloc] initWithTitle:@"" message:@"Your message has been sent successfully" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        } else {
+            if (error) {
+                NSLog(@"%@", error.localizedDescription);
+            }
+        }
+    }];
     
 }
 
